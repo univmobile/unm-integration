@@ -103,28 +103,24 @@ public class UnivMobileTest {
 	public void xcodebuild() throws Exception {
 
 		final long start = System.currentTimeMillis();
-		
+
 		final String message = testCaseResult.getMessage();
-		
-		for (final String line: testCaseResult.getOutputLines()) {
-			
-			System.out.flush();
-			System.err.flush();
-			
-			if (message != null && line.contains(message)) {
 
-				System.err.println(line);
+		for (final String line : testCaseResult.getOutputLines()) {
 
-			} else {
-				
-				System.out.println(line);
-			}
+			System.out.println(line);
 		}
-		
-		final long elapsedTimeMs = System.currentTimeMillis() - start;		
-		
-		Thread.sleep(testCaseResult.getElapsedTimeMs() - elapsedTimeMs);
-		
+
+		final long elapsedTimeMs = System.currentTimeMillis() - start;
+
+		final long sleepTime = testCaseResult.getElapsedTimeMs()
+				- elapsedTimeMs;
+
+		if (sleepTime > 0) {
+
+			Thread.sleep(sleepTime);
+		}
+
 		if (testCaseResult.isError()) {
 			throw new Exception(message);
 		}
