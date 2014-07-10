@@ -24,23 +24,32 @@ public class TestCaseResult {
 
 	public void setFailed() {
 
-		checkStateIsNotSet();
+		if (!failure && !error) {
 
-		failure = true;
+			checkStateIsNotSet();
+
+			failure = true;
+		}
 	}
 
 	public void setPassed() {
 
-		checkStateIsNotSet();
+		if (!success) {
 
-		success = true;
+			checkStateIsNotSet();
+
+			success = true;
+		}
 	}
 
 	public void setError() {
 
-		checkStateIsNotSet();
+		if (!error) {
 
-		error = true;
+			checkStateIsNotSet();
+
+			error = true;
+		}
 	}
 
 	public void setElapsedTimeMs(final int ms) {
