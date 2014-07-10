@@ -10,10 +10,15 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.eclipse.jgit.api.Git;
+import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.lib.Constants;
 import org.eclipse.jgit.lib.ObjectId;
+import org.eclipse.jgit.lib.ObjectLoader;
+import org.eclipse.jgit.lib.Ref;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevTag;
 import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 import org.eclipse.jgit.treewalk.CanonicalTreeParser;
@@ -129,13 +134,44 @@ public class JGitHelper {
 
 		return Iterables.toArray(commits, RevCommit.class);
 	}
-	
+
 	public RevCommit getCommitById(final String commitId) throws IOException {
-		
+
 		final RevWalk walk = new RevWalk(repo);
-		
-		final RevCommit commit = walk.parseCommit(ObjectId.fromString(commitId));
-		
+
+		final RevCommit commit = walk
+				.parseCommit(ObjectId.fromString(commitId));
+
 		return commit;
+	}
+
+	public byte[] loadRevFileContent(final ObjectId revFileId)
+			throws IOException {
+
+		final ObjectLoader loader = repo.open(revFileId);
+
+		return loader.getBytes();
+	}
+
+	public RevTag getTag(final String tagName) throws IOException,
+			GitAPIException {
+
+		final String fullName = "refs/tags/" + tagName;
+
+		final Git git = new Git(repo);
+
+		for (final Ref ref : git.tagList().call()) {
+
+			if (fullName.equals(ref.getName())) {
+
+				final ObjectId objectId = ref.getObjectId();
+
+				final RevWalk walk = new RevWalk(repo);
+
+				return walk.parseTag(objectId);
+			}
+		}
+
+		return null;
 	}
 }

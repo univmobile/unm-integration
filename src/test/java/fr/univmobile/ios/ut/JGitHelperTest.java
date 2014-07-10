@@ -1,11 +1,16 @@
 package fr.univmobile.ios.ut;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
+import java.util.List;
 
+import org.eclipse.jgit.api.Git;
+import org.eclipse.jgit.lib.Ref;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevTag;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -109,5 +114,38 @@ public class JGitHelperTest {
 		assertEquals("224b6168efa98f870cd3851ad33be22fe48fbcc2", jgitHelper
 				.getCommitById("224b6168efa98f870cd3851ad33be22fe48fbcc2")
 				.getId().getName());
+	}
+
+	@Test
+	public void testTag() throws Exception {
+
+		final Git git = new Git(jgitHelper.repo);
+
+		final String TAG_NAME = "toto";
+
+		final RevTag tag0 = jgitHelper.getTag(TAG_NAME);
+
+		if (tag0 != null) {
+			throw new Exception("Tag already exists: " + TAG_NAME);
+		}
+
+		git.tag()
+				.setName(TAG_NAME)
+				// name
+				.setObjectId(
+						jgitHelper
+								.getCommitById("92ec7ab785ac35b739007ee94a88526880011cbd")) // commit
+				.setMessage("Set by JGitHelperTest.java") //
+				.call();
+
+		final RevTag tag1 = jgitHelper.getTag(TAG_NAME);
+
+		assertNotNull("tag1, after creation", tag1);
+
+		git.tagDelete().setTags(TAG_NAME).call();
+
+		final RevTag tag2 = jgitHelper.getTag(TAG_NAME);
+
+		assertNotNull("tag2, after deletion", tag1);
 	}
 }
