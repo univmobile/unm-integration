@@ -208,18 +208,33 @@ public class TestResultLoader {
 	@Nullable
 	private DateTime loadDateFromLineWithPrefix(final String prefix) {
 
+		// e.g. "Thu 10 Jul 2014 10:40:22 CEST"
+
+		final DateTimeFormatter formatter1 = DateTimeFormat
+				.forPattern("EEE dd MMM YYYY HH:mm:ss");
+
+		// e.g. "Fri Jul 11 01:09:57 CEST 2014"
+
+		final DateTimeFormatter formatter2 = DateTimeFormat
+				.forPattern("EEE MMM dd HH:mm:ss YYYY");
+
 		for (final String line : lines) {
 
 			if (line.startsWith(prefix)) {
 
-				// e.g. "Thu 10 Jul 2014 10:40:22 CEST"
-
 				final String value = substringAfter(line, prefix);
 
-				final DateTimeFormatter formatter = DateTimeFormat
-						.forPattern("EEE dd MMM YYYY HH:mm:ss");
+				try {
 
-				return formatter.parseDateTime(value.substring(0, 24));
+					return formatter1.parseDateTime(value.substring(0, 24));
+
+				} catch (final IllegalArgumentException e) {
+
+					// do nothing: Try the other formatter
+				}
+
+				return formatter2.parseDateTime(value.substring(0, 20)
+						+ value.substring(value.length() - 4));
 			}
 		}
 

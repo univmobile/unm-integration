@@ -1,0 +1,202 @@
+Begin Date: Fri Jul 11 01:09:31 CEST 2014
+Hostname: unm-temp2.local
+Script: macos_job-xcodebuild_test.sh ../../unm-ios-ut-results/data/xcodebuild_test.log 
+Current Directory: /Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios
+Test Report: /Users/avcompris/tmp/unm-ios-ut-results/data/xcodebuild_test.log
+Git Commit: 675789b0183ff12d5440c99d46418ff4a704c4a5
+Test Command: /usr/bin/xcodebuild test -workspace UnivMobile.xcworkspace       -scheme UnivMobileTests       -configuration Debug       -sdk iphonesimulator7.1       -destination OS=7.1,name="iPhone Retina (4-inch)"
+----------------------------------------
+
+
+Build succeeded.
+Test Date: Fri Jul 11 01:09:57 CEST 2014
+----------------------------------------
+Build settings from command line:
+    SDKROOT = iphonesimulator7.1
+
+=== BUILD TARGET Pods-HexColors OF PROJECT Pods WITH CONFIGURATION Debug ===
+
+Check dependencies
+
+=== BUILD TARGET Pods-Mantle OF PROJECT Pods WITH CONFIGURATION Debug ===
+
+Check dependencies
+
+=== BUILD TARGET Pods-ReactiveCocoa OF PROJECT Pods WITH CONFIGURATION Debug ===
+
+Check dependencies
+
+=== BUILD TARGET Pods-TSMessages OF PROJECT Pods WITH CONFIGURATION Debug ===
+
+Check dependencies
+
+=== BUILD TARGET UnivMobileTests OF PROJECT UnivMobile WITH CONFIGURATION Debug ===
+
+Check dependencies
+
+Write auxiliary files
+write-file /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/Objects-normal/x86_64/UnivMobileTests.LinkFileList
+write-file /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/Objects-normal/i386/UnivMobileTests.LinkFileList
+
+Ld /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/Objects-normal/i386/UnivMobileTests normal i386
+    cd /Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios
+    export IPHONEOS_DEPLOYMENT_TARGET=6.0
+    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch i386 -bundle -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -L/Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Products/Debug-iphonesimulator -F/Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Products/Debug-iphonesimulator -F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/Developer/Library/Frameworks -F/Applications/Xcode.app/Contents/Developer/Library/Frameworks -FPods -FPods/BuildHeaders -FPods/Headers -FPods/HexColors -FPods/Mantle -FPods/ReactiveCocoa -FPods/TSMessages -FPods/BuildHeaders/HexColors -FPods/BuildHeaders/Mantle -FPods/BuildHeaders/ReactiveCocoa -FPods/BuildHeaders/TSMessages -FPods/Headers/HexColors -FPods/Headers/Mantle -FPods/Headers/ReactiveCocoa -FPods/Headers/TSMessages -FPods/HexColors/Classes -FPods/Mantle/Mantle -FPods/ReactiveCocoa/ReactiveCocoaFramework -FPods/TSMessages/TSMessages -FPods/BuildHeaders/ReactiveCocoa/ReactiveCocoa -FPods/Headers/ReactiveCocoa/ReactiveCocoa -FPods/Mantle/Mantle/extobjc -FPods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa -FPods/TSMessages/TSMessages/Classes -FPods/TSMessages/TSMessages/Resources -FPods/TSMessages/TSMessages/Views -FPods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/extobjc -FPods/TSMessages/TSMessages/Resources/Images -filelist /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/Objects-normal/i386/UnivMobileTests.LinkFileList -Xlinker -objc_abi_version -Xlinker 2 -framework XCTest -fobjc-arc -fobjc-link-runtime -Xlinker -no_implicit_dylibs -mios-simulator-version-min=6.0 -framework XCTest -framework UIKit -framework Foundation -Xlinker -dependency_info -Xlinker /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/Objects-normal/i386/UnivMobileTests_dependency_info.dat -o /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/Objects-normal/i386/UnivMobileTests
+
+Ld /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/Objects-normal/x86_64/UnivMobileTests normal x86_64
+    cd /Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios
+    export IPHONEOS_DEPLOYMENT_TARGET=6.0
+    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch x86_64 -bundle -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -L/Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Products/Debug-iphonesimulator -F/Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Products/Debug-iphonesimulator -F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/Developer/Library/Frameworks -F/Applications/Xcode.app/Contents/Developer/Library/Frameworks -FPods -FPods/BuildHeaders -FPods/Headers -FPods/HexColors -FPods/Mantle -FPods/ReactiveCocoa -FPods/TSMessages -FPods/BuildHeaders/HexColors -FPods/BuildHeaders/Mantle -FPods/BuildHeaders/ReactiveCocoa -FPods/BuildHeaders/TSMessages -FPods/Headers/HexColors -FPods/Headers/Mantle -FPods/Headers/ReactiveCocoa -FPods/Headers/TSMessages -FPods/HexColors/Classes -FPods/Mantle/Mantle -FPods/ReactiveCocoa/ReactiveCocoaFramework -FPods/TSMessages/TSMessages -FPods/BuildHeaders/ReactiveCocoa/ReactiveCocoa -FPods/Headers/ReactiveCocoa/ReactiveCocoa -FPods/Mantle/Mantle/extobjc -FPods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa -FPods/TSMessages/TSMessages/Classes -FPods/TSMessages/TSMessages/Resources -FPods/TSMessages/TSMessages/Views -FPods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/extobjc -FPods/TSMessages/TSMessages/Resources/Images -filelist /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/Objects-normal/x86_64/UnivMobileTests.LinkFileList -Xlinker -objc_abi_version -Xlinker 2 -framework XCTest -fobjc-arc -fobjc-link-runtime -Xlinker -no_implicit_dylibs -mios-simulator-version-min=6.0 -framework XCTest -framework UIKit -framework Foundation -Xlinker -dependency_info -Xlinker /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/Objects-normal/x86_64/UnivMobileTests_dependency_info.dat -o /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/Objects-normal/x86_64/UnivMobileTests
+
+CreateUniversalBinary /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Products/Debug-iphonesimulator/UnivMobileTests.xctest/UnivMobileTests normal i386\ x86_64
+    cd /Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios
+    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo -create /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/Objects-normal/i386/UnivMobileTests /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/Objects-normal/x86_64/UnivMobileTests -output /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Products/Debug-iphonesimulator/UnivMobileTests.xctest/UnivMobileTests
+
+GenerateDSYMFile /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Products/Debug-iphonesimulator/UnivMobileTests.xctest.dSYM /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Products/Debug-iphonesimulator/UnivMobileTests.xctest/UnivMobileTests
+    cd /Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios
+    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Products/Debug-iphonesimulator/UnivMobileTests.xctest/UnivMobileTests -o /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Products/Debug-iphonesimulator/UnivMobileTests.xctest.dSYM
+
+=== BUILD TARGET Pods OF PROJECT Pods WITH CONFIGURATION Debug ===
+
+Check dependencies
+
+=== BUILD TARGET UnivMobile OF PROJECT UnivMobile WITH CONFIGURATION Debug ===
+
+Check dependencies
+
+PhaseScriptExecution Check\ Pods\ Manifest.lock /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/Script-938858C20A554AD08749CBB9.sh
+    cd /Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios
+    /bin/sh -c /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/Script-938858C20A554AD08749CBB9.sh
+
+PhaseScriptExecution Copy\ Pods\ Resources /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/Script-51E43C54847A450C9AB538B8.sh
+    cd /Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios
+    /bin/sh -c /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/Script-51E43C54847A450C9AB538B8.sh
+/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundError.png
+/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundError@2x.png
+/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundErrorIcon.png
+/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundErrorIcon@2x.png
+/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundMessage.png
+/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundMessage@2x.png
+/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundSuccess.png
+/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundSuccess@2x.png
+/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundSuccessIcon.png
+/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundSuccessIcon@2x.png
+/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundWarning.png
+/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundWarning@2x.png
+/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundWarningIcon.png
+/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundWarningIcon@2x.png
+/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationButtonBackground.png
+/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationButtonBackground@2x.png
+/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/TSMessagesDefaultDesign.json
+building file list ... done
+
+sent 381 bytes  received 20 bytes  802.00 bytes/sec
+total size is 10389  speedup is 25.91
+/* com.apple.actool.compilation-results */
+
+
+Test Suite 'All tests' started at 2014-07-10 23:10:04 +0000
+Test Suite 'UnivMobileTests.xctest' started at 2014-07-10 23:10:04 +0000
+Test Suite 'UNMAppLayerTests' started at 2014-07-10 23:10:04 +0000
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneIdIsBretagne]' started.
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneIdIsBretagne]' passed (0.004 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneTitleIsBretagne]' started.
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneTitleIsBretagne]' passed (0.002 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdTotoIsNill]' started.
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdTotoIsNill]' passed (0.002 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfRegionsIs3]' started.
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfRegionsIs3]' passed (0.001 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfUniversitiesIleDeFranceIs18]' started.
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfUniversitiesIleDeFranceIs18]' passed (0.001 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11IdIsParis11]' started.
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11IdIsParis11]' passed (0.001 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11TitleIsParisSud]' started.
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11TitleIsParisSud]' passed (0.001 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDataObjectIsDifferent]' started.
+2014-07-11 01:10:04.800 xctest[70148:303] Error: Error Domain=NSCocoaErrorDomain Code=257 "The operation couldn’t be completed. (Cocoa error 257.)" UserInfo=0xae398f0 {NSFilePath=/Users/dandriana/Documents/xcode/unm-ios/src/test/json/regions.json, NSUnderlyingError=0xae39810 "The operation couldn’t be completed. Permission denied"}
+2014-07-11 01:10:04.866 xctest[70148:303] Unknown Device Type. Using UIUserInterfaceIdiomPhone based on screen size
+2014-07-11 01:10:05.017 xctest[70148:303] deferral properties must have a clientID
+2014-07-11 01:10:05.019 xctest[70148:303] deferral properties must have a clientID
+2014-07-11 01:10:05.020 xctest[70148:303] *** Assertion failure in -[BKSEventFocusManager deferEventsForClientWithProperties:toClientWithProperties:], /SourceCache/BackBoardServices_Sim/SpringBoard-2618.99.15/megatrond/BKSEventFocusManager.m:63
+<unknown>:0: error: -[UNMAppLayerTests testAppLayer_refreshRegionsData_newDataObjectIsDifferent] : props must have a valid clientID
+(
+	0   CoreFoundation                      0x00b251e4 __exceptionPreprocess + 180
+	1   libobjc.A.dylib                     0x007988e5 objc_exception_throw + 44
+	2   CoreFoundation                      0x00b25048 +[NSException raise:format:arguments:] + 136
+	3   Foundation                          0x000114de -[NSAssertionHandler handleFailureInMethod:object:file:lineNumber:description:] + 116
+	4   BackBoardServices                   0x0197fece -[BKSEventFocusManager deferEventsForClientWithProperties:toClientWithProperties:] + 154
+	5   UIKit                               0x04f1f2e1 -[UIWindow _beginKeyWindowDeferral] + 176
+	6   UIKit                               0x04f1f0a7 -[UIWindow _makeKeyWindowIgnoringOldKeyWindow:] + 129
+	7   UIKit                               0x04f1f00d -[UIWindow makeKeyWindow] + 41
+	8   UIKit                               0x04f1f51c +[UIWindow _pushKeyWindow:] + 83
+	9   UIKit                               0x054b4a79 -[_UIModalItemsCoordinator _presentingViewControllerForAlertCompatibilityCreateIfNeeded:] + 768
+	10  UIKit                               0x054b4774 -[_UIModalItemsCoordinator _presentingViewControllerForAlertCompatibility] + 41
+	11  UIKit                               0x053e4d8e -[UIAlertView popupAlertAnimated:animationType:atOffset:] + 382
+	12  UIKit                               0x053e5327 -[UIAlertView popupAlertAnimated:animationType:] + 56
+	13  UIKit                               0x053ea35c -[UIAlertView showWithAnimationType:] + 48
+	14  UIKit                               0x053ea38a -[UIAlertView show] + 41
+	15  UnivMobileTests                     0x02a236a3 __33-[UNMAppLayer refreshRegionsData]_block_invoke + 371
+	16  UnivMobileTests                     0x02a02bec -[UNMJsonFetcherFileSystem syncFetchJsonAtURL:withErrorHandler:] + 780
+	17  UnivMobileTests                     0x02a02fcd +[UNMJsonRegionsData fetchRegionsData:withErrorHandler:] + 173
+	18  UnivMobileTests                     0x02a23452 -[UNMAppLayer refreshRegionsData] + 178
+	19  UnivMobileTests                     0x02a1fa58 -[UNMAppLayerTests testAppLayer_refreshRegionsData_newDataObjectIsDifferent] + 168
+	20  CoreFoundation                      0x00b1991d __invoking___ + 29
+	21  CoreFoundation                      0x00b1982a -[NSInvocation invoke] + 362
+	22  XCTest                              0x20103c6c -[XCTestCase invokeTest] + 221
+	23  XCTest                              0x20103d7b -[XCTestCase performTest:] + 111
+	24  XCTest                              0x20104c48 -[XCTest run] + 82
+	25  XCTest                              0x201033e8 -[XCTestSuite performTest:] + 139
+	26  XCTest                              0x20104c48 -[XCTest run] + 82
+	27  XCTest                              0x201033e8 -[XCTestSuite performTest:] + 139
+	28  XCTest                              0x20104c48 -[XCTest run] + 82
+	29  XCTest                              0x201033e8 -[XCTestSuite performTest:] + 139
+	30  XCTest                              0x20104c48 -[XCTest run] + 82
+	31  XCTest                              0x201066ba +[XCTestProbe runTests:] + 183
+	32  libobjc.A.dylib                     0x007aa743 +[NSObject performSelector:withObject:] + 70
+	33  xctest                              0x0000233e xctest + 4926
+	34  xctest                              0x00002590 xctest + 5520
+	35  xctest                              0x00002671 xctest + 5745
+	36  xctest                              0x00002007 xctest + 4103
+	37  libdyld.dylib                       0x01679701 start + 1
+)
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDataObjectIsDifferent]' failed (0.258 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDateIsDifferent]' started.
+2014-07-11 01:10:05.059 xctest[70148:303] Error: Error Domain=NSCocoaErrorDomain Code=257 "The operation couldn’t be completed. (Cocoa error 257.)" UserInfo=0xae399a0 {NSFilePath=/Users/dandriana/Documents/xcode/unm-ios/src/test/json/regions.json, NSUnderlyingError=0xae87890 "The operation couldn’t be completed. Permission denied"}
+2014-07-11 01:10:05.078 xctest[70148:303] Warning: Attempt to present <_UIModalItemsPresentingViewController: 0xae07ff0> on <_UIModalItemAppViewController: 0xae897c0> whose view is not in the window hierarchy!
+/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/UnivMobileTests/UNMAppLayerTests.m:102: error: -[UNMAppLayerTests testAppLayer_refreshRegionsData_newDateIsDifferent] : ((date) not equal to (self.appLayer.regionsData.refreshedAt)) failed: ("2014-07-10 23:10:05 +0000") is equal to ("2014-07-10 23:10:05 +0000")
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDateIsDifferent]' failed (0.036 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneIdIsBretagne]' started.
+2014-07-11 01:10:05.096 xctest[70148:303] Error: Error Domain=NSCocoaErrorDomain Code=257 "The operation couldn’t be completed. (Cocoa error 257.)" UserInfo=0xae06e80 {NSFilePath=/Users/dandriana/Documents/xcode/unm-ios/src/test/json/regions.json, NSUnderlyingError=0xae06e10 "The operation couldn’t be completed. Permission denied"}
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneIdIsBretagne]' passed (0.034 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneTitleIsBretagne]' started.
+2014-07-11 01:10:05.145 xctest[70148:303] Error: Error Domain=NSCocoaErrorDomain Code=257 "The operation couldn’t be completed. (Cocoa error 257.)" UserInfo=0xae08a20 {NSFilePath=/Users/dandriana/Documents/xcode/unm-ios/src/test/json/regions.json, NSUnderlyingError=0xae08960 "The operation couldn’t be completed. Permission denied"}
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneTitleIsBretagne]' passed (0.039 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdTotoIsNill]' started.
+2014-07-11 01:10:05.176 xctest[70148:303] Error: Error Domain=NSCocoaErrorDomain Code=257 "The operation couldn’t be completed. (Cocoa error 257.)" UserInfo=0xae09f30 {NSFilePath=/Users/dandriana/Documents/xcode/unm-ios/src/test/json/regions.json, NSUnderlyingError=0xae09e60 "The operation couldn’t be completed. Permission denied"}
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdTotoIsNill]' passed (0.031 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfRegionsIs3]' started.
+2014-07-11 01:10:05.209 xctest[70148:303] Error: Error Domain=NSCocoaErrorDomain Code=257 "The operation couldn’t be completed. (Cocoa error 257.)" UserInfo=0xae0b3f0 {NSFilePath=/Users/dandriana/Documents/xcode/unm-ios/src/test/json/regions.json, NSUnderlyingError=0xae0b320 "The operation couldn’t be completed. Permission denied"}
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfRegionsIs3]' passed (0.031 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfUniversitiesIleDeFranceIs18]' started.
+2014-07-11 01:10:05.241 xctest[70148:303] Error: Error Domain=NSCocoaErrorDomain Code=257 "The operation couldn’t be completed. (Cocoa error 257.)" UserInfo=0xae0c8b0 {NSFilePath=/Users/dandriana/Documents/xcode/unm-ios/src/test/json/regions.json, NSUnderlyingError=0xae0c7e0 "The operation couldn’t be completed. Permission denied"}
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfUniversitiesIleDeFranceIs18]' passed (0.030 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11IdIsParis11]' started.
+2014-07-11 01:10:05.273 xctest[70148:303] Error: Error Domain=NSCocoaErrorDomain Code=257 "The operation couldn’t be completed. (Cocoa error 257.)" UserInfo=0xae00fa0 {NSFilePath=/Users/dandriana/Documents/xcode/unm-ios/src/test/json/regions.json, NSUnderlyingError=0xae00ed0 "The operation couldn’t be completed. Permission denied"}
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11IdIsParis11]' passed (0.031 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11TitleIsParisSud]' started.
+2014-07-11 01:10:05.310 xctest[70148:303] Error: Error Domain=NSCocoaErrorDomain Code=257 "The operation couldn’t be completed. (Cocoa error 257.)" UserInfo=0xae0de90 {NSFilePath=/Users/dandriana/Documents/xcode/unm-ios/src/test/json/regions.json, NSUnderlyingError=0xae0ddd0 "The operation couldn’t be completed. Permission denied"}
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11TitleIsParisSud]' passed (0.038 seconds).
+Test Suite 'UNMAppLayerTests' finished at 2014-07-10 23:10:05 +0000.
+Executed 16 tests, with 2 failures (1 unexpected) in 0.540 (0.576) seconds
+Test Suite 'UnivMobileTests.xctest' finished at 2014-07-10 23:10:05 +0000.
+Executed 16 tests, with 2 failures (1 unexpected) in 0.540 (0.578) seconds
+Test Suite 'All tests' finished at 2014-07-10 23:10:05 +0000.
+Executed 16 tests, with 2 failures (1 unexpected) in 0.540 (0.583) seconds
+** TEST FAILED **
+
+----------------------------------------
+End Date: Fri Jul 11 01:10:05 CEST 2014
