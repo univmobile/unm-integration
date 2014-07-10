@@ -1,4 +1,4 @@
-package fr.univmobile.ios.ut.xcode;
+package xcode;
 
 import static org.junit.Assert.fail;
 
