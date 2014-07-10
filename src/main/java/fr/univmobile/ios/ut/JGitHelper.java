@@ -129,4 +129,13 @@ public class JGitHelper {
 
 		return Iterables.toArray(commits, RevCommit.class);
 	}
+	
+	public RevCommit getCommitById(final String commitId) throws IOException {
+		
+		final RevWalk walk = new RevWalk(repo);
+		
+		final RevCommit commit = walk.parseCommit(ObjectId.fromString(commitId));
+		
+		return commit;
+	}
 }

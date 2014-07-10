@@ -102,4 +102,12 @@ public class JGitHelperTest {
 
 		}
 	}
+
+	@Test
+	public void testGetCommitById() throws Exception {
+
+		assertEquals("224b6168efa98f870cd3851ad33be22fe48fbcc2", jgitHelper
+				.getCommitById("224b6168efa98f870cd3851ad33be22fe48fbcc2")
+				.getId().getName());
+	}
 }
