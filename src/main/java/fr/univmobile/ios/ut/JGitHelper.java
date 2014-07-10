@@ -81,31 +81,6 @@ public class JGitHelper {
 		return Iterables.toArray(commits, RevCommit.class);
 	}
 
-	/*
-	 * public RevCommit getRevCommit(final ObjectId commitId) throws IOException
-	 * {
-	 * 
-	 * final ObjectId head = repo.resolve(Constants.HEAD);
-	 * 
-	 * final RevWalk walk = new RevWalk(repo);
-	 * 
-	 * final RevCommit root = walk.parseCommit(head);
-	 * 
-	 * walk.markStart(root);
-	 * 
-	 * // revWalk.setRetainBody(false);
-	 * 
-	 * final List<ObjectId> commitIds = new ArrayList<ObjectId>();
-	 * 
-	 * for (final RevCommit commit : walk) {
-	 * 
-	 * if (commitId.equals(commit.getId())) {
-	 * 
-	 * return commit; } }
-	 * 
-	 * return null; }
-	 */
-
 	public ObjectId getRevFileIdInCommit(final String filePath,
 			final RevCommit commit) throws IOException {
 
@@ -121,23 +96,11 @@ public class JGitHelper {
 		final CanonicalTreeParser canonicalTreeParser = treeWalk.getTree(0,
 				CanonicalTreeParser.class);
 
-		if (!canonicalTreeParser.eof()) {
-
-			// System.out
-			// .println("   " + canonicalTreeParser.getEntryPathString());
-
-			return canonicalTreeParser.getEntryObjectId();
-
-			/*
-			 * // if the filename matches, we have a match, so set teh byte
-			 * array to return if (canonicalTreeParser.getEntryPathString() ==
-			 * relativeFilePath) { ObjectLoader objectLoader =
-			 * repository.open(canonicalTreeParser.getEntryObjectId()) bytes =
-			 * objectLoader.bytes }
-			 */
+		if (canonicalTreeParser.eof()) {
+			return null;
 		}
 
-		return null;
+		return canonicalTreeParser.getEntryObjectId();
 	}
 
 	public RevCommit[] getAllCommitsForFileFromHead(final String filePath)
