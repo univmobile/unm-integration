@@ -1,15 +1,18 @@
 package fr.univmobile.ios.ut;
 
 import static com.google.common.base.Preconditions.checkNotNull;
+import static org.apache.commons.lang3.CharEncoding.UTF_8;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.commons.io.FileUtils;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.lib.Constants;
@@ -21,6 +24,8 @@ import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevTag;
 import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
+import org.eclipse.jgit.transport.CredentialsProvider;
+import org.eclipse.jgit.transport.UsernamePasswordCredentialsProvider;
 import org.eclipse.jgit.treewalk.CanonicalTreeParser;
 import org.eclipse.jgit.treewalk.TreeWalk;
 
@@ -179,5 +184,33 @@ public class JGitHelper {
 			GitAPIException {
 
 		return getTag(tagName) != null;
+	}
+
+	public void addTagToCommit(final String tagName, final String commitId,
+			final String message) throws GitAPIException, IOException {
+
+		final Git git = new Git(repo);
+
+		git.tag().setName(tagName).setObjectId(getCommitById(commitId))
+				.setMessage(message).call();
+	}
+
+	public void pushTags() throws GitAPIException, IOException,
+			URISyntaxException {
+
+		final Git git = new Git(repo);
+
+		// final RefSpec spec = new RefSpec("refs/tags/processTestResults/*");
+
+		final String username = "dandriana-jenkins";
+		final String password = FileUtils.readFileToString(
+				new File(FileUtils.getUserDirectoryPath(), ".config/github-"+username),
+				UTF_8).trim();
+
+		final CredentialsProvider credentialsProvider = new UsernamePasswordCredentialsProvider(
+				username, password);
+
+		git.push().setRemote("origin").setPushTags()
+				.setCredentialsProvider(credentialsProvider).call();
 	}
 }

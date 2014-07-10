@@ -8,11 +8,15 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.jgit.api.errors.GitAPIException;
+import org.eclipse.jgit.lib.ObjectId;
+import org.eclipse.jgit.revwalk.RevCommit;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
+import fr.univmobile.ios.ut.JGitHelper;
 import fr.univmobile.ios.ut.TestCaseResult;
 import fr.univmobile.ios.ut.TestResultLoader;
 import fr.univmobile.ios.ut.TestSuiteResult;
@@ -44,8 +48,9 @@ import fr.univmobile.ios.ut.TestSuiteResult;
  * etc.). Otherwise, stop, and take the current commit with no tag.
  * <li>If no commit on master has already a tag, take the most ancient.
  * </ul>
- * You can override this behaviour by passing a "<code>commitId</code>" (=
- * 40-char git commit ID) variable in the Sytem properties.
+ * You can override this behaviour by passing a "
+ * <code>testResultsCommitId</code>" (= 40-char git commit ID) variable in the
+ * Sytem properties.
  * <p>
  * By default, this class sets a git tag (if not already present) on the commit
  * it worked on. You can override this behaviour by setting a "
@@ -62,14 +67,103 @@ import fr.univmobile.ios.ut.TestSuiteResult;
 public class UnivMobileTest {
 
 	@Parameters(name = "{0}.{1}")
-	public static Iterable<Object[]> parameters() throws IOException {
+	public static Iterable<Object[]> parameters() throws Exception {
+
+		final JGitHelper jgitHelper = new JGitHelper(new File("./.git"));
+		try {
+
+			return parameters(jgitHelper);
+
+		} finally {
+			jgitHelper.close();
+		}
+	}
+
+	private static Collection<Object[]> parameters(final JGitHelper jgitHelper)
+			throws Exception {
 
 		final List<Object[]> parameters = new ArrayList<Object[]>();
 
-		final TestResultLoader loader = new TestResultLoader(new File(
-				"data/xcodebuild_test.log"));
+		final String testResultsCommitId;
 
-		loadInitParameters(parameters, loader.rootTestSuiteResult);
+		if (isEnvSet("testResultsCommitId")) {
+
+			testResultsCommitId = System.getProperty("testResultsCommitId");
+
+		} else {
+
+			testResultsCommitId = findOldestCommitWithoutTag(jgitHelper);
+		}
+
+		final boolean tagCommitAfterLaunch = loadEnv("tagCommitAfterLaunch",
+				false);
+
+		final boolean relaunchByCommitting = loadEnv("relaunchByCommitting",
+				true);
+
+		final ObjectId revFileId = jgitHelper.getRevFileIdInCommit(
+				"data/xcodebuild_test.log",
+				jgitHelper.getCommitById(testResultsCommitId));
+
+		final byte[] bytes = jgitHelper.loadRevFileContent(revFileId);
+
+		final TestResultLoader testResultsLoader = new TestResultLoader(bytes);
+
+		loadInitParameters(parameters, testResultsLoader.rootTestSuiteResult);
+
+		System.out.println("Xcode Test Results -- "
+				+ "(git repository is: \"unm-ios-ut-results\")");
+		System.out.println("  Git Commit: " + testResultsCommitId + " ("
+				+ isEnvSet_toText("testResultsCommitId") + ")");
+		System.out.println("  Tag After: " + tagCommitAfterLaunch + " ("
+				+ isEnvSet_toText("tagCommitAfterLaunch") + ")");
+		System.out.println("  Relaunch: " + relaunchByCommitting + " ("
+				+ isEnvSet_toText("relaunchByCommitting") + ")");
+
+		System.out.println();
+
+		System.out
+				.println("Xcode Execution -- (git repository is: \"unm-ios\")");
+		System.out.println("  Begin Date: " + testResultsLoader.beginDate);
+		System.out.println("  Git Commit: " + testResultsLoader.gitCommit);
+
+		System.out.println();
+
+		if (tagCommitAfterLaunch) {
+
+			final String tagName = "processedTestResults/"
+					+ testResultsCommitId;
+
+			System.out.println("tagCommitAfterLaunch is set:");
+
+			try {
+
+				if (jgitHelper.hasTag(tagName)) {
+
+					System.out.println("tag: " + tagName + " already exists.");
+
+				} else {
+
+					System.out.println("Adding tag: " + tagName
+							+ " to commit: " + testResultsCommitId + "...");
+
+					jgitHelper.addTagToCommit(tagName, testResultsCommitId,
+							"Set by UnivMobileTest.java");
+				}
+
+				System.out.println("Pushing tags...");
+
+				jgitHelper.pushTags();
+
+			} catch (final Exception e) {
+
+				e.printStackTrace();
+
+				throw e;
+			}
+
+			System.out.println();
+		}
 
 		return parameters;
 	}
@@ -89,6 +183,40 @@ public class UnivMobileTest {
 
 			loadInitParameters(parameters, subTestSuiteResults);
 		}
+	}
+
+	private static String findOldestCommitWithoutTag(final JGitHelper jgitHelper)
+			throws IOException, GitAPIException {
+
+		final RevCommit[] commits = jgitHelper
+				.getAllCommitsForFileFromHead("data/xcodebuild_test.log");
+
+		// 1. FIRST COMMIT IS TAGGED? USE IT.
+
+		final String commitId0 = commits[0].getName();
+
+		if (jgitHelper.hasTag("processedTestResults/" + commitId0)) {
+			return commitId0;
+		}
+
+		// 2. USE COMMIT WITH TAGGED PARENT AND NO TAGGED DESCENDANT
+
+		String commitIdWithoutTag = commitId0;
+
+		for (int i = 0; i < commits.length; ++i) {
+
+			final String commitId = commits[i].getName();
+
+			if (jgitHelper.hasTag("processedTestResults/" + commitId)) {
+				return commitIdWithoutTag;
+			}
+
+			commitIdWithoutTag = commitId;
+		}
+
+		// 3. USE LAST COMMIT, NOT TAGGED
+
+		return commitIdWithoutTag;
 	}
 
 	public UnivMobileTest(final TestSuiteResult testSuiteResult,
@@ -128,5 +256,52 @@ public class UnivMobileTest {
 		if (testCaseResult.isFailure()) {
 			fail(message);
 		}
+	}
+
+	private static boolean loadEnv(final String propertyName,
+			final boolean defaultValue) {
+
+		final String systemPropertyValue = System.getProperty(propertyName);
+
+		return systemPropertyValue == null //
+		? defaultValue
+				: Boolean.parseBoolean(systemPropertyValue);
+	}
+
+	/*
+	 * @Nullable private static boolean loadEnvString(final String propertyName)
+	 * {
+	 * 
+	 * final String systemPropertyValue = System.getProperty(propertyName);
+	 * 
+	 * return systemPropertyValue == null // ? defaultValue :
+	 * Boolean.parseBoolean(systemPropertyValue); }
+	 */
+
+	/*
+	 * private static String loadEnv(final String propertyName, final String
+	 * defaultValue) {
+	 * 
+	 * final String systemPropertyValue = System.getProperty(propertyName);
+	 * 
+	 * return systemPropertyValue == null // ? defaultValue :
+	 * systemPropertyValue; }
+	 */
+
+	private static String isEnvSet_toText(final String propertyName) {
+
+		if (isEnvSet(propertyName)) {
+
+			return "forced by env var: " + propertyName;
+
+		} else {
+
+			return propertyName + " env var is not set";
+		}
+	}
+
+	private static boolean isEnvSet(final String propertyName) {
+
+		return System.getProperty(propertyName) != null;
 	}
 }
