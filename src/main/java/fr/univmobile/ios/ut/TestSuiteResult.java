@@ -3,10 +3,11 @@ package fr.univmobile.ios.ut;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.Nullable;
+
 import org.joda.time.DateTime;
 
 import com.google.common.collect.Iterables;
-import com.sun.istack.internal.Nullable;
 
 public class TestSuiteResult {
 

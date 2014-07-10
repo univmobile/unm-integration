@@ -10,12 +10,12 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.annotation.Nullable;
+
 import org.apache.commons.io.FileUtils;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
-
-import com.sun.istack.internal.Nullable;
 
 public class TestResultLoader {
 
