@@ -3,6 +3,11 @@ package fr.univmobile.ios.ut;
 import static com.google.common.base.Preconditions.checkNotNull;
 import static org.apache.commons.lang3.StringUtils.substringBetween;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.google.common.collect.Iterables;
+
 public class TestCaseResult {
 
 	/**
@@ -140,5 +145,23 @@ public class TestCaseResult {
 		checkStateIsSet();
 
 		return error;
+	}
+
+	@Override
+	public String toString() {
+
+		return name;
+	}
+
+	public String[] getOutputLines() {
+
+		return Iterables.toArray(outputLines, String.class);
+	}
+
+	private final List<String> outputLines = new ArrayList<String>();
+
+	public void addOutputLine(final String outputLine) {
+
+		outputLines.add(outputLine);
 	}
 }

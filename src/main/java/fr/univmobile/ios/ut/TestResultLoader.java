@@ -158,6 +158,8 @@ public class TestResultLoader {
 
 			} else if (line.contains("error: " + id + " : ")) {
 
+				testCaseResult.addOutputLine(line);
+				
 				final String message = substringAfter(line, "error: " + id
 						+ " : ");
 
@@ -171,6 +173,10 @@ public class TestResultLoader {
 
 					testCaseResult.setFailed();
 				}
+			
+			} else {
+				
+				testCaseResult.addOutputLine(line);
 			}
 		}
 	}

@@ -132,4 +132,10 @@ public class TestSuiteResult {
 	}
 
 	private final List<TestCaseResult> testCaseResults = new ArrayList<TestCaseResult>();
+	
+	@Override
+	public String toString() {
+		
+		return name;
+	}
 }

@@ -36,7 +36,7 @@ public class TestResultLoader_20140710_113034_Test {
 	@Test
 	public void test_endDateIsXxx() throws Exception {
 
-		assertEquals(new DateTime(2014, 7, 10, 11, 31,2), loader.endDate);
+		assertEquals(new DateTime(2014, 7, 10, 11, 31, 2), loader.endDate);
 	}
 
 	@Test
@@ -172,4 +172,31 @@ public class TestResultLoader_20140710_113034_Test {
 		assertEquals(new DateTime(2014, 7, 10, 9 + 2, 31, 2),
 				loader.rootTestSuiteResult.getFinishedAt());
 	}
+
+	@Test
+	public void test_rootTestSuiteSub0Sub0Case12_sizeOfOutputLinesIs1()
+			throws Exception {
+
+		assertEquals(1,
+				loader.rootTestSuiteResult.getSubTestSuiteResults()[0]
+						.getSubTestSuiteResults()[0].getTestCaseResults()[12]
+						.getOutputLines().length);
+	}
+
+	@Test
+	public void test_rootTestSuiteSub0Sub0Case12_outputLineIsXxx()
+			throws Exception {
+
+		assertEquals(
+				"2014-07-10 11:31:02.436 xctest[54060:303] Error: Error "
+						+ "Domain=NSCocoaErrorDomain Code=257 \"The operation couldn’t "
+						+ "be completed. (Cocoa error 257.)\" UserInfo=0xaebaf20 "
+						+ "{NSFilePath=/Users/dandriana/Documents/xcode/unm-ios/"
+						+ "src/test/json/regions.json, NSUnderlyingError=0xaebae50 "
+						+ "\"The operation couldn’t be completed. Permission denied\"}",
+				loader.rootTestSuiteResult.getSubTestSuiteResults()[0]
+						.getSubTestSuiteResults()[0].getTestCaseResults()[12]
+						.getOutputLines()[0]);
+	}
+
 }

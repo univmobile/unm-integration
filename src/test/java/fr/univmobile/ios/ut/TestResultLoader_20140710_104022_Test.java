@@ -155,6 +155,14 @@ public class TestResultLoader_20140710_104022_Test {
 	}
 
 	@Test
+	public void test_rootTestSuiteSub0Sub1Case0_sizeOfOutputLinesIs21() throws Exception {
+
+		assertEquals(1,				loader.rootTestSuiteResult.getSubTestSuiteResults()[0]
+						.getSubTestSuiteResults()[1].getTestCaseResults()[0]
+						.getOutputLines().length);
+	}
+
+	@Test
 	public void test_rootTestSuiteSub0Sub1Case0_isFailure() throws Exception {
 
 		assertTrue(loader.rootTestSuiteResult.getSubTestSuiteResults()[0]
@@ -184,6 +192,38 @@ public class TestResultLoader_20140710_104022_Test {
 				"testAppLayer_refreshRegionsData_sizeOfRegionsIs3",
 				loader.rootTestSuiteResult.getSubTestSuiteResults()[0]
 						.getSubTestSuiteResults()[0].getTestCaseResults()[12].name);
+	}
+
+	@Test
+	public void test_rootTestSuiteSub0Sub0Case12_sizeOfOutputLinesIs0() throws Exception {
+
+		assertEquals(0,
+				loader.rootTestSuiteResult.getSubTestSuiteResults()[0]
+						.getSubTestSuiteResults()[0].getTestCaseResults()[12].getOutputLines().length);
+	}
+
+	@Test
+	public void test_rootTestSuiteSub0Sub0Case12_isSuccess() throws Exception {
+
+		assertTrue(
+				loader.rootTestSuiteResult.getSubTestSuiteResults()[0]
+						.getSubTestSuiteResults()[0].getTestCaseResults()[12].isSuccess());
+	}
+
+	@Test
+	public void test_rootTestSuiteSub0Sub0Case12_isNotFailure() throws Exception {
+
+		assertFalse(
+				loader.rootTestSuiteResult.getSubTestSuiteResults()[0]
+						.getSubTestSuiteResults()[0].getTestCaseResults()[12].isFailure());
+	}
+
+	@Test
+	public void test_rootTestSuiteSub0Sub0Case12_isNotError() throws Exception {
+
+		assertFalse(
+				loader.rootTestSuiteResult.getSubTestSuiteResults()[0]
+						.getSubTestSuiteResults()[0].getTestCaseResults()[12].isError());
 	}
 
 	@Test
