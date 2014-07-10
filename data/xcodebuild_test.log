@@ -1,4 +1,4 @@
-Begin Date: Thu 10 Jul 2014 11:59:53 CEST
+Begin Date: Thu 10 Jul 2014 12:05:24 CEST
 Hostname: unm-temp2.local
 Script: macos_job-xcodebuild_test.sh /Users/avcompris/tmp/unm-ios-ut-results/data/xcodebuild_test.log 
 Current Directory: /Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios
@@ -9,7 +9,7 @@ Test Command: /usr/bin/xcodebuild test -workspace UnivMobile.xcworkspace       -
 
 
 Build succeeded.
-Test Date: Thu 10 Jul 2014 12:00:14 CEST
+Test Date: Thu 10 Jul 2014 12:05:44 CEST
 ----------------------------------------
 Build settings from command line:
     SDKROOT = iphonesimulator7.1
@@ -73,9 +73,9 @@ total size is 10389  speedup is 25.91
 /* com.apple.actool.compilation-results */
 
 
-Test Suite 'All tests' started at 2014-07-10 10:00:20 +0000
-Test Suite 'UnivMobileTests.xctest' started at 2014-07-10 10:00:20 +0000
-Test Suite 'UNMAppLayerTests' started at 2014-07-10 10:00:20 +0000
+Test Suite 'All tests' started at 2014-07-10 10:05:51 +0000
+Test Suite 'UnivMobileTests.xctest' started at 2014-07-10 10:05:51 +0000
+Test Suite 'UNMAppLayerTests' started at 2014-07-10 10:05:51 +0000
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneIdIsBretagne]' started.
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneIdIsBretagne]' passed (0.004 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneTitleIsBretagne]' started.
@@ -85,17 +85,17 @@ Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdTotoIsNill]
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfRegionsIs3]' started.
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfRegionsIs3]' passed (0.001 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfUniversitiesIleDeFranceIs18]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfUniversitiesIleDeFranceIs18]' passed (0.001 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfUniversitiesIleDeFranceIs18]' passed (0.002 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11IdIsParis11]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11IdIsParis11]' passed (0.002 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11IdIsParis11]' passed (0.001 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11TitleIsParisSud]' started.
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11TitleIsParisSud]' passed (0.001 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDataObjectIsDifferent]' started.
-2014-07-10 12:00:20.576 xctest[56099:303] Error: Error Domain=NSCocoaErrorDomain Code=257 "The operation couldn’t be completed. (Cocoa error 257.)" UserInfo=0xae56070 {NSFilePath=/Users/dandriana/Documents/xcode/unm-ios/src/test/json/regions.json, NSUnderlyingError=0xae55f90 "The operation couldn’t be completed. Permission denied"}
-2014-07-10 12:00:20.621 xctest[56099:303] Unknown Device Type. Using UIUserInterfaceIdiomPhone based on screen size
-2014-07-10 12:00:20.661 xctest[56099:303] deferral properties must have a clientID
-2014-07-10 12:00:20.663 xctest[56099:303] deferral properties must have a clientID
-2014-07-10 12:00:20.663 xctest[56099:303] *** Assertion failure in -[BKSEventFocusManager deferEventsForClientWithProperties:toClientWithProperties:], /SourceCache/BackBoardServices_Sim/SpringBoard-2618.99.15/megatrond/BKSEventFocusManager.m:63
+2014-07-10 12:05:51.505 xctest[56513:303] Error: Error Domain=NSCocoaErrorDomain Code=257 "The operation couldn’t be completed. (Cocoa error 257.)" UserInfo=0xae27760 {NSFilePath=/Users/dandriana/Documents/xcode/unm-ios/src/test/json/regions.json, NSUnderlyingError=0xae27680 "The operation couldn’t be completed. Permission denied"}
+2014-07-10 12:05:51.608 xctest[56513:303] Unknown Device Type. Using UIUserInterfaceIdiomPhone based on screen size
+2014-07-10 12:05:51.645 xctest[56513:303] deferral properties must have a clientID
+2014-07-10 12:05:51.647 xctest[56513:303] deferral properties must have a clientID
+2014-07-10 12:05:51.649 xctest[56513:303] *** Assertion failure in -[BKSEventFocusManager deferEventsForClientWithProperties:toClientWithProperties:], /SourceCache/BackBoardServices_Sim/SpringBoard-2618.99.15/megatrond/BKSEventFocusManager.m:63
 <unknown>:0: error: -[UNMAppLayerTests testAppLayer_refreshRegionsData_newDataObjectIsDifferent] : props must have a valid clientID
 (
 	0   CoreFoundation                      0x00b251e4 __exceptionPreprocess + 180
@@ -137,46 +137,46 @@ Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDataObjectIsDif
 	36  xctest                              0x00002007 xctest + 4103
 	37  libdyld.dylib                       0x01679701 start + 1
 )
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDataObjectIsDifferent]' failed (0.128 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDataObjectIsDifferent]' failed (0.216 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDateIsDifferent]' started.
-2014-07-10 12:00:20.704 xctest[56099:303] Error: Error Domain=NSCocoaErrorDomain Code=257 "The operation couldn’t be completed. (Cocoa error 257.)" UserInfo=0xae56100 {NSFilePath=/Users/dandriana/Documents/xcode/unm-ios/src/test/json/regions.json, NSUnderlyingError=0xae54780 "The operation couldn’t be completed. Permission denied"}
-2014-07-10 12:00:20.727 xctest[56099:303] Warning: Attempt to present <_UIModalItemsPresentingViewController: 0xaea9ce0> on <_UIModalItemAppViewController: 0xaea5f60> whose view is not in the window hierarchy!
-/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/UnivMobileTests/UNMAppLayerTests.m:102: error: -[UNMAppLayerTests testAppLayer_refreshRegionsData_newDateIsDifferent] : ((date) not equal to (self.appLayer.regionsData.refreshedAt)) failed: ("2014-07-10 10:00:20 +0000") is equal to ("2014-07-10 10:00:20 +0000")
+2014-07-10 12:05:51.719 xctest[56513:303] Error: Error Domain=NSCocoaErrorDomain Code=257 "The operation couldn’t be completed. (Cocoa error 257.)" UserInfo=0xae277f0 {NSFilePath=/Users/dandriana/Documents/xcode/unm-ios/src/test/json/regions.json, NSUnderlyingError=0xae25e70 "The operation couldn’t be completed. Permission denied"}
+2014-07-10 12:05:51.738 xctest[56513:303] Warning: Attempt to present <_UIModalItemsPresentingViewController: 0xae7b060> on <_UIModalItemAppViewController: 0xae77650> whose view is not in the window hierarchy!
+/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/UnivMobileTests/UNMAppLayerTests.m:102: error: -[UNMAppLayerTests testAppLayer_refreshRegionsData_newDateIsDifferent] : ((date) not equal to (self.appLayer.regionsData.refreshedAt)) failed: ("2014-07-10 10:05:51 +0000") is equal to ("2014-07-10 10:05:51 +0000")
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDateIsDifferent]' failed (0.041 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneIdIsBretagne]' started.
-2014-07-10 12:00:20.750 xctest[56099:303] Error: Error Domain=NSCocoaErrorDomain Code=257 "The operation couldn’t be completed. (Cocoa error 257.)" UserInfo=0xaea8b50 {NSFilePath=/Users/dandriana/Documents/xcode/unm-ios/src/test/json/regions.json, NSUnderlyingError=0xaea8ae0 "The operation couldn’t be completed. Permission denied"}
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneIdIsBretagne]' passed (0.044 seconds).
+2014-07-10 12:05:51.756 xctest[56513:303] Error: Error Domain=NSCocoaErrorDomain Code=257 "The operation couldn’t be completed. (Cocoa error 257.)" UserInfo=0xae79160 {NSFilePath=/Users/dandriana/Documents/xcode/unm-ios/src/test/json/regions.json, NSUnderlyingError=0xae790f0 "The operation couldn’t be completed. Permission denied"}
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneIdIsBretagne]' passed (0.030 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneTitleIsBretagne]' started.
-2014-07-10 12:00:20.795 xctest[56099:303] Error: Error Domain=NSCocoaErrorDomain Code=257 "The operation couldn’t be completed. (Cocoa error 257.)" UserInfo=0xaeaa710 {NSFilePath=/Users/dandriana/Documents/xcode/unm-ios/src/test/json/regions.json, NSUnderlyingError=0xaeaa650 "The operation couldn’t be completed. Permission denied"}
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneTitleIsBretagne]' passed (0.033 seconds).
+2014-07-10 12:05:51.788 xctest[56513:303] Error: Error Domain=NSCocoaErrorDomain Code=257 "The operation couldn’t be completed. (Cocoa error 257.)" UserInfo=0xae7ba90 {NSFilePath=/Users/dandriana/Documents/xcode/unm-ios/src/test/json/regions.json, NSUnderlyingError=0xae7b9d0 "The operation couldn’t be completed. Permission denied"}
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneTitleIsBretagne]' passed (0.035 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdTotoIsNill]' started.
-2014-07-10 12:00:20.828 xctest[56099:303] Error: Error Domain=NSCocoaErrorDomain Code=257 "The operation couldn’t be completed. (Cocoa error 257.)" UserInfo=0xaeabc20 {NSFilePath=/Users/dandriana/Documents/xcode/unm-ios/src/test/json/regions.json, NSUnderlyingError=0xaeabb50 "The operation couldn’t be completed. Permission denied"}
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdTotoIsNill]' passed (0.075 seconds).
+2014-07-10 12:05:51.832 xctest[56513:303] Error: Error Domain=NSCocoaErrorDomain Code=257 "The operation couldn’t be completed. (Cocoa error 257.)" UserInfo=0xae7cb40 {NSFilePath=/Users/dandriana/Documents/xcode/unm-ios/src/test/json/regions.json, NSUnderlyingError=0xae7ca70 "The operation couldn’t be completed. Permission denied"}
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdTotoIsNill]' passed (0.038 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfRegionsIs3]' started.
-2014-07-10 12:00:20.905 xctest[56099:303] Error: Error Domain=NSCocoaErrorDomain Code=257 "The operation couldn’t be completed. (Cocoa error 257.)" UserInfo=0xaead0e0 {NSFilePath=/Users/dandriana/Documents/xcode/unm-ios/src/test/json/regions.json, NSUnderlyingError=0xaead010 "The operation couldn’t be completed. Permission denied"}
+2014-07-10 12:05:51.864 xctest[56513:303] Error: Error Domain=NSCocoaErrorDomain Code=257 "The operation couldn’t be completed. (Cocoa error 257.)" UserInfo=0xae7dba0 {NSFilePath=/Users/dandriana/Documents/xcode/unm-ios/src/test/json/regions.json, NSUnderlyingError=0xae7dad0 "The operation couldn’t be completed. Permission denied"}
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfRegionsIs3]' passed (0.034 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfUniversitiesIleDeFranceIs18]' started.
-2014-07-10 12:00:20.943 xctest[56099:303] Error: Error Domain=NSCocoaErrorDomain Code=257 "The operation couldn’t be completed. (Cocoa error 257.)" UserInfo=0xaeae5a0 {NSFilePath=/Users/dandriana/Documents/xcode/unm-ios/src/test/json/regions.json, NSUnderlyingError=0xaeae4d0 "The operation couldn’t be completed. Permission denied"}
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfUniversitiesIleDeFranceIs18]' passed (0.037 seconds).
+2014-07-10 12:05:51.903 xctest[56513:303] Error: Error Domain=NSCocoaErrorDomain Code=257 "The operation couldn’t be completed. (Cocoa error 257.)" UserInfo=0xae7f060 {NSFilePath=/Users/dandriana/Documents/xcode/unm-ios/src/test/json/regions.json, NSUnderlyingError=0xae7ef90 "The operation couldn’t be completed. Permission denied"}
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfUniversitiesIleDeFranceIs18]' passed (0.043 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11IdIsParis11]' started.
-2014-07-10 12:00:21.006 xctest[56099:303] Error: Error Domain=NSCocoaErrorDomain Code=257 "The operation couldn’t be completed. (Cocoa error 257.)" UserInfo=0xaeafb60 {NSFilePath=/Users/dandriana/Documents/xcode/unm-ios/src/test/json/regions.json, NSUnderlyingError=0xaeafa90 "The operation couldn’t be completed. Permission denied"}
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11IdIsParis11]' passed (0.066 seconds).
+2014-07-10 12:05:51.954 xctest[56513:303] Error: Error Domain=NSCocoaErrorDomain Code=257 "The operation couldn’t be completed. (Cocoa error 257.)" UserInfo=0xae80620 {NSFilePath=/Users/dandriana/Documents/xcode/unm-ios/src/test/json/regions.json, NSUnderlyingError=0xae80550 "The operation couldn’t be completed. Permission denied"}
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11IdIsParis11]' passed (0.041 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11TitleIsParisSud]' started.
-2014-07-10 12:00:21.091 xctest[56099:303] Error: Error Domain=NSCocoaErrorDomain Code=257 "The operation couldn’t be completed. (Cocoa error 257.)" UserInfo=0xaeb1040 {NSFilePath=/Users/dandriana/Documents/xcode/unm-ios/src/test/json/regions.json, NSUnderlyingError=0xaeb0f80 "The operation couldn’t be completed. Permission denied"}
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11TitleIsParisSud]' passed (0.078 seconds).
-Test Suite 'UNMAppLayerTests' finished at 2014-07-10 10:00:21 +0000.
-Executed 16 tests, with 2 failures (1 unexpected) in 0.550 (0.580) seconds
-Test Suite 'UnivMobileTests' started at 2014-07-10 10:00:21 +0000
+2014-07-10 12:05:51.996 xctest[56513:303] Error: Error Domain=NSCocoaErrorDomain Code=257 "The operation couldn’t be completed. (Cocoa error 257.)" UserInfo=0xae81b00 {NSFilePath=/Users/dandriana/Documents/xcode/unm-ios/src/test/json/regions.json, NSUnderlyingError=0xae81a40 "The operation couldn’t be completed. Permission denied"}
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11TitleIsParisSud]' passed (0.101 seconds).
+Test Suite 'UNMAppLayerTests' finished at 2014-07-10 10:05:52 +0000.
+Executed 16 tests, with 2 failures (1 unexpected) in 0.589 (0.623) seconds
+Test Suite 'UnivMobileTests' started at 2014-07-10 10:05:52 +0000
 Test Case '-[UnivMobileTests testExample_x_x]' started.
 /Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/UnivMobileTests/UnivMobileTests.m:29: error: -[UnivMobileTests testExample_x_x] : failed - No implementation for "-[UnivMobileTests testExample_x_x]"
 Test Case '-[UnivMobileTests testExample_x_x]' failed (0.002 seconds).
-Test Suite 'UnivMobileTests' finished at 2014-07-10 10:00:21 +0000.
-Executed 1 test, with 1 failure (0 unexpected) in 0.002 (0.005) seconds
-Test Suite 'UnivMobileTests.xctest' finished at 2014-07-10 10:00:21 +0000.
-Executed 17 tests, with 3 failures (1 unexpected) in 0.552 (0.587) seconds
-Test Suite 'All tests' finished at 2014-07-10 10:00:21 +0000.
-Executed 17 tests, with 3 failures (1 unexpected) in 0.552 (0.593) seconds
+Test Suite 'UnivMobileTests' finished at 2014-07-10 10:05:52 +0000.
+Executed 1 test, with 1 failure (0 unexpected) in 0.002 (0.004) seconds
+Test Suite 'UnivMobileTests.xctest' finished at 2014-07-10 10:05:52 +0000.
+Executed 17 tests, with 3 failures (1 unexpected) in 0.591 (0.632) seconds
+Test Suite 'All tests' finished at 2014-07-10 10:05:52 +0000.
+Executed 17 tests, with 3 failures (1 unexpected) in 0.591 (0.638) seconds
 ** TEST FAILED **
 
 ----------------------------------------
-End Date: Thu 10 Jul 2014 12:00:21 CEST
+End Date: Thu 10 Jul 2014 12:05:52 CEST
