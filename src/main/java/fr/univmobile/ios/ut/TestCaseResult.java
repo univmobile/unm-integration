@@ -6,6 +6,8 @@ import static org.apache.commons.lang3.StringUtils.substringBetween;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.Nullable;
+
 import com.google.common.collect.Iterables;
 
 public class TestCaseResult {
@@ -100,12 +102,15 @@ public class TestCaseResult {
 		return failure;
 	}
 
+	@Nullable
 	public String getMessage() {
 
+		/*
 		if (message == null) {
 			throw new IllegalStateException(
 					"TestCaseResult.message has not been set.");
 		}
+		*/
 
 		return message;
 	}

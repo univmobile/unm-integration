@@ -174,17 +174,17 @@ public class TestResultLoader_20140710_113034_Test {
 	}
 
 	@Test
-	public void test_rootTestSuiteSub0Sub0Case12_sizeOfOutputLinesIs1()
+	public void test_rootTestSuiteSub0Sub0Case12_sizeOfOutputLinesIs3()
 			throws Exception {
 
-		assertEquals(1,
+		assertEquals(3,
 				loader.rootTestSuiteResult.getSubTestSuiteResults()[0]
 						.getSubTestSuiteResults()[0].getTestCaseResults()[12]
 						.getOutputLines().length);
 	}
 
 	@Test
-	public void test_rootTestSuiteSub0Sub0Case12_outputLineIsXxx()
+	public void test_rootTestSuiteSub0Sub0Case12_outputLine1IsXxx()
 			throws Exception {
 
 		assertEquals(
@@ -196,7 +196,30 @@ public class TestResultLoader_20140710_113034_Test {
 						+ "\"The operation couldn’t be completed. Permission denied\"}",
 				loader.rootTestSuiteResult.getSubTestSuiteResults()[0]
 						.getSubTestSuiteResults()[0].getTestCaseResults()[12]
+						.getOutputLines()[1]);
+	}
+
+	@Test
+	public void test_rootTestSuiteSub0Sub0Case12_outputLine0IsXxx()
+			throws Exception {
+
+		assertEquals("Test Case '-[UNMAppLayerTests "
+				+ "testAppLayer_refreshRegionsData_sizeOfRegionsIs3]' "
+				+ "started.",
+				loader.rootTestSuiteResult.getSubTestSuiteResults()[0]
+						.getSubTestSuiteResults()[0].getTestCaseResults()[12]
 						.getOutputLines()[0]);
 	}
 
+	@Test
+	public void test_rootTestSuiteSub0Sub0Case12_outputLine2IsXxx()
+			throws Exception {
+
+		assertEquals("Test Case '-[UNMAppLayerTests "
+				+ "testAppLayer_refreshRegionsData_sizeOfRegionsIs3]' "
+				+ "passed (0.035 seconds).",
+				loader.rootTestSuiteResult.getSubTestSuiteResults()[0]
+						.getSubTestSuiteResults()[0].getTestCaseResults()[12]
+						.getOutputLines()[2]);
+	}
 }

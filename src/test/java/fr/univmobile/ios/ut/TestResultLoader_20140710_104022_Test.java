@@ -155,9 +155,9 @@ public class TestResultLoader_20140710_104022_Test {
 	}
 
 	@Test
-	public void test_rootTestSuiteSub0Sub1Case0_sizeOfOutputLinesIs21() throws Exception {
+	public void test_rootTestSuiteSub0Sub1Case0_sizeOfOutputLinesIs3() throws Exception {
 
-		assertEquals(1,				loader.rootTestSuiteResult.getSubTestSuiteResults()[0]
+		assertEquals(3,				loader.rootTestSuiteResult.getSubTestSuiteResults()[0]
 						.getSubTestSuiteResults()[1].getTestCaseResults()[0]
 						.getOutputLines().length);
 	}
@@ -195,9 +195,9 @@ public class TestResultLoader_20140710_104022_Test {
 	}
 
 	@Test
-	public void test_rootTestSuiteSub0Sub0Case12_sizeOfOutputLinesIs0() throws Exception {
+	public void test_rootTestSuiteSub0Sub0Case12_sizeOfOutputLinesIs2() throws Exception {
 
-		assertEquals(0,
+		assertEquals(2,
 				loader.rootTestSuiteResult.getSubTestSuiteResults()[0]
 						.getSubTestSuiteResults()[0].getTestCaseResults()[12].getOutputLines().length);
 	}

@@ -110,6 +110,8 @@ public class TestResultLoader {
 				final TestCaseResult testCaseResult = new TestCaseResult(
 						testCaseId);
 
+				testCaseResult.addOutputLine(line);
+
 				testSuiteResult.addTestCaseResult(testCaseResult);
 
 				parseTestCaseResult(it, testCaseResult);
@@ -132,6 +134,8 @@ public class TestResultLoader {
 		while (it.hasNext()) {
 
 			final String line = it.next();
+
+			testCaseResult.addOutputLine(line);
 
 			if (line.startsWith("Test Case '" + id + "' ")) {
 
@@ -157,8 +161,6 @@ public class TestResultLoader {
 				}
 
 			} else if (line.contains("error: " + id + " : ")) {
-
-				testCaseResult.addOutputLine(line);
 				
 				final String message = substringAfter(line, "error: " + id
 						+ " : ");
@@ -173,10 +175,6 @@ public class TestResultLoader {
 
 					testCaseResult.setFailed();
 				}
-			
-			} else {
-				
-				testCaseResult.addOutputLine(line);
 			}
 		}
 	}
