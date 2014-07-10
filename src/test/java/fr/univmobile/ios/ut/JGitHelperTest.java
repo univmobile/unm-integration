@@ -1,14 +1,14 @@
 package fr.univmobile.ios.ut;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
-import java.util.List;
 
 import org.eclipse.jgit.api.Git;
-import org.eclipse.jgit.lib.Ref;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevTag;
 import org.junit.After;
@@ -129,6 +129,8 @@ public class JGitHelperTest {
 			throw new Exception("Tag already exists: " + TAG_NAME);
 		}
 
+		assertFalse(jgitHelper.hasTag(TAG_NAME));
+
 		git.tag()
 				.setName(TAG_NAME)
 				// name
@@ -142,10 +144,14 @@ public class JGitHelperTest {
 
 		assertNotNull("tag1, after creation", tag1);
 
+		assertTrue(jgitHelper.hasTag(TAG_NAME));
+
 		git.tagDelete().setTags(TAG_NAME).call();
 
 		final RevTag tag2 = jgitHelper.getTag(TAG_NAME);
 
-		assertNotNull("tag2, after deletion", tag1);
+		assertNull("tag2, after deletion", tag2);
+
+		assertFalse(jgitHelper.hasTag(TAG_NAME));
 	}
 }

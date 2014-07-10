@@ -174,4 +174,10 @@ public class JGitHelper {
 
 		return null;
 	}
+
+	public boolean hasTag(final String tagName) throws IOException,
+			GitAPIException {
+
+		return getTag(tagName) != null;
+	}
 }
