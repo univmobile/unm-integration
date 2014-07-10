@@ -135,13 +135,46 @@ public class TestResultLoader_20140710_104022_Test {
 	}
 
 	@Test
-	public void test_rootTestSuiteSub0Sub1_sizeOfTestCasesIs11()
+	public void test_rootTestSuiteSub0Sub1_sizeOfTestCasesIs1()
 			throws Exception {
 
 		assertEquals(
 				1,
 				loader.rootTestSuiteResult.getSubTestSuiteResults()[0]
 						.getSubTestSuiteResults()[1].getTestCaseResults().length);
+	}
+
+	@Test
+	public void test_rootTestSuiteSub0Sub1Case0_messageIs() throws Exception {
+
+		assertEquals(
+				"failed - No implementation for \"-[UnivMobileTests testExample_x_x]\"",
+				loader.rootTestSuiteResult.getSubTestSuiteResults()[0]
+						.getSubTestSuiteResults()[1].getTestCaseResults()[0]
+						.getMessage());
+	}
+
+	@Test
+	public void test_rootTestSuiteSub0Sub1Case0_isFailure() throws Exception {
+
+		assertTrue(loader.rootTestSuiteResult.getSubTestSuiteResults()[0]
+				.getSubTestSuiteResults()[1].getTestCaseResults()[0]
+				.isFailure());
+	}
+
+	@Test
+	public void test_rootTestSuiteSub0Sub1Case0_isNotSuccess() throws Exception {
+
+		assertFalse(loader.rootTestSuiteResult.getSubTestSuiteResults()[0]
+				.getSubTestSuiteResults()[1].getTestCaseResults()[0]
+				.isSuccess());
+	}
+
+	@Test
+	public void test_rootTestSuiteSub0Sub1Case0_isNotErrro() throws Exception {
+
+		assertFalse(loader.rootTestSuiteResult.getSubTestSuiteResults()[0]
+				.getSubTestSuiteResults()[1].getTestCaseResults()[0].isError());
 	}
 
 	@Test

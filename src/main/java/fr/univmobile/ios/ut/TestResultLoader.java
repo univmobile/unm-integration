@@ -155,15 +155,20 @@ public class TestResultLoader {
 
 					throw new IOException("Unknown TestCase status: " + line);
 				}
-			
-			} else if (line.contains("error: "+id + " : ")) {
+
+			} else if (line.contains("error: " + id + " : ")) {
+
+				final String message = substringAfter(line, "error: " + id
+						+ " : ");
+
+				testCaseResult.setMessage(message);
 
 				if (line.startsWith("<unknown>:0:")) {
-					
+
 					testCaseResult.setError();
-					
+
 				} else {
-					
+
 					testCaseResult.setFailed();
 				}
 			}

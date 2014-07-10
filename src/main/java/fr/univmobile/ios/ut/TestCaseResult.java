@@ -1,5 +1,6 @@
 package fr.univmobile.ios.ut;
 
+import static com.google.common.base.Preconditions.checkNotNull;
 import static org.apache.commons.lang3.StringUtils.substringBetween;
 
 public class TestCaseResult {
@@ -24,6 +25,11 @@ public class TestCaseResult {
 
 	public void setFailed() {
 
+		if (message == null) {
+			throw new IllegalStateException(
+					"TestCaseResult.message has not been set.");
+		}
+
 		if (!failure && !error) {
 
 			checkStateIsNotSet();
@@ -43,6 +49,11 @@ public class TestCaseResult {
 	}
 
 	public void setError() {
+
+		if (message == null) {
+			throw new IllegalStateException(
+					"TestCaseResult.message has not been set.");
+		}
 
 		if (!error) {
 
@@ -82,6 +93,28 @@ public class TestCaseResult {
 		checkStateIsSet();
 
 		return failure;
+	}
+
+	public String getMessage() {
+
+		if (message == null) {
+			throw new IllegalStateException(
+					"TestCaseResult.message has not been set.");
+		}
+
+		return message;
+	}
+
+	private String message;
+
+	public void setMessage(final String message) {
+
+		if (this.message != null) {
+			throw new IllegalStateException(
+					"TestCaseResult.message is already set.");
+		}
+
+		this.message = checkNotNull(message, "message");
 	}
 
 	private void checkStateIsSet() {
