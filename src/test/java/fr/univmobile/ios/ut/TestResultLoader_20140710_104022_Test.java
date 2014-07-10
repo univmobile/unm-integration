@@ -19,7 +19,7 @@ public class TestResultLoader_20140710_104022_Test {
 				"src/test/test-results/xcodebuild_test.log-20140710-104022"));
 	}
 
-	private TestResultLoader loader;
+	protected TestResultLoader loader;
 
 	@Test
 	public void test_beginDateIsXxx() throws Exception {

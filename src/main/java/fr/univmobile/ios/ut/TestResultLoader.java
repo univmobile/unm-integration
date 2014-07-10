@@ -5,14 +5,17 @@ import static org.apache.commons.lang3.StringUtils.substringAfter;
 import static org.apache.commons.lang3.StringUtils.substringAfterLast;
 import static org.apache.commons.lang3.StringUtils.substringBetween;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Iterator;
 import java.util.List;
 
 import javax.annotation.Nullable;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
@@ -40,7 +43,19 @@ public class TestResultLoader {
 
 	public TestResultLoader(final File file) throws IOException {
 
-		this.lines = FileUtils.readLines(file, UTF_8);
+		this(FileUtils.readFileToByteArray(file));
+	}
+
+	public TestResultLoader(final byte[] bytes) throws IOException {
+
+		final InputStream is = new ByteArrayInputStream(bytes);
+		try {
+
+			this.lines = IOUtils.readLines(is, UTF_8);
+
+		} finally {
+			is.close();
+		}
 
 		this.beginDate = loadDateFromLineWithPrefix("Begin Date: ");
 
@@ -161,7 +176,7 @@ public class TestResultLoader {
 				}
 
 			} else if (line.contains("error: " + id + " : ")) {
-				
+
 				final String message = substringAfter(line, "error: " + id
 						+ " : ");
 
