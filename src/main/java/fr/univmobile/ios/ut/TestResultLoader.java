@@ -39,6 +39,15 @@ public class TestResultLoader {
 	private final List<String> lines;
 
 	@Nullable
+	public String user;
+
+	@Nullable
+	public String getUser() {
+
+		return user;
+	}
+
+	@Nullable
 	public final TestSuiteResult rootTestSuiteResult;
 
 	public TestResultLoader(final File file) throws IOException {
