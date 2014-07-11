@@ -8,6 +8,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 
+import org.apache.commons.io.FileUtils;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevTag;
@@ -153,5 +154,31 @@ public class JGitHelperTest {
 		assertNull("tag2, after deletion", tag2);
 
 		assertFalse(jgitHelper.hasTag(TAG_NAME));
+	}
+
+	@Test
+	public void testCloneRepo() throws Exception {
+
+		final String PROJECT_NAME = "unm-ios-ut-results";
+
+		final File dir = new File("target/" + PROJECT_NAME);
+
+		if (dir.exists()) {
+			FileUtils.deleteDirectory(dir);
+		}
+
+		final File pomFile = new File(dir, "pom.xml");
+
+		assertFalse(pomFile.exists());
+
+		final JGitHelper jgitHelper = JGitHelper.cloneRepo(
+				"https://github.com/univmobile/" + PROJECT_NAME, dir);
+
+		assertTrue(pomFile.exists());
+
+		final RevCommit[] commits = jgitHelper
+				.getAllCommitsForFileFromHead("data/xcodebuild_test.log");
+
+		assertTrue(commits.length > 8);
 	}
 }

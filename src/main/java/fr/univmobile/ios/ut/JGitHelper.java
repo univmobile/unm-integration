@@ -15,6 +15,8 @@ import java.util.Set;
 import org.apache.commons.io.FileUtils;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
+import org.eclipse.jgit.api.errors.InvalidRemoteException;
+import org.eclipse.jgit.api.errors.TransportException;
 import org.eclipse.jgit.lib.Constants;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.ObjectLoader;
@@ -204,8 +206,8 @@ public class JGitHelper {
 
 		final String username = "dandriana-jenkins";
 		final String password = FileUtils.readFileToString(
-				new File(FileUtils.getUserDirectoryPath(), ".config/github-"+username),
-				UTF_8).trim();
+				new File(FileUtils.getUserDirectoryPath(), ".config/github-"
+						+ username), UTF_8).trim();
 
 		final CredentialsProvider credentialsProvider = new UsernamePasswordCredentialsProvider(
 				username, password);
@@ -213,4 +215,19 @@ public class JGitHelper {
 		git.push().setRemote("origin").setPushTags()
 				.setCredentialsProvider(credentialsProvider).call();
 	}
+
+	public static JGitHelper cloneRepo(final String url, final File destDir)
+			throws IOException, InvalidRemoteException, TransportException, GitAPIException {
+
+//		final FileRepositoryBuilder builder = new FileRepositoryBuilder();
+
+//		final Repository repo = builder.setGitDir(gitDir).readEnvironment()
+	//			.findGitDir().build();
+
+		Git.cloneRepository().setBare(false).setCloneAllBranches(true)
+				.setDirectory(destDir).setURI(url).call();
+
+		final File gitDir = new File(destDir, ".git");
+		
+		return new JGitHelper(gitDir);	}
 }
