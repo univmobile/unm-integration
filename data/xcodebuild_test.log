@@ -1,72 +1,37 @@
-Begin Date: Fri Jul 11 01:40:13 CEST 2014
-Hostname: unm-temp2.local
-Script: macos_job-xcodebuild_test.sh ../../unm-ios-ut-results/data/xcodebuild_test.log 
-Current Directory: /Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios
-Test Report: /Users/avcompris/tmp/unm-ios-ut-results/data/xcodebuild_test.log
+Begin Date: Fri 11 Jul 2014 07:46:37 CEST
+Hostname: Davids-MacBook-Pro.local
+Script: xcodebuild_test.sh  
+Current Directory: /Users/dandriana/Documents/xcode/unm-ios
+Test Report: /Users/dandriana/Documents/xcode/unm-ios/target/unm-ios-ut-results/data/xcodebuild_test.log
 Git Commit: 3172256e9eb0b268080bd28b352cbc86c009321a
-Test Command: /usr/bin/xcodebuild test -workspace UnivMobile.xcworkspace       -scheme UnivMobileTests       -configuration Debug       -sdk iphonesimulator7.1       -destination OS=7.1,name="iPhone Retina (4-inch)"
+Test Command: /usr/bin/xcodebuild test -workspace UnivMobile.xcworkspace   -scheme UnivMobileTests   -configuration Debug   -sdk iphonesimulator7.1   -destination OS=7.1,name="iPhone Retina (4-inch)"
 ----------------------------------------
 
 
 Build succeeded.
-Test Date: Fri Jul 11 01:40:34 CEST 2014
+Test Date: Fri 11 Jul 2014 07:46:41 CEST
 ----------------------------------------
 Build settings from command line:
     SDKROOT = iphonesimulator7.1
-
-=== BUILD TARGET Pods-HexColors OF PROJECT Pods WITH CONFIGURATION Debug ===
-
-Check dependencies
 
 === BUILD TARGET Pods-Mantle OF PROJECT Pods WITH CONFIGURATION Debug ===
 
 Check dependencies
 
 === BUILD TARGET Pods-ReactiveCocoa OF PROJECT Pods WITH CONFIGURATION Debug ===
-
-Check dependencies
-
-=== BUILD TARGET Pods-TSMessages OF PROJECT Pods WITH CONFIGURATION Debug ===
-
 Check dependencies
 
 === BUILD TARGET UnivMobileTests OF PROJECT UnivMobile WITH CONFIGURATION Debug ===
 
 Check dependencies
 
-CompileC /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/Objects-normal/i386/UNMJsonFetcherFileSystem.o UnivMobile/DataAccess/UNMJsonFetcherFileSystem.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-    cd /Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios
-    export LANG=en_US.US-ASCII
-    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
-    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/avcompris/Library/Developer/Xcode/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wconditional-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.0 -iquote /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/UnivMobileTests-generated-files.hmap -I/Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/UnivMobileTests-own-target-headers.hmap -I/Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/UnivMobileTests-all-target-headers.hmap -iquote /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/UnivMobileTests-project-headers.hmap -I/Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Products/Debug-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -IPods -IPods/BuildHeaders -IPods/Headers -IPods/HexColors -IPods/Mantle -IPods/ReactiveCocoa -IPods/TSMessages -IPods/BuildHeaders/HexColors -IPods/BuildHeaders/Mantle -IPods/BuildHeaders/ReactiveCocoa -IPods/BuildHeaders/TSMessages -IPods/Headers/HexColors -IPods/Headers/Mantle -IPods/Headers/ReactiveCocoa -IPods/Headers/TSMessages -IPods/HexColors/Classes -IPods/Mantle/Mantle -IPods/ReactiveCocoa/ReactiveCocoaFramework -IPods/TSMessages/TSMessages -IPods/BuildHeaders/ReactiveCocoa/ReactiveCocoa -IPods/Headers/ReactiveCocoa/ReactiveCocoa -IPods/Mantle/Mantle/extobjc -IPods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa -IPods/TSMessages/TSMessages/Classes -IPods/TSMessages/TSMessages/Resources -IPods/TSMessages/TSMessages/Views -IPods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/extobjc -IPods/TSMessages/TSMessages/Resources/Images -I/Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/DerivedSources/i386 -I/Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/DerivedSources -F/Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Products/Debug-iphonesimulator -F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/Developer/Library/Frameworks -F/Applications/Xcode.app/Contents/Developer/Library/Frameworks -FPods -FPods/BuildHeaders -FPods/Headers -FPods/HexColors -FPods/Mantle -FPods/ReactiveCocoa -FPods/TSMessages -FPods/BuildHeaders/HexColors -FPods/BuildHeaders/Mantle -FPods/BuildHeaders/ReactiveCocoa -FPods/BuildHeaders/TSMessages -FPods/Headers/HexColors -FPods/Headers/Mantle -FPods/Headers/ReactiveCocoa -FPods/Headers/TSMessages -FPods/HexColors/Classes -FPods/Mantle/Mantle -FPods/ReactiveCocoa/ReactiveCocoaFramework -FPods/TSMessages/TSMessages -FPods/BuildHeaders/ReactiveCocoa/ReactiveCocoa -FPods/Headers/ReactiveCocoa/ReactiveCocoa -FPods/Mantle/Mantle/extobjc -FPods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa -FPods/TSMessages/TSMessages/Classes -FPods/TSMessages/TSMessages/Resources -FPods/TSMessages/TSMessages/Views -FPods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/extobjc -FPods/TSMessages/TSMessages/Resources/Images -include /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/PrecompiledHeaders/UnivMobile-Prefix-ahpciudalagpcbestjphxiuffrhm/UnivMobile-Prefix.pch -MMD -MT dependencies -MF /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/Objects-normal/i386/UNMJsonFetcherFileSystem.d --serialize-diagnostics /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/Objects-normal/i386/UNMJsonFetcherFileSystem.dia -c /Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/UnivMobile/DataAccess/UNMJsonFetcherFileSystem.m -o /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/Objects-normal/i386/UNMJsonFetcherFileSystem.o
+=== BUILD TARGET Pods-HexColors OF PROJECT Pods WITH CONFIGURATION Debug ===
 
-CompileC /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/Objects-normal/x86_64/UNMJsonFetcherFileSystem.o UnivMobile/DataAccess/UNMJsonFetcherFileSystem.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-    cd /Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios
-    export LANG=en_US.US-ASCII
-    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
-    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/avcompris/Library/Developer/Xcode/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wconditional-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.0 -iquote /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/UnivMobileTests-generated-files.hmap -I/Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/UnivMobileTests-own-target-headers.hmap -I/Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/UnivMobileTests-all-target-headers.hmap -iquote /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/UnivMobileTests-project-headers.hmap -I/Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Products/Debug-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -IPods -IPods/BuildHeaders -IPods/Headers -IPods/HexColors -IPods/Mantle -IPods/ReactiveCocoa -IPods/TSMessages -IPods/BuildHeaders/HexColors -IPods/BuildHeaders/Mantle -IPods/BuildHeaders/ReactiveCocoa -IPods/BuildHeaders/TSMessages -IPods/Headers/HexColors -IPods/Headers/Mantle -IPods/Headers/ReactiveCocoa -IPods/Headers/TSMessages -IPods/HexColors/Classes -IPods/Mantle/Mantle -IPods/ReactiveCocoa/ReactiveCocoaFramework -IPods/TSMessages/TSMessages -IPods/BuildHeaders/ReactiveCocoa/ReactiveCocoa -IPods/Headers/ReactiveCocoa/ReactiveCocoa -IPods/Mantle/Mantle/extobjc -IPods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa -IPods/TSMessages/TSMessages/Classes -IPods/TSMessages/TSMessages/Resources -IPods/TSMessages/TSMessages/Views -IPods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/extobjc -IPods/TSMessages/TSMessages/Resources/Images -I/Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/DerivedSources/x86_64 -I/Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/DerivedSources -F/Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Products/Debug-iphonesimulator -F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/Developer/Library/Frameworks -F/Applications/Xcode.app/Contents/Developer/Library/Frameworks -FPods -FPods/BuildHeaders -FPods/Headers -FPods/HexColors -FPods/Mantle -FPods/ReactiveCocoa -FPods/TSMessages -FPods/BuildHeaders/HexColors -FPods/BuildHeaders/Mantle -FPods/BuildHeaders/ReactiveCocoa -FPods/BuildHeaders/TSMessages -FPods/Headers/HexColors -FPods/Headers/Mantle -FPods/Headers/ReactiveCocoa -FPods/Headers/TSMessages -FPods/HexColors/Classes -FPods/Mantle/Mantle -FPods/ReactiveCocoa/ReactiveCocoaFramework -FPods/TSMessages/TSMessages -FPods/BuildHeaders/ReactiveCocoa/ReactiveCocoa -FPods/Headers/ReactiveCocoa/ReactiveCocoa -FPods/Mantle/Mantle/extobjc -FPods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa -FPods/TSMessages/TSMessages/Classes -FPods/TSMessages/TSMessages/Resources -FPods/TSMessages/TSMessages/Views -FPods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/extobjc -FPods/TSMessages/TSMessages/Resources/Images -include /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/PrecompiledHeaders/UnivMobile-Prefix-acxtgnzxzmmliwdwvbzpqmzlxvuy/UnivMobile-Prefix.pch -MMD -MT dependencies -MF /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/Objects-normal/x86_64/UNMJsonFetcherFileSystem.d --serialize-diagnostics /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/Objects-normal/x86_64/UNMJsonFetcherFileSystem.dia -c /Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/UnivMobile/DataAccess/UNMJsonFetcherFileSystem.m -o /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/Objects-normal/x86_64/UNMJsonFetcherFileSystem.o
+Check dependencies
 
-Ld /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/Objects-normal/i386/UnivMobileTests normal i386
-    cd /Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios
-    export IPHONEOS_DEPLOYMENT_TARGET=6.0
-    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
-    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch i386 -bundle -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -L/Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Products/Debug-iphonesimulator -F/Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Products/Debug-iphonesimulator -F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/Developer/Library/Frameworks -F/Applications/Xcode.app/Contents/Developer/Library/Frameworks -FPods -FPods/BuildHeaders -FPods/Headers -FPods/HexColors -FPods/Mantle -FPods/ReactiveCocoa -FPods/TSMessages -FPods/BuildHeaders/HexColors -FPods/BuildHeaders/Mantle -FPods/BuildHeaders/ReactiveCocoa -FPods/BuildHeaders/TSMessages -FPods/Headers/HexColors -FPods/Headers/Mantle -FPods/Headers/ReactiveCocoa -FPods/Headers/TSMessages -FPods/HexColors/Classes -FPods/Mantle/Mantle -FPods/ReactiveCocoa/ReactiveCocoaFramework -FPods/TSMessages/TSMessages -FPods/BuildHeaders/ReactiveCocoa/ReactiveCocoa -FPods/Headers/ReactiveCocoa/ReactiveCocoa -FPods/Mantle/Mantle/extobjc -FPods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa -FPods/TSMessages/TSMessages/Classes -FPods/TSMessages/TSMessages/Resources -FPods/TSMessages/TSMessages/Views -FPods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/extobjc -FPods/TSMessages/TSMessages/Resources/Images -filelist /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/Objects-normal/i386/UnivMobileTests.LinkFileList -Xlinker -objc_abi_version -Xlinker 2 -framework XCTest -fobjc-arc -fobjc-link-runtime -Xlinker -no_implicit_dylibs -mios-simulator-version-min=6.0 -framework XCTest -framework UIKit -framework Foundation -Xlinker -dependency_info -Xlinker /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/Objects-normal/i386/UnivMobileTests_dependency_info.dat -o /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/Objects-normal/i386/UnivMobileTests
+=== BUILD TARGET Pods-TSMessages OF PROJECT Pods WITH CONFIGURATION Debug ===
 
-Ld /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/Objects-normal/x86_64/UnivMobileTests normal x86_64
-    cd /Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios
-    export IPHONEOS_DEPLOYMENT_TARGET=6.0
-    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
-    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch x86_64 -bundle -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -L/Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Products/Debug-iphonesimulator -F/Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Products/Debug-iphonesimulator -F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/Developer/Library/Frameworks -F/Applications/Xcode.app/Contents/Developer/Library/Frameworks -FPods -FPods/BuildHeaders -FPods/Headers -FPods/HexColors -FPods/Mantle -FPods/ReactiveCocoa -FPods/TSMessages -FPods/BuildHeaders/HexColors -FPods/BuildHeaders/Mantle -FPods/BuildHeaders/ReactiveCocoa -FPods/BuildHeaders/TSMessages -FPods/Headers/HexColors -FPods/Headers/Mantle -FPods/Headers/ReactiveCocoa -FPods/Headers/TSMessages -FPods/HexColors/Classes -FPods/Mantle/Mantle -FPods/ReactiveCocoa/ReactiveCocoaFramework -FPods/TSMessages/TSMessages -FPods/BuildHeaders/ReactiveCocoa/ReactiveCocoa -FPods/Headers/ReactiveCocoa/ReactiveCocoa -FPods/Mantle/Mantle/extobjc -FPods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa -FPods/TSMessages/TSMessages/Classes -FPods/TSMessages/TSMessages/Resources -FPods/TSMessages/TSMessages/Views -FPods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/extobjc -FPods/TSMessages/TSMessages/Resources/Images -filelist /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/Objects-normal/x86_64/UnivMobileTests.LinkFileList -Xlinker -objc_abi_version -Xlinker 2 -framework XCTest -fobjc-arc -fobjc-link-runtime -Xlinker -no_implicit_dylibs -mios-simulator-version-min=6.0 -framework XCTest -framework UIKit -framework Foundation -Xlinker -dependency_info -Xlinker /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/Objects-normal/x86_64/UnivMobileTests_dependency_info.dat -o /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/Objects-normal/x86_64/UnivMobileTests
-
-CreateUniversalBinary /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Products/Debug-iphonesimulator/UnivMobileTests.xctest/UnivMobileTests normal i386\ x86_64
-    cd /Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios
-    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
-    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo -create /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/Objects-normal/i386/UnivMobileTests /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobileTests.build/Objects-normal/x86_64/UnivMobileTests -output /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Products/Debug-iphonesimulator/UnivMobileTests.xctest/UnivMobileTests
-
-GenerateDSYMFile /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Products/Debug-iphonesimulator/UnivMobileTests.xctest.dSYM /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Products/Debug-iphonesimulator/UnivMobileTests.xctest/UnivMobileTests
-    cd /Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios
-    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
-    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Products/Debug-iphonesimulator/UnivMobileTests.xctest/UnivMobileTests -o /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Products/Debug-iphonesimulator/UnivMobileTests.xctest.dSYM
+Check dependencies
 
 === BUILD TARGET Pods OF PROJECT Pods WITH CONFIGURATION Debug ===
 
@@ -76,30 +41,30 @@ Check dependencies
 
 Check dependencies
 
-PhaseScriptExecution Check\ Pods\ Manifest.lock /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/Script-938858C20A554AD08749CBB9.sh
-    cd /Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios
-    /bin/sh -c /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/Script-938858C20A554AD08749CBB9.sh
+PhaseScriptExecution Check\ Pods\ Manifest.lock /Users/dandriana/Library/Developer/Xcode/DerivedData/UnivMobile-hkgpereuqofjldgxrixppsvcdulv/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/Script-938858C20A554AD08749CBB9.sh
+    cd /Users/dandriana/Documents/xcode/unm-ios
+    /bin/sh -c /Users/dandriana/Library/Developer/Xcode/DerivedData/UnivMobile-hkgpereuqofjldgxrixppsvcdulv/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/Script-938858C20A554AD08749CBB9.sh
 
-PhaseScriptExecution Copy\ Pods\ Resources /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/Script-51E43C54847A450C9AB538B8.sh
-    cd /Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios
-    /bin/sh -c /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-akedqrkefhwpzggqrsvnhkwqzovz/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/Script-51E43C54847A450C9AB538B8.sh
-/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundError.png
-/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundError@2x.png
-/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundErrorIcon.png
-/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundErrorIcon@2x.png
-/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundMessage.png
-/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundMessage@2x.png
-/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundSuccess.png
-/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundSuccess@2x.png
-/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundSuccessIcon.png
-/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundSuccessIcon@2x.png
-/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundWarning.png
-/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundWarning@2x.png
-/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundWarningIcon.png
-/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundWarningIcon@2x.png
-/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationButtonBackground.png
-/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationButtonBackground@2x.png
-/Users/avcompris/tmp/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/TSMessagesDefaultDesign.json
+PhaseScriptExecution Copy\ Pods\ Resources /Users/dandriana/Library/Developer/Xcode/DerivedData/UnivMobile-hkgpereuqofjldgxrixppsvcdulv/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/Script-51E43C54847A450C9AB538B8.sh
+    cd /Users/dandriana/Documents/xcode/unm-ios
+    /bin/sh -c /Users/dandriana/Library/Developer/Xcode/DerivedData/UnivMobile-hkgpereuqofjldgxrixppsvcdulv/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/Script-51E43C54847A450C9AB538B8.sh
+/Users/dandriana/Documents/xcode/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundError.png
+/Users/dandriana/Documents/xcode/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundError@2x.png
+/Users/dandriana/Documents/xcode/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundErrorIcon.png
+/Users/dandriana/Documents/xcode/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundErrorIcon@2x.png
+/Users/dandriana/Documents/xcode/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundMessage.png
+/Users/dandriana/Documents/xcode/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundMessage@2x.png
+/Users/dandriana/Documents/xcode/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundSuccess.png
+/Users/dandriana/Documents/xcode/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundSuccess@2x.png
+/Users/dandriana/Documents/xcode/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundSuccessIcon.png
+/Users/dandriana/Documents/xcode/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundSuccessIcon@2x.png
+/Users/dandriana/Documents/xcode/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundWarning.png
+/Users/dandriana/Documents/xcode/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundWarning@2x.png
+/Users/dandriana/Documents/xcode/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundWarningIcon.png
+/Users/dandriana/Documents/xcode/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundWarningIcon@2x.png
+/Users/dandriana/Documents/xcode/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationButtonBackground.png
+/Users/dandriana/Documents/xcode/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationButtonBackground@2x.png
+/Users/dandriana/Documents/xcode/unm-ios/Pods/TSMessages/TSMessages/Resources/TSMessagesDefaultDesign.json
 building file list ... done
 
 sent 381 bytes  received 20 bytes  802.00 bytes/sec
@@ -107,48 +72,49 @@ total size is 10389  speedup is 25.91
 /* com.apple.actool.compilation-results */
 
 
-Test Suite 'All tests' started at 2014-07-10 23:40:45 +0000
-Test Suite 'UnivMobileTests.xctest' started at 2014-07-10 23:40:45 +0000
-Test Suite 'UNMAppLayerTests' started at 2014-07-10 23:40:45 +0000
+2014-07-11 07:46:44.427 sim[82842:303] Multiple instances of launchd_sim detected, using com.apple.iphonesimulator.launchd.2c8ea181 instead of com.apple.iphonesimulator.launchd.62d06566.
+Test Suite 'All tests' started at 2014-07-11 05:46:45 +0000
+Test Suite 'UnivMobileTests.xctest' started at 2014-07-11 05:46:45 +0000
+Test Suite 'UNMAppLayerTests' started at 2014-07-11 05:46:45 +0000
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneIdIsBretagne]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneIdIsBretagne]' passed (0.004 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneIdIsBretagne]' passed (0.000 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneTitleIsBretagne]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneTitleIsBretagne]' passed (0.001 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneTitleIsBretagne]' passed (0.000 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdTotoIsNill]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdTotoIsNill]' passed (0.001 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdTotoIsNill]' passed (0.000 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfRegionsIs3]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfRegionsIs3]' passed (0.001 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfRegionsIs3]' passed (0.000 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfUniversitiesIleDeFranceIs18]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfUniversitiesIleDeFranceIs18]' passed (0.001 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfUniversitiesIleDeFranceIs18]' passed (0.000 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11IdIsParis11]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11IdIsParis11]' passed (0.002 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11IdIsParis11]' passed (0.000 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11TitleIsParisSud]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11TitleIsParisSud]' passed (0.001 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11TitleIsParisSud]' passed (0.000 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDataObjectIsDifferent]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDataObjectIsDifferent]' passed (0.005 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDataObjectIsDifferent]' passed (0.003 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDateIsDifferent]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDateIsDifferent]' passed (0.003 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDateIsDifferent]' passed (0.002 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneIdIsBretagne]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneIdIsBretagne]' passed (0.003 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneIdIsBretagne]' passed (0.002 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneTitleIsBretagne]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneTitleIsBretagne]' passed (0.003 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneTitleIsBretagne]' passed (0.002 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdTotoIsNill]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdTotoIsNill]' passed (0.003 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdTotoIsNill]' passed (0.002 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfRegionsIs3]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfRegionsIs3]' passed (0.003 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfRegionsIs3]' passed (0.001 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfUniversitiesIleDeFranceIs18]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfUniversitiesIleDeFranceIs18]' passed (0.002 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfUniversitiesIleDeFranceIs18]' passed (0.001 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11IdIsParis11]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11IdIsParis11]' passed (0.002 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11IdIsParis11]' passed (0.001 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11TitleIsParisSud]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11TitleIsParisSud]' passed (0.002 seconds).
-Test Suite 'UNMAppLayerTests' finished at 2014-07-10 23:40:45 +0000.
-Executed 16 tests, with 0 failures (0 unexpected) in 0.038 (0.058) seconds
-Test Suite 'UnivMobileTests.xctest' finished at 2014-07-10 23:40:45 +0000.
-Executed 16 tests, with 0 failures (0 unexpected) in 0.038 (0.060) seconds
-Test Suite 'All tests' finished at 2014-07-10 23:40:45 +0000.
-Executed 16 tests, with 0 failures (0 unexpected) in 0.038 (0.066) seconds
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11TitleIsParisSud]' passed (0.001 seconds).
+Test Suite 'UNMAppLayerTests' finished at 2014-07-11 05:46:45 +0000.
+Executed 16 tests, with 0 failures (0 unexpected) in 0.016 (0.016) seconds
+Test Suite 'UnivMobileTests.xctest' finished at 2014-07-11 05:46:45 +0000.
+Executed 16 tests, with 0 failures (0 unexpected) in 0.016 (0.017) seconds
+Test Suite 'All tests' finished at 2014-07-11 05:46:45 +0000.
+Executed 16 tests, with 0 failures (0 unexpected) in 0.016 (0.018) seconds
 ** TEST SUCCEEDED **
 
 ----------------------------------------
-End Date: Fri Jul 11 01:40:45 CEST 2014
+End Date: Fri 11 Jul 2014 07:46:46 CEST
