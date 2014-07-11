@@ -82,8 +82,6 @@ public class UnivMobileTest {
 	private static Collection<Object[]> parameters(final JGitHelper jgitHelper)
 			throws Exception {
 
-		final List<Object[]> parameters = new ArrayList<Object[]>();
-
 		final String testResultsCommitId;
 
 		if (isEnvSet("testResultsCommitId")) {
@@ -111,8 +109,6 @@ public class UnivMobileTest {
 				+ testResultsCommitId + "...");
 
 		final TestResultLoader testResultsLoader = new TestResultLoader(bytes);
-
-		loadInitParameters(parameters, testResultsLoader.rootTestSuiteResult);
 
 		System.out.println("Xcode Test Results -- "
 				+ "(git repository is: \"unm-ios-ut-results\")");
@@ -167,6 +163,16 @@ public class UnivMobileTest {
 
 			System.out.println();
 		}
+
+		if (testResultsLoader.rootTestSuiteResult == null) {
+
+			throw new IllegalStateException(
+					"Error: The Test Result File doesn't contain any Test Suite.");
+		}
+
+		final List<Object[]> parameters = new ArrayList<Object[]>();
+
+		loadInitParameters(parameters, testResultsLoader.rootTestSuiteResult);
 
 		return parameters;
 	}
