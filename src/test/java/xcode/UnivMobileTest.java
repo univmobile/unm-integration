@@ -107,6 +107,9 @@ public class UnivMobileTest {
 
 		final byte[] bytes = jgitHelper.loadRevFileContent(revFileId);
 
+		System.out.println("Loading test results at commit="
+				+ testResultsCommitId + "...");
+
 		final TestResultLoader testResultsLoader = new TestResultLoader(bytes);
 
 		loadInitParameters(parameters, testResultsLoader.rootTestSuiteResult);
