@@ -21,7 +21,7 @@ public class JGitHelperTest {
 	@Before
 	public void setUp() throws Exception {
 
-		jgitHelper = new JGitHelper(new File("./.git"));
+		jgitHelper = new JGitHelper(new File("../.git"));
 	}
 
 	private JGitHelper jgitHelper;
@@ -45,7 +45,7 @@ public class JGitHelperTest {
 	public void testAllCommitsForFile() throws Exception {
 
 		final RevCommit[] commits = jgitHelper
-				.getAllCommitsForFileFromHead("data/xcodebuild_test.log");
+				.getAllCommitsForFileFromHead("unm-ios-ut-results/data/xcodebuild_test.log");
 
 		final String[] refCommitIds = new String[] {
 
@@ -103,7 +103,7 @@ public class JGitHelperTest {
 					.getId().getName());
 
 			assertEquals("revFileIds[" + i + "]", refRevFileIds[i], jgitHelper
-					.getRevFileIdInCommit("data/xcodebuild_test.log", commit)
+					.getRevFileIdInCommit("unm-ios-ut-results/data/xcodebuild_test.log", commit)
 					.name());
 
 		}
@@ -177,7 +177,7 @@ public class JGitHelperTest {
 		assertTrue(pomFile.exists());
 
 		final RevCommit[] commits = jgitHelper
-				.getAllCommitsForFileFromHead("data/xcodebuild_test.log");
+				.getAllCommitsForFileFromHead("unm-ios-ut-results/data/xcodebuild_test.log");
 
 		assertTrue(commits.length > 8);
 	}

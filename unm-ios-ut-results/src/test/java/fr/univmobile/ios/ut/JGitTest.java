@@ -20,7 +20,7 @@ public class JGitTest {
 
 		final FileRepositoryBuilder builder = new FileRepositoryBuilder();
 
-		final File gitDir = new File("./.git");
+		final File gitDir = new File("../.git");
 
 		final Repository repo = builder.setGitDir(gitDir).readEnvironment()
 				.findGitDir().build();
@@ -40,7 +40,7 @@ public class JGitTest {
 
 		final FileRepositoryBuilder builder = new FileRepositoryBuilder();
 
-		final File gitDir = new File("./.git");
+		final File gitDir = new File("../.git");
 
 		final Repository repo = builder.setGitDir(gitDir).readEnvironment()
 				.findGitDir().build();

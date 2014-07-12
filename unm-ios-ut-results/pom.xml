@@ -83,13 +83,13 @@
 
 	<scm>
 		<connection>
-            scm:git:https://github.com/univmobile/unm-ios-ut-results.git
+            scm:git:https://github.com/univmobile/unm-integration.git
         </connection>
 		<developerConnection>
-            scm:git:https://github.com/univmobile/unm-ios-ut-results.git
+            scm:git:https://github.com/univmobile/unm-integration.git
         </developerConnection>
 		<url>
-            https://github.com/univmobile/unm-ios-ut-results
+            https://github.com/univmobile/unm-integration/tree/master/unm-ios-ut-results
         </url>
 	</scm>
 	<ciManagement>

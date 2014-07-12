@@ -1,5 +1,6 @@
 package xcode;
 
+import static org.apache.commons.lang3.CharEncoding.UTF_8;
 import static org.junit.Assert.fail;
 
 import java.io.File;
@@ -69,7 +70,7 @@ public class UnivMobileTest {
 	@Parameters(name = "{0}.{1}")
 	public static Iterable<Object[]> parameters() throws Exception {
 
-		final JGitHelper jgitHelper = new JGitHelper(new File("./.git"));
+		final JGitHelper jgitHelper = new JGitHelper(new File("../.git"));
 		try {
 
 			return parameters(jgitHelper);
@@ -100,7 +101,7 @@ public class UnivMobileTest {
 				true);
 
 		final ObjectId revFileId = jgitHelper.getRevFileIdInCommit(
-				"data/xcodebuild_test.log",
+				"unm-ios-ut-results/data/xcodebuild_test.log",
 				jgitHelper.getCommitById(testResultsCommitId));
 
 		final byte[] bytes = jgitHelper.loadRevFileContent(revFileId);
@@ -108,7 +109,20 @@ public class UnivMobileTest {
 		System.out.println("Loading test results at commit="
 				+ testResultsCommitId + "...");
 
+		System.out.println("bytes: " + bytes.length);
+
 		final TestResultLoader testResultsLoader = new TestResultLoader(bytes);
+
+		if (testResultsLoader.rootTestSuiteResult == null) {
+			System.out.println( //
+					"** The Test Result File doesn't contain any Test Suite. -- Dumping...");
+			System.out.println(new String(bytes, UTF_8));
+		} else {
+			System.out.println("Loaded test results: "
+					+ testResultsLoader.rootTestSuiteResult.sizeOfTests());
+		}
+
+		System.out.println();
 
 		System.out.println("Xcode Test Results -- "
 				+ "(git repository is: \"unm-ios-ut-results\")");
@@ -198,7 +212,7 @@ public class UnivMobileTest {
 			throws IOException, GitAPIException {
 
 		final RevCommit[] commits = jgitHelper
-				.getAllCommitsForFileFromHead("data/xcodebuild_test.log");
+				.getAllCommitsForFileFromHead("unm-ios-ut-results/data/xcodebuild_test.log");
 
 		// 1. FIRST COMMIT IS TAGGED? USE IT.
 
