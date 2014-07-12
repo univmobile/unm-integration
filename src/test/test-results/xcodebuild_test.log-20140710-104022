@@ -1,0 +1,126 @@
+Begin Date: Thu 10 Jul 2014 10:40:22 CEST
+Hostname: Davids-MacBook-Pro.local
+Script: macos_job-xcodebuild_test.sh ../../unm-ios-ut-results/data/xcodebuild_test.log 
+Current Directory: /Users/dandriana/Documents/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios
+Test Report: /Users/dandriana/Documents/workspace/unm-ios-ut-results/data/xcodebuild_test.log
+Git Commit: e02792fada0708096e306542fd8204641d23a4be
+Test Command: /usr/bin/xcodebuild test -workspace UnivMobile.xcworkspace       -scheme UnivMobileTests       -configuration Debug       -sdk iphonesimulator7.1       -destination OS=7.1,name="iPhone Retina (4-inch)"
+----------------------------------------
+
+
+Build succeeded.
+Test Date: Thu 10 Jul 2014 10:40:26 CEST
+----------------------------------------
+Build settings from command line:
+    SDKROOT = iphonesimulator7.1
+
+=== BUILD TARGET UnivMobileTests OF PROJECT UnivMobile WITH CONFIGURATION Debug ===
+
+Check dependencies
+
+=== BUILD TARGET Pods-Mantle OF PROJECT Pods WITH CONFIGURATION Debug ===
+
+Check dependencies
+
+=== BUILD TARGET Pods-HexColors OF PROJECT Pods WITH CONFIGURATION Debug ===
+
+Check dependencies
+
+=== BUILD TARGET Pods-ReactiveCocoa OF PROJECT Pods WITH CONFIGURATION Debug ===
+Check dependencies
+
+=== BUILD TARGET Pods-TSMessages OF PROJECT Pods WITH CONFIGURATION Debug ===
+
+Check dependencies
+
+=== BUILD TARGET Pods OF PROJECT Pods WITH CONFIGURATION Debug ===
+
+Check dependencies
+
+=== BUILD TARGET UnivMobile OF PROJECT UnivMobile WITH CONFIGURATION Debug ===
+
+Check dependencies
+
+PhaseScriptExecution Check\ Pods\ Manifest.lock /Users/dandriana/Library/Developer/Xcode/DerivedData/UnivMobile-atgozevwiicgaxbpyxtxeisifwnp/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/Script-938858C20A554AD08749CBB9.sh
+    cd /Users/dandriana/Documents/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios
+    /bin/sh -c /Users/dandriana/Library/Developer/Xcode/DerivedData/UnivMobile-atgozevwiicgaxbpyxtxeisifwnp/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/Script-938858C20A554AD08749CBB9.sh
+
+PhaseScriptExecution Copy\ Pods\ Resources /Users/dandriana/Library/Developer/Xcode/DerivedData/UnivMobile-atgozevwiicgaxbpyxtxeisifwnp/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/Script-51E43C54847A450C9AB538B8.sh
+    cd /Users/dandriana/Documents/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios
+    /bin/sh -c /Users/dandriana/Library/Developer/Xcode/DerivedData/UnivMobile-atgozevwiicgaxbpyxtxeisifwnp/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/Script-51E43C54847A450C9AB538B8.sh
+/Users/dandriana/Documents/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundError.png
+/Users/dandriana/Documents/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundError@2x.png
+/Users/dandriana/Documents/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundErrorIcon.png
+/Users/dandriana/Documents/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundErrorIcon@2x.png
+/Users/dandriana/Documents/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundMessage.png
+/Users/dandriana/Documents/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundMessage@2x.png
+/Users/dandriana/Documents/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundSuccess.png
+/Users/dandriana/Documents/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundSuccess@2x.png
+/Users/dandriana/Documents/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundSuccessIcon.png
+/Users/dandriana/Documents/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundSuccessIcon@2x.png
+/Users/dandriana/Documents/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundWarning.png
+/Users/dandriana/Documents/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundWarning@2x.png
+/Users/dandriana/Documents/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundWarningIcon.png
+/Users/dandriana/Documents/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundWarningIcon@2x.png
+/Users/dandriana/Documents/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationButtonBackground.png
+/Users/dandriana/Documents/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationButtonBackground@2x.png
+/Users/dandriana/Documents/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/TSMessagesDefaultDesign.json
+building file list ... done
+
+sent 381 bytes  received 20 bytes  802.00 bytes/sec
+total size is 10389  speedup is 25.91
+/* com.apple.actool.compilation-results */
+
+
+2014-07-10 10:40:29.166 sim[77082:303] Multiple instances of launchd_sim detected, using com.apple.iphonesimulator.launchd.77e62390 instead of com.apple.iphonesimulator.launchd.62d06566.
+Test Suite 'All tests' started at 2014-07-10 08:40:30 +0000
+Test Suite 'UnivMobileTests.xctest' started at 2014-07-10 08:40:30 +0000
+Test Suite 'UNMAppLayerTests' started at 2014-07-10 08:40:30 +0000
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneIdIsBretagne]' started.
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneIdIsBretagne]' passed (0.000 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneTitleIsBretagne]' started.
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneTitleIsBretagne]' passed (0.000 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdTotoIsNill]' started.
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdTotoIsNill]' passed (0.000 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfRegionsIs3]' started.
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfRegionsIs3]' passed (0.000 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfUniversitiesIleDeFranceIs18]' started.
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfUniversitiesIleDeFranceIs18]' passed (0.000 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11IdIsParis11]' started.
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11IdIsParis11]' passed (0.000 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11TitleIsParisSud]' started.
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11TitleIsParisSud]' passed (0.000 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDataObjectIsDifferent]' started.
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDataObjectIsDifferent]' passed (0.002 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDateIsDifferent]' started.
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDateIsDifferent]' passed (0.001 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneIdIsBretagne]' started.
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneIdIsBretagne]' passed (0.001 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneTitleIsBretagne]' started.
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneTitleIsBretagne]' passed (0.001 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdTotoIsNill]' started.
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdTotoIsNill]' passed (0.001 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfRegionsIs3]' started.
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfRegionsIs3]' passed (0.001 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfUniversitiesIleDeFranceIs18]' started.
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfUniversitiesIleDeFranceIs18]' passed (0.001 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11IdIsParis11]' started.
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11IdIsParis11]' passed (0.001 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11TitleIsParisSud]' started.
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11TitleIsParisSud]' passed (0.001 seconds).
+Test Suite 'UNMAppLayerTests' finished at 2014-07-10 08:40:30 +0000.
+Executed 16 tests, with 0 failures (0 unexpected) in 0.010 (0.011) seconds
+Test Suite 'UnivMobileTests' started at 2014-07-10 08:40:30 +0000
+Test Case '-[UnivMobileTests testExample_x_x]' started.
+/Users/dandriana/Documents/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/UnivMobileTests/UnivMobileTests.m:29: error: -[UnivMobileTests testExample_x_x] : failed - No implementation for "-[UnivMobileTests testExample_x_x]"
+Test Case '-[UnivMobileTests testExample_x_x]' failed (0.000 seconds).
+Test Suite 'UnivMobileTests' finished at 2014-07-10 08:40:30 +0000.
+Executed 1 test, with 1 failure (0 unexpected) in 0.000 (0.000) seconds
+Test Suite 'UnivMobileTests.xctest' finished at 2014-07-10 08:40:30 +0000.
+Executed 17 tests, with 1 failure (0 unexpected) in 0.011 (0.011) seconds
+Test Suite 'All tests' finished at 2014-07-10 08:40:30 +0000.
+Executed 17 tests, with 1 failure (0 unexpected) in 0.011 (0.013) seconds
+** TEST FAILED **
+
+----------------------------------------
+End Date: Thu 10 Jul 2014 10:40:30 CEST
