@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="unm-devel-it" default="generate-unm-ci-dump">
+
+	<target name="generate-unm-ci-dump"
+		description="Generate HTML page about UnivMobile Continuous Integration">
+
+		<xslt force="true"
+			style="src/main/xslt/unm-ci-dump.html.xsl"
+			in="target/unm-ci-dump.xml"
+			out="target/unm-ci-dump.html"/>
+		
+	</target>
+
+</project>
