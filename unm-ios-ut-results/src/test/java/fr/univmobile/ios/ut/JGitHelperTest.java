@@ -159,7 +159,7 @@ public class JGitHelperTest {
 	@Test
 	public void testCloneRepo() throws Exception {
 
-		final String PROJECT_NAME = "unm-ios-ut-results";
+		final String PROJECT_NAME = "unm-integration";
 
 		final File dir = new File("target/" + PROJECT_NAME);
 
@@ -167,7 +167,7 @@ public class JGitHelperTest {
 			FileUtils.deleteDirectory(dir);
 		}
 
-		final File pomFile = new File(dir, "pom.xml");
+		final File pomFile = new File(dir, "unm-ios-ut-results/pom.xml");
 
 		assertFalse(pomFile.exists());
 
