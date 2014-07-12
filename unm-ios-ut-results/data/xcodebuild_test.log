@@ -1,16 +1,16 @@
-Begin Date: Sun Jul 13 00:07:20 CEST 2014
+Begin Date: Sun Jul 13 00:53:54 CEST 2014
 Hostname: unm-temp2.local
 User: avcompris
 Script: xcodebuild_test.sh  
 Current Directory: /Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios
 Test Report: /Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/target/unm-integration/unm-ios-ut-results/data/xcodebuild_test.log
-Git Commit: 109cc5b4b6bfde32aaf0d896200b6dbf4fe84ff2
+Git Commit: fece1a767cf5282515b1a14ce53769f9cf4452b0
 Test Command: /usr/bin/xcodebuild test -workspace UnivMobile.xcworkspace   -scheme UnivMobileTests   -configuration Debug   -sdk iphonesimulator7.1   -destination OS=7.1,name="iPhone Retina (4-inch)"
 ----------------------------------------
 
 
 Build succeeded.
-Test Date: Sun Jul 13 00:08:01 CEST 2014
+Test Date: Sun Jul 13 00:54:27 CEST 2014
 ----------------------------------------
 Build settings from command line:
     SDKROOT = iphonesimulator7.1
@@ -69,16 +69,16 @@ PhaseScriptExecution Copy\ Pods\ Resources /Users/avcompris/Library/Developer/Xc
 /Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/TSMessagesDefaultDesign.json
 building file list ... done
 
-sent 381 bytes  received 20 bytes  267.33 bytes/sec
+sent 381 bytes  received 20 bytes  802.00 bytes/sec
 total size is 10389  speedup is 25.91
 /* com.apple.actool.compilation-results */
 
 
-Test Suite 'All tests' started at 2014-07-12 22:08:16 +0000
-Test Suite 'UnivMobileTests.xctest' started at 2014-07-12 22:08:16 +0000
-Test Suite 'UNMAppLayerTests' started at 2014-07-12 22:08:16 +0000
+Test Suite 'All tests' started at 2014-07-12 22:54:38 +0000
+Test Suite 'UnivMobileTests.xctest' started at 2014-07-12 22:54:38 +0000
+Test Suite 'UNMAppLayerTests' started at 2014-07-12 22:54:38 +0000
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneIdIsBretagne]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneIdIsBretagne]' passed (0.106 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneIdIsBretagne]' passed (0.013 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneTitleIsBretagne]' started.
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneTitleIsBretagne]' passed (0.001 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdTotoIsNill]' started.
@@ -92,30 +92,30 @@ Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11TitleIsParisSud]' started.
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11TitleIsParisSud]' passed (0.001 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDataObjectIsDifferent]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDataObjectIsDifferent]' passed (0.017 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDataObjectIsDifferent]' passed (0.015 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDateIsDifferent]' started.
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDateIsDifferent]' passed (0.003 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneIdIsBretagne]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneIdIsBretagne]' passed (0.004 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneIdIsBretagne]' passed (0.003 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneTitleIsBretagne]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneTitleIsBretagne]' passed (0.003 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneTitleIsBretagne]' passed (0.002 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdTotoIsNill]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdTotoIsNill]' passed (0.002 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdTotoIsNill]' passed (0.004 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfRegionsIs3]' started.
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfRegionsIs3]' passed (0.002 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfUniversitiesIleDeFranceIs18]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfUniversitiesIleDeFranceIs18]' passed (0.003 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfUniversitiesIleDeFranceIs18]' passed (0.002 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11IdIsParis11]' started.
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11IdIsParis11]' passed (0.003 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11TitleIsParisSud]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11TitleIsParisSud]' passed (0.003 seconds).
-Test Suite 'UNMAppLayerTests' finished at 2014-07-12 22:08:17 +0000.
-Executed 16 tests, with 0 failures (0 unexpected) in 0.152 (0.178) seconds
-Test Suite 'UnivMobileTests.xctest' finished at 2014-07-12 22:08:17 +0000.
-Executed 16 tests, with 0 failures (0 unexpected) in 0.152 (0.179) seconds
-Test Suite 'All tests' finished at 2014-07-12 22:08:17 +0000.
-Executed 16 tests, with 0 failures (0 unexpected) in 0.152 (0.184) seconds
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11TitleIsParisSud]' passed (0.002 seconds).
+Test Suite 'UNMAppLayerTests' finished at 2014-07-12 22:54:38 +0000.
+Executed 16 tests, with 0 failures (0 unexpected) in 0.054 (0.079) seconds
+Test Suite 'UnivMobileTests.xctest' finished at 2014-07-12 22:54:38 +0000.
+Executed 16 tests, with 0 failures (0 unexpected) in 0.054 (0.081) seconds
+Test Suite 'All tests' finished at 2014-07-12 22:54:38 +0000.
+Executed 16 tests, with 0 failures (0 unexpected) in 0.054 (0.087) seconds
 ** TEST SUCCEEDED **
 
 ----------------------------------------
-End Date: Sun Jul 13 00:08:17 CEST 2014
+End Date: Sun Jul 13 00:54:39 CEST 2014
