@@ -23,6 +23,8 @@ import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.junit.Test;
 
+import com.avcompris.util.PropertiesUtils;
+
 import fr.univmobile.ios.ut.JGitHelper;
 
 public class UnivMobileDevelCiTest {
@@ -117,8 +119,10 @@ public class UnivMobileDevelCiTest {
 		final String baseURL = "http://univmobile.vswip.com/";
 
 		final String username = "dandriana";
-		final String apiToken = "135c8b3c35c120652e5dc488997ef8ec";
+		final String apiToken = PropertiesUtils.get
 
+				jenkins.apiToken
+				
 		client.getState().setCredentials(
 				new AuthScope("univmobile.vswip.com", 80, "realm"),
 				new UsernamePasswordCredentials(username, apiToken));
