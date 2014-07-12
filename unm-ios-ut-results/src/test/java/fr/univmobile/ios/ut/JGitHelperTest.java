@@ -98,8 +98,6 @@ public class JGitHelperTest {
 		for (int i = 0; i < 8; ++i) {
 
 			final RevCommit commit = commits[commits.length - 8 + i];
-
-			System.out.println("xxx " +commit.getId().getName());
 			
 			assertEquals("commitIds[" + i + "]", refCommitIds[i], commit
 					.getId().getName());
