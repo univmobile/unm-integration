@@ -8,9 +8,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
+import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
 import org.eclipse.jgit.api.Git;
@@ -71,7 +71,7 @@ public class JGitHelper {
 		repo.close();
 	}
 
-	public RevCommit[] getAllCommitsFromHead() throws IOException {
+	private RevWalk getWalkFromHead() throws IOException {
 
 		final ObjectId head = repo.resolve(Constants.HEAD);
 
@@ -83,11 +83,26 @@ public class JGitHelper {
 
 		// revWalk.setRetainBody(false);
 
+		return walk;
+	}
+
+	public RevCommit[] getAllCommitsFromHead(final int max) throws IOException {
+
+		final RevWalk walk = getWalkFromHead();
+
 		final List<RevCommit> commits = new ArrayList<RevCommit>();
+
+		int count = 0;
 
 		for (final RevCommit commit : walk) {
 
+			if (count >= max) {
+				break;
+			}
+
 			commits.add(commit);
+
+			++count;
 		}
 
 		return Iterables.toArray(commits, RevCommit.class);
@@ -115,28 +130,43 @@ public class JGitHelper {
 		return canonicalTreeParser.getEntryObjectId();
 	}
 
-	public RevCommit[] getAllCommitsForFileFromHead(final String filePath)
-			throws IOException {
+	public RevCommit[] getAllCommitsForFileFromHead(final String filePath,
+			final int max) throws IOException {
 
-		final RevCommit[] allCommits = getAllCommitsFromHead();
+		final RevWalk walk = getWalkFromHead();
 
-		final Set<ObjectId> revFileIds = new HashSet<ObjectId>();
+		// final Set<ObjectId> revFileIds = new HashSet<ObjectId>();
+
+		final Map<ObjectId, RevCommit> revFileIdCommits = new HashMap<ObjectId, RevCommit>();
 
 		final List<RevCommit> commits = new ArrayList<RevCommit>();
 
-		for (int i = 0; i < allCommits.length; ++i) {
+		int count = 0;
 
-			final RevCommit commit = allCommits[allCommits.length - 1 - i];
+		for (final RevCommit commit : walk) {
+
+			if (count >= max) {
+				break;
+			}
 
 			final ObjectId revFileId = getRevFileIdInCommit(filePath, commit);
 
-			if (revFileId == null || revFileIds.contains(revFileId)) {
+			if (revFileId == null) {
 				continue;
 			}
 
-			revFileIds.add(revFileId);
+			final RevCommit revFileIdCommit = revFileIdCommits.get(revFileId);
 
-			commits.add(0, commit);
+			if (revFileIdCommit != null) {
+
+				commits.remove(revFileIdCommit);
+			}
+
+			revFileIdCommits.put(revFileId, commit);
+
+			commits.add(commit);
+
+			++count;
 		}
 
 		return Iterables.toArray(commits, RevCommit.class);
@@ -217,17 +247,19 @@ public class JGitHelper {
 	}
 
 	public static JGitHelper cloneRepo(final String url, final File destDir)
-			throws IOException, InvalidRemoteException, TransportException, GitAPIException {
+			throws IOException, InvalidRemoteException, TransportException,
+			GitAPIException {
 
-//		final FileRepositoryBuilder builder = new FileRepositoryBuilder();
+		// final FileRepositoryBuilder builder = new FileRepositoryBuilder();
 
-//		final Repository repo = builder.setGitDir(gitDir).readEnvironment()
-	//			.findGitDir().build();
+		// final Repository repo = builder.setGitDir(gitDir).readEnvironment()
+		// .findGitDir().build();
 
 		Git.cloneRepository().setBare(false).setCloneAllBranches(true)
 				.setDirectory(destDir).setURI(url).call();
 
 		final File gitDir = new File(destDir, ".git");
-		
-		return new JGitHelper(gitDir);	}
+
+		return new JGitHelper(gitDir);
+	}
 }

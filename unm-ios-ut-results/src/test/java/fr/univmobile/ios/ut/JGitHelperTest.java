@@ -35,7 +35,7 @@ public class JGitHelperTest {
 	@Test
 	public void testMostAncientCommit_isXxx() throws Exception {
 
-		final RevCommit[] commits = jgitHelper.getAllCommitsFromHead();
+		final RevCommit[] commits = jgitHelper.getAllCommitsFromHead(100);
 
 		assertEquals("c9f193dd53322d9f4fbfbb3e2cd04bd033d8b5ce",
 				commits[commits.length - 1].getId().name());
@@ -44,8 +44,8 @@ public class JGitHelperTest {
 	@Test
 	public void testAllCommitsForFile() throws Exception {
 
-		final RevCommit[] commits = jgitHelper
-				.getAllCommitsForFileFromHead("unm-ios-ut-results/data/xcodebuild_test.log");
+		final RevCommit[] commits = jgitHelper.getAllCommitsForFileFromHead(
+				"unm-ios-ut-results/data/xcodebuild_test.log", 100);
 
 		final String[] refCommitIds = new String[] {
 
@@ -99,12 +99,17 @@ public class JGitHelperTest {
 
 			final RevCommit commit = commits[commits.length - 8 + i];
 
+			System.out.println("xxx " +commit.getId().getName());
+			
 			assertEquals("commitIds[" + i + "]", refCommitIds[i], commit
 					.getId().getName());
 
-			assertEquals("revFileIds[" + i + "]", refRevFileIds[i], jgitHelper
-					.getRevFileIdInCommit("unm-ios-ut-results/data/xcodebuild_test.log", commit)
-					.name());
+			assertEquals(
+					"revFileIds[" + i + "]",
+					refRevFileIds[i],
+					jgitHelper.getRevFileIdInCommit(
+							"unm-ios-ut-results/data/xcodebuild_test.log",
+							commit).name());
 
 		}
 	}
@@ -176,8 +181,8 @@ public class JGitHelperTest {
 
 		assertTrue(pomFile.exists());
 
-		final RevCommit[] commits = jgitHelper
-				.getAllCommitsForFileFromHead("unm-ios-ut-results/data/xcodebuild_test.log");
+		final RevCommit[] commits = jgitHelper.getAllCommitsForFileFromHead(
+				"unm-ios-ut-results/data/xcodebuild_test.log", 100);
 
 		assertTrue(commits.length > 8);
 	}
