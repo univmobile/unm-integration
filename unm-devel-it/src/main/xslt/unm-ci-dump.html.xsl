@@ -12,13 +12,22 @@
 table {
 	border-collapse: collapse;
 }
-td,
 thx {
 	border-bottom: 1px solid #000;
 	border-top: 1px solid #000;
 }
-tbody {
-	border: 1px solid #000;
+tbody,
+td.commitId,
+td.build.first {
+	border-top: 1px solid #fff;
+}
+tbody,
+td.commitId,
+td.build.last {
+	border-bottom: 1px solid #fff;
+}
+td {
+	background-color: #eee;
 }
 td.commitId {
 	background-color: #ccc;
@@ -80,9 +89,9 @@ a {
 <xsl:variable name="jenkinsBuilds-unm-ios-ut"
 	select="count($jenkinsBuilds[../@name = 'unm-ios-ut'])"/>
 <xsl:variable name="jenkinsBuilds-unm-ios-it"
-	select="count($jenkinsBuilds[../@name = 'unm-ios_it'])"/>
+	select="count($jenkinsBuilds[../@name = 'unm-ios-it'])"/>
 
-<xsl:variable name="rowspan">
+<xsl:variable name="rowCount">
 <xsl:choose>
 <xsl:when test="$jenkinsBuilds-unm-ios_xcode &gt;= $jenkinsBuilds-unm-ios-ut
 		and $jenkinsBuilds-unm-ios_xcode &gt;= $jenkinsBuilds-unm-ios-it">
@@ -101,9 +110,9 @@ a {
 <tr>
 <td class="commitId">
 <xsl:choose>
-<xsl:when test="$rowspan &gt; 1">
+<xsl:when test="$rowCount &gt; 1">
 <xsl:attribute name="rowspan">
-	<xsl:value-of select="$rowspan"/>
+	<xsl:value-of select="$rowCount"/>
 </xsl:attribute>
 </xsl:when>
 </xsl:choose>
@@ -114,23 +123,26 @@ a {
 	<xsl:with-param name="jenkinsBuilds" select="$jenkinsBuilds"/>
 	<xsl:with-param name="jobName" select="'unm-ios_xcode'"/>
 	<xsl:with-param name="index" select="1"/>
+	<xsl:with-param name="rowCount" select="$rowCount"/>
 	</xsl:call-template>
 
 	<xsl:call-template name="td-build">
 	<xsl:with-param name="jenkinsBuilds" select="$jenkinsBuilds"/>
 	<xsl:with-param name="jobName" select="'unm-ios-ut'"/>
 	<xsl:with-param name="index" select="1"/>
+	<xsl:with-param name="rowCount" select="$rowCount"/>
 	</xsl:call-template>
 
 	<xsl:call-template name="td-build">
 	<xsl:with-param name="jenkinsBuilds" select="$jenkinsBuilds"/>
 	<xsl:with-param name="jobName" select="'unm-ios-it'"/>
 	<xsl:with-param name="index" select="1"/>
+	<xsl:with-param name="rowCount" select="$rowCount"/>
 	</xsl:call-template>
 
 </tr>
-<xsl:for-each select="$jenkinsBuilds[position() &lt; $rowspan]">
-<xsl:variable name="index" select="1
+<xsl:for-each select="$jenkinsBuilds[position() &lt; $rowCount]">
+<xsl:variable name="index" select="2
 	+ count(preceding::build[@commitId = $commitId])"/>
 <tr>
 
@@ -138,18 +150,21 @@ a {
 	<xsl:with-param name="jenkinsBuilds" select="$jenkinsBuilds"/>
 	<xsl:with-param name="jobName" select="'unm-ios_xcode'"/>
 	<xsl:with-param name="index" select="$index"/>
+	<xsl:with-param name="rowCount" select="$rowCount"/>
 	</xsl:call-template>
 
 	<xsl:call-template name="td-build">
 	<xsl:with-param name="jenkinsBuilds" select="$jenkinsBuilds"/>
 	<xsl:with-param name="jobName" select="'unm-ios-ut'"/>
 	<xsl:with-param name="index" select="$index"/>
+	<xsl:with-param name="rowCount" select="$rowCount"/>
 	</xsl:call-template>
 
 	<xsl:call-template name="td-build">
 	<xsl:with-param name="jenkinsBuilds" select="$jenkinsBuilds"/>
 	<xsl:with-param name="jobName" select="'unm-ios-it'"/>
 	<xsl:with-param name="index" select="$index"/>
+	<xsl:with-param name="rowCount" select="$rowCount"/>
 	</xsl:call-template>
 
 </tr>
@@ -190,6 +205,7 @@ Build #<xsl:value-of select="@number"/>
 <xsl:param name="jenkinsBuilds"/>
 <xsl:param name="jobName" select="'unm-ios_xcode'"/>
 <xsl:param name="index" select="1"/>
+<xsl:param name="rowCount" select="1"/>
 
 <xsl:variable name="commitId" select="$jenkinsBuilds[1]/@commitId"/>
 
@@ -203,7 +219,13 @@ Build #<xsl:value-of select="@number"/>
 <xsl:variable name="href" select="concat(
 	'http://univmobile.vswip.com/job/', $jobName, '/', $buildNumber, '/')"/>
 	
-<td class="build number {$jobName} {$jenkinsBuild/@result}">
+<td>
+<xsl:attribute name="class">
+	build number
+	<xsl:value-of select="concat($jobName, ' ', $jenkinsBuild/@result)"/>
+	<xsl:if test="$index = 1"> first</xsl:if>
+	<xsl:if test="$index = $rowCount"> last</xsl:if>
+</xsl:attribute>
 	
 	<xsl:if test="$jenkinsBuild">
 	
@@ -218,7 +240,13 @@ Build #<xsl:value-of select="@number"/>
 
 </td>
 
-<td class="build date {$jobName} {$jenkinsBuild/@result}">
+<td>
+<xsl:attribute name="class">
+	build date
+	<xsl:value-of select="concat($jobName, ' ', $jenkinsBuild/@result)"/>
+	<xsl:if test="$index = 1"> first</xsl:if>
+	<xsl:if test="$index = $rowCount"> last</xsl:if>
+</xsl:attribute>
 	
 	<xsl:if test="$jenkinsBuild">
 	
