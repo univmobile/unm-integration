@@ -35,7 +35,7 @@ public class JGitHelperTest {
 	@Test
 	public void testMostAncientCommit_isXxx() throws Exception {
 
-		final RevCommit[] commits = jgitHelper.getAllCommitsFromHead(100);
+		final RevCommit[] commits = jgitHelper.getCommitsFromHead(100);
 
 		assertEquals("c9f193dd53322d9f4fbfbb3e2cd04bd033d8b5ce",
 				commits[commits.length - 1].getId().name());
@@ -44,7 +44,7 @@ public class JGitHelperTest {
 	@Test
 	public void testAllCommitsForFile() throws Exception {
 
-		final RevCommit[] commits = jgitHelper.getAllCommitsForFileFromHead(
+		final RevCommit[] commits = jgitHelper.getCommitsForFileFromHead(
 				"unm-ios-ut-results/data/xcodebuild_test.log", 100);
 
 		final String[] refCommitIds = new String[] {
@@ -181,7 +181,7 @@ public class JGitHelperTest {
 
 		assertTrue(pomFile.exists());
 
-		final RevCommit[] commits = jgitHelper.getAllCommitsForFileFromHead(
+		final RevCommit[] commits = jgitHelper.getCommitsForFileFromHead(
 				"unm-ios-ut-results/data/xcodebuild_test.log", 100);
 
 		assertTrue(commits.length > 8);

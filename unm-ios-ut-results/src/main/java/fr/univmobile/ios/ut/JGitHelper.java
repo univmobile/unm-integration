@@ -86,7 +86,7 @@ public class JGitHelper {
 		return walk;
 	}
 
-	public RevCommit[] getAllCommitsFromHead(final int max) throws IOException {
+	public RevCommit[] getCommitsFromHead(final int max) throws IOException {
 
 		final RevWalk walk = getWalkFromHead();
 
@@ -130,12 +130,10 @@ public class JGitHelper {
 		return canonicalTreeParser.getEntryObjectId();
 	}
 
-	public RevCommit[] getAllCommitsForFileFromHead(final String filePath,
+	public RevCommit[] getCommitsForFileFromHead(final String filePath,
 			final int max) throws IOException {
 
 		final RevWalk walk = getWalkFromHead();
-
-		// final Set<ObjectId> revFileIds = new HashSet<ObjectId>();
 
 		final Map<ObjectId, RevCommit> revFileIdCommits = new HashMap<ObjectId, RevCommit>();
 

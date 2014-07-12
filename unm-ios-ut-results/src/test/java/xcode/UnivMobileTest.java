@@ -211,7 +211,7 @@ public class UnivMobileTest {
 	private static String findOldestCommitWithoutTag(final JGitHelper jgitHelper)
 			throws IOException, GitAPIException {
 
-		final RevCommit[] commits = jgitHelper.getAllCommitsForFileFromHead(
+		final RevCommit[] commits = jgitHelper.getCommitsForFileFromHead(
 				"unm-ios-ut-results/data/xcodebuild_test.log", 100);
 
 		// 1. FIRST COMMIT IS TAGGED? USE IT.
