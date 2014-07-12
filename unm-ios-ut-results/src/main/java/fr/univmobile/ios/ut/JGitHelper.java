@@ -92,7 +92,7 @@ public class JGitHelper {
 
 		final List<RevCommit> commits = new ArrayList<RevCommit>();
 
-		int count = 0;
+		int count = commits.size();
 
 		for (final RevCommit commit : walk) {
 
@@ -139,7 +139,7 @@ public class JGitHelper {
 
 		final List<RevCommit> commits = new ArrayList<RevCommit>();
 
-		int count = 0;
+		int count = commits.size();
 
 		for (final RevCommit commit : walk) {
 
