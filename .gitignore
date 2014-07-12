@@ -8,3 +8,4 @@ release.properties
 target/
 build/
 bin/
+.DS_Store
