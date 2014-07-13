@@ -112,7 +112,7 @@ public class JGitHelper {
 			final RevCommit commit) throws IOException {
 
 		final TreeWalk treeWalk = TreeWalk.forPath(repo,
-				"data/xcodebuild_test.log", commit.getTree());
+				filePath, commit.getTree());
 
 		if (treeWalk == null) {
 			return null;
