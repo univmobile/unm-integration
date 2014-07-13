@@ -111,8 +111,8 @@ public class JGitHelper {
 	public ObjectId getRevFileIdInCommit(final String filePath,
 			final RevCommit commit) throws IOException {
 
-		final TreeWalk treeWalk = TreeWalk.forPath(repo,
-				filePath, commit.getTree());
+		final TreeWalk treeWalk = TreeWalk.forPath(repo, filePath,
+				commit.getTree());
 
 		if (treeWalk == null) {
 			return null;
@@ -248,10 +248,9 @@ public class JGitHelper {
 			throws IOException, InvalidRemoteException, TransportException,
 			GitAPIException {
 
-		// final FileRepositoryBuilder builder = new FileRepositoryBuilder();
-
-		// final Repository repo = builder.setGitDir(gitDir).readEnvironment()
-		// .findGitDir().build();
+		System.out.println("Cloning git repo: " + url);
+		System.out.println(" Cloning into: " + destDir.getCanonicalPath()
+				+ "...");
 
 		Git.cloneRepository().setBare(false).setCloneAllBranches(true)
 				.setDirectory(destDir).setURI(url).call();
