@@ -44,7 +44,8 @@ td.commitId {
 	vertical-align: top;
 	color: #666;
 }
-td.build.SUCCESS {
+td.build.SUCCESS,
+td.commitId.SUCCESS {
 	background-color: #cfc;
 }
 td.build.FAILURE {
@@ -75,7 +76,10 @@ a {
 	text-decoration: none;
 }
 td.commitId span:hover {
-	color: #ff0;
+	color: #996;
+}
+td.commitId.SUCCESS span:hover {
+	color: #090;
 }
 td.build a:hover {
 	color: #00f;
@@ -125,30 +129,46 @@ td.unm-ios-it.empty {
 		or @appCommitId = $commitId]"/>
 	
 <xsl:variable name="jenkinsBuilds-unm-ios_xcode"
-	select="count($jenkinsBuilds[../@name = 'unm-ios_xcode'])"/>
+	select="$jenkinsBuilds[../@name = 'unm-ios_xcode']"/>
 <xsl:variable name="jenkinsBuilds-unm-ios-ut"
-	select="count($jenkinsBuilds[../@name = 'unm-ios-ut'])"/>
+	select="$jenkinsBuilds[../@name = 'unm-ios-ut']"/>
 <xsl:variable name="jenkinsBuilds-unm-ios-it"
-	select="count($jenkinsBuilds[../@name = 'unm-ios-it'])"/>
-
+	select="$jenkinsBuilds[../@name = 'unm-ios-it']"/>
+	
+<xsl:variable name="sizeOfBuilds-unm-ios_xcode"
+	select="count($jenkinsBuilds-unm-ios_xcode)"/>
+<xsl:variable name="sizeOfBuilds-unm-ios-ut"
+	select="count($jenkinsBuilds-unm-ios-ut)"/>
+<xsl:variable name="sizeOfBuilds-unm-ios-it"
+	select="count($jenkinsBuilds-unm-ios-it)"/>
+	
 <xsl:variable name="rowCount">
 <xsl:choose>
-<xsl:when test="$jenkinsBuilds-unm-ios_xcode &gt;= $jenkinsBuilds-unm-ios-ut
-		and $jenkinsBuilds-unm-ios_xcode &gt;= $jenkinsBuilds-unm-ios-it">
-	<xsl:value-of select="$jenkinsBuilds-unm-ios_xcode"/>
+<xsl:when test="$sizeOfBuilds-unm-ios_xcode &gt;= $sizeOfBuilds-unm-ios-ut
+		and $sizeOfBuilds-unm-ios_xcode &gt;= $sizeOfBuilds-unm-ios-it">
+	<xsl:value-of select="$sizeOfBuilds-unm-ios_xcode"/>
 </xsl:when>
-<xsl:when test="$jenkinsBuilds-unm-ios-ut &gt;= $jenkinsBuilds-unm-ios_xcode
-		and $jenkinsBuilds-unm-ios-ut &gt;= $jenkinsBuilds-unm-ios-it">
-	<xsl:value-of select="$jenkinsBuilds-unm-ios-ut"/>
+<xsl:when test="$sizeOfBuilds-unm-ios-ut &gt;= $sizeOfBuilds-unm-ios_xcode
+		and $sizeOfBuilds-unm-ios-ut &gt;= $sizeOfBuilds-unm-ios-it">
+	<xsl:value-of select="$sizeOfBuilds-unm-ios-ut"/>
 </xsl:when>
 <xsl:otherwise>
-	<xsl:value-of select="$jenkinsBuilds-unm-ios-it"/>
+	<xsl:value-of select="$sizeOfBuilds-unm-ios-it"/>
 </xsl:otherwise>
 </xsl:choose>
 </xsl:variable>
 
 <tr>
-<td class="commitId">
+<td>
+<xsl:attribute name="class">
+	commitId
+	<xsl:if test="$jenkinsBuilds-unm-ios_xcode/@result = 'SUCCESS'
+		and $jenkinsBuilds-unm-ios-ut/@result = 'SUCCESS'
+		and $jenkinsBuilds-unm-ios-it[@appCommitId]/@result = 'SUCCESS'">
+			SUCCESS</xsl:if>
+	<xsl:if test="$jenkinsBuilds/@result = 'FAILURE'"> FAILURE</xsl:if>
+	<xsl:if test="$jenkinsBuilds/@result = 'UNSTABLE'"> UNSTABLE</xsl:if>
+</xsl:attribute>
 <xsl:choose>
 <xsl:when test="$rowCount &gt; 1">
 <xsl:attribute name="rowspan">
@@ -156,7 +176,7 @@ td.unm-ios-it.empty {
 </xsl:attribute>
 </xsl:when>
 </xsl:choose>
-	<span title="{@shortMessage}">
+	<span title="{@date}&#10;{@shortMessage}">
 	<xsl:value-of select="$commitId"/>
 	</span>
 </td>
@@ -273,6 +293,12 @@ Build #<xsl:value-of select="@number"/>
 </xsl:otherwise>
 </xsl:choose>
 </xsl:variable>
+
+<xsl:variable name="couldNotFindAppCommitId"
+	select="$jobName = 'unm-ios-it' and not(@appCommitId)"/>
+<xsl:variable name="couldNotFindAppCommitId-title"
+	select="concat('(Could not find commit id in app’s Build Info,&#10;only in ',
+		$jobName, ' Jenkins logs.)')"/>
 	
 <td>
 <xsl:attribute name="class">
@@ -287,6 +313,11 @@ Build #<xsl:value-of select="@number"/>
 	<xsl:if test="$jenkinsBuild">
 	
 	<a href="{$href}">
+	<xsl:if test="$couldNotFindAppCommitId">
+	<xsl:attribute name="title">
+		<xsl:value-of select="$couldNotFindAppCommitId-title"/>
+	</xsl:attribute>
+	</xsl:if>
 	<!--  
 	<xsl:value-of select="$jenkinsBuild/../@name"/>:
 	-->
@@ -313,6 +344,11 @@ Build #<xsl:value-of select="@number"/>
 	<xsl:value-of select="$jenkinsBuild/../@name"/>:
 	-->
 	<a href="{$href}">
+	<xsl:if test="$couldNotFindAppCommitId">
+	<xsl:attribute name="title">
+		<xsl:value-of select="$couldNotFindAppCommitId-title"/>
+	</xsl:attribute>
+	</xsl:if>
 	<xsl:value-of select="$jenkinsBuild/@id"/>
 	</a>
 	
