@@ -35,7 +35,7 @@ public class JGitHelperTest {
 	@Test
 	public void testMostAncientCommit_isXxx() throws Exception {
 
-		final RevCommit[] commits = jgitHelper.getCommitsFromHead(100);
+		final RevCommit[] commits = jgitHelper.getCommitsFromHead(10000);
 
 		assertEquals("c9f193dd53322d9f4fbfbb3e2cd04bd033d8b5ce",
 				commits[commits.length - 1].getId().name());
