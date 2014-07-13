@@ -52,6 +52,9 @@ public class UnivMobileDevelCiTest {
 
 		final Dumper dumper = XMLDumper.newXMLDumper("unm-ci-dump", new File(
 				"target/unm-ci-dump.xml"));
+
+		dumper.addAttribute("date", new DateTime());
+
 		try {
 
 			dumpGitCommitsForRepo(dumper, "unm-ios", 20);
@@ -256,9 +259,13 @@ public class UnivMobileDevelCiTest {
 			 * result="SUCCESS" id="2014-07-12_22-29-50"/>
 			 */
 
-			final Dumper fakeJob = dumper.addElement("jenkinsJob") //
-					.addAttribute("name", "unm-ios-ut") //
-					.addAttribute("type", "(inferred from unm-ios-ut-results logs)");
+			final Dumper fakeJob = dumper
+					.addElement("jenkinsJob")
+					//
+					.addAttribute("name", "unm-ios-ut")
+					//
+					.addAttribute("type",
+							"(inferred from unm-ios-ut-results logs)");
 
 			for (final JenkinsBuild build : builds) {
 

@@ -7,10 +7,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <meta http-equiv="Content-Language" content="fr"/>
-<title>Projet UnivMobile — Intégration continue</title>
+<title>UnivMobile iOS — Intégration continue</title>
 <style type="text/css">
 h1 {
-	text-align: center;
+	xtext-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	margin-bottom: 0;
+	margin-top: 0.2em;
 }
 div.body {
 	display: table;
@@ -23,8 +26,15 @@ thx {
 	border-bottom: 1px solid #000;
 	border-top: 1px solid #000;
 }
-td {
+td,
+th {
 	white-space: nowrap;
+}
+th span.description {
+	display: block;
+	font-weight: normal;
+	font-size: small;
+	font-family: Arial, sans-serif;
 }
 tbody,
 td.commitId,
@@ -95,12 +105,32 @@ td.unm-ios-it.appCommitId,
 td.unm-ios-it.empty {
 	opacity: 1.0;
 }
+#div-dumpDate {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #999;
+	margin: 0 0 1.5em;
+}
+div.nav a {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	text-decoration: none;
+}
 </style>
 </head>
 <body>
 <div class="body">
 
-<h1>Intégration continue</h1>
+<div class="nav">
+<a href="http://univmobile.vswip.com/">Jenkins — Intégration continue</a>
+</div>
+
+<h1>UnivMobile iOS — Intégration continue</h1>
+
+<div id="div-dumpDate">
+Dump at:
+<xsl:value-of select="translate(substring(@date, 1, 19), 'T', ' ')"/>
+</div>
 
 <xsl:variable name="jenkinsJobs" select="jenkinsJob"/>
 
@@ -115,10 +145,22 @@ td.unm-ios-it.empty {
 -->
 <thead>
 <tr>
-<th class="commitId">unm-ios: commits</th>
-<th colspan="2" class="unm-ios_xcode">unm-ios_xcode</th>
-<th colspan="2" class="unm-ios-ut">unm-ios-ut</th>
-<th colspan="2" class="unm-ios-it">unm-ios-it</th>
+<th class="commitId">
+	unm-ios: commits
+	<span class="description">Code source Objective-C</span>
+</th>
+<th colspan="2" class="unm-ios_xcode">
+	unm-ios_xcode
+	<span class="description">Construction de l’archive .ipa</span>
+</th>
+<th colspan="2" class="unm-ios-ut">
+	unm-ios-ut
+	<span class="description">Tests unitaires XCTest</span>
+</th>
+<th colspan="2" class="unm-ios-it">
+	unm-ios-it
+	<span class="description">Test d’intégration JUnit + Appium</span>
+</th>
 </tr>
 </thead>
 <tbody>
