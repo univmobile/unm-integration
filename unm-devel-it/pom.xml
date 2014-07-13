@@ -108,4 +108,19 @@
 		</repository>
 	</repositories>
 
+	<profiles>
+		<profile>
+			<id>jenkins</id>
+			<properties>
+				<jenkins.baseURL>http://localhost:8080/</jenkins.baseURL>
+			</properties>
+		</profile>
+		<profile>
+			<id>dandriana</id>
+			<properties>
+				<jenkins.baseURL>http://univmobile.vswip.com/</jenkins.baseURL>
+			</properties>
+		</profile>
+	</profiles>
+
 </project>

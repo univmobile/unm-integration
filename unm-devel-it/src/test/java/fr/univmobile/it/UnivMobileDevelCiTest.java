@@ -149,7 +149,8 @@ public class UnivMobileDevelCiTest {
 
 		final HttpClient client = new HttpClient();
 
-		final String baseURL = "http://univmobile.vswip.com/";
+		final String baseURL = PropertiesUtils
+				.getTestProperty("jenkins.baseURL");
 
 		final String username = "dandriana";
 		final String apiToken = PropertiesUtils
@@ -330,7 +331,7 @@ public class UnivMobileDevelCiTest {
 
 		if (method.getStatusCode() == 404) {
 
-			System.err.println("Could not load XML from: " + url);
+			System.err.println("** Could not load XML from: " + url);
 
 			return null;
 		}
