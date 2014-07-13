@@ -257,7 +257,8 @@ public class UnivMobileDevelCiTest {
 			 */
 
 			final Dumper fakeJob = dumper.addElement("jenkinsJob") //
-					.addAttribute("name", "unm-ios-ut");
+					.addAttribute("name", "unm-ios-ut") //
+					.addAttribute("type", "(inferred from unm-ios-ut-results logs)");
 
 			for (final JenkinsBuild build : builds) {
 
