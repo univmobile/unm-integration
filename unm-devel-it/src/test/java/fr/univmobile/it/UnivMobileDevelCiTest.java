@@ -21,6 +21,9 @@ import org.apache.commons.httpclient.auth.AuthScope;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
+import org.apache.tools.ant.DefaultLogger;
+import org.apache.tools.ant.Project;
+import org.apache.tools.ant.ProjectHelper;
 import org.eclipse.jgit.lib.PersonIdent;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.joda.time.DateTime;
@@ -44,6 +47,8 @@ public class UnivMobileDevelCiTest {
 	@Test
 	public void fetchCiResources() throws Exception {
 
+		// 1. FETCH REMOTE RESOURCES
+
 		final Dumper dumper = XMLDumper.newXMLDumper("unm-ci-dump", new File(
 				"target/unm-ci-dump.xml"));
 		try {
@@ -59,6 +64,29 @@ public class UnivMobileDevelCiTest {
 		} finally {
 			dumper.close();
 		}
+
+		// 2. ANT
+
+		final File buildFile = new File("build.xml");
+
+		System.out.println("Running Ant file: " + buildFile.getCanonicalPath()
+				+ "...");
+
+		final Project project = new Project();
+
+		ProjectHelper.configureProject(project, buildFile);
+
+		final DefaultLogger consoleLogger = new DefaultLogger();
+
+		consoleLogger.setErrorPrintStream(System.err);
+		consoleLogger.setOutputPrintStream(System.out);
+		consoleLogger.setMessageOutputLevel(Project.MSG_INFO);
+
+		project.addBuildListener(consoleLogger);
+
+		project.init();
+
+		project.executeTarget("generate-unm-ci-dump");
 	}
 
 	private static void dumpGitCommitsForRepo(final Dumper dumper,
@@ -189,7 +217,7 @@ public class UnivMobileDevelCiTest {
 
 				final String buildInfo = pageSource.getBuildInfo();
 
-				System.out.println(buildInfo);
+				// System.out.println(buildInfo);
 
 				final String appCommitId = substringAfter(buildInfo,
 						"https://github.com/univmobile/unm-ios").trim();

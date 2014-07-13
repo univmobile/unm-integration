@@ -4,10 +4,14 @@
 	<target name="generate-unm-ci-dump"
 		description="Generate HTML page about UnivMobile Continuous Integration">
 
+		<property name="out" location="target/unm-ci-dump.html"/>
+		
+		<echo>Saving HTML page: ${out}...</echo>
+			
 		<xslt force="true"
 			style="src/main/xslt/unm-ci-dump.html.xsl"
 			in="target/unm-ci-dump.xml"
-			out="target/unm-ci-dump.html"/>
+			out="${out}"/>
 		
 	</target>
 
