@@ -347,7 +347,7 @@ Build #<xsl:value-of select="@number"/>
 </xsl:variable>
 
 <xsl:variable name="couldNotFindAppCommitId"
-	select="$jobName = 'unm-ios-it' and not(@appCommitId)"/>
+	select="$jobName = 'unm-ios-it' and not($jenkinsBuild/@appCommitId)"/>
 <xsl:variable name="couldNotFindAppCommitId-title"
 	select="concat('(Could not find commit id in app’s Build Info,&#10;only in ',
 		$jobName, ' Jenkins logs.)')"/>
