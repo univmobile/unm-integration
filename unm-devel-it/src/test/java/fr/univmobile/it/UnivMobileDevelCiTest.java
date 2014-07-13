@@ -279,10 +279,9 @@ public class UnivMobileDevelCiTest {
 						.addAttribute("number", build.getNumber())
 						//
 						.addAttribute("result", build.getResult())
-						.addAttribute(
-								"href",
-								baseURL + "job/" + jobName + "/" + buildNumber
-										+ "/");
+						.addAttribute("href",
+								"http://univmobile.vswip.com/job/" //
+										+ jobName + "/" + buildNumber + "/");
 
 				String iosCommitId = null;
 				String testBeginDate = null;
