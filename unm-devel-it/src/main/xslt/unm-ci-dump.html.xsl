@@ -148,19 +148,27 @@ Dump at:
 <thead>
 <tr>
 <th class="commitId">
-	unm-ios: commits
+	<a href="https://github.com/univmobile/unm-ios/commits/master">
+		unm-ios: commits
+	</a>
 	<span class="description">Code source Objective-C</span>
 </th>
 <th colspan="2" class="unm-ios_xcode">
-	unm-ios_xcode
+	<a href="http://univmobile.vswip.com/job/unm-ios_xcode/">
+		unm-ios_xcode
+	</a>
 	<span class="description">Construction de l’archive .ipa</span>
 </th>
 <th colspan="2" class="unm-ios-ut">
-	unm-ios-ut
+	<a href="http://univmobile.vswip.com/job/unm-ios-ut-results/">
+		unm-ios-ut
+	</a>
 	<span class="description">Tests unitaires XCTest</span>
 </th>
 <th colspan="2" class="unm-ios-it">
-	unm-ios-it
+	<a href="http://univmobile.vswip.com/job/unm-ios-it/">
+		unm-ios-it
+	</a>
 	<span class="description">Test d’intégration JUnit + Appium</span>
 </th>
 </tr>
