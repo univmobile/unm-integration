@@ -5,6 +5,7 @@ import static org.apache.commons.lang3.StringUtils.substringAfter;
 import static org.apache.commons.lang3.StringUtils.substringBetween;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -162,8 +163,14 @@ public class UnivMobileDevelCiTest {
 
 		// 2. GET JOB STATUS
 
-		final JenkinsJob job = loadXMLContent(client, baseURL + "job/"
-				+ jobName + "/api/xml", JenkinsJob.class);
+		final String jobUrl = baseURL + "job/" + jobName + "/api/xml";
+
+		final JenkinsJob job = loadXMLContent(client, jobUrl, JenkinsJob.class);
+
+		if (job == null) {
+			throw new FileNotFoundException("Cannot read Jenkins job at URL: "
+					+ jobUrl);
+		}
 
 		final Dumper jobDumper = dumper.addElement("jenkinsJob") //
 				.addAttribute("name", job.getName()) //
