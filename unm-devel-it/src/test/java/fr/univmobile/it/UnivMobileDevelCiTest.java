@@ -30,7 +30,7 @@ import org.eclipse.jgit.revwalk.RevCommit;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.junit.Test;
-
+import fr.univmobile.testutil.*;
 import fr.univmobile.ios.ut.JGitHelper;
 import fr.univmobile.testutil.PropertiesUtils;
 
