@@ -49,56 +49,52 @@ public class JGitHelperTest {
 
 		final String[] refCommitIds = new String[] {
 
-				// Has the same file as f60bed6f380d97b8b17660df102be6483caac6b3
-				// "8c1a1f53e80e31258a11ea71cd87b4b9b0fbe2ce",
+		"b9fa7c6530814a6163ad4b09c33a05e265b2b07d",
 
-				// Has the same file as f60bed6f380d97b8b17660df102be6483caac6b3
-				// "6ab76cecd6ee834cb3fee0037434856aea6f82f7",
+				// 704fbf1cbd0b4c3556fdfcee4caea7c4ee3d4187
+				// a211dc0c436ea00edd14a4e2a6a4f85c98b95ad6
+				// 355f383e0b53e6b70a5ac4355838e14ef8793f60
+				// 871efd3541db36f7a65de2855c1547cdd40867cb
+				// ba163c953dd223f3294e3fc2bcfcf9ccb94226e3
 
-				// Has the same file as f60bed6f380d97b8b17660df102be6483caac6b3
-				// Has two parents:
-				// 1. 140415f233973ad9dbe58cd54d7fd18ac60802f2
-				// 2. f60bed6f380d97b8b17660df102be6483caac6b3
-				// "3461962b9ba07b0fb2e6c84b57a7ef183a1dfceb",
+				"2d8d173c0458b5d7b06d9ff1bd50cb9843b4905b",
 
-				// Has the same file as 56f4865d0a703a9f1ee03005f10a1bb18461dfec
-				// "140415f233973ad9dbe58cd54d7fd18ac60802f2",
+				"3d0da8f49b185aa6e23ee61fe6e56c79d0ce794c",
 
-				"f60bed6f380d97b8b17660df102be6483caac6b3",
+				"b7d4fe2432fd2b0298e8fbae989aaecc0c321a62",
 
-				"c6b3ec0649f8909350fe05a55dafbbec89f95c1e",
+				"70595ef66410e8d536e3250bd39817465a404c94",
 
-				"37dd921fee7e0d5477387fd389cf171c6beb5387",
+				"080175a1a0f6a26f0370878e0ffdff4c4efd14ac",
 
-				"224b6168efa98f870cd3851ad33be22fe48fbcc2",
+				// ef834928d9e5c4a5ecb2e538fd96d253ad342d7d
+				// fe4593bd9b2123c29cc5bedd9f2153c2c33bd820
 
-				"92ec7ab785ac35b739007ee94a88526880011cbd",
+				"db5ec2674610d5ccb18fe083168dd0f97c5f0574",
 
-				"94ea8a8999399aa4b15cd9206726931563902cb1",
+				// a7712a74965a9f72225b7ac039ef7ecdd726a900
 
-				"aa88a62a984a2add51190d74f9eed92191800c7e",
+				"31ded68e65278a24222041d67c0b6a94cd1fd45d"
 
-				// Has two children:
-				// 1. 140415f233973ad9dbe58cd54d7fd18ac60802f2
-				// 2. aa88a62a984a2add51190d74f9eed92191800c7e
-				"56f4865d0a703a9f1ee03005f10a1bb18461dfec" };
+		// ba59887d7353bdf0c71e54e5f21873145f07cb10
+		};
 
 		final String[] refRevFileIds = new String[] {
-				"0ee4312200bc6b3154bbe6c40d6de138f47fc196",
-				"bee4268ed3e3874171a3bdc987f9afdb7feba412",
-				"61d96ca16cc3a563c4d0e16a44ea145ef7d0aa35",
-				"2d9f47d13bc8d0a085fdfa31bdd609f4d86a7686",
-				"2dcb39883bc269e7ceba018d7591005f3e33bd5c",
-				"d7c6b35547cd91558f507273e1c7e66be6d6a061",
-				"a51a8e53da32afdd5f583decf5a602bfc695bd67",
-				"daa3a453420c622cbd6a16091e65b726f1213abe" };
+				"a5587b0944306b3f17a410a3893155ddede0c6f1",
+				"2598e1c9ce05d615f287746c05a2037a5c9637b1",
+				"96b37875aaa2cd4382f79d09ac1f2c28affa79a4",
+				"c8395be3c77084a7d52e7df8682a8ba2ae996695",
+				"1f8f84a941b8984336d727e396ccbeae01dd2ea4",
+				"4718fe7ee02a82d01f0f8405d056403dd6d719b2",
+				"4da0450f95a89fa13c8f6496564136731664db4d",
+				"1bb048f52abf5443fd94d7d3e5c2304a5f696cfc" };
 
 		assertTrue(commits.length >= 8);
 
 		for (int i = 0; i < 8; ++i) {
 
 			final RevCommit commit = commits[commits.length - 8 + i];
-			
+
 			assertEquals("commitIds[" + i + "]", refCommitIds[i], commit
 					.getId().getName());
 
