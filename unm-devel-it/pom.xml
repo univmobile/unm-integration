@@ -112,13 +112,15 @@
 		<profile>
 			<id>jenkins</id>
 			<properties>
-				<jenkins.baseURL>http://localhost:8080/</jenkins.baseURL>
+				<jenkins.host>localhost</jenkins.host>
+				<jenkins.port>8080</jenkins.port>
 			</properties>
 		</profile>
 		<profile>
 			<id>dandriana</id>
 			<properties>
-				<jenkins.baseURL>http://univmobile.vswip.com/</jenkins.baseURL>
+				<jenkins.host>univmobile.vswip.com</jenkins.host>
+				<jenkins.port>80</jenkins.port>
 			</properties>
 		</profile>
 	</profiles>

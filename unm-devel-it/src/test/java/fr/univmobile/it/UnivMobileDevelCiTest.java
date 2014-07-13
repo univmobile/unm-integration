@@ -149,15 +149,19 @@ public class UnivMobileDevelCiTest {
 
 		final HttpClient client = new HttpClient();
 
-		final String baseURL = PropertiesUtils
-				.getTestProperty("jenkins.baseURL");
+		final String host = PropertiesUtils //
+				.getTestProperty("jenkins.host"); // e.g. "univmobile.vswip.com"
+		final int port = Integer.parseInt(PropertiesUtils //
+				.getTestProperty("jenkins.port")); // e.g. 80
+
+		final String baseURL = "http://" + host
+				+ (port == 80 ? "" : (":" + port)) + "/";
 
 		final String username = "dandriana";
 		final String apiToken = PropertiesUtils
 				.getTestProperty("jenkins.apiToken");
 
-		client.getState().setCredentials(
-				new AuthScope("univmobile.vswip.com", 80, "realm"),
+		client.getState().setCredentials(new AuthScope(host, port, "realm"),
 				new UsernamePasswordCredentials(username, apiToken));
 
 		client.getParams().setAuthenticationPreemptive(true);
