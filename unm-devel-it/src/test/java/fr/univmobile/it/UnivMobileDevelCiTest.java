@@ -1,11 +1,15 @@
 package fr.univmobile.it;
 
+import static org.apache.commons.lang3.CharEncoding.UTF_8;
 import static org.apache.commons.lang3.StringUtils.substringAfter;
+import static org.apache.commons.lang3.StringUtils.substringBetween;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import net.avcompris.binding.dom.helper.DomBinderUtils;
 
@@ -23,9 +27,8 @@ import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.junit.Test;
 
-import com.avcompris.util.PropertiesUtils;
-
 import fr.univmobile.ios.ut.JGitHelper;
+import fr.univmobile.testutil.PropertiesUtils;
 
 public class UnivMobileDevelCiTest {
 
@@ -47,11 +50,11 @@ public class UnivMobileDevelCiTest {
 
 			dumpGitCommitsForRepo(dumper, "unm-ios", 20);
 
-			dumpJenkinsBuildsForJob(dumper, "unm-ios_xcode", 20);
+			dumpJenkinsBuildsForJob(dumper, "unm-ios_xcode", 50);
 
-			dumpJenkinsBuildsForJob(dumper, "unm-ios-ut-results", 20);
+			dumpJenkinsBuildsForJob(dumper, "unm-ios-ut-results", 50);
 
-			dumpJenkinsBuildsForJob(dumper, "unm-ios-it", 20);
+			dumpJenkinsBuildsForJob(dumper, "unm-ios-it", 50);
 
 		} finally {
 			dumper.close();
@@ -65,13 +68,14 @@ public class UnivMobileDevelCiTest {
 
 		final File repoDir = new File("target/" + repoName);
 
-		/*
-		 * if (repoDir.exists()) { FileUtils.deleteDirectory(repoDir); }
-		 * 
-		 * jgitHelper = JGitHelper.cloneRepo( "https://github.com/univmobile/" +
-		 * repoName, repoDir);
-		 */
-		jgitHelper = new JGitHelper(new File(repoDir, ".git"));
+		if (repoDir.exists()) {
+			FileUtils.deleteDirectory(repoDir);
+		}
+
+		jgitHelper = JGitHelper.cloneRepo("https://github.com/univmobile/"
+				+ repoName, repoDir);
+
+		// jgitHelper = new JGitHelper(new File(repoDir, ".git"));
 
 		final RevCommit[] commits = jgitHelper.getCommitsFromHead(100);
 
@@ -119,10 +123,9 @@ public class UnivMobileDevelCiTest {
 		final String baseURL = "http://univmobile.vswip.com/";
 
 		final String username = "dandriana";
-		final String apiToken = PropertiesUtils.get
+		final String apiToken = PropertiesUtils
+				.getTestProperty("jenkins.apiToken");
 
-				jenkins.apiToken
-				
 		client.getState().setCredentials(
 				new AuthScope("univmobile.vswip.com", 80, "realm"),
 				new UsernamePasswordCredentials(username, apiToken));
@@ -137,6 +140,10 @@ public class UnivMobileDevelCiTest {
 		final Dumper jobDumper = dumper.addElement("jenkinsJob") //
 				.addAttribute("name", job.getName()) //
 				.addAttribute("type", job.getType());
+
+		// 3. GET BUILDS
+
+		final List<JenkinsBuild> builds = new ArrayList<JenkinsBuild>();
 
 		int count = 0;
 
@@ -162,11 +169,161 @@ public class UnivMobileDevelCiTest {
 					.addAttribute("result", build.getResult()) //
 					.addAttribute("id", build.getId());
 
+			// 3.5. SPECIAL CASE: unm-ios-ut: Tests an actual UnivMobile.app
+			// with embedded commitId (the one used to build the app).
+
+			if ("unm-ios-it".equals(jobName)) {
+
+				// e.g.
+				// http://univmobile.vswip.com/job/unm-ios-it/35/artifact/unm-ios-it/target/screenshots/pageSource.xml
+
+				final AppiumPageSource pageSource = loadXMLContent(client,
+						baseURL + "job/" + jobName + "/" + buildNumber
+								+ "/artifact/" + jobName
+								+ "/target/screenshots/pageSource.xml",
+						AppiumPageSource.class);
+
+				if (pageSource == null) { // Not found.
+					continue;
+				}
+
+				final String buildInfo = pageSource.getBuildInfo();
+
+				System.out.println(buildInfo);
+
+				final String appCommitId = substringAfter(buildInfo,
+						"https://github.com/univmobile/unm-ios").trim();
+
+				buildDumper.addAttribute("appCommitId", appCommitId);
+			}
+
+			builds.add(build);
 		}
+
+		jobDumper.close();
+
+		// 4. SPECIAL CASE: unm-ios-ut-results => unm-ios-ut
+
+		if ("unm-ios-ut-results".equals(jobName)) {
+
+			/*
+			 * <jenkinsJob name="unm-ios-ut-results" type="mavenModuleSet">
+			 * <build number="51" type="mavenModuleSetBuild"
+			 * commitId="d4ce1153c0901eb272eaddaaec51871a8e887c0e"
+			 * result="SUCCESS" id="2014-07-12_23-22-11"/> <build number="50"
+			 * type="mavenModuleSetBuild"
+			 * commitId="704fbf1cbd0b4c3556fdfcee4caea7c4ee3d4187"
+			 * result="SUCCESS" id="2014-07-12_22-29-50"/>
+			 */
+
+			final Dumper fakeJob = dumper.addElement("jenkinsJob") //
+					.addAttribute("name", "unm-ios-ut");
+
+			for (final JenkinsBuild build : builds) {
+
+				final int buildNumber = build.getNumber();
+
+				final File file = saveTextContent(client, baseURL + "job/"
+						+ jobName + "/" + buildNumber + "/consoleText");
+
+				final Dumper fakeBuild = fakeJob.addElement("build")
+						//
+						.addAttribute("number", build.getNumber())
+						//
+						.addAttribute("result", build.getResult())
+						.addAttribute(
+								"href",
+								baseURL + "job/" + jobName + "/" + buildNumber
+										+ "/");
+
+				String iosCommitId = null;
+				String testBeginDate = null;
+
+				boolean interesting = false;
+
+				for (final String line : FileUtils.readLines(file, UTF_8)) {
+
+					if (interesting) {
+
+						if (line.contains("Git Commit: ")) {
+
+							iosCommitId = substringAfter(line, "Git Commit: ");
+
+							if (testBeginDate != null) {
+								break;
+							}
+						}
+
+						if (line.contains("Begin Date: ")) {
+
+							testBeginDate = substringBetween(line,
+									"Begin Date: ", ".");
+
+							if (iosCommitId != null) {
+								break;
+							}
+						}
+
+					} else if (line.startsWith("Xcode Execution")) {
+
+						interesting = true;
+					}
+				}
+
+				fakeBuild.addAttribute("commitId", iosCommitId);
+
+				if (testBeginDate != null) {
+					fakeBuild.addAttribute("id",
+							testBeginDate.replace('T', ' '));
+				}
+			}
+		}
+
+		// 9. END
 	}
 
 	private static <T> T loadXMLContent(final HttpClient client,
 			final String url, final Class<T> clazz) throws IOException {
+
+		System.out.println("Loading XML from: " + url + "...");
+
+		final HttpMethod method = new GetMethod(url);
+
+		method.setDoAuthentication(true);
+
+		client.executeMethod(method);
+
+		if (method.getStatusCode() == 404) {
+			return null;
+		}
+
+		checkHttpResult(method);
+
+		final byte[] bytes;
+
+		final InputStream is = method.getResponseBodyAsStream();
+		try {
+
+			bytes = IOUtils.toByteArray(is);
+
+		} finally {
+			is.close();
+		}
+
+		final File xmlFile = new File("target", //
+				substringAfter(substringAfter(url, "://"), "/") //
+						.replace("/", "_") //
+						.replace("_xml", ".xml"));
+
+		FileUtils.writeByteArrayToFile(xmlFile, bytes);
+
+		return DomBinderUtils.xmlContentToJava(xmlFile, clazz);
+	}
+
+	private static File saveTextContent(final HttpClient client,
+			final String url) throws IOException {
+
+		System.out.println("Saving text from: " + url + "...");
 
 		final HttpMethod method = new GetMethod(url);
 
@@ -187,14 +344,13 @@ public class UnivMobileDevelCiTest {
 			is.close();
 		}
 
-		final File xmlFile = new File( //
+		final File textFile = new File("target", //
 				substringAfter(substringAfter(url, "://"), "/") //
-						.replace("/", "_") //
-						.replace("_xml", ".xml"));
+						.replace("/", "_"));
 
-		FileUtils.writeByteArrayToFile(xmlFile, bytes);
+		FileUtils.writeByteArrayToFile(textFile, bytes);
 
-		return DomBinderUtils.xmlContentToJava(xmlFile, clazz);
+		return textFile;
 	}
 
 	private static void checkHttpResult(final HttpMethod method)
