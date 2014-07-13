@@ -169,7 +169,7 @@ Dump at:
 	<a href="http://univmobile.vswip.com/job/unm-ios-it/">
 		unm-ios-it
 	</a>
-	<span class="description">Test d’intégration JUnit + Appium</span>
+	<span class="description">Tests d’intégration JUnit + Appium</span>
 </th>
 </tr>
 </thead>
