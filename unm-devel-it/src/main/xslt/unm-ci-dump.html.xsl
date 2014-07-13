@@ -129,7 +129,9 @@ div.nav a {
 
 <div id="div-dumpDate">
 Dump at:
-<xsl:value-of select="translate(substring(@date, 1, 19), 'T', ' ')"/>
+<xsl:call-template name="format-date">
+<xsl:with-param name="date" select="@date"/>
+</xsl:call-template>
 </div>
 
 <xsl:variable name="jenkinsJobs" select="jenkinsJob"/>
@@ -391,7 +393,9 @@ Build #<xsl:value-of select="@number"/>
 		<xsl:value-of select="$couldNotFindAppCommitId-title"/>
 	</xsl:attribute>
 	</xsl:if>
-	<xsl:value-of select="$jenkinsBuild/@id"/>
+	<xsl:call-template name="format-date">
+	<xsl:with-param name="date" select="$jenkinsBuild/@id"/>
+	</xsl:call-template>
 	</a>
 	
 	</xsl:if>
@@ -400,5 +404,14 @@ Build #<xsl:value-of select="@number"/>
 
 </xsl:template>
 
+<xsl:template name="format-date">
+<xsl:param name="date" select="'YYYY-MM-DD HH:mm:ss'"/>
+
+<xsl:value-of select="concat(substring($date, 1, 4),
+	'-', substring($date, 6, 2), '-', substring($date, 9, 2),
+	' ', substring($date, 12, 2), ':', substring($date, 15, 2),
+	':', substring($date, 18, 2))"/>
+	
+</xsl:template>
 
 </xsl:stylesheet>
