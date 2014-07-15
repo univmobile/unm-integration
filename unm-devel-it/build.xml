@@ -15,4 +15,18 @@
 		
 	</target>
 
+	<target name="generate-unm-ios-it-scenarios-dump"
+		description="Generate HTML page about UnivMobile Integration Scenarios">
+
+		<property name="out" location="target/unm-ios-it-scenarios-dump.html"/>
+		
+		<echo>Saving HTML page: ${out}...</echo>
+			
+		<xslt force="true"
+			style="src/main/xslt/unm-ios-it-scenarios-dump.html.xsl"
+			in="target/unm-ios-it-scenarios-dump.xml"
+			out="${out}"/>
+		
+	</target>
+
 </project>

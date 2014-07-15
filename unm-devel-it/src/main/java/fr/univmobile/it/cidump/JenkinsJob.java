@@ -1,4 +1,4 @@
-package fr.univmobile.it;
+package fr.univmobile.it.cidump;
 
 import net.avcompris.binding.annotation.XPath;
 
