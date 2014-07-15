@@ -95,14 +95,18 @@ td.build a:hover {
 	color: #00f;
 	background-color: #eef;
 }
-td.unm-ios-it.appCommitId {
+td.unm-ios-it.appCommitId,
+td.unm-ios-it_ios6.appCommitId {
 	xfont-weight: bold;
 }
-td.unm-ios-it {
+td.unm-ios-it,
+td.unm-ios-it_ios6 {
 	opacity: 0.2;
 }
 td.unm-ios-it.appCommitId,
-td.unm-ios-it.empty {
+td.unm-ios-it_ios6.appCommitId,
+td.unm-ios-it.empty,
+td.unm-ios-it_ios6.empty {
 	opacity: 1.0;
 }
 #div-dumpDate {
@@ -169,7 +173,17 @@ Dump at:
 	<a href="http://univmobile.vswip.com/job/unm-ios-it/">
 		unm-ios-it
 	</a>
-	<span class="description">Tests d’intégration JUnit + Appium</span>
+	<span class="description">Tests d’intégration iOS 7 
+		<!-- JUnit + Appium -->
+	</span>
+</th>
+<th colspan="2" class="unm-ios-it unm-ios-it_ios6">
+	<a href="http://univmobile.vswip.com/job/unm-ios-it_ios6/">
+		unm-ios-it_ios6
+	</a>
+	<span class="description">Tests d’intégration iOS 6 
+		 <!-- JUnit + Appium -->
+	</span>
 </th>
 </tr>
 </thead>
@@ -186,6 +200,8 @@ Dump at:
 	select="$jenkinsBuilds[../@name = 'unm-ios-ut']"/>
 <xsl:variable name="jenkinsBuilds-unm-ios-it"
 	select="$jenkinsBuilds[../@name = 'unm-ios-it']"/>
+<xsl:variable name="jenkinsBuilds-unm-ios-it_ios6"
+	select="$jenkinsBuilds[../@name = 'unm-ios-it_ios6']"/>
 	
 <xsl:variable name="sizeOfBuilds-unm-ios_xcode"
 	select="count($jenkinsBuilds-unm-ios_xcode)"/>
@@ -193,19 +209,28 @@ Dump at:
 	select="count($jenkinsBuilds-unm-ios-ut)"/>
 <xsl:variable name="sizeOfBuilds-unm-ios-it"
 	select="count($jenkinsBuilds-unm-ios-it)"/>
+<xsl:variable name="sizeOfBuilds-unm-ios-it_ios6"
+	select="count($jenkinsBuilds-unm-ios-it_ios6)"/>
 	
 <xsl:variable name="rowCount">
 <xsl:choose>
 <xsl:when test="$sizeOfBuilds-unm-ios_xcode &gt;= $sizeOfBuilds-unm-ios-ut
-		and $sizeOfBuilds-unm-ios_xcode &gt;= $sizeOfBuilds-unm-ios-it">
+		and $sizeOfBuilds-unm-ios_xcode &gt;= $sizeOfBuilds-unm-ios-it
+		and $sizeOfBuilds-unm-ios_xcode &gt;= $sizeOfBuilds-unm-ios-it_ios6">
 	<xsl:value-of select="$sizeOfBuilds-unm-ios_xcode"/>
 </xsl:when>
 <xsl:when test="$sizeOfBuilds-unm-ios-ut &gt;= $sizeOfBuilds-unm-ios_xcode
-		and $sizeOfBuilds-unm-ios-ut &gt;= $sizeOfBuilds-unm-ios-it">
+		and $sizeOfBuilds-unm-ios-ut &gt;= $sizeOfBuilds-unm-ios-it
+		and $sizeOfBuilds-unm-ios-ut &gt;= $sizeOfBuilds-unm-ios-it_ios6">
 	<xsl:value-of select="$sizeOfBuilds-unm-ios-ut"/>
 </xsl:when>
-<xsl:otherwise>
+<xsl:when test="$sizeOfBuilds-unm-ios-it &gt;= $sizeOfBuilds-unm-ios_xcode
+		and $sizeOfBuilds-unm-ios-it &gt;= $sizeOfBuilds-unm-ios-ut
+		and $sizeOfBuilds-unm-ios-it &gt;= $sizeOfBuilds-unm-ios-it_ios6">
 	<xsl:value-of select="$sizeOfBuilds-unm-ios-it"/>
+</xsl:when>
+<xsl:otherwise>
+	<xsl:value-of select="$sizeOfBuilds-unm-ios-it_ios6"/>
 </xsl:otherwise>
 </xsl:choose>
 </xsl:variable>
@@ -216,7 +241,8 @@ Dump at:
 	commitId
 	<xsl:if test="$jenkinsBuilds-unm-ios_xcode/@result = 'SUCCESS'
 		and $jenkinsBuilds-unm-ios-ut/@result = 'SUCCESS'
-		and $jenkinsBuilds-unm-ios-it[@appCommitId]/@result = 'SUCCESS'">
+		and $jenkinsBuilds-unm-ios-it[@appCommitId]/@result = 'SUCCESS'
+		and $jenkinsBuilds-unm-ios-it_ios6[@appCommitId]/@result = 'SUCCESS'">
 			SUCCESS</xsl:if>
 	<xsl:if test="$jenkinsBuilds/@result = 'FAILURE'"> FAILURE</xsl:if>
 	<xsl:if test="$jenkinsBuilds/@result = 'UNSTABLE'"> UNSTABLE</xsl:if>
@@ -254,6 +280,13 @@ Dump at:
 	<xsl:with-param name="rowCount" select="$rowCount"/>
 	</xsl:call-template>
 
+	<xsl:call-template name="td-build">
+	<xsl:with-param name="jenkinsBuilds" select="$jenkinsBuilds"/>
+	<xsl:with-param name="jobName" select="'unm-ios-it_ios6'"/>
+	<xsl:with-param name="index" select="1"/>
+	<xsl:with-param name="rowCount" select="$rowCount"/>
+	</xsl:call-template>
+
 </tr>
 <xsl:for-each select="$jenkinsBuilds[position() &lt; $rowCount]">
 <xsl:variable name="index" select="2
@@ -278,6 +311,13 @@ Dump at:
 	<xsl:call-template name="td-build">
 	<xsl:with-param name="jenkinsBuilds" select="$jenkinsBuilds"/>
 	<xsl:with-param name="jobName" select="'unm-ios-it'"/>
+	<xsl:with-param name="index" select="$index"/>
+	<xsl:with-param name="rowCount" select="$rowCount"/>
+	</xsl:call-template>
+
+	<xsl:call-template name="td-build">
+	<xsl:with-param name="jenkinsBuilds" select="$jenkinsBuilds"/>
+	<xsl:with-param name="jobName" select="'unm-ios-it_ios6'"/>
 	<xsl:with-param name="index" select="$index"/>
 	<xsl:with-param name="rowCount" select="$rowCount"/>
 	</xsl:call-template>
@@ -347,7 +387,8 @@ Build #<xsl:value-of select="@number"/>
 </xsl:variable>
 
 <xsl:variable name="couldNotFindAppCommitId"
-	select="$jobName = 'unm-ios-it' and not($jenkinsBuild/@appCommitId)"/>
+	select="($jobName = 'unm-ios-it' or $jobName = 'unm-ios-it_ios6')
+		and not($jenkinsBuild/@appCommitId)"/>
 <xsl:variable name="couldNotFindAppCommitId-title"
 	select="concat('(Could not find commit id in app’s Build Info,&#10;only in ',
 		$jobName, ' Jenkins logs.)')"/>

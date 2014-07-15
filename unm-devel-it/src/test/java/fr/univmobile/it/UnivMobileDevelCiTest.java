@@ -65,6 +65,8 @@ public class UnivMobileDevelCiTest {
 
 			dumpJenkinsBuildsForJob(dumper, "unm-ios-it", 50);
 
+			dumpJenkinsBuildsForJob(dumper, "unm-ios-it_ios6", 50);
+
 		} finally {
 			dumper.close();
 		}
@@ -215,16 +217,16 @@ public class UnivMobileDevelCiTest {
 			// 3.5. SPECIAL CASE: unm-ios-ut: Tests an actual UnivMobile.app
 			// with embedded commitId (the one used to build the app).
 
-			if ("unm-ios-it".equals(jobName)) {
+			if ("unm-ios-it".equals(jobName)
+					|| "unm-ios-it_ios6".equals(jobName)) {
 
 				// e.g.
 				// http://univmobile.vswip.com/job/unm-ios-it/35/artifact/unm-ios-it/target/screenshots/pageSource.xml
 
 				final AppiumPageSource pageSource = loadXMLContent(client,
 						baseURL + "job/" + jobName + "/" + buildNumber
-								+ "/artifact/" + jobName
-								+ "/target/screenshots/pageSource.xml",
-						AppiumPageSource.class);
+								+ "/artifact/unm-ios-it/target/screenshots"
+								+ "/pageSource.xml", AppiumPageSource.class);
 
 				if (pageSource == null) { // Not found.
 					continue;
