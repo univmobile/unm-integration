@@ -120,6 +120,10 @@ div.nav a {
 	font-size: small;
 	text-decoration: none;
 }
+div.nav {
+	display: inline;
+	margin-right: 2em;
+}
 </style>
 </head>
 <body>
@@ -127,6 +131,12 @@ div.nav a {
 
 <div class="nav">
 <a href="http://univmobile.vswip.com/">Jenkins — Intégration continue</a>
+</div>
+
+<div class="nav">
+<a href="http://univmobile.vswip.com/job/unm-devel-it/lastSuccessfulBuild/artifact/unm-devel-it/target/unm-ios-it-scenarios-dump.html">
+UnivMobile iOS — Scénarios
+</a>
 </div>
 
 <h1>UnivMobile iOS — Intégration continue</h1>
