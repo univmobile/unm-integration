@@ -22,7 +22,6 @@
 			<groupId>fr.univmobile</groupId>
 			<artifactId>unm-testutil</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.ant</groupId>
