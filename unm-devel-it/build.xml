@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<project name="unm-devel-it" default="generate-unm-ci-dump">
+<project name="unm-devel-it" default="all">
 
+	<target name="all" depends="generate-unm-ci-dump,
+		generate-unm-ios-it-scenarios-dump">
+	</target>
+		
 	<target name="generate-unm-ci-dump"
 		description="Generate HTML page about UnivMobile Continuous Integration">
 
-		<property name="out" location="target/unm-ci-dump.html"/>
+		<property name="unm-ci-dump" location="target/unm-ci-dump.html"/>
 		
-		<echo>Saving HTML page: ${out}...</echo>
+		<echo>Saving HTML page: ${unm-ci-dump}...</echo>
 			
 		<xslt force="true"
 			style="src/main/xslt/unm-ci-dump.html.xsl"
 			in="target/unm-ci-dump.xml"
-			out="${out}"/>
+			out="${unm-ci-dump}"/>
 		
 	</target>
 
 	<target name="generate-unm-ios-it-scenarios-dump"
 		description="Generate HTML page about UnivMobile Integration Scenarios">
 
-		<property name="out" location="target/unm-ios-it-scenarios-dump.html"/>
+		<property name="unm-ios-it-scenarios-dump" location="target/unm-ios-it-scenarios-dump.html"/>
 		
-		<echo>Saving HTML page: ${out}...</echo>
+		<echo>Saving HTML page: ${unm-ios-it-scenarios-dump}...</echo>
 			
 		<xslt force="true"
 			style="src/main/xslt/unm-ios-it-scenarios-dump.html.xsl"
 			in="target/unm-ios-it-scenarios-dump.xml"
-			out="${out}"/>
+			out="${unm-ios-it-scenarios-dump}"/>
 		
 	</target>
 

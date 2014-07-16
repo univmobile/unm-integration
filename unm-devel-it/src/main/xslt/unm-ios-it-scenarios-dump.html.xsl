@@ -75,6 +75,10 @@ UnivMobile iOS — Intégration continue
 <a href="http://univmobile.vswip.com/">Jenkins — Intégration continue</a>
 </div>
 
+<div class="nav">
+<a href="http://univmobile.vswip.com/ios/">UnivMobile iOS — Installations ad hoc</a>
+</div>
+
 <h1>UnivMobile iOS — Scénarios</h1>
 
 <xsl:variable name="buildNumber_ios7"

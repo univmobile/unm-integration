@@ -139,6 +139,10 @@ UnivMobile iOS — Scénarios
 </a>
 </div>
 
+<div class="nav">
+<a href="http://univmobile.vswip.com/ios/">UnivMobile iOS — Installations ad hoc</a>
+</div>
+
 <h1>UnivMobile iOS — Intégration continue</h1>
 
 <div id="div-dumpDate">
