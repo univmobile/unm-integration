@@ -4,6 +4,10 @@
 
 <xsl:import href="defs-scenarios.html.xsl"/>
 
+<xsl:variable name="img-blank.png" select="concat(
+	'http://univmobile.vswip.com/nexus/content/sites/pub/',
+	'unm-ios/0.0.1-SNAPSHOT/img/blank.png')"/>
+
 <xsl:template match="unm-ios-it-scenarios-dump">
 <html lang="fr" dir="ltr">
 
@@ -11,52 +15,48 @@
 
 <body>
 
-<xsl:variable name="img-blank.png" select="concat(
-	'http://univmobile.vswip.com/nexus/content/sites/pub/',
-	'unm-ios/0.0.1-SNAPSHOT/img/blank.png')"/>
-
 <div id="div-detail">
-<table>
+<xsl:call-template name="div-detail-menu"/>
+<table id="table-detail-default" class="table-detail top">
 <tr>
-<td class="iOS7 screen_4_inch">
-<div class="label">
-	Retina 4-inch iOS 7.0
-</div>
-<div class="img">
-	<img id="img-detail-iOS7-4inch" src="{$img-blank.png}"/>	
-</div>
-</td>
-<td class="iOS6 screen_4_inch">
-<div class="label">
-	Retina 4-inch iOS 6.1
-</div>
-<div class="img">
-	<img id="img-detail-iOS6-4inch" src="{$img-blank.png}"/>	
-</div>
-</td>
+<xsl:call-template name="detail-td-iOS7-screen_4_inch"/>
+<xsl:call-template name="detail-td-iOS7-screen_3_5_inch"/>
 </tr>
 <tr>
-<td class="iOS7 screen_3_5_inch">
-<div class="label">
-	Retina 3.5-inch iOS 7.0
-</div>
-<div class="img">
-	<img id="img-detail-iOS7-3_5inch" src="{$img-blank.png}"/>	
-</div>
-</td>
-<td class="iOS6 screen_3_5_inch">
-<div class="label">
-	Retina 3.5-inch iOS 6.1
-</div>
-<div class="img">
-	<img id="img-detail-iOS6-3_5inch" src="{$img-blank.png}"/>	
-</div>
-</td>
+<xsl:call-template name="detail-td-iOS6-screen_4_inch"/>
+<xsl:call-template name="detail-td-iOS6-screen_3_5_inch"/>
 </tr>
 </table>
-<!-- 
-<img id="img-detail" src="{$img-blank.png}"/>
- -->
+<table id="table-detail-default" class="table-detail middle">
+<tr>
+<xsl:call-template name="detail-td-iOS7-screen_4_inch"/>
+<xsl:call-template name="detail-td-iOS7-screen_3_5_inch"/>
+</tr>
+<tr>
+<xsl:call-template name="detail-td-iOS6-screen_4_inch"/>
+<xsl:call-template name="detail-td-iOS6-screen_3_5_inch"/>
+</tr>
+</table>
+<table id="table-detail-default" class="table-detail bottom">
+<tr>
+<xsl:call-template name="detail-td-iOS7-screen_4_inch"/>
+<xsl:call-template name="detail-td-iOS7-screen_3_5_inch"/>
+</tr>
+<tr>
+<xsl:call-template name="detail-td-iOS6-screen_4_inch"/>
+<xsl:call-template name="detail-td-iOS6-screen_3_5_inch"/>
+</tr>
+</table>
+<table id="table-detail-default" class="table-detail default selected">
+<tr>
+<xsl:call-template name="detail-td-iOS7-screen_4_inch"/>
+<xsl:call-template name="detail-td-iOS6-screen_4_inch"/>
+</tr>
+<tr>
+<xsl:call-template name="detail-td-iOS7-screen_3_5_inch"/>
+<xsl:call-template name="detail-td-iOS6-screen_3_5_inch"/>
+</tr>
+</table>
 </div>
 
 <!-- 
@@ -364,6 +364,115 @@ Table des matières
 	</xsl:choose>
 </div>
 
+</xsl:template>
+
+<xsl:template name="detail-td-iOS7-screen_4_inch">
+<td class="iOS7 screen_4_inch">
+<div class="label">
+	Retina 4-inch iOS 7
+</div>
+<div class="img">
+	<img class="img-detail-iOS7-4inch" src="{$img-blank.png}"/>	
+</div>
+</td>
+</xsl:template>
+
+<xsl:template name="detail-td-iOS6-screen_4_inch">
+<td class="iOS6 screen_4_inch">
+<div class="label">
+	Retina 4-inch iOS 6
+</div>
+<div class="img">
+	<img class="img-detail-iOS6-4inch" src="{$img-blank.png}"/>	
+</div>
+</td>
+</xsl:template>
+
+<xsl:template name="detail-td-iOS7-screen_3_5_inch">
+<td class="iOS7 screen_3_5_inch">
+<div class="label">
+	Retina 3.5-inch iOS 7
+</div>
+<div class="img">
+	<img class="img-detail-iOS7-3_5inch" src="{$img-blank.png}"/>	
+</div>
+</td>
+</xsl:template>
+
+<xsl:template name="detail-td-iOS6-screen_3_5_inch">
+<td class="iOS6 screen_3_5_inch">
+<div class="label">
+	Retina 3.5-inch iOS 6
+</div>
+<div class="img">
+	<img class="img-detail-iOS6-3_5inch" src="{$img-blank.png}"/>	
+</div>
+</td>
+</xsl:template>
+
+<xsl:template name="div-detail-menu">
+<div id="div-detail-menu">
+	<div id="div-detail-menu-top" class="detail-menu top"
+		onclick="selectDetailMenu('top');">
+	<table>
+	<tbody>
+	<tr>
+	<td class="iOS7 screen_4_inch"><div>7</div></td>
+	<td class="iOS7 screen_3_5_inch"><div>7</div></td>
+	</tr>
+	<tr>
+	<td class="iOS6 screen_4_inch"><div>6</div></td>
+	<td class="iOS6 screen_3_5_inch"><div>6</div></td>
+	</tr>
+	</tbody>
+	</table>		
+	</div>
+	<div id="div-detail-menu-middle" class="detail-menu middle"
+		onclick="selectDetailMenu('middle');">
+	<table>
+	<tbody>
+	<tr>
+	<td class="iOS7 screen_4_inch"><div>7</div></td>
+	<td class="iOS7 screen_3_5_inch"><div>7</div></td>
+	</tr>
+	<tr>
+	<td class="iOS6 screen_4_inch"><div>6</div></td>
+	<td class="iOS6 screen_3_5_inch"><div>6</div></td>
+	</tr>
+	</tbody>
+	</table>		
+	</div>
+	<div id="div-detail-menu-bottom" class="detail-menu bottom"
+		onclick="selectDetailMenu('bottom');">
+	<table>
+	<tbody>
+	<tr>
+	<td class="iOS7 screen_4_inch"><div>7</div></td>
+	<td class="iOS7 screen_3_5_inch"><div>7</div></td>
+	</tr>
+	<tr>
+	<td class="iOS6 screen_4_inch"><div>6</div></td>
+	<td class="iOS6 screen_3_5_inch"><div>6</div></td>
+	</tr>
+	</tbody>
+	</table>		
+	</div>
+	<div id="div-detail-menu-default" class="detail-menu default selected"
+		onclick="selectDetailMenu('default');">
+	<table>
+	<tbody>
+	<tr>
+	<td class="iOS7 screen_4_inch"><div>7</div></td>
+	<td class="iOS6 screen_4_inch"><div>6</div></td>
+	</tr>
+	<tr>
+	<td class="iOS7 screen_3_5_inch"><div>7</div></td>
+	<td class="iOS6 screen_3_5_inch"><div>6</div></td>
+	</tr>
+	</tbody>
+	</table>		
+	</div>
+</div>
 </xsl:template>
 
 </xsl:stylesheet>

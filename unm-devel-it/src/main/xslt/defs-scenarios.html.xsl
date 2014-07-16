@@ -172,6 +172,76 @@ div.scenariosClass h3 {
 	border-top: 1px dashed #000;
 	padding-top: 1em;
 }
+#div-detail-menu {
+	position: fixed;
+	top: 8px;
+	right: 462px;
+	xbackground-color: #ff0;
+	xwidth: 400px;
+	xheight: 100px;
+}
+#div-detail-menu div.detail-menu {
+	margin-left: 40px;
+	xwidth: 50px;
+	xheight: 80px;
+	xbackground-color: #090;
+	display: inline-block;
+	position: relative;
+}
+#div-detail-menu table {
+	border-collapse: separate;
+	border: 1px solid transparent;
+}
+#div-detail-menu div.detail-menu.selected table {
+	border: 1px solid #000;
+}
+#div-detail #div-detail-menu td {
+	border-spacing: 4px;
+	padding: 0;
+	margin: 0;
+}
+#div-detail #div-detail-menu td div {
+	width: 12.8px;
+	background-color: #ddd;
+	color: #fff;
+	padding: 0;
+	margin: 0;
+	vertical-align: middle;
+	display: table;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: x-small;	
+}
+#div-detail #div-detail-menu td.screen_4_inch div {
+	height: 25px;
+}
+#div-detail #div-detail-menu td.screen_3_5_inch div {
+	height: 14px;
+}
+#div-detail #div-detail-menu div.detail-menu.top td {
+	vertical-align: top;
+}
+#div-detail #div-detail-menu div.detail-menu.middle td {
+	vertical-align: middle;
+}
+#div-detail #div-detail-menu div.detail-menu.bottom td {
+	vertical-align: bottom;
+}
+table.table-detail {
+	display: none;
+}
+table.table-detail.selected {
+	display: table;
+}
+table.table-detail.top td {
+	vertical-align: top;
+}
+table.table-detail.middle td {
+	vertical-align: middle;
+}
+table.table-detail.bottom td {
+	vertical-align: bottom;
+}
 </style>
 <script language="javascript">
 
@@ -182,30 +252,63 @@ var buildNumber_ios6 = <xsl:value-of
 	select="/*/scenarios[@jobName = 'unm-ios-it_ios6']/@buildNumber"/>;
 	
 function displayDetail(scenariosClassSimpleName, scenarioMethodName, filename) {
+	
+	var imgs = document.getElementsByClassName('img-detail-iOS7-4inch');
+	for (var i = 0; i &lt; imgs.length; ++i) imgs[i].src =
+		'http://univmobile.vswip.com/job/unm-ios-it/' + buildNumber_ios7
+		+ '/artifact/unm-ios-it/target/screenshots/iOS_7.1/iPhone_Retina_4-inch/'
+		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename;
+	
+	var imgs = document.getElementsByClassName('img-detail-iOS6-4inch');
+	for (var i = 0; i &lt; imgs.length; ++i) imgs[i].src =
+		'http://univmobile.vswip.com/job/unm-ios-it_ios6/' + buildNumber_ios6
+		+ '/artifact/unm-ios-it/target/screenshots/iOS_7.1/iPhone_Retina_4-inch/'
+		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename;
 
-//alert('http://univmobile.vswip.com/job/unm-ios-it_ios6/' + buildNumber_ios6
-	//	+ '/artifact/target/screenshots/iOS_7.1/iPhone_Retina_4-inch/'
-		//+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename);
+	var imgs = document.getElementsByClassName('img-detail-iOS7-3_5inch');
+	for (var i = 0; i &lt; imgs.length; ++i) imgs[i].src =
+		'http://univmobile.vswip.com/job/unm-ios-it/' + buildNumber_ios7
+		+ '/artifact/unm-ios-it/target/screenshots/iOS_7.1/iPhone_Retina_3.5-inch/'
+		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename;
+
+	var imgs = document.getElementsByClassName('img-detail-iOS6-3_5inch');
+	for (var i = 0; i &lt; imgs.length; ++i) imgs[i].src =
+		'http://univmobile.vswip.com/job/unm-ios-it_ios6/' + buildNumber_ios6
+		+ '/artifact/unm-ios-it/target/screenshots/iOS_7.1/iPhone_Retina_3.5-inch/'
+		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename;
+}
+
+function selectDetailMenu(item) {
+
+	var menus = document.getElementsByClassName('detail-menu');
+	var tables  = document.getElementsByClassName('table-detail');
+	
+	for (var i = 0; i &lt; menus.length; ++i) {
+
+		var menu = menus[i];
 		
-	document.getElementById('img-detail-iOS7-4inch').src =
-		'http://univmobile.vswip.com/job/unm-ios-it/' + buildNumber_ios7
-		+ '/artifact/unm-ios-it/target/screenshots/iOS_7.1/iPhone_Retina_4-inch/'
-		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename;
-
-	document.getElementById('img-detail-iOS6-4inch').src =
-		'http://univmobile.vswip.com/job/unm-ios-it_ios6/' + buildNumber_ios6
-		+ '/artifact/unm-ios-it/target/screenshots/iOS_7.1/iPhone_Retina_4-inch/'
-		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename;
-
-	document.getElementById('img-detail-iOS7-3_5inch').src =
-		'http://univmobile.vswip.com/job/unm-ios-it/' + buildNumber_ios7
-		+ '/artifact/unm-ios-it/target/screenshots/iOS_7.1/iPhone_Retina_3.5-inch/'
-		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename;
-
-	document.getElementById('img-detail-iOS6-3_5inch').src =
-		'http://univmobile.vswip.com/job/unm-ios-it_ios6/' + buildNumber_ios6
-		+ '/artifact/unm-ios-it/target/screenshots/iOS_7.1/iPhone_Retina_3.5-inch/'
-		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename;
+		if (menu.className.indexOf(item) == -1) {
+			if (menu.className.indexOf('selected') != -1) {
+				menu.className = menu.className.replace(/\sselected/, '');
+			}
+		} else {
+			if (menu.className.indexOf('selected') == -1) {
+				menu.className += ' selected';
+			}
+		} 
+		
+		var table = tables[i];
+		
+		if (table.className.indexOf(item) == -1) {
+			if (table.className.indexOf('selected') != -1) {
+				table.className = table.className.replace(/\sselected/, '');
+			}
+		} else {
+			if (table.className.indexOf('selected') == -1) {
+				table.className += ' selected';
+			}
+		} 
+	}
 }
 
 window.onload = function() {
