@@ -1,16 +1,16 @@
-Begin Date: Wed Jul 16 10:31:32 CEST 2014
+Begin Date: Wed Jul 16 15:06:23 CEST 2014
 Hostname: unm-temp2.local
 User: avcompris
 Script: xcodebuild_test.sh  
 Current Directory: /Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios
 Test Report: /Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/target/unm-integration/unm-ios-ut-results/data/xcodebuild_test.log
-Git Commit: 9cab674d7c7065be6618e911b696fab2d7b96113
+Git Commit: 82232a952e1d7020ab149c7e01cf53ea1f0d6c01
 Test Command: /usr/bin/xcodebuild test -workspace UnivMobile.xcworkspace   -scheme UnivMobileTests   -configuration Debug   -sdk iphonesimulator7.1   -destination OS=7.1,name="iPhone Retina (4-inch)"
 ----------------------------------------
 
 
 Build succeeded.
-Test Date: Wed Jul 16 10:32:54 CEST 2014
+Test Date: Wed Jul 16 15:07:14 CEST 2014
 ----------------------------------------
 Build settings from command line:
     SDKROOT = iphonesimulator7.1
@@ -74,11 +74,11 @@ total size is 10389  speedup is 25.91
 /* com.apple.actool.compilation-results */
 
 
-Test Suite 'All tests' started at 2014-07-16 08:33:38 +0000
-Test Suite 'UnivMobileTests.xctest' started at 2014-07-16 08:33:38 +0000
-Test Suite 'UNMAppLayerTests' started at 2014-07-16 08:33:38 +0000
+Test Suite 'All tests' started at 2014-07-16 13:07:37 +0000
+Test Suite 'UnivMobileTests.xctest' started at 2014-07-16 13:07:37 +0000
+Test Suite 'UNMAppLayerTests' started at 2014-07-16 13:07:37 +0000
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneIdIsBretagne]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneIdIsBretagne]' passed (0.018 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneIdIsBretagne]' passed (0.027 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneTitleIsBretagne]' started.
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneTitleIsBretagne]' passed (0.002 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdTotoIsNill]' started.
@@ -86,36 +86,36 @@ Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdTotoIsNill]
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfRegionsIs3]' started.
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfRegionsIs3]' passed (0.001 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfUniversitiesIleDeFranceIs18]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfUniversitiesIleDeFranceIs18]' passed (0.001 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfUniversitiesIleDeFranceIs18]' passed (0.002 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11IdIsParis11]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11IdIsParis11]' passed (0.001 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11IdIsParis11]' passed (0.002 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11TitleIsParisSud]' started.
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11TitleIsParisSud]' passed (0.001 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDataObjectIsDifferent]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDataObjectIsDifferent]' passed (0.018 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDataObjectIsDifferent]' passed (0.117 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDateIsDifferent]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDateIsDifferent]' passed (0.004 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDateIsDifferent]' passed (0.003 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneIdIsBretagne]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneIdIsBretagne]' passed (0.004 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneIdIsBretagne]' passed (0.020 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneTitleIsBretagne]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneTitleIsBretagne]' passed (0.004 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneTitleIsBretagne]' passed (0.003 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdTotoIsNill]' started.
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdTotoIsNill]' passed (0.003 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfRegionsIs3]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfRegionsIs3]' passed (0.003 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfRegionsIs3]' passed (0.004 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfUniversitiesIleDeFranceIs18]' started.
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfUniversitiesIleDeFranceIs18]' passed (0.003 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11IdIsParis11]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11IdIsParis11]' passed (0.013 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11IdIsParis11]' passed (0.003 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11TitleIsParisSud]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11TitleIsParisSud]' passed (0.004 seconds).
-Test Suite 'UNMAppLayerTests' finished at 2014-07-16 08:33:38 +0000.
-Executed 16 tests, with 0 failures (0 unexpected) in 0.081 (0.112) seconds
-Test Suite 'UnivMobileTests.xctest' finished at 2014-07-16 08:33:38 +0000.
-Executed 16 tests, with 0 failures (0 unexpected) in 0.081 (0.114) seconds
-Test Suite 'All tests' finished at 2014-07-16 08:33:38 +0000.
-Executed 16 tests, with 0 failures (0 unexpected) in 0.081 (0.121) seconds
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11TitleIsParisSud]' passed (0.003 seconds).
+Test Suite 'UNMAppLayerTests' finished at 2014-07-16 13:07:38 +0000.
+Executed 16 tests, with 0 failures (0 unexpected) in 0.197 (0.228) seconds
+Test Suite 'UnivMobileTests.xctest' finished at 2014-07-16 13:07:38 +0000.
+Executed 16 tests, with 0 failures (0 unexpected) in 0.197 (0.230) seconds
+Test Suite 'All tests' finished at 2014-07-16 13:07:38 +0000.
+Executed 16 tests, with 0 failures (0 unexpected) in 0.197 (0.240) seconds
 ** TEST SUCCEEDED **
 
 ----------------------------------------
-End Date: Wed Jul 16 10:33:38 CEST 2014
+End Date: Wed Jul 16 15:07:38 CEST 2014
