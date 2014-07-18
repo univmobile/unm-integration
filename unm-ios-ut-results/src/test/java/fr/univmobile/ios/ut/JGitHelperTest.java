@@ -45,7 +45,7 @@ public class JGitHelperTest {
 	public void testAllCommitsForFile() throws Exception {
 
 		final RevCommit[] commits = jgitHelper.getCommitsForFileFromHead(
-				"unm-ios-ut-results/data/xcodebuild_test.log", 100);
+				"unm-ios-ut-results/data/xcodebuild_test.log", 10000);
 
 		final String[] refCommitIds = new String[] {
 
