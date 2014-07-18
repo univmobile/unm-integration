@@ -159,9 +159,11 @@ Table des matières
 </h2>
 </a>
 
+<!--  
 <div class="scenariosClass label">
 <xsl:value-of select="@scenariosLabel"/>
 </div>
+-->
 
 <xsl:for-each select="$scenarioMethods[../@className = $className]">
 
@@ -177,9 +179,11 @@ Table des matières
 </h3>
 </a>
 
+<!--  
 <div class="scenarioMethod label">
 <xsl:value-of select="@scenarioLabel"/>
 </div>
+-->
 
 <div class="scenario">
 <table>
