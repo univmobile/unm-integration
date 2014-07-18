@@ -377,7 +377,7 @@ Table des matières
 <xsl:template name="detail-td-iOS7-screen_4_inch">
 <td class="iOS7 screen_4_inch">
 <div class="label">
-	Retina 4-inch iOS 7
+	iOS 7 Retina 4-inch 
 </div>
 <div class="img">
 	<img class="img-detail-iOS7-4inch" src="{$img-blank.png}"/>	
@@ -388,7 +388,7 @@ Table des matières
 <xsl:template name="detail-td-iOS6-screen_4_inch">
 <td class="iOS6 screen_4_inch">
 <div class="label">
-	Retina 4-inch iOS 6
+	iOS 6 — Retina 4-inch 
 </div>
 <div class="img">
 	<img class="img-detail-iOS6-4inch" src="{$img-blank.png}"/>	
@@ -399,7 +399,7 @@ Table des matières
 <xsl:template name="detail-td-iOS7-screen_3_5_inch">
 <td class="iOS7 screen_3_5_inch">
 <div class="label">
-	Retina 3.5-inch iOS 7
+	iOS 7 — Retina 3.5-inch 
 </div>
 <div class="img">
 	<img class="img-detail-iOS7-3_5inch" src="{$img-blank.png}"/>	
@@ -410,7 +410,7 @@ Table des matières
 <xsl:template name="detail-td-iOS6-screen_3_5_inch">
 <td class="iOS6 screen_3_5_inch">
 <div class="label">
-	Retina 3.5-inch iOS 6
+	iOS 6 — Retina 3.5-inch 
 </div>
 <div class="img">
 	<img class="img-detail-iOS6-3_5inch" src="{$img-blank.png}"/>	
