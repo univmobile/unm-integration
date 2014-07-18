@@ -262,7 +262,7 @@ function displayDetail(scenariosClassSimpleName, scenarioMethodName, filename) {
 	var imgs = document.getElementsByClassName('img-detail-iOS6-4inch');
 	for (var i = 0; i &lt; imgs.length; ++i) imgs[i].src =
 		'http://univmobile.vswip.com/job/unm-ios-it_ios6/' + buildNumber_ios6
-		+ '/artifact/unm-ios-it/target/screenshots/iOS_7.1/iPhone_Retina_4-inch/'
+		+ '/artifact/unm-ios-it/target/screenshots/iOS_6.1/iPhone_Retina_4-inch/'
 		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename;
 
 	var imgs = document.getElementsByClassName('img-detail-iOS7-3_5inch');
@@ -274,7 +274,7 @@ function displayDetail(scenariosClassSimpleName, scenarioMethodName, filename) {
 	var imgs = document.getElementsByClassName('img-detail-iOS6-3_5inch');
 	for (var i = 0; i &lt; imgs.length; ++i) imgs[i].src =
 		'http://univmobile.vswip.com/job/unm-ios-it_ios6/' + buildNumber_ios6
-		+ '/artifact/unm-ios-it/target/screenshots/iOS_7.1/iPhone_Retina_3.5-inch/'
+		+ '/artifact/unm-ios-it/target/screenshots/iOS_6.1/iPhone_Retina_3.5-inch/'
 		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename;
 }
 

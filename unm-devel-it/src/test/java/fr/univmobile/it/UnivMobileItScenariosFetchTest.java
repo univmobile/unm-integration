@@ -72,7 +72,7 @@ public class UnivMobileItScenariosFetchTest {
 				// TODO ci.dumpItScenarios("iOS_7.1", "iOS7", build_ios6);
 
 				// TODO : not 7.1, but 6.0
-				ci.dumpItScenarios("iOS_7.1", "iOS6", build_ios6);
+				ci.dumpItScenarios("iOS_6.1", "iOS6", build_ios6);
 			}
 
 		} finally {
