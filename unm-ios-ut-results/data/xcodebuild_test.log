@@ -1,16 +1,16 @@
-Begin Date: Sat 19 Jul 2014 09:19:37 CEST
-Hostname: unm-ios6.local
-User: dandriana
+Begin Date: Sat Jul 19 09:37:19 CEST 2014
+Hostname: unm-temp2.local
+User: avcompris
 Script: xcodebuild_test.sh  
-Current Directory: /Users/dandriana/workspace/unm-ios
-Test Report: /Users/dandriana/workspace/unm-ios/target/unm-integration/unm-ios-ut-results/data/xcodebuild_test.log
-Git Commit: af6d0ea19d6c0a82216b26cd46c96122b01e4f56
+Current Directory: /Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios
+Test Report: /Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/target/unm-integration/unm-ios-ut-results/data/xcodebuild_test.log
+Git Commit: 5327cc2f38f0d9f916feb2ad57ba67dde05ce480
 Test Command: /usr/bin/xcodebuild test -workspace UnivMobile.xcworkspace   -scheme UnivMobileTests   -configuration Debug   -sdk iphonesimulator7.1   -destination OS=7.1,name="iPhone Retina (4-inch)"
 ----------------------------------------
 
 
 Build succeeded.
-Test Date: Sat 19 Jul 2014 09:20:02 CEST
+Test Date: Sat Jul 19 09:38:46 CEST 2014
 ----------------------------------------
 Build settings from command line:
     SDKROOT = iphonesimulator7.1
@@ -43,30 +43,30 @@ Check dependencies
 
 Check dependencies
 
-PhaseScriptExecution Check\ Pods\ Manifest.lock /Users/dandriana/Library/Developer/Xcode/DerivedData/UnivMobile-ectgmiqzlavljobkajvmjjemyamq/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/Script-938858C20A554AD08749CBB9.sh
-    cd /Users/dandriana/workspace/unm-ios
-    /bin/sh -c /Users/dandriana/Library/Developer/Xcode/DerivedData/UnivMobile-ectgmiqzlavljobkajvmjjemyamq/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/Script-938858C20A554AD08749CBB9.sh
+PhaseScriptExecution Check\ Pods\ Manifest.lock /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-bthazihbxymfelcqywwhsugbfzmd/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/Script-938858C20A554AD08749CBB9.sh
+    cd /Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios
+    /bin/sh -c /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-bthazihbxymfelcqywwhsugbfzmd/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/Script-938858C20A554AD08749CBB9.sh
 
-PhaseScriptExecution Copy\ Pods\ Resources /Users/dandriana/Library/Developer/Xcode/DerivedData/UnivMobile-ectgmiqzlavljobkajvmjjemyamq/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/Script-51E43C54847A450C9AB538B8.sh
-    cd /Users/dandriana/workspace/unm-ios
-    /bin/sh -c /Users/dandriana/Library/Developer/Xcode/DerivedData/UnivMobile-ectgmiqzlavljobkajvmjjemyamq/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/Script-51E43C54847A450C9AB538B8.sh
-/Users/dandriana/workspace/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundError.png
-/Users/dandriana/workspace/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundError@2x.png
-/Users/dandriana/workspace/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundErrorIcon.png
-/Users/dandriana/workspace/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundErrorIcon@2x.png
-/Users/dandriana/workspace/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundMessage.png
-/Users/dandriana/workspace/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundMessage@2x.png
-/Users/dandriana/workspace/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundSuccess.png
-/Users/dandriana/workspace/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundSuccess@2x.png
-/Users/dandriana/workspace/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundSuccessIcon.png
-/Users/dandriana/workspace/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundSuccessIcon@2x.png
-/Users/dandriana/workspace/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundWarning.png
-/Users/dandriana/workspace/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundWarning@2x.png
-/Users/dandriana/workspace/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundWarningIcon.png
-/Users/dandriana/workspace/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundWarningIcon@2x.png
-/Users/dandriana/workspace/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationButtonBackground.png
-/Users/dandriana/workspace/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationButtonBackground@2x.png
-/Users/dandriana/workspace/unm-ios/Pods/TSMessages/TSMessages/Resources/TSMessagesDefaultDesign.json
+PhaseScriptExecution Copy\ Pods\ Resources /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-bthazihbxymfelcqywwhsugbfzmd/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/Script-51E43C54847A450C9AB538B8.sh
+    cd /Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios
+    /bin/sh -c /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-bthazihbxymfelcqywwhsugbfzmd/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/Script-51E43C54847A450C9AB538B8.sh
+/Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundError.png
+/Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundError@2x.png
+/Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundErrorIcon.png
+/Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundErrorIcon@2x.png
+/Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundMessage.png
+/Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundMessage@2x.png
+/Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundSuccess.png
+/Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundSuccess@2x.png
+/Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundSuccessIcon.png
+/Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundSuccessIcon@2x.png
+/Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundWarning.png
+/Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundWarning@2x.png
+/Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundWarningIcon.png
+/Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationBackgroundWarningIcon@2x.png
+/Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationButtonBackground.png
+/Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/Images/NotificationButtonBackground@2x.png
+/Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/TSMessages/TSMessages/Resources/TSMessagesDefaultDesign.json
 building file list ... done
 
 sent 381 bytes  received 20 bytes  802.00 bytes/sec
@@ -74,48 +74,48 @@ total size is 10389  speedup is 25.91
 /* com.apple.actool.compilation-results */
 
 
-Test Suite 'All tests' started at 2014-07-19 07:20:10 +0000
-Test Suite 'UnivMobileTests.xctest' started at 2014-07-19 07:20:10 +0000
-Test Suite 'UNMAppLayerTests' started at 2014-07-19 07:20:10 +0000
+Test Suite 'All tests' started at 2014-07-19 07:39:11 +0000
+Test Suite 'UnivMobileTests.xctest' started at 2014-07-19 07:39:11 +0000
+Test Suite 'UNMAppLayerTests' started at 2014-07-19 07:39:11 +0000
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneIdIsBretagne]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneIdIsBretagne]' passed (0.006 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneIdIsBretagne]' passed (0.041 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneTitleIsBretagne]' started.
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneTitleIsBretagne]' passed (0.002 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdTotoIsNill]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdTotoIsNill]' passed (0.001 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdTotoIsNill]' passed (0.002 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfRegionsIs3]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfRegionsIs3]' passed (0.001 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfRegionsIs3]' passed (0.002 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfUniversitiesIleDeFranceIs18]' started.
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfUniversitiesIleDeFranceIs18]' passed (0.001 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11IdIsParis11]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11IdIsParis11]' passed (0.001 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11IdIsParis11]' passed (0.002 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11TitleIsParisSud]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11TitleIsParisSud]' passed (0.001 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11TitleIsParisSud]' passed (0.002 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDataObjectIsDifferent]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDataObjectIsDifferent]' passed (0.006 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDataObjectIsDifferent]' passed (0.067 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDateIsDifferent]' started.
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDateIsDifferent]' passed (0.003 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneIdIsBretagne]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneIdIsBretagne]' passed (0.003 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneIdIsBretagne]' passed (0.007 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneTitleIsBretagne]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneTitleIsBretagne]' passed (0.005 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneTitleIsBretagne]' passed (0.004 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdTotoIsNill]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdTotoIsNill]' passed (0.003 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdTotoIsNill]' passed (0.004 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfRegionsIs3]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfRegionsIs3]' passed (0.003 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfRegionsIs3]' passed (0.005 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfUniversitiesIleDeFranceIs18]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfUniversitiesIleDeFranceIs18]' passed (0.003 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfUniversitiesIleDeFranceIs18]' passed (0.004 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11IdIsParis11]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11IdIsParis11]' passed (0.024 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11IdIsParis11]' passed (0.003 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11TitleIsParisSud]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11TitleIsParisSud]' passed (0.003 seconds).
-Test Suite 'UNMAppLayerTests' finished at 2014-07-19 07:20:10 +0000.
-Executed 16 tests, with 0 failures (0 unexpected) in 0.067 (0.101) seconds
-Test Suite 'UnivMobileTests.xctest' finished at 2014-07-19 07:20:10 +0000.
-Executed 16 tests, with 0 failures (0 unexpected) in 0.067 (0.104) seconds
-Test Suite 'All tests' finished at 2014-07-19 07:20:10 +0000.
-Executed 16 tests, with 0 failures (0 unexpected) in 0.067 (0.131) seconds
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11TitleIsParisSud]' passed (0.006 seconds).
+Test Suite 'UNMAppLayerTests' finished at 2014-07-19 07:39:11 +0000.
+Executed 16 tests, with 0 failures (0 unexpected) in 0.155 (0.209) seconds
+Test Suite 'UnivMobileTests.xctest' finished at 2014-07-19 07:39:11 +0000.
+Executed 16 tests, with 0 failures (0 unexpected) in 0.155 (0.214) seconds
+Test Suite 'All tests' finished at 2014-07-19 07:39:11 +0000.
+Executed 16 tests, with 0 failures (0 unexpected) in 0.155 (0.359) seconds
 ** TEST SUCCEEDED **
 
 ----------------------------------------
-End Date: Sat 19 Jul 2014 09:20:10 CEST
+End Date: Sat Jul 19 09:39:12 CEST 2014
