@@ -9,7 +9,7 @@ import fr.univmobile.it.cidump.ContinuousIntegrationDumper;
 import fr.univmobile.testutil.Dumper;
 import fr.univmobile.testutil.XMLDumper;
 
-public class UnivMobileDevelCiTest {
+public class UnivMobileWebDevelCiTest {
 
 	/**
 	 * Fetch all development + continuous integration information from various
@@ -18,15 +18,15 @@ public class UnivMobileDevelCiTest {
 	 * <li>Jenkins
 	 * <li>GitHub
 	 * </ul>
-	 * Emit an XML file: unm-ci-dump.xml
+	 * Emit an XML file: unm-mobileweb-ci-dump.xml
 	 */
 	@Test
 	public void fetchCiResources() throws Exception {
 
 		// 1. FETCH REMOTE RESOURCES
 
-		final Dumper dumper = XMLDumper.newXMLDumper("unm-ci-dump", new File(
-				"target/unm-ci-dump.xml"));
+		final Dumper dumper = XMLDumper.newXMLDumper("unm-mobileweb-ci-dump", new File(
+				"target/unm-mobileweb-ci-dump.xml"));
 
 		dumper.addAttribute("date", new DateTime());
 
@@ -35,15 +35,13 @@ public class UnivMobileDevelCiTest {
 			final ContinuousIntegrationDumper ci = new ContinuousIntegrationDumper(
 					dumper);
 
-			ci.dumpGitCommitsForRepo("unm-ios", 20);
+			ci.dumpGitCommitsForRepo("unm-mobileweb", 20);
 
-			ci.dumpJenkinsBuildsForJob("unm-ios_xcode", 50);
+			ci.dumpJenkinsBuildsForJob("unm-mobileweb-app", 50);
 
-			ci.dumpJenkinsBuildsForJob("unm-ios-ut-results", 50);
+			ci.dumpJenkinsBuildsForJob("unm-mobileweb-it_ios7", 50);
 
-			ci.dumpJenkinsBuildsForJob("unm-ios-it", 50);
-
-			ci.dumpJenkinsBuildsForJob("unm-ios-it_ios6", 50);
+			ci.dumpJenkinsBuildsForJob("unm-mobileweb-it_ios6", 50);
 
 		} finally {
 			dumper.close();
@@ -51,6 +49,6 @@ public class UnivMobileDevelCiTest {
 
 		// 2. ANT
 
-		AntUtils.executeTarget("generate-unm-ci-dump");
+		AntUtils.executeTarget("generate-unm-mobileweb-ci-dump");
 	}
 }

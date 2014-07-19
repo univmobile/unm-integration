@@ -1,36 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <project name="unm-devel-it" default="all">
 
-	<target name="all" depends="generate-unm-ci-dump,
+	<target name="all" depends="generate-unm-ios-ci-dump,
 		generate-unm-ios-it-scenarios-dump">
 	</target>
-		
-	<target name="generate-unm-ci-dump"
-		description="Generate HTML page about UnivMobile Continuous Integration">
 
-		<property name="unm-ci-dump" location="target/unm-ci-dump.html"/>
-		
-		<echo>Saving HTML page: ${unm-ci-dump}...</echo>
-			
-		<xslt force="true"
-			style="src/main/xslt/unm-ci-dump.html.xsl"
-			in="target/unm-ci-dump.xml"
-			out="${unm-ci-dump}"/>
-		
+	<target name="generate-unm-ios-ci-dump" description="Generate HTML page about UnivMobile iOS Continuous Integration">
+
+		<property name="unm-ios-ci-dump" 
+			location="target/unm-ci-dump.html" />
+
+		<echo>Saving HTML page: ${unm-ios-ci-dump}...</echo>
+
+		<xslt force="true" style="src/main/xslt/unm-ios-ci-dump.html.xsl" 
+			in="target/unm-ios-ci-dump.xml" 
+			out="${unm-ios-ci-dump}" />
+
 	</target>
 
-	<target name="generate-unm-ios-it-scenarios-dump"
-		description="Generate HTML page about UnivMobile Integration Scenarios">
+	<target name="generate-unm-mobileweb-ci-dump" description="Generate HTML page about UnivMobile mobile web Continuous Integration">
 
-		<property name="unm-ios-it-scenarios-dump" location="target/unm-ios-it-scenarios-dump.html"/>
-		
+		<property name="unm-mobileweb-ci-dump"
+			location="target/unm-mobileweb-ci-dump.html" />
+
+		<echo>Saving HTML page: ${unm-mobileweb-ci-dump}...</echo>
+
+		<xslt force="true" style="src/main/xslt/unm-mobileweb-ci-dump.html.xsl" 
+			in="target/unm-mobileweb-ci-dump.xml" 
+			out="${unm-mobileweb-ci-dump}" />
+
+	</target>
+
+	<target name="generate-unm-ios-it-scenarios-dump" description="Generate HTML page about UnivMobile Integration Scenarios">
+
+		<property name="unm-ios-it-scenarios-dump" location="target/unm-ios-it-scenarios-dump.html" />
+
 		<echo>Saving HTML page: ${unm-ios-it-scenarios-dump}...</echo>
-			
-		<xslt force="true"
-			style="src/main/xslt/unm-ios-it-scenarios-dump.html.xsl"
-			in="target/unm-ios-it-scenarios-dump.xml"
-			out="${unm-ios-it-scenarios-dump}"/>
-		
+
+		<xslt force="true" style="src/main/xslt/unm-ios-it-scenarios-dump.html.xsl" in="target/unm-ios-it-scenarios-dump.xml" out="${unm-ios-it-scenarios-dump}" />
+
 	</target>
 
 </project>

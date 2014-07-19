@@ -14,7 +14,7 @@ import fr.univmobile.it.cidump.DumpedBuild;
 import fr.univmobile.testutil.Dumper;
 import fr.univmobile.testutil.XMLDumper;
 
-public class UnivMobileItScenariosFetchTest {
+public class UnivMobileiOSItScenariosFetchTest {
 
 	/**
 	 * Fetch all screenshots and XML log files emitted by JUnit tests in

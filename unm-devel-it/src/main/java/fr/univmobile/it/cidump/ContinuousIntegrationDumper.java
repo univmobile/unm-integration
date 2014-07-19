@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.annotation.Nullable;
+
 import net.avcompris.binding.annotation.XPath;
 import net.avcompris.binding.dom.helper.DomBinderUtils;
 
@@ -198,6 +200,28 @@ public class ContinuousIntegrationDumper {
 
 				buildDumper.addAttribute("appCommitId", appCommitId);
 
+			} else if (jobName.startsWith("unm-mobileweb-it_ios")) {
+
+				final File htmlAboutFile = saveTextContent(baseURL + "job/"
+						+ jobName + "/" + buildNumber
+						+ "/artifact/unm-mobileweb-it/target/screenshots"
+						+ "/about.html");
+
+				if (htmlAboutFile == null) { // Not found.
+					continue;
+				}
+
+				final String htmlAbout = FileUtils.readFileToString(
+						htmlAboutFile, UTF_8);
+
+				appCommitId = substringBetween(
+						substringAfter(substringBetween(//
+								htmlAbout, "id=\"div-info\">", "</div>"),
+								"https://github.com/univmobile/unm-mobileweb"),
+						"-->", "</p>").trim();
+
+				buildDumper.addAttribute("appCommitId", appCommitId);
+
 			} else {
 
 				appCommitId = null;
@@ -297,6 +321,7 @@ public class ContinuousIntegrationDumper {
 		return Iterables.toArray(dumpedBuilds, DumpedBuild.class);
 	}
 
+	@Nullable
 	private <T> T loadXMLContent(final String url, final Class<T> clazz)
 			throws IOException {
 
@@ -338,6 +363,7 @@ public class ContinuousIntegrationDumper {
 		return DomBinderUtils.xmlContentToJava(xmlFile, clazz);
 	}
 
+	@Nullable
 	private File saveTextContent(final String url) throws IOException {
 
 		System.out.println("Saving text from: " + url + "...");
@@ -347,6 +373,13 @@ public class ContinuousIntegrationDumper {
 		method.setDoAuthentication(true);
 
 		client.executeMethod(method);
+
+		if (method.getStatusCode() == 404) {
+
+			System.err.println("** Could not load text content from: " + url);
+
+			return null;
+		}
 
 		checkHttpResult(method);
 
@@ -483,7 +516,7 @@ public class ContinuousIntegrationDumper {
 					+ "/checked.xml";
 
 			final File xmlFile = saveTextContent(checkedURL);
-			
+
 			dumper.addXMLFragment(xmlFile);
 		}
 	}
