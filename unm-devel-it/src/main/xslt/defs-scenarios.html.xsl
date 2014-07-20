@@ -246,35 +246,64 @@ table.table-detail.bottom td {
 <script language="javascript">
 
 var buildNumber_ios7 = <xsl:value-of
-	select="/*/scenarios[@jobName = 'unm-ios-it']/@buildNumber"/>;
+	select="/*/scenarios[not(contains(@jobName, '-it_ios6'))]/@buildNumber"/>;
 	
 var buildNumber_ios6 = <xsl:value-of
-	select="/*/scenarios[@jobName = 'unm-ios-it_ios6']/@buildNumber"/>;
-	
+	select="/*/scenarios[contains(@jobName, '-it_ios6')]/@buildNumber"/>;
+
+<xsl:variable name="jobName_ios7">
+	<xsl:choose>
+	<xsl:when test="/*/scenarios/@jobName = 'unm-ios-it_ios6'">unm-ios-it</xsl:when>
+	<xsl:otherwise>unm-mobileweb-it_ios7</xsl:otherwise>
+	</xsl:choose>
+</xsl:variable>
+
+<xsl:variable name="jobName_ios6">
+	<xsl:choose>
+	<xsl:when test="/*/scenarios/@jobName = 'unm-ios-it_ios6'">unm-ios-it_ios6</xsl:when>
+	<xsl:otherwise>unm-mobileweb-it_ios6</xsl:otherwise>
+	</xsl:choose>
+</xsl:variable>
+
+<xsl:variable name="mavenProject">
+	<xsl:choose>
+	<xsl:when test="/*/scenarios/@jobName = 'unm-ios-it_ios6'">unm-ios-it</xsl:when>
+	<xsl:otherwise>unm-mobileweb-it</xsl:otherwise>
+	</xsl:choose>
+</xsl:variable>
+
 function displayDetail(scenariosClassSimpleName, scenarioMethodName, filename) {
 	
 	var imgs = document.getElementsByClassName('img-detail-iOS7-4inch');
 	for (var i = 0; i &lt; imgs.length; ++i) imgs[i].src =
-		'http://univmobile.vswip.com/job/unm-ios-it/' + buildNumber_ios7
-		+ '/artifact/unm-ios-it/target/screenshots/iOS_7.1/iPhone_Retina_4-inch/'
+		'http://univmobile.vswip.com/job/<xsl:value-of
+			select="$jobName_ios7"/>/' + buildNumber_ios7
+		+ '/artifact/<xsl:value-of
+			select="$mavenProject"/>/target/screenshots/iOS_7.1/iPhone_Retina_4-inch/'
 		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename;
 	
 	var imgs = document.getElementsByClassName('img-detail-iOS6-4inch');
 	for (var i = 0; i &lt; imgs.length; ++i) imgs[i].src =
-		'http://univmobile.vswip.com/job/unm-ios-it_ios6/' + buildNumber_ios6
-		+ '/artifact/unm-ios-it/target/screenshots/iOS_6.1/iPhone_Retina_4-inch/'
+		'http://univmobile.vswip.com/job/<xsl:value-of
+			select="$jobName_ios6"/>/' + buildNumber_ios6
+		+ '/artifact/<xsl:value-of
+			select="$mavenProject"/>/target/screenshots/iOS_6.1/iPhone_Retina_4-inch/'
 		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename;
 
 	var imgs = document.getElementsByClassName('img-detail-iOS7-3_5inch');
 	for (var i = 0; i &lt; imgs.length; ++i) imgs[i].src =
-		'http://univmobile.vswip.com/job/unm-ios-it/' + buildNumber_ios7
-		+ '/artifact/unm-ios-it/target/screenshots/iOS_7.1/iPhone_Retina_3.5-inch/'
+		'http://univmobile.vswip.com/job/<xsl:value-of
+			select="$jobName_ios7"/>/' + buildNumber_ios7
+		+ '/artifact/<xsl:value-of
+			select="$mavenProject"/>/target/screenshots/iOS_7.1/iPhone_Retina_3.5-inch/'
 		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename;
 
 	var imgs = document.getElementsByClassName('img-detail-iOS6-3_5inch');
 	for (var i = 0; i &lt; imgs.length; ++i) imgs[i].src =
-		'http://univmobile.vswip.com/job/unm-ios-it_ios6/' + buildNumber_ios6
-		+ '/artifact/unm-ios-it/target/screenshots/iOS_6.1/iPhone_Retina_3.5-inch/'
+		'http://univmobile.vswip.com/job/<xsl:value-of
+			select="$jobName_ios6"/>/' + buildNumber_ios6
+		+ '/artifact/<xsl:value-of
+			select="$mavenProject"/>/target/screenshots/iOS_6.1/iPhone_Retina_3.5-inch/'
 		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename;
 }
 

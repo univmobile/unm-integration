@@ -438,9 +438,11 @@ public class ContinuousIntegrationDumper {
 
 		// 1. GET JOB STATUS
 
-		final String scenariosURL = baseURL + "job/" + build.jobName + "/"
+		final String scenariosURL = baseURL + "job/" + build.jobName
+				+ "/"
 				+ build.buildNumber //
-				+ "/artifact/unm-ios-it/target/screenshots/scenarios.xml";
+				+ "/artifact/" + getMavenProjectForJob(build.jobName)
+				+ "/target/screenshots/scenarios.xml";
 
 		final Scenarios scenarios = loadXMLContent(scenariosURL,
 				Scenarios.class);
@@ -506,8 +508,9 @@ public class ContinuousIntegrationDumper {
 					.getNormalizedDeviceName();
 
 			final String checkedURL = baseURL + "job/" + build.jobName + "/"
-					+ build.buildNumber
-					+ "/artifact/unm-ios-it/target/screenshots/" //
+					+ build.buildNumber + "/artifact/"
+					+ getMavenProjectForJob(build.jobName)
+					+ "/target/screenshots/" //
 					+ subDirName // e.g."iOS_7.1"
 					+ "/" //
 					+ normalizedDeviceName // e.g. "iPhone_Retina_3.5-inch"
@@ -518,6 +521,22 @@ public class ContinuousIntegrationDumper {
 			final File xmlFile = saveTextContent(checkedURL);
 
 			dumper.addXMLFragment(xmlFile);
+		}
+	}
+
+	private static String getMavenProjectForJob(final String jobName) {
+
+		if (jobName.startsWith("unm-ios-it")) {
+
+			return "unm-ios-it";
+
+		} else if (jobName.startsWith("unm-mobileweb-it_")) {
+
+			return "unm-mobileweb-it";
+
+		} else {
+
+			throw new IllegalArgumentException("jobName: " + jobName);
 		}
 	}
 }

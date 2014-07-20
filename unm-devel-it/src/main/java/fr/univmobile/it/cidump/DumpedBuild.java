@@ -24,4 +24,22 @@ public class DumpedBuild {
 		this.isSuccess = isSuccess;
 		this.appCommitId = appCommitId;
 	}
+
+	@Nullable
+	public static DumpedBuild getLatestSuccessfulBuildForAppCommitId(
+			final DumpedBuild[] builds, final String appCommitId) {
+
+		checkNotNull(appCommitId, "appCommitId");
+
+		for (final DumpedBuild build : builds) {
+
+			if (build.isSuccess && appCommitId.equals(build.appCommitId)) {
+
+				return build;
+			}
+		}
+
+		return null;
+	}
+
 }

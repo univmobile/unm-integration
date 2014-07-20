@@ -1,56 +1,60 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-<xsl:output method="html" encoding="UTF-8" doctype-public="html"/>
 
-<xsl:import href="defs-it-scenarios-dump.html.xsl"/>
+<xsl:import href="defs-scenarios.html.xsl"/>
 
-<xsl:template match="unm-ios-it-scenarios-dump">
-<html lang="fr" dir="ltr">
+<xsl:variable name="img-blank.png" select="concat(
+	'http://univmobile.vswip.com/nexus/content/sites/pub/',
+	'unm-ios/0.0.1-SNAPSHOT/img/blank.png')"/>
 
-<xsl:call-template name="html-head"/>
-
-<body>
-
-<xsl:call-template name="div-detail"/>
-
-<!-- 
-<div class="nav">
-<a href="{$mvn-generated-site}">Back to the Maven Generated Site</a>
+<xsl:template name="div-detail">
+<div id="div-detail">
+<xsl:call-template name="div-detail-menu"/>
+<table id="table-detail-default" class="table-detail top">
+<tr>
+<xsl:call-template name="detail-td-iOS7-screen_4_inch"/>
+<xsl:call-template name="detail-td-iOS7-screen_3_5_inch"/>
+</tr>
+<tr>
+<xsl:call-template name="detail-td-iOS6-screen_4_inch"/>
+<xsl:call-template name="detail-td-iOS6-screen_3_5_inch"/>
+</tr>
+</table>
+<table id="table-detail-default" class="table-detail middle">
+<tr>
+<xsl:call-template name="detail-td-iOS7-screen_4_inch"/>
+<xsl:call-template name="detail-td-iOS7-screen_3_5_inch"/>
+</tr>
+<tr>
+<xsl:call-template name="detail-td-iOS6-screen_4_inch"/>
+<xsl:call-template name="detail-td-iOS6-screen_3_5_inch"/>
+</tr>
+</table>
+<table id="table-detail-default" class="table-detail bottom">
+<tr>
+<xsl:call-template name="detail-td-iOS7-screen_4_inch"/>
+<xsl:call-template name="detail-td-iOS7-screen_3_5_inch"/>
+</tr>
+<tr>
+<xsl:call-template name="detail-td-iOS6-screen_4_inch"/>
+<xsl:call-template name="detail-td-iOS6-screen_3_5_inch"/>
+</tr>
+</table>
+<table id="table-detail-default" class="table-detail default selected">
+<tr>
+<xsl:call-template name="detail-td-iOS7-screen_4_inch"/>
+<xsl:call-template name="detail-td-iOS6-screen_4_inch"/>
+</tr>
+<tr>
+<xsl:call-template name="detail-td-iOS7-screen_3_5_inch"/>
+<xsl:call-template name="detail-td-iOS6-screen_3_5_inch"/>
+</tr>
+</table>
 </div>
--->
+</xsl:template>
 
-<div class="nav">
-<a href="http://univmobile.vswip.com/job/unm-devel-it/lastSuccessfulBuild/artifact/unm-devel-it/target/unm-ios-ci-dump.html">
-UnivMobile iOS — Intégration continue
-</a>
-</div>
 
-<div class="nav">
-<a href="http://univmobile.vswip.com/">Jenkins — Intégration continue</a>
-</div>
-
-<div class="nav">
-<a href="http://univmobile.vswip.com/ios/">UnivMobile iOS — Installations ad hoc</a>
-</div>
-
-<h1>UnivMobile iOS — Scénarios</h1>
-
-<xsl:variable name="buildNumber_ios7"
-	select="/*/scenarios[@jobName = 'unm-ios-it']/@buildNumber"/>
-<xsl:variable name="buildNumber_ios6"
-	select="/*/scenarios[@jobName = 'unm-ios-it_ios6']/@buildNumber"/>
-
-<div id="div-appCommitId">
-appCommitId:
-<xsl:value-of select="/*/scenarios/@appCommitId"/>;
-<a href="http://univmobile.vswip.com/job/unm-ios-it/">unm-ios-it</a>:
-	<a href="http://univmobile.vswip.com/job/unm-ios-it/{$buildNumber_ios7}">Build
-	#<xsl:value-of select="$buildNumber_ios7"/></a>;
-<a href="http://univmobile.vswip.com/job/unm-ios-it_ios6/">unm-ios-it_ios6</a>:
-	<a href="http://univmobile.vswip.com/job/unm-ios-it_ios6/{$buildNumber_ios6}">Build
-	#<xsl:value-of select="$buildNumber_ios6"/></a>;
-	
-</div>
+<xsl:template name="scenarios">
 
 <xsl:variable name="scenariosClasses" select="scenarios[1]/scenariosClass"/>
 <!-- 
@@ -251,8 +255,6 @@ Table des matières
 
 </div>
 
-</body>
-</html>
 </xsl:template>
 
 <xsl:template name="anchorId">
@@ -271,9 +273,9 @@ Table des matières
 	select="parent::scenario/@scenarioMethod"/>
 	
 <xsl:variable name="buildNumber_ios7"
-	select="/*/scenarios[@jobName = 'unm-ios-it']/@buildNumber"/>
+	select="/*/scenarios[not(contains(@jobName, '-it_ios6'))]/@buildNumber"/>
 <xsl:variable name="buildNumber_ios6"
-	select="/*/scenarios[@jobName = 'unm-ios-it_ios6']/@buildNumber"/>
+	select="/*/scenarios[contains(@jobName, '-it_ios6')]/@buildNumber"/>
 <!--  
 <xsl:variable name="buildNumber_ios7"
 	select="/*/scenarios[@iosLabel = 'iOS7']/@buildNumber"/>
@@ -281,14 +283,28 @@ Table des matières
 	select="/*/scenarios[@iosLabel = 'iOS6']/@buildNumber"/>
 -->
 
+<xsl:variable name="jobName_ios7">
+	<xsl:choose>
+	<xsl:when test="/*/scenarios/@jobName = 'unm-ios-it_ios6'">unm-ios-it</xsl:when>
+	<xsl:otherwise>unm-mobileweb-it_ios7</xsl:otherwise>
+	</xsl:choose>
+</xsl:variable>
+
+<xsl:variable name="mavenProject">
+	<xsl:choose>
+	<xsl:when test="/*/scenarios/@jobName = 'unm-ios-it_ios6'">unm-ios-it</xsl:when>
+	<xsl:otherwise>unm-mobileweb-it</xsl:otherwise>
+	</xsl:choose>
+</xsl:variable>
+
 <div class="device" onclick="displayDetail(
 			'{$scenariosClassSimpleName}', '{$scenarioMethodName}',
 			'{@filename}');"		
 		xtitle="{@filename}">
 	<img class="screenshot" src="{concat(
-			'http://univmobile.vswip.com/job/unm-ios-it/',
+			'http://univmobile.vswip.com/job/', $jobName_ios7, '/',
 			$buildNumber_ios7,
-			'/artifact/unm-ios-it/target/screenshots',
+			'/artifact/', $mavenProject, '/target/screenshots',
 			'/iOS_7.1/iPhone_Retina_4-inch/',
 			$scenariosClassSimpleName, '/', $scenarioMethodName, 
 			'/', @filename)}"/>

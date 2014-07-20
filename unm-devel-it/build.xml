@@ -2,7 +2,9 @@
 <project name="unm-devel-it" default="all">
 
 	<target name="all" depends="generate-unm-ios-ci-dump,
-		generate-unm-ios-it-scenarios-dump">
+		generate-unm-ios-it-scenarios-dump,
+		generate-unm-mobileweb-ci-dump,
+		generate-unm-mobileweb-it-scenarios-dump">
 	</target>
 
 	<target name="generate-unm-ios-ci-dump" description="Generate HTML page about UnivMobile iOS Continuous Integration">
@@ -18,7 +20,8 @@
 
 	</target>
 
-	<target name="generate-unm-mobileweb-ci-dump" description="Generate HTML page about UnivMobile mobile web Continuous Integration">
+	<target name="generate-unm-mobileweb-ci-dump" 
+		description="Generate HTML page about UnivMobile mobile web Continuous Integration">
 
 		<property name="unm-mobileweb-ci-dump"
 			location="target/unm-mobileweb-ci-dump.html" />
@@ -38,6 +41,21 @@
 		<echo>Saving HTML page: ${unm-ios-it-scenarios-dump}...</echo>
 
 		<xslt force="true" style="src/main/xslt/unm-ios-it-scenarios-dump.html.xsl" in="target/unm-ios-it-scenarios-dump.xml" out="${unm-ios-it-scenarios-dump}" />
+
+	</target>
+
+	<target name="generate-unm-mobileweb-it-scenarios-dump" 
+		description="Generate HTML page about UnivMobile mobile web Integration Scenarios">
+
+		<property name="unm-mobileweb-it-scenarios-dump" 
+			location="target/unm-mobileweb-it-scenarios-dump.html" />
+
+		<echo>Saving HTML page: ${unm-mobileweb-it-scenarios-dump}...</echo>
+
+		<xslt force="true" 
+			style="src/main/xslt/unm-mobileweb-it-scenarios-dump.html.xsl" 
+			in="target/unm-mobileweb-it-scenarios-dump.xml" 
+			out="${unm-mobileweb-it-scenarios-dump}" />
 
 	</target>
 

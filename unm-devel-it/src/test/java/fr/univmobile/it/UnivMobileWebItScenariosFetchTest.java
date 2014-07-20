@@ -12,38 +12,38 @@ import fr.univmobile.it.cidump.DumpedBuild;
 import fr.univmobile.testutil.Dumper;
 import fr.univmobile.testutil.XMLDumper;
 
-public class UnivMobileiOSItScenariosFetchTest {
+public class UnivMobileWebItScenariosFetchTest {
 
 	/**
 	 * Fetch all screenshots and XML log files emitted by JUnit tests in
-	 * unm-ios-it which use Appium, then emit an XML file:
-	 * unm-ios-it-scenarios-dump.xml.
+	 * unm-mobileweb-it which use Appium, then emit an XML file:
+	 * unm-mobileweb-it-scenarios-dump.xml.
 	 */
 	@Test
-	public void fetchUnmIosItScenarios() throws Exception {
+	public void fetchUnmMobileWebItScenarios() throws Exception {
 
 		// 1. FETCH REMOTE RESOURCES
 
 		final Dumper dumper = XMLDumper.newXMLDumper(
-				"unm-ios-it-scenarios-dump", new File(
-						"target/unm-ios-it-scenarios-dump.xml"));
+				"unm-mobileweb-it-scenarios-dump", new File(
+						"target/unm-mobileweb-it-scenarios-dump.xml"));
 
 		dumper.addAttribute("date", new DateTime());
 
 		try {
 
-			// 1.1. DUMP BOTH UNM-IOS-IT JOBS
+			// 1.1. DUMP BOTH UNM-MOBILEWEB-IT JOBS
 
 			final ContinuousIntegrationDumper ci = new ContinuousIntegrationDumper(
 					dumper);
 
 			final DumpedBuild[] builds = ci.dumpJenkinsBuildsForJob(
-					"unm-ios-it", 50);
+					"unm-mobileweb-it_ios7", 50);
 
 			final DumpedBuild[] builds_ios6 = ci.dumpJenkinsBuildsForJob(
-					"unm-ios-it_ios6", 50);
+					"unm-mobileweb-it_ios6", 50);
 
-			// 1.2. FIND AN APP COMMIT ID COMMON TWO BOTH UNM-IOS-IT JOBS
+			// 1.2. FIND AN APP COMMIT ID COMMON TWO BOTH UNM-MOBILEWEB-IT JOBS
 
 			DumpedBuild build_ios6 = null;
 
@@ -63,10 +63,10 @@ public class UnivMobileiOSItScenariosFetchTest {
 
 			if (build_ios6 != null) {
 
-				final DumpedBuild build = getLatestSuccessfulBuildForAppCommitId(
+				final DumpedBuild build_ios7 = getLatestSuccessfulBuildForAppCommitId(
 						builds, build_ios6.appCommitId);
 
-				ci.dumpItScenarios("iOS_7.1", "iOS7", build);
+				ci.dumpItScenarios("iOS_7.1", "iOS7", build_ios7);
 				// TODO ci.dumpItScenarios("iOS_7.1", "iOS7", build_ios6);
 
 				// TODO : not 7.1, but 6.0
@@ -79,6 +79,6 @@ public class UnivMobileiOSItScenariosFetchTest {
 
 		// 2. ANT
 
-		AntUtils.executeTarget("generate-unm-ios-it-scenarios-dump");
+		AntUtils.executeTarget("generate-unm-mobileweb-it-scenarios-dump");
 	}
 }
