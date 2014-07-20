@@ -164,9 +164,11 @@ div.scenariosClass div.label {
 	margin-top: 0.4em;
 	margin-bottom: 1.2em;
 }
-div.scenariosClass h2,
-div.scenariosClass h3 {
+div.scenariosClass h2 {
 	margin-bottom: 0.2em;
+}
+div.scenariosClass h3 {
+	margin-bottom: 0.6em;
 }
 div.scenariosClass h3 {
 	border-top: 1px dashed #000;
