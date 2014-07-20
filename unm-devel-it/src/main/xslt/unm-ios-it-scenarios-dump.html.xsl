@@ -20,13 +20,13 @@
 -->
 
 <div class="nav">
-<a href="http://univmobile.vswip.com/job/unm-devel-it/lastSuccessfulBuild/artifact/unm-devel-it/target/unm-ios-ci-dump.html">
-UnivMobile iOS — Intégration continue
-</a>
+<a href="http://univmobile.vswip.com/">Jenkins — Intégration continue</a>
 </div>
 
 <div class="nav">
-<a href="http://univmobile.vswip.com/">Jenkins — Intégration continue</a>
+<a href="http://univmobile.vswip.com/job/unm-devel-it/lastSuccessfulBuild/artifact/unm-devel-it/target/unm-ios-ci-dump.html">
+UnivMobile iOS — Intégration continue
+</a>
 </div>
 
 <div class="nav">
