@@ -15,17 +15,10 @@
 		<dependency>
 			<groupId>fr.univmobile</groupId>
 			<artifactId>unm-ios-ut-results</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>fr.univmobile</groupId>
-			<artifactId>unm-testutil</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.ant</groupId>
 			<artifactId>ant</artifactId>
-			<version>1.9.4</version>
 		</dependency>
 	</dependencies>
 
