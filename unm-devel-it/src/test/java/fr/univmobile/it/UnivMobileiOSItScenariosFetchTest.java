@@ -27,10 +27,9 @@ public class UnivMobileiOSItScenariosFetchTest {
 		final Dumper dumper = XMLDumper.newXMLDumper(
 				"unm-ios-it-scenarios-dump", new File(
 						"target/unm-ios-it-scenarios-dump.xml"));
-
-		dumper.addAttribute("date", new DateTime());
-
 		try {
+
+			dumper.addAttribute("date", new DateTime());
 
 			// 1.1. DUMP BOTH UNM-IOS-IT JOBS
 

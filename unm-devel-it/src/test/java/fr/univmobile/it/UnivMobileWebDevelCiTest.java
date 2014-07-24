@@ -27,10 +27,9 @@ public class UnivMobileWebDevelCiTest {
 
 		final Dumper dumper = XMLDumper.newXMLDumper("unm-mobileweb-ci-dump", new File(
 				"target/unm-mobileweb-ci-dump.xml"));
-
-		dumper.addAttribute("date", new DateTime());
-
 		try {
+
+			dumper.addAttribute("date", new DateTime());
 
 			final ContinuousIntegrationDumper ci = new ContinuousIntegrationDumper(
 					dumper);
