@@ -3,7 +3,7 @@ package fr.univmobile.it.cidump;
 import net.avcompris.binding.annotation.XPath;
 
 @XPath("/*")
-interface JenkinsJob {
+public interface JenkinsJob {
 
 	@XPath(value = ".", function = "name()")
 	String getType();
