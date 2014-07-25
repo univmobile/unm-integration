@@ -14,8 +14,12 @@ import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
 import org.eclipse.jgit.api.Git;
+import org.eclipse.jgit.api.errors.CheckoutConflictException;
 import org.eclipse.jgit.api.errors.GitAPIException;
+import org.eclipse.jgit.api.errors.InvalidRefNameException;
 import org.eclipse.jgit.api.errors.InvalidRemoteException;
+import org.eclipse.jgit.api.errors.RefAlreadyExistsException;
+import org.eclipse.jgit.api.errors.RefNotFoundException;
 import org.eclipse.jgit.api.errors.TransportException;
 import org.eclipse.jgit.lib.Constants;
 import org.eclipse.jgit.lib.ObjectId;
@@ -248,15 +252,33 @@ public class JGitHelper {
 			throws IOException, InvalidRemoteException, TransportException,
 			GitAPIException {
 
+		return cloneRepo(url, "master", destDir);
+	}
+
+	public static JGitHelper cloneRepo(final String url, final String branch,
+			final File destDir) throws IOException, InvalidRemoteException,
+			TransportException, GitAPIException {
+
 		System.out.println("Cloning git repo: " + url);
 		System.out.println(" Cloning into: " + destDir.getCanonicalPath()
 				+ "...");
 
-		Git.cloneRepository().setBare(false).setCloneAllBranches(true)
-				.setDirectory(destDir).setURI(url).call();
+		Git.cloneRepository().setBare(false).setCloneAllBranches(false)
+				.setBranch(branch).setDirectory(destDir).setURI(url).call();
 
 		final File gitDir = new File(destDir, ".git");
 
 		return new JGitHelper(gitDir);
+	}
+
+	/**
+	 * 
+	 * @param name can be a tag name, a commit ID or a branch name.
+	 */
+	public void checkout(final String name) throws RefAlreadyExistsException, RefNotFoundException, InvalidRefNameException, CheckoutConflictException, GitAPIException {
+
+		final Git git = new Git(repo);
+
+		git.checkout().setName(name).call();
 	}
 }
