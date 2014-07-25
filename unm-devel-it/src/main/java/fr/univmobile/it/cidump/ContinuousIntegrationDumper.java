@@ -123,6 +123,39 @@ public class ContinuousIntegrationDumper {
 		}
 	}
 
+	public void saveJobBuildConsole(final File outFile, final String jobName,
+			final int buildNumber) throws IOException {
+
+		final File consoleFile = saveTextContent(baseURL + "job/" + jobName
+				+ "/" + buildNumber + "/consoleText");
+
+		FileUtils.copyFile(consoleFile, outFile);
+	}
+
+	public HudsonJobs dumpAllJenkinsJobs() throws Exception {
+
+		final String hudsonUrl = baseURL + "api/xml";
+
+		final HudsonJobs jobs = loadXMLContent(hudsonUrl, HudsonJobs.class);
+
+		if (jobs == null) {
+			throw new FileNotFoundException(
+					"Cannot read Hudson config at URL: " + hudsonUrl);
+		}
+
+		final Dumper hudsonDumper = dumper.addElement("hudson");
+
+		for (final JenkinsJob job : jobs.getJobs()) {
+
+			hudsonDumper.addElement("job") //
+					.addAttribute("name", job.getName()) //
+					.addAttribute("url", job.getUrl());
+		}
+
+		return jobs;
+
+	}
+
 	public DumpedBuild[] dumpJenkinsBuildsForJob(final String jobName,
 			final int max) throws Exception {
 
@@ -229,7 +262,7 @@ public class ContinuousIntegrationDumper {
 
 			dumpedBuilds.add(new DumpedBuild(jobName, buildNumber, //
 					"SUCCESS".equals(build.getResult()), //
-					appCommitId));
+					build.getCommitId(), appCommitId));
 
 			builds.add(build);
 		}
