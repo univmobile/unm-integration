@@ -31,19 +31,29 @@ UnivMobile mobile web — Intégration continue
 <h1>UnivMobile mobile web — Scénarios</h1>
 
 <xsl:variable name="buildNumber_ios7"
-	select="/*/scenarios[@jobName = 'unm-mobileweb-it_ios7']/@buildNumber"/>
+	select="/*/scenarios[starts-with(@jobName, 'unm-mobileweb-it_ios7')]/@buildNumber"/>
 <xsl:variable name="buildNumber_ios6"
-	select="/*/scenarios[@jobName = 'unm-mobileweb-it_ios6']/@buildNumber"/>
+	select="/*/scenarios[starts-with(@jobName, 'unm-mobileweb-it_ios6')]/@buildNumber"/>
+<xsl:variable name="ios7jobName"
+	select="/*/scenarios[starts-with(@jobName, 'unm-mobileweb-it_ios7')]/@jobName"/>
+<xsl:variable name="ios6jobName"
+	select="/*/scenarios[starts-with(@jobName, 'unm-mobileweb-it_ios6')]/@jobName"/>
 
 <div id="div-appCommitId">
 appCommitId:
-<xsl:value-of select="/*/scenarios/@appCommitId"/>;
-<a href="http://univmobile.vswip.com/job/unm-mobileweb-it_ios7/">unm-mobileweb-it_ios7</a>:
-	<a href="http://univmobile.vswip.com/job/unm-mobileweb-it_ios7/{$buildNumber_ios7}">Build
-	#<xsl:value-of select="$buildNumber_ios7"/></a>;
-<a href="http://univmobile.vswip.com/job/unm-mobileweb-it_ios6/">unm-mobileweb-it_ios6</a>:
-	<a href="http://univmobile.vswip.com/job/unm-mobileweb-it_ios6/{$buildNumber_ios6}">Build
-	#<xsl:value-of select="$buildNumber_ios6"/></a>;
+<xsl:value-of select="/*/scenarios/@appCommitId"/>
+<br/>
+<a href="http://univmobile.vswip.com/job/{$ios7jobName}/">
+<xsl:value-of select="$ios7jobName"/>
+</a>:
+	<a href="http://univmobile.vswip.com/job/{$ios7jobName}/{$buildNumber_ios7}">Build
+	#<xsl:value-of select="$buildNumber_ios7"/></a>
+—
+<a href="http://univmobile.vswip.com/job/{$ios6jobName}/">
+<xsl:value-of select="$ios6jobName"/>
+</a>:
+	<a href="http://univmobile.vswip.com/job/{$ios7jobName}/{$buildNumber_ios6}">Build
+	#<xsl:value-of select="$buildNumber_ios6"/></a>
 	
 </div>
 

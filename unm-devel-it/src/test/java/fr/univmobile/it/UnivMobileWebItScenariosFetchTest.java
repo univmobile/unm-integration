@@ -22,6 +22,18 @@ public class UnivMobileWebItScenariosFetchTest {
 	@Test
 	public void fetchUnmMobileWebItScenarios() throws Exception {
 
+		final String requiredAppCommitId = System.getProperty("appCommitId");
+
+		final String ios6jobName = requiredAppCommitId == null //
+		? "unm-mobileweb-it_ios6"
+				: "unm-mobileweb-it_ios6_release";
+
+		final String ios7jobName = requiredAppCommitId == null //
+		? "unm-mobileweb-it_ios7"
+				: "unm-mobileweb-it_ios7_release";
+
+		System.out.println("requiredAppCommitId: " + requiredAppCommitId);
+
 		// 1. FETCH REMOTE RESOURCES
 
 		final Dumper dumper = XMLDumper.newXMLDumper(
@@ -37,10 +49,10 @@ public class UnivMobileWebItScenariosFetchTest {
 					dumper);
 
 			final DumpedBuild[] builds = ci.dumpJenkinsBuildsForJob(
-					"unm-mobileweb-it_ios7", 50);
+					ios7jobName, 50);
 
 			final DumpedBuild[] builds_ios6 = ci.dumpJenkinsBuildsForJob(
-					"unm-mobileweb-it_ios6", 50);
+					ios6jobName, 50);
 
 			// 1.2. FIND AN APP COMMIT ID COMMON TWO BOTH UNM-MOBILEWEB-IT JOBS
 
@@ -49,6 +61,11 @@ public class UnivMobileWebItScenariosFetchTest {
 			for (final DumpedBuild build : builds) {
 
 				if (!build.isSuccess || build.appCommitId == null) {
+					continue;
+				}
+
+				if (requiredAppCommitId == null
+						|| !requiredAppCommitId.equals(build.appCommitId)) {
 					continue;
 				}
 

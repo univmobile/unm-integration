@@ -288,6 +288,7 @@ Table des matières
 	<xsl:when test="/*/scenarios/@jobName = 'unm-ios-it_ios6'">unm-ios-it</xsl:when>
 	<xsl:otherwise>unm-mobileweb-it_ios7</xsl:otherwise>
 	</xsl:choose>
+	<xsl:if test="contains(/*/scenarios/@jobName, '_release')">_release</xsl:if>
 </xsl:variable>
 
 <xsl:variable name="mavenProject">
