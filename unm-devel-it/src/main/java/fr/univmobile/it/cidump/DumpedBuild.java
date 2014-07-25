@@ -10,19 +10,29 @@ public class DumpedBuild {
 
 	public final int buildNumber;
 
-	public boolean isSuccess;
+	public final boolean isSuccess;
 
 	@Nullable
 	public final String appCommitId;
+	
+	public final String commitId;
 
 	DumpedBuild(final String jobName, final int buildNumber, //
 			final boolean isSuccess, //
+			final String commitId, //
 			@Nullable final String appCommitId) {
 
 		this.jobName = checkNotNull(jobName, "jobName");
+		this.commitId = checkNotNull(commitId, "commitId");
 		this.buildNumber = buildNumber;
 		this.isSuccess = isSuccess;
 		this.appCommitId = appCommitId;
+	}
+
+	@Override
+	public String toString() {
+
+		return "[" + jobName + ":" + buildNumber + " " + isSuccess + "]";
 	}
 
 	@Nullable
@@ -41,5 +51,4 @@ public class DumpedBuild {
 
 		return null;
 	}
-
 }
