@@ -3,7 +3,7 @@
 <xsl:import href="defs-ci-dump.html.xsl"/>
 <xsl:output method="html" encoding="UTF-8" doctype-public="html"/>
 
-<xsl:template match="unm-mobileweb-ci-dump">
+<xsl:template match="/unm-mobileweb-ci-dump">
 <html lang="fr" dir="ltr">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>

@@ -3,7 +3,7 @@
 <xsl:import href="defs-it-scenarios-dump.html.xsl"/>
 <xsl:output method="html" encoding="UTF-8" doctype-public="html"/>
 
-<xsl:template match="unm-mobileweb-it-scenarios-dump">
+<xsl:template match="/unm-mobileweb-it-scenarios-dump">
 <html lang="fr" dir="ltr">
 
 <xsl:call-template name="html-head"/>
@@ -40,7 +40,6 @@ UnivMobile mobile web — Intégration continue
 	select="/*/scenarios[starts-with(@jobName, 'unm-mobileweb-it_ios6')]/@jobName"/>
 
 <div id="div-appCommitId">
-appCommitId:
 <xsl:value-of select="/*/scenarios/@appCommitId"/>
 <br/>
 <a href="http://univmobile.vswip.com/job/{$ios7jobName}/">

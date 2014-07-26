@@ -53,7 +53,6 @@
 </div>
 </xsl:template>
 
-
 <xsl:template name="scenarios">
 
 <xsl:variable name="scenariosClasses" select="scenarios[1]/scenariosClass"/>
