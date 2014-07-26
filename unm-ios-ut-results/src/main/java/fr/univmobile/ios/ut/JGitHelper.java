@@ -273,12 +273,23 @@ public class JGitHelper {
 
 	/**
 	 * 
-	 * @param name can be a tag name, a commit ID or a branch name.
+	 * @param name <em>cannot</em> be a tag name; Must be a branch name.
 	 */
 	public void checkout(final String name) throws RefAlreadyExistsException, RefNotFoundException, InvalidRefNameException, CheckoutConflictException, GitAPIException {
 
 		final Git git = new Git(repo);
 
 		git.checkout().setName(name).call();
+	}
+
+	/**
+	 * 
+	 * @param name can be a tag name.
+	 */
+	public void checkoutTag(final String tagName) throws RefAlreadyExistsException, RefNotFoundException, InvalidRefNameException, CheckoutConflictException, GitAPIException {
+
+		final Git git = new Git(repo);
+
+		git.checkout().addPath(tagName).call();
 	}
 }
