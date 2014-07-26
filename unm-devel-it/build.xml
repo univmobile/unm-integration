@@ -55,7 +55,9 @@
 		<xslt force="true" 
 			style="src/main/xslt/unm-mobileweb-it-scenarios-dump.html.xsl" 
 			in="target/unm-mobileweb-it-scenarios-dump.xml" 
-			out="${unm-mobileweb-it-scenarios-dump}" />
+			out="${unm-mobileweb-it-scenarios-dump}" >
+			<param name="appCommitId" expression="${appCommitId}"/>
+		</xslt>
 
 	</target>
 
