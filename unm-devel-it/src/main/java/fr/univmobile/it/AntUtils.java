@@ -28,6 +28,13 @@ public abstract class AntUtils {
 
 		project.addBuildListener(consoleLogger);
 
+		final String requiredAppCommitId = System.getProperty("appCommitId");
+
+		if (requiredAppCommitId != null) {
+
+			project.setProperty("appCommitId", requiredAppCommitId);
+		}
+
 		project.init();
 
 		project.executeTarget(target);
