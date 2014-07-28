@@ -22,6 +22,18 @@ public class UnivMobileiOSItScenariosFetchTest {
 	@Test
 	public void fetchUnmIosItScenarios() throws Exception {
 
+		final String requiredAppCommitId = System.getProperty("appCommitId");
+
+		final String ios6jobName = requiredAppCommitId == null //
+		? "unm-ios-it_ios6"
+				: "unm-ios-it_ios6_release";
+
+		final String ios7jobName = requiredAppCommitId == null //
+		? "unm-ios-it"
+				: "unm-ios-it_release";
+
+		System.out.println("requiredAppCommitId: " + requiredAppCommitId);
+
 		// 1. FETCH REMOTE RESOURCES
 
 		final Dumper dumper = XMLDumper.newXMLDumper(
@@ -37,10 +49,10 @@ public class UnivMobileiOSItScenariosFetchTest {
 					dumper);
 
 			final DumpedBuild[] builds = ci.dumpJenkinsBuildsForJob(
-					"unm-ios-it", 50);
+					ios7jobName, 50);
 
 			final DumpedBuild[] builds_ios6 = ci.dumpJenkinsBuildsForJob(
-					"unm-ios-it_ios6", 50);
+					ios6jobName, 50);
 
 			// 1.2. FIND AN APP COMMIT ID COMMON TWO BOTH UNM-IOS-IT JOBS
 

@@ -71,7 +71,7 @@ public class ContinuousIntegrationDumper {
 	private final HttpClient client;
 	private final Dumper dumper;
 
-	public void dumpGitCommitsForRepo(final String repoName, final int max)
+	public void dumpGitCommitsForRepo(final String repoName, final String branch, final int max)
 			throws Exception {
 
 		final JGitHelper jgitHelper;
@@ -83,7 +83,7 @@ public class ContinuousIntegrationDumper {
 		}
 
 		jgitHelper = JGitHelper.cloneRepo("https://github.com/univmobile/"
-				+ repoName, repoDir);
+				+ repoName, branch, repoDir);
 
 		// jgitHelper = new JGitHelper(new File(repoDir, ".git"));
 
