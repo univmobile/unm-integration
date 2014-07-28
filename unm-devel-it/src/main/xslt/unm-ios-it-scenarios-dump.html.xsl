@@ -3,6 +3,10 @@
 <xsl:import href="defs-it-scenarios-dump.html.xsl"/>
 <xsl:output method="html" encoding="UTF-8" doctype-public="html"/>
 
+<xsl:variable name="release">
+<xsl:if test="/*/scenarios[contains(@jobName, '_release')]">_release</xsl:if>
+</xsl:variable>
+
 <xsl:template match="/unm-ios-it-scenarios-dump">
 <html lang="fr" dir="ltr">
 
@@ -42,11 +46,13 @@ UnivMobile iOS — Intégration continue
 <div id="div-appCommitId">
 appCommitId:
 <xsl:value-of select="/*/scenarios/@appCommitId"/>;
-<a href="http://univmobile.vswip.com/job/unm-ios-it/">unm-ios-it</a>:
-	<a href="http://univmobile.vswip.com/job/unm-ios-it/{$buildNumber_ios7}">Build
+<a href="http://univmobile.vswip.com/job/unm-ios-it{$release}/">
+	unm-ios-it<xsl:value-of select="$release"/></a>:
+	<a href="http://univmobile.vswip.com/job/unm-ios-it{$release}/{$buildNumber_ios7}">Build
 	#<xsl:value-of select="$buildNumber_ios7"/></a>;
-<a href="http://univmobile.vswip.com/job/unm-ios-it_ios6/">unm-ios-it_ios6</a>:
-	<a href="http://univmobile.vswip.com/job/unm-ios-it_ios6/{$buildNumber_ios6}">Build
+<a href="http://univmobile.vswip.com/job/unm-ios-it_ios6{$release}/">
+	unm-ios-it_ios6<xsl:value-of select="$release"/></a>:
+	<a href="http://univmobile.vswip.com/job/unm-ios-it_ios6{$release}/{$buildNumber_ios6}">Build
 	#<xsl:value-of select="$buildNumber_ios6"/></a>;
 	
 </div>
@@ -270,9 +276,12 @@ Table des matières
 	select="parent::scenario/@scenarioMethod"/>
 	
 <xsl:variable name="buildNumber_ios7"
-	select="/*/scenarios[@jobName = 'unm-ios-it']/@buildNumber"/>
+	select="/*/scenarios[@jobName = 'unm-ios-it'
+		or @jobName = 'unm-ios-it_release']/@buildNumber"/>
 <xsl:variable name="buildNumber_ios6"
-	select="/*/scenarios[@jobName = 'unm-ios-it_ios6']/@buildNumber"/>
+	select="/*/scenarios[@jobName = 'unm-ios-it_ios6'
+		or @jobName = 'unm-ios-it_ios6_release']/@buildNumber"/>
+		
 <!--  
 <xsl:variable name="buildNumber_ios7"
 	select="/*/scenarios[@iosLabel = 'iOS7']/@buildNumber"/>
@@ -285,7 +294,7 @@ Table des matières
 			'{@filename}');"		
 		xtitle="{@filename}">
 	<img class="screenshot" src="{concat(
-			'http://univmobile.vswip.com/job/unm-ios-it/',
+			'http://univmobile.vswip.com/job/unm-ios-it', $release, '/',
 			$buildNumber_ios7,
 			'/artifact/unm-ios-it/target/screenshots',
 			'/iOS_7.1/iPhone_Retina_4-inch/',

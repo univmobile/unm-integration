@@ -14,7 +14,7 @@ public abstract class AbstractUnivMobileItScenariosFetchTest {
 	/**
 	 * Find an appCommitId common to several Jenkins jobs.
 	 */
-	protected final DumpedBuild[] findBuildsWithSamAppCommitId(
+	protected static final DumpedBuild[] findBuildsWithSamAppCommitId(
 			@Nullable String requiredAppCommitId,
 			final DumpedBuild[]... buildArrays) {
 
@@ -30,9 +30,12 @@ public abstract class AbstractUnivMobileItScenariosFetchTest {
 						buildArrays[i], requiredAppCommitId);
 
 				if (build == null) {
-					throw new IllegalStateException("At least one job of "
+
+					dumpBuildArrays(buildArrays, 10);
+
+					throw new IllegalStateException("At least one of the "
 							+ buildArrays.length
-							+ " has no successful build for appCommitId: "
+							+ " jobs has no successful build for appCommitId: "
 							+ requiredAppCommitId);
 				}
 
@@ -78,9 +81,26 @@ public abstract class AbstractUnivMobileItScenariosFetchTest {
 		}
 
 		// 9. Too bad we didn’t find anything
-		
+
+		dumpBuildArrays(buildArrays, 10);
+
 		throw new IllegalStateException(
 				"No common appCommitId could be found for the "
 						+ buildArrays.length + " jobs.");
+	}
+
+	private static void dumpBuildArrays(final DumpedBuild[][] buildArrays,
+			final int max) {
+
+		for (final DumpedBuild[] buildArray : buildArrays) {
+
+			for (final DumpedBuild build : buildArray) {
+
+				System.out.println(build.appCommitId + " " + build.isSuccess
+						+ " #" + build.buildNumber);
+			}
+
+			System.out.println();
+		}
 	}
 }

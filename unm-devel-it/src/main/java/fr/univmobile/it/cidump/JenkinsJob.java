@@ -36,7 +36,8 @@ interface JenkinsBuild {
 	@XPath("number")
 	int getNumber();
 
-	@XPath("action/buildsByBranchName/originmaster/marked/SHA1")
+	// @XPath("action/buildsByBranchName/originmaster/marked/SHA1")
+	@XPath("action/buildsByBranchName/*/marked/SHA1")
 	String getCommitId();
 	
 	@XPath("result")

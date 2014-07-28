@@ -258,6 +258,7 @@ var buildNumber_ios6 = <xsl:value-of
 <xsl:variable name="jobName_ios7">
 	<xsl:choose>
 	<xsl:when test="/*/scenarios/@jobName = 'unm-ios-it_ios6'">unm-ios-it</xsl:when>
+	<xsl:when test="/*/scenarios/@jobName = 'unm-ios-it_ios6_release'">unm-ios-it</xsl:when>
 	<xsl:otherwise>unm-mobileweb-it_ios7</xsl:otherwise>
 	</xsl:choose>
 	<xsl:if test="contains(/*/scenarios/@jobName, '_release')">_release</xsl:if>
@@ -266,6 +267,7 @@ var buildNumber_ios6 = <xsl:value-of
 <xsl:variable name="jobName_ios6">
 	<xsl:choose>
 	<xsl:when test="/*/scenarios/@jobName = 'unm-ios-it_ios6'">unm-ios-it_ios6</xsl:when>
+	<xsl:when test="/*/scenarios/@jobName = 'unm-ios-it_ios6_release'">unm-ios-it_ios6</xsl:when>
 	<xsl:otherwise>unm-mobileweb-it_ios6</xsl:otherwise>
 	</xsl:choose>
 	<xsl:if test="contains(/*/scenarios/@jobName, '_release')">_release</xsl:if>
@@ -274,6 +276,7 @@ var buildNumber_ios6 = <xsl:value-of
 <xsl:variable name="mavenProject">
 	<xsl:choose>
 	<xsl:when test="/*/scenarios/@jobName = 'unm-ios-it_ios6'">unm-ios-it</xsl:when>
+	<xsl:when test="/*/scenarios/@jobName = 'unm-ios-it_ios6_release'">unm-ios-it</xsl:when>
 	<xsl:otherwise>unm-mobileweb-it</xsl:otherwise>
 	</xsl:choose>
 </xsl:variable>
