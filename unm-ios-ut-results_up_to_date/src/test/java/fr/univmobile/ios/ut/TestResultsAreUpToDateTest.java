@@ -9,6 +9,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.junit.Test;
 
+import fr.univmobile.it.commons.JGitHelper;
+
 public class TestResultsAreUpToDateTest {
 
 	@Test
