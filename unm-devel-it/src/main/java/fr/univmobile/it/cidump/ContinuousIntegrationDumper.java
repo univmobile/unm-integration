@@ -33,10 +33,10 @@ import org.joda.time.format.DateTimeFormat;
 
 import com.google.common.collect.Iterables;
 
-import fr.univmobile.ios.ut.JGitHelper;
 import fr.univmobile.it.cidump.Scenarios.ScenariosClass;
 import fr.univmobile.it.cidump.Scenarios.ScenariosClass.Device;
 import fr.univmobile.it.cidump.Scenarios.ScenariosClass.ScenarioMethod;
+import fr.univmobile.it.commons.JGitHelper;
 import fr.univmobile.testutil.Dumper;
 import fr.univmobile.testutil.PropertiesUtils;
 
