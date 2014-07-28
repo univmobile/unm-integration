@@ -33,10 +33,10 @@ import org.joda.time.format.DateTimeFormat;
 
 import com.google.common.collect.Iterables;
 
-import fr.univmobile.ios.ut.JGitHelper;
 import fr.univmobile.it.cidump.Scenarios.ScenariosClass;
 import fr.univmobile.it.cidump.Scenarios.ScenariosClass.Device;
 import fr.univmobile.it.cidump.Scenarios.ScenariosClass.ScenarioMethod;
+import fr.univmobile.it.commons.JGitHelper;
 import fr.univmobile.testutil.Dumper;
 import fr.univmobile.testutil.PropertiesUtils;
 
@@ -71,8 +71,8 @@ public class ContinuousIntegrationDumper {
 	private final HttpClient client;
 	private final Dumper dumper;
 
-	public void dumpGitCommitsForRepo(final String repoName, final int max)
-			throws Exception {
+	public void dumpGitCommitsForRepo(final String repoName,
+			final String branch, final int max) throws Exception {
 
 		final JGitHelper jgitHelper;
 
@@ -83,7 +83,7 @@ public class ContinuousIntegrationDumper {
 		}
 
 		jgitHelper = JGitHelper.cloneRepo("https://github.com/univmobile/"
-				+ repoName, repoDir);
+				+ repoName, branch, repoDir);
 
 		// jgitHelper = new JGitHelper(new File(repoDir, ".git"));
 
@@ -209,8 +209,9 @@ public class ContinuousIntegrationDumper {
 
 			final String appCommitId;
 
-			if ("unm-ios-it".equals(jobName)
-					|| "unm-ios-it_ios6".equals(jobName)) {
+			// if ("unm-ios-it".equals(jobName)
+			// || "unm-ios-it_ios6".equals(jobName)) {
+			if (jobName.startsWith("unm-ios-it")) {
 
 				// e.g.
 				// http://univmobile.vswip.com/job/unm-ios-it/35/artifact/unm-ios-it/target/screenshots/pageSource.xml
@@ -226,7 +227,7 @@ public class ContinuousIntegrationDumper {
 
 				final String buildInfo = pageSource.getBuildInfo();
 
-				// System.out.println(buildInfo);
+				// System.out.println("buildInfo: " + buildInfo);
 
 				appCommitId = substringAfter(buildInfo,
 						"https://github.com/univmobile/unm-ios").trim();

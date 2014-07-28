@@ -6,8 +6,8 @@
 
 	<parent>
 		<groupId>fr.univmobile</groupId>
-		<artifactId>unm-parent</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<artifactId>unm-it-parent</artifactId>
+		<version>0.0.3</version>
 		<relativePath/>
 	</parent>	
 	
@@ -15,6 +15,10 @@
 		<dependency>
 			<groupId>fr.univmobile</groupId>
 			<artifactId>unm-ios-ut-results</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>fr.univmobile</groupId>
+			<artifactId>unm-it-commons</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>

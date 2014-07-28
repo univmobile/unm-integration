@@ -9,7 +9,7 @@ import fr.univmobile.it.cidump.ContinuousIntegrationDumper;
 import fr.univmobile.testutil.Dumper;
 import fr.univmobile.testutil.XMLDumper;
 
-public class UnivMobileWebDevelCiTest {
+public class UnivMobileWebDevelCiTest extends AbstractUnivMobileCiTest {
 
 	/**
 	 * Fetch all development + continuous integration information from various
@@ -23,10 +23,12 @@ public class UnivMobileWebDevelCiTest {
 	@Test
 	public void fetchCiResources() throws Exception {
 
+		final String suffix = calcJobSuffix(branch);
+
 		// 1. FETCH REMOTE RESOURCES
 
-		final Dumper dumper = XMLDumper.newXMLDumper("unm-mobileweb-ci-dump", new File(
-				"target/unm-mobileweb-ci-dump.xml"));
+		final Dumper dumper = XMLDumper.newXMLDumper("unm-mobileweb-ci-dump",
+				new File("target/unm-mobileweb-ci-dump.xml"));
 		try {
 
 			dumper.addAttribute("date", new DateTime());
@@ -34,13 +36,13 @@ public class UnivMobileWebDevelCiTest {
 			final ContinuousIntegrationDumper ci = new ContinuousIntegrationDumper(
 					dumper);
 
-			ci.dumpGitCommitsForRepo("unm-mobileweb", 20);
+			ci.dumpGitCommitsForRepo("unm-mobileweb", branch, 20);
 
-			ci.dumpJenkinsBuildsForJob("unm-mobileweb-app", 50);
+			ci.dumpJenkinsBuildsForJob("unm-mobileweb-app" + suffix, 50);
 
-			ci.dumpJenkinsBuildsForJob("unm-mobileweb-it_ios7", 50);
+			ci.dumpJenkinsBuildsForJob("unm-mobileweb-it_ios7" + suffix, 50);
 
-			ci.dumpJenkinsBuildsForJob("unm-mobileweb-it_ios6", 50);
+			ci.dumpJenkinsBuildsForJob("unm-mobileweb-it_ios6" + suffix, 50);
 
 		} finally {
 			dumper.close();

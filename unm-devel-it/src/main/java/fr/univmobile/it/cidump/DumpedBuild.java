@@ -39,6 +39,8 @@ public class DumpedBuild {
 	public static DumpedBuild getLatestSuccessfulBuildForAppCommitId(
 			final DumpedBuild[] builds, final String appCommitId) {
 
+		checkNotNull(builds, "builds");
+		
 		checkNotNull(appCommitId, "appCommitId");
 
 		for (final DumpedBuild build : builds) {

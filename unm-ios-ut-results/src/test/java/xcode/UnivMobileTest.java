@@ -17,10 +17,10 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-import fr.univmobile.ios.ut.JGitHelper;
 import fr.univmobile.ios.ut.TestCaseResult;
 import fr.univmobile.ios.ut.TestResultLoader;
 import fr.univmobile.ios.ut.TestSuiteResult;
+import fr.univmobile.it.commons.JGitHelper;
 
 /**
  * Load in memory some test results committed in "

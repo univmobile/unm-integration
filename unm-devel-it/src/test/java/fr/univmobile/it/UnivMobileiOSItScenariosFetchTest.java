@@ -1,7 +1,5 @@
 package fr.univmobile.it;
 
-import static fr.univmobile.it.cidump.DumpedBuild.getLatestSuccessfulBuildForAppCommitId;
-
 import java.io.File;
 
 import org.joda.time.DateTime;
@@ -12,7 +10,8 @@ import fr.univmobile.it.cidump.DumpedBuild;
 import fr.univmobile.testutil.Dumper;
 import fr.univmobile.testutil.XMLDumper;
 
-public class UnivMobileiOSItScenariosFetchTest {
+public class UnivMobileiOSItScenariosFetchTest extends
+		AbstractUnivMobileItScenariosFetchTest {
 
 	/**
 	 * Fetch all screenshots and XML log files emitted by JUnit tests in
@@ -21,6 +20,20 @@ public class UnivMobileiOSItScenariosFetchTest {
 	 */
 	@Test
 	public void fetchUnmIosItScenarios() throws Exception {
+
+		final String requiredAppCommitId = System.getProperty("appCommitId");
+
+		final String ios6jobName = requiredAppCommitId == null //
+		? "unm-ios-it_ios6"
+				: "unm-ios-it_ios6_release";
+
+		final String ios7jobName = requiredAppCommitId == null //
+		? "unm-ios-it"
+				: "unm-ios-it_release";
+
+		System.out.println("requiredAppCommitId: " + requiredAppCommitId);
+		System.out.println("ios7jobName: " + ios7jobName);
+		System.out.println("ios6jobName: " + ios6jobName);
 
 		// 1. FETCH REMOTE RESOURCES
 
@@ -36,41 +49,25 @@ public class UnivMobileiOSItScenariosFetchTest {
 			final ContinuousIntegrationDumper ci = new ContinuousIntegrationDumper(
 					dumper);
 
-			final DumpedBuild[] builds = ci.dumpJenkinsBuildsForJob(
-					"unm-ios-it", 50);
+			final DumpedBuild[] builds_ios7 = ci.dumpJenkinsBuildsForJob(
+					ios7jobName, 50);
 
 			final DumpedBuild[] builds_ios6 = ci.dumpJenkinsBuildsForJob(
-					"unm-ios-it_ios6", 50);
+					ios6jobName, 50);
 
-			// 1.2. FIND AN APP COMMIT ID COMMON TWO BOTH UNM-IOS-IT JOBS
+			// 1.2. FIND AN APP COMMIT ID COMMON TO BOTH UNM-IOS-IT JOBS
 
-			DumpedBuild build_ios6 = null;
+			final DumpedBuild[] builds = findBuildsWithSamAppCommitId(
+					requiredAppCommitId, builds_ios7, builds_ios6);
 
-			for (final DumpedBuild build : builds) {
+			final DumpedBuild build_ios7 = builds[0];
+			final DumpedBuild build_ios6 = builds[1];
 
-				if (!build.isSuccess || build.appCommitId == null) {
-					continue;
-				}
+			ci.dumpItScenarios("iOS_7.1", "iOS7", build_ios7);
+			// TODO ci.dumpItScenarios("iOS_7.1", "iOS7", build_ios6);
 
-				build_ios6 = getLatestSuccessfulBuildForAppCommitId(
-						builds_ios6, build.appCommitId);
-
-				if (build_ios6 != null) {
-					break;
-				}
-			}
-
-			if (build_ios6 != null) {
-
-				final DumpedBuild build = getLatestSuccessfulBuildForAppCommitId(
-						builds, build_ios6.appCommitId);
-
-				ci.dumpItScenarios("iOS_7.1", "iOS7", build);
-				// TODO ci.dumpItScenarios("iOS_7.1", "iOS7", build_ios6);
-
-				// TODO : not 7.1, but 6.0
-				ci.dumpItScenarios("iOS_6.1", "iOS6", build_ios6);
-			}
+			// TODO : not 7.1, but 6.0
+			ci.dumpItScenarios("iOS_6.1", "iOS6", build_ios6);
 
 		} finally {
 			dumper.close();
