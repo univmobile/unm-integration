@@ -24,11 +24,11 @@ public class UnivMobileWebDevelCiTest extends AbstractUnivMobileCiTest {
 	public void fetchCiResources() throws Exception {
 
 		final String suffix = calcJobSuffix(branch);
-		
+
 		// 1. FETCH REMOTE RESOURCES
 
-		final Dumper dumper = XMLDumper.newXMLDumper("unm-mobileweb-ci-dump", new File(
-				"target/unm-mobileweb-ci-dump.xml"));
+		final Dumper dumper = XMLDumper.newXMLDumper("unm-mobileweb-ci-dump",
+				new File("target/unm-mobileweb-ci-dump.xml"));
 		try {
 
 			dumper.addAttribute("date", new DateTime());
@@ -38,11 +38,11 @@ public class UnivMobileWebDevelCiTest extends AbstractUnivMobileCiTest {
 
 			ci.dumpGitCommitsForRepo("unm-mobileweb", branch, 20);
 
-			ci.dumpJenkinsBuildsForJob("unm-mobileweb-app"+suffix, 50);
+			ci.dumpJenkinsBuildsForJob("unm-mobileweb-app" + suffix, 50);
 
-			ci.dumpJenkinsBuildsForJob("unm-mobileweb-it_ios7"+suffix, 50);
+			ci.dumpJenkinsBuildsForJob("unm-mobileweb-it_ios7" + suffix, 50);
 
-			ci.dumpJenkinsBuildsForJob("unm-mobileweb-it_ios6"+suffix, 50);
+			ci.dumpJenkinsBuildsForJob("unm-mobileweb-it_ios6" + suffix, 50);
 
 		} finally {
 			dumper.close();
