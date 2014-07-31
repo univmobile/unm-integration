@@ -1,6 +1,7 @@
 package fr.univmobile.ios.ut;
 
 import static org.apache.commons.lang3.CharEncoding.UTF_8;
+import static org.apache.commons.lang3.StringUtils.normalizeSpace;
 import static org.apache.commons.lang3.StringUtils.substringAfter;
 import static org.apache.commons.lang3.StringUtils.substringAfterLast;
 import static org.apache.commons.lang3.StringUtils.substringBetween;
@@ -231,7 +232,8 @@ public class TestResultLoader {
 
 			if (line.startsWith(prefix)) {
 
-				final String value = substringAfter(line, prefix);
+				final String value = substringAfter(line, prefix) //
+						.replace("  ", " 0"); // Handle: "Fri Aug  1" = 2 spaces
 
 				try {
 
