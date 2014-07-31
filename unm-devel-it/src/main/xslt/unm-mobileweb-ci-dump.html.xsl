@@ -50,7 +50,7 @@ Dump at:
 	<a href="https://github.com/univmobile/unm-mobileweb/commits/master">
 		unm-mobileweb: commits
 	</a>
-	<span class="description">Code source Objective-C</span>
+	<span class="description">Code source Java</span>
 </th>
 <th colspan="2" class="unm-mobileweb-app">
 	<a href="http://univmobile.vswip.com/job/unm-mobileweb-app/">
