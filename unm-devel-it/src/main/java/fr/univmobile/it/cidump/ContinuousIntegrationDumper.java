@@ -584,6 +584,10 @@ public class ContinuousIntegrationDumper {
 
 			return "unm-mobileweb-it";
 
+		} else if (jobName.startsWith("unm-android-it")) {
+
+			return "unm-android-it";
+
 		} else {
 
 			throw new IllegalArgumentException("jobName: " + jobName);

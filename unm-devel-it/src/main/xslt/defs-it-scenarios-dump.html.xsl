@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-
 <xsl:import href="defs-scenarios.html.xsl"/>
+
+<xsl:variable name="grid">
+	<platform name="iOS_7.1">
+		<device name="iPhone_Retina_3.5-inch"/>
+		<device name="iPhone_Retina_4-inch"/>
+	</platform>
+	<platform name="iOS_6.1">
+		<device name="iPhone_Retina_3.5-inch"/>
+		<device name="iPhone_Retina_4-inch"/>
+	</platform>
+</xsl:variable>
 
 <xsl:variable name="img-blank.png" select="concat(
 	'http://univmobile.vswip.com/nexus/content/sites/pub/',
@@ -54,6 +64,7 @@
 </xsl:template>
 
 <xsl:template name="scenarios">
+<xsl:param name="grid" select="document('')//xsl:variable[@name = 'grid']"/>
 
 <xsl:variable name="scenariosClasses" select="scenarios[1]/scenariosClass"/>
 <!-- 
