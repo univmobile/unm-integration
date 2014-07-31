@@ -57,7 +57,7 @@ public class UnivMobileiOSItScenariosFetchTest extends
 
 			// 1.2. FIND AN APP COMMIT ID COMMON TO BOTH UNM-IOS-IT JOBS
 
-			final DumpedBuild[] builds = findBuildsWithSamAppCommitId(
+			final DumpedBuild[] builds = findBuildsWithSameAppCommitId(
 					requiredAppCommitId, builds_ios7, builds_ios6);
 
 			final DumpedBuild build_ios7 = builds[0];
