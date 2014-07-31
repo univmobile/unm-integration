@@ -95,6 +95,7 @@ td.unm-ios-it_ios6.appCommitId {
 }
 td.unm-ios-it,
 td.unm-ios-it_ios6,
+td.unm-android-it,
 td.unm-mobileweb-it_ios7,
 td.unm-mobileweb-it_ios6 {
 	opacity: 0.2;
@@ -103,6 +104,8 @@ td.unm-ios-it.appCommitId,
 td.unm-ios-it_ios6.appCommitId,
 td.unm-ios-it.empty,
 td.unm-ios-it_ios6.empty,
+td.unm-android-it.appCommitId,
+td.unm-android-it.empty,
 td.unm-mobileweb-it_ios7.appCommitId,
 td.unm-mobileweb-it_ios6.appCommitId,
 td.unm-mobileweb-it_ios7.empty,
@@ -157,7 +160,9 @@ div.nav {
 </xsl:variable>
 
 <xsl:variable name="couldNotFindAppCommitId"
-	select="($jobName = 'unm-ios-it' or $jobName = 'unm-ios-it_ios6'
+	select="($jobName = 'unm-ios-it'
+			or $jobName = 'unm-ios-it_ios6'
+			or $jobName = 'unm-android-it'
 			or $jobName = 'unm-mobileweb-it_ios6'
 			or $jobName = 'unm-mobileweb-it_ios7')
 		and not($jenkinsBuild/@appCommitId)"/>

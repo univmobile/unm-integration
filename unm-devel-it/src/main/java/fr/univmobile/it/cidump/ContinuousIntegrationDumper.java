@@ -216,10 +216,10 @@ public class ContinuousIntegrationDumper {
 				// e.g.
 				// http://univmobile.vswip.com/job/unm-ios-it/35/artifact/unm-ios-it/target/screenshots/pageSource.xml
 
-				final AppiumPageSource pageSource = loadXMLContent(baseURL
+				final AppiumIOSPageSource pageSource = loadXMLContent(baseURL
 						+ "job/" + jobName + "/" + buildNumber
 						+ "/artifact/unm-ios-it/target/screenshots"
-						+ "/pageSource.xml", AppiumPageSource.class);
+						+ "/pageSource.xml", AppiumIOSPageSource.class);
 
 				if (pageSource == null) { // Not found.
 					continue;
@@ -253,6 +253,22 @@ public class ContinuousIntegrationDumper {
 								htmlAbout, "id=\"div-info\">", "</div>"),
 								"https://github.com/univmobile/unm-mobileweb"),
 						"-->", "</p>").trim();
+
+				buildDumper.addAttribute("appCommitId", appCommitId);
+
+			} else if (jobName.startsWith("unm-android-it")) {
+
+				final AppiumAndroidPageSource pageSource = loadXMLContent(baseURL + "job/"
+						+ jobName + "/" + buildNumber
+						+ "/artifact/unm-android-it/target/screenshots"
+						+ "/Android_XXX/Android_Emulator/Scenarios001/sc001" // ???
+						+ "/pageAbout.xml", AppiumAndroidPageSource.class);
+
+				if (pageSource == null) { // Not found.
+					continue;
+				}
+
+				appCommitId = pageSource.getGitCommitId();
 
 				buildDumper.addAttribute("appCommitId", appCommitId);
 

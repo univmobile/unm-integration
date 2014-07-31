@@ -117,7 +117,7 @@ Dump at:
 	commitId
 	<xsl:if test="$jenkinsBuilds-Android-UnivMobile/@result = 'SUCCESS'
 		and $jenkinsBuilds-Android-UnivMobile_gradle/@result = 'SUCCESS'
-		and $jenkinsBuilds-unm-android-it/@result = 'SUCCESS'">
+		and $jenkinsBuilds-unm-android-it[@appCommitId]/@result = 'SUCCESS'">
 			SUCCESS</xsl:if>
 	<xsl:if test="$jenkinsBuilds/@result = 'FAILURE'"> FAILURE</xsl:if>
 	<xsl:if test="$jenkinsBuilds/@result = 'UNSTABLE'"> UNSTABLE</xsl:if>
