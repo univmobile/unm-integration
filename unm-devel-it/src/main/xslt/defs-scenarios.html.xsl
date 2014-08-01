@@ -82,7 +82,7 @@ div.device.Android div {
 	top: 2px;
 	left: 2px;
 	xbackground-image: url('../src/main/img/red480x800.png');
-	background-image: url('https://github.com/univmobile/unm-integration/tree/master/unm-devel-it/src/main/img/red480x800.png');
+	background-image: url('https://github.com/univmobile/unm-integration/tree/develop/unm-devel-it/src/main/img/red480x800.png');
 	background-size: 99px 173px;
 	background-repeat: no-repeat;
 	background-position: -11.5px -9px;
