@@ -6,14 +6,19 @@
 		generate-unm-mobileweb-ci-dump,
 		generate-unm-mobileweb-it-scenarios-dump,
 		generate-unm-android-ci-dump,
-		generate-unm-android-it-scenarios-dump">
+		generate-unm-android-it-scenarios-dump,
+		copy-images">
 
+	</target>
+
+	<target name="copy-images">
+		
 		<copy todir="target/site/img">
 			<fileset dir="src/site/img"/>
 		</copy>
-
-		</target>
-
+		
+	</target>
+	
 	<target name="generate-unm-ios-ci-dump" description="Generate HTML page about UnivMobile iOS Continuous Integration">
 
 		<property name="unm-ios-ci-dump" 

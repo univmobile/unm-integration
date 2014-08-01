@@ -36,13 +36,13 @@
 				<executions>
 					<execution>
 						<id>generate-documentation</id>
-						<phase>test</phase>
+						<phase>process-sources</phase>
 						<goals>
 							<goal>run</goal>
 						</goals>
 						<configuration>
-							<target unless="maven.test.skip">
-								<ant antfile="${basedir}/build.xml" />
+							<target>
+								<ant antfile="${basedir}/build.xml" target="copy-images" />
 							</target>
 						</configuration>
 					</execution>
