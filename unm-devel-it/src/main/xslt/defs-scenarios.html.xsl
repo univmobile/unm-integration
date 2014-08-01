@@ -59,20 +59,15 @@ div.device img.screenshot {
 	position: absolute;
 	top: 25px;
 	left: 8px;
-	xtop:24px;
-	xleft:7px;
 }
 div.device.iPod img.screenshot {
 	height: 113.6px;
 }
 div.device.Android img.screenshot {
 	height: 106.7px;
-	xborder: 1px solid #f00;
 }
 div.device.backend img.screenshot {
-	xheight: 28.7px;
 	width: 110px;
-	xborder: 1px solid #f00;
 	border: 1px solid transparent;
 }
 div.device.smaller img.screenshot {
@@ -83,8 +78,7 @@ div.device.iPod div {
 	position: absolute;
 	top: 2px;
 	left: 2px;
-	xbackground-image: url('img/iPod_touch_Vert_Blu_sRGB.png');
-	background-image: url('http://univmobile.vswip.com/nexus/content/sites/pub/unm-ios/0.0.1-SNAPSHOT/img/iPod_touch_Vert_Blu_sRGB.png');
+	background-image: url('http://univmobile.vswip.com/nexus/content/sites/pub/unm-devel-it/0.0.4-SNAPSHOT/img/iPod_touch_Vert_Blu_sRGB.png');
 	background-size: 91px 175px;
 	background-repeat: no-repeat;
 	background-position: -8px -8px;
@@ -95,7 +89,6 @@ div.device.Android div {
 	position: absolute;
 	top: 2px;
 	left: 2px;
-	xbackground-image: url('../src/main/img/red480x800.png');
 	background-image: url('http://univmobile.vswip.com/nexus/content/sites/pub/unm-devel-it/0.0.4-SNAPSHOT/img/red480x800.png');
 	background-size: 99px 173px;
 	background-repeat: no-repeat;
@@ -107,8 +100,8 @@ div.device.backend div {
 	position: absolute;
 	top: 5px;
 	left: 4.5px;
-	background-image: url('../src/site/img/firefox-window-1024x574.png');
-	xbackground-image: url('http://univmobile.vswip.com/nexus/content/sites/pub/unm-devel-it/0.0.4-SNAPSHOT/img/red480x800.png');
+	xbackground-image: url('../src/site/img/firefox-window-1024x574.png');
+	background-image: url('http://univmobile.vswip.com/nexus/content/sites/pub/unm-devel-it/0.0.4-SNAPSHOT/img/firefox-window-1024x574.png');
 	background-size: 121px 81px;
 	background-repeat: no-repeat;
 	background-position: -1px 10px;
@@ -149,8 +142,6 @@ div.arrow {
 }
 #body-backend div.arrow {
 	top: -50px;
-	xwidth: 20px;
-	xbackground-color: #ff0;
 	margin-right: -11px;
 }
 #xbody-backend div.arrow,
@@ -184,8 +175,6 @@ div.arrow {
 	background-color: #ff0;
 }
 #div-detail .screen_1024 img {
-	xwidth: 256px;
-	xheight: 143.5px;
 	width: 320px;
 	height: 179px;
 	background-color: #f00;
@@ -264,15 +253,9 @@ div.scenariosClass h3 {
 	position: fixed;
 	top: 8px;
 	right: 462px;
-	xbackground-color: #ff0;
-	xwidth: 400px;
-	xheight: 100px;
 }
 #div-detail-menu div.detail-menu {
 	margin-left: 40px;
-	xwidth: 50px;
-	xheight: 80px;
-	xbackground-color: #090;
 	display: inline-block;
 	position: relative;
 }
@@ -331,8 +314,6 @@ table.table-detail.bottom td {
 	vertical-align: bottom;
 }
 div.shortLabel.selected {
-	xbackground-color: #f00;
-	xfont-weight: bold;
 	color: #f00;
 	text-decoration: underline;
 }
