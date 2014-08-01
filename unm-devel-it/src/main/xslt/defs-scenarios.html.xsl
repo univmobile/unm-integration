@@ -49,17 +49,17 @@ div.device {
 div.device img.screenshot {
 	width: 64px;
 	position: absolute;
-	xtop: 25px;
-	xleft: 8px;
-	top:24px;
-	left:7px;
+	top: 25px;
+	left: 8px;
+	xtop:24px;
+	xleft:7px;
 }
 div.device.iPod img.screenshot {
 	height: 113.6px;
 }
 div.device.Android img.screenshot {
 	height: 106.7px;
-	border: 1px solid #f00;
+	xborder: 1px solid #f00;
 }
 div.device.smaller img.screenshot {
 	width: 32px;
