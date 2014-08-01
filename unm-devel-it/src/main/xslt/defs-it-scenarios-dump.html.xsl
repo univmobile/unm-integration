@@ -417,6 +417,7 @@ Table des matières
 )"/>
 
 <div class="shortLabel div-shortLabel" id="div-shortLabel-{$id}">
+<span>
 	<xsl:choose>
 	<xsl:when test="name($shortLabel) = 'transitionShortLabel'">
 		(<xsl:value-of select="$shortLabel"/>)
@@ -428,6 +429,7 @@ Table des matières
 		<xsl:value-of select="$shortLabel"/>
 	</xsl:otherwise>
 	</xsl:choose>
+</span>
 </div>
 
 </xsl:template>
@@ -442,10 +444,12 @@ Table des matières
 )"/>
 
 <div class="shortLabel div-shortLabel" id="div-shortLabel-{$id}">
+<span>
 	<xsl:choose>
 	<xsl:when test="$actions[@label = 'swipe']">(swipe)</xsl:when>
 	<xsl:when test="$actions[starts-with(@label, 'click:')]">(click)</xsl:when>
 	</xsl:choose>
+</span>
 </div>
 
 </xsl:template>

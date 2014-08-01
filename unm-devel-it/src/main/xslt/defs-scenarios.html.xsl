@@ -313,11 +313,13 @@ table.table-detail.middle td {
 table.table-detail.bottom td {
 	vertical-align: bottom;
 }
-div.shortLabel.selected {
-	color: #f00;
-	text-decoration: underline;
+div.shortLabel span {
+	padding: 0 4px;
 }
-
+div.shortLabel.selected span {
+	background-color: #eee;
+	border-bottom: 1px solid #ddd;
+}
 </style>
 <script language="javascript">
 
