@@ -139,8 +139,8 @@ div.arrow {
 	height: 288px;
 }
 #div-detail .screen_480x800 img {
-	width: 173px;
-	height: 288px;
+	width: 192px;
+	height: 320px;
 }
 #div-detail div.label {
 	background-color: #000;
