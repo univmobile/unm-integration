@@ -3,11 +3,13 @@
 <xsl:import href="defs-it-scenarios-dump.html.xsl"/>
 <xsl:output method="html" encoding="UTF-8" doctype-public="html"/>
 
+<!-- 
 <xsl:variable name="grid">
 	<platform name="Android_XXX">
 		<device name="Android_Emulator"/>
 	</platform>
 </xsl:variable>
+-->
 
 <xsl:template match="/unm-android-it-scenarios-dump">
 <html lang="fr" dir="ltr">
@@ -16,7 +18,7 @@
 
 <body>
 
-<xsl:call-template name="div-detail"/>
+<xsl:call-template name="div-detail-android"/>
 
 <!-- 
 <div class="nav">
@@ -53,7 +55,9 @@ UnivMobile Android — Intégration continue
 </div>
 
 <xsl:call-template name="scenarios">
+<!--  
 <xsl:with-param name="grid" select="document('')//xsl:variable[@name = 'grid']"/>
+-->
 </xsl:call-template>
 
 </body>

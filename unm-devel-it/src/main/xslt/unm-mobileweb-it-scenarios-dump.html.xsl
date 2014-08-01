@@ -10,7 +10,7 @@
 
 <body>
 
-<xsl:call-template name="div-detail"/>
+<xsl:call-template name="div-detail-ios"/>
 
 <!-- 
 <div class="nav">

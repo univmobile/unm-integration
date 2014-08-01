@@ -7,7 +7,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <meta http-equiv="Content-Language" content="fr"/>
-<title>UnivMobile iOS — Scénarios</title>
+<title>UnivMobile 
+	<xsl:choose>
+	<xsl:when test="//scenarios[contains(@jobName, 'unm-ios-it')]">
+		iOS
+	</xsl:when>
+	<xsl:when test="//scenarios[contains(@jobName, 'unm-mobileweb-it')]">
+		mobile web
+	</xsl:when>
+	<xsl:when test="//scenarios[contains(@jobName, 'unm-android-it')]">
+		Android
+	</xsl:when>
+	</xsl:choose>
+— Scénarios</title>
 <style type="text/css">
 body {
 	position: relative;
@@ -36,16 +48,24 @@ div.device {
 }
 div.device img.screenshot {
 	width: 64px;
-	height: 113.6px;
 	position: absolute;
-	top: 25px;
-	left: 8px;
+	xtop: 25px;
+	xleft: 8px;
+	top:24px;
+	left:7px;
+}
+div.device.iPod img.screenshot {
+	height: 113.6px;
+}
+div.device.Android img.screenshot {
+	height: 106.7px;
+	border: 1px solid #f00;
 }
 div.device.smaller img.screenshot {
 	width: 32px;
 	height: 56.8px;
 }
-div.device div.iPod {
+div.device.iPod div {
 	position: absolute;
 	top: 2px;
 	left: 2px;
@@ -54,6 +74,18 @@ div.device div.iPod {
 	background-size: 91px 175px;
 	background-repeat: no-repeat;
 	background-position: -8px -8px;
+	width: 76px;
+	height: 160px;
+}
+div.device.Android div {
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	xbackground-image: url('../src/main/img/red480x800.png');
+	background-image: url('https://github.com/univmobile/unm-integration/tree/master/unm-devel-it/src/main/img/red480x800.png');
+	background-size: 99px 173px;
+	background-repeat: no-repeat;
+	background-position: -11.5px -9px;
 	width: 76px;
 	height: 160px;
 }
@@ -104,6 +136,10 @@ div.arrow {
 }
 #div-detail .screen_3_5_inch img {
 	width: 192px;
+	height: 288px;
+}
+#div-detail .screen_480x800 img {
+	width: 173px;
 	height: 288px;
 }
 #div-detail div.label {
@@ -249,40 +285,57 @@ table.table-detail.bottom td {
 </style>
 <script language="javascript">
 
+<xsl:variable name="ios" select="/*/scenarios[contains(@jobName, '_ios6')]"/>
+
+<xsl:choose>
+<xsl:when test="$ios">
+
 var buildNumber_ios7 = <xsl:value-of
 	select="/*/scenarios[not(contains(@jobName, '-it_ios6'))]/@buildNumber"/>;
 	
 var buildNumber_ios6 = <xsl:value-of
 	select="/*/scenarios[contains(@jobName, '-it_ios6')]/@buildNumber"/>;
 
+</xsl:when>
+<xsl:otherwise>
+
+var buildNumber_android = <xsl:value-of
+	select="/*/scenarios[contains(@jobName, 'unm-android-it')]/@buildNumber"/>;
+
+</xsl:otherwise>	
+</xsl:choose>
+
 <xsl:variable name="jobName_ios7">
 	<xsl:choose>
-	<xsl:when test="/*/scenarios/@jobName = 'unm-ios-it_ios6'">unm-ios-it</xsl:when>
-	<xsl:when test="/*/scenarios/@jobName = 'unm-ios-it_ios6_release'">unm-ios-it</xsl:when>
-	<xsl:otherwise>unm-mobileweb-it_ios7</xsl:otherwise>
+	<xsl:when test="/*/scenarios[contains(@jobName, 'unm-ios-it_ios6')]">unm-ios-it</xsl:when>
+	<xsl:when test="/*/scenarios[contains(@jobName, 'unm-mobileweb-it_ios6')]">unm-mobileweb-it_ios7</xsl:when>
+	<xsl:otherwise>unm-android-it</xsl:otherwise>
 	</xsl:choose>
 	<xsl:if test="contains(/*/scenarios/@jobName, '_release')">_release</xsl:if>
 </xsl:variable>
 
 <xsl:variable name="jobName_ios6">
 	<xsl:choose>
-	<xsl:when test="/*/scenarios/@jobName = 'unm-ios-it_ios6'">unm-ios-it_ios6</xsl:when>
-	<xsl:when test="/*/scenarios/@jobName = 'unm-ios-it_ios6_release'">unm-ios-it_ios6</xsl:when>
-	<xsl:otherwise>unm-mobileweb-it_ios6</xsl:otherwise>
+	<xsl:when test="/*/scenarios[contains(@jobName, 'unm-ios-it_ios6')]">unm-ios-it_ios6</xsl:when>
+	<xsl:when test="/*/scenarios[contains(@jobName, 'unm-mobileweb-it_ios6')]">unm-mobileweb-it_ios6</xsl:when>
+	<xsl:otherwise>unm-android-it</xsl:otherwise>
 	</xsl:choose>
 	<xsl:if test="contains(/*/scenarios/@jobName, '_release')">_release</xsl:if>
 </xsl:variable>
 
 <xsl:variable name="mavenProject">
 	<xsl:choose>
-	<xsl:when test="/*/scenarios/@jobName = 'unm-ios-it_ios6'">unm-ios-it</xsl:when>
-	<xsl:when test="/*/scenarios/@jobName = 'unm-ios-it_ios6_release'">unm-ios-it</xsl:when>
-	<xsl:otherwise>unm-mobileweb-it</xsl:otherwise>
+	<xsl:when test="/*/scenarios[contains(@jobName, 'unm-ios-it_ios6')]">unm-ios-it</xsl:when>
+	<xsl:when test="/*/scenarios[contains(@jobName, 'unm-mobileweb-it_ios6')]">unm-mobileweb-it</xsl:when>
+	<xsl:otherwise>unm-android-it</xsl:otherwise>
 	</xsl:choose>
 </xsl:variable>
 
 function displayDetail(scenariosClassSimpleName, scenarioMethodName, filename) {
-	
+
+<xsl:choose>
+<xsl:when test="$ios">
+
 	var imgs = document.getElementsByClassName('img-detail-iOS7-4inch');
 	for (var i = 0; i &lt; imgs.length; ++i) imgs[i].src =
 		'http://univmobile.vswip.com/job/<xsl:value-of
@@ -314,6 +367,20 @@ function displayDetail(scenariosClassSimpleName, scenarioMethodName, filename) {
 		+ '/artifact/<xsl:value-of
 			select="$mavenProject"/>/target/screenshots/iOS_6.1/iPhone_Retina_3.5-inch/'
 		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename;
+
+</xsl:when>
+<xsl:otherwise>
+
+	var imgs = document.getElementsByClassName('img-detail-Android-480x800');
+	for (var i = 0; i &lt; imgs.length; ++i) imgs[i].src =
+		'http://univmobile.vswip.com/job/<xsl:value-of
+			select="$jobName_ios6"/>/' + buildNumber_android
+		+ '/artifact/<xsl:value-of
+			select="$mavenProject"/>/target/screenshots/Android_XXX/Android_Emulator/'
+		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename;
+
+</xsl:otherwise>
+</xsl:choose>
 }
 
 function selectDetailMenu(item) {
@@ -357,164 +424,5 @@ window.onload = function() {
 </script>
 </head>
 </xsl:template>
-
-<!-- 
-<body>
-
-<div id="div-detail">
-<table>
-<tr>
-<td class="iOS7 screen_4_inch">
-<div class="label">
-	Retina 4-inch iOS 7.0
-</div>
-<div class="img">
-	<img id="img-detail-iOS7-4inch" src="img/blank.png"/>	
-</div>
-</td>
-<td class="iOS6 screen_4_inch">
-<div class="label">
-	Retina 4-inch iOS 6.1
-</div>
-<div class="img">
-	<img id="img-detail-iOS6-4inch" src="img/blank.png"/>	
-</div>
-</td>
-</tr>
-<tr>
-<td class="iOS7 screen_3_5_inch">
-<div class="label">
-	Retina 3.5-inch iOS 7.0
-</div>
-<div class="img">
-	<img id="img-detail-iOS7-3_5inch" src="img/blank.png"/>	
-</div>
-</td>
-<td class="iOS6 screen_3_5_inch">
-<div class="label">
-	Retina 3.5-inch iOS 6.1
-</div>
-<div class="img">
-	<img id="img-detail-iOS6-3_5inch" src="img/blank.png"/>	
-</div>
-</td>
-</tr>
-</table>
-<img id="img-detail" src="img/blank.png"/>
-</div>
-
-<div class="nav">
-<a href="index.html">Back to the Maven Generated Site</a>
-</div>
-
-<h1>UnivMobile iOS — Scénarios</h1>
-<div id="div-scenarios">
-<xsl:for-each select="scenario">
-
-<h2>
-	<xsl:value-of select="@id"/>.
-	<xsl:value-of select="@title"/>
-</h2>
-
-<div class="scenario">
-<table>
-<tbody>
-<tr>
-<td>
-<div class="begin step">
-
-<xsl:for-each select="begin">
-
-	<xsl:call-template name="device">
-		<xsl:with-param name="screenshot" select="@screenshot"/>
-	</xsl:call-template>
-
-	<xsl:call-template name="shortLabel"/>
-
-</xsl:for-each>
-
-</div>
-</td>
-<td>
-
-<xsl:for-each select="next">
-
-<xsl:if test="@transitionScreenshot or @transitionLabel">
-	
-	<div class="arrow">→</div>
-	
-	<div class="transition">
-	
-	<xsl:if test="@transitionScreenshot">
-		<xsl:call-template name="device">
-			<xsl:with-param name="screenshot" select="@transitionScreenshot"/>
-		</xsl:call-template>
-	</xsl:if>
-
-	<xsl:call-template name="shortLabel">
-		<xsl:with-param name="shortLabel" select="@transitionShortLabel"/>
-	</xsl:call-template>
-	
-	</div>
-</xsl:if>
-
-<div class="arrow">…</div>
-
-<div class="step">
-
-	<xsl:call-template name="device">
-		<xsl:with-param name="screenshot" select="@screenshot"/>
-	</xsl:call-template>
-
-	<xsl:call-template name="shortLabel"/>
-
-</div>
-
-</xsl:for-each>
-
-</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-
-</xsl:for-each>
-
-</div>
-
-</body>
-</html>
-</xsl:template>
-
-<xsl:template name="device">
-<xsl:param name="screenshot" select="'001.png'"/>
-
-<div class="device" onclick="displayDetail('{$screenshot}');">
-	<img class="screenshot" src="img/iOS_7.0/Retina_4-inch/{$screenshot}"/>
-	<div class="iPod"/>
-</div>
-
-</xsl:template>
-
-<xsl:template name="shortLabel">
-<xsl:param name="shortLabel" select="@shortLabel"/>
-
-<xsl:if test="$shortLabel">
-<div class="shortLabel">
-	<xsl:choose>
-	<xsl:when test="name($shortLabel) = 'transitionShortLabel'">
-		(<xsl:value-of select="$shortLabel"/>)
-	</xsl:when>
-	<xsl:otherwise>
-		<xsl:value-of select="$shortLabel"/>
-	</xsl:otherwise>
-	</xsl:choose>
-</div>
-</xsl:if>
-
-</xsl:template>
-
--->
  
 </xsl:stylesheet>
