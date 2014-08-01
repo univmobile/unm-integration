@@ -75,6 +75,19 @@
 </div>
 </xsl:template>
 
+<xsl:template name="div-detail-backend">
+<div id="div-detail">
+<table id="table-detail-default" class="table-detail default selected">
+<tr>
+<xsl:call-template name="detail-td-Debian"/>
+</tr>
+<tr>
+<xsl:call-template name="detail-td-MacOS"/>
+</tr>
+</table>
+</div>
+</xsl:template>
+
 <xsl:template name="scenarios">
 <!--  
 <xsl:param name="grid" select="document('')//xsl:variable[@name = 'grid']"/>
@@ -302,6 +315,8 @@ Table des matières
 	select="/*/scenarios[contains(@jobName, '-it_ios6')]/@buildNumber"/>
 <xsl:variable name="buildNumber_android"
 	select="/*/scenarios[contains(@jobName, 'android-it')]/@buildNumber"/>
+<xsl:variable name="buildNumber_backend"
+	select="/*/scenarios[contains(@jobName, 'backend-it_macos')]/@buildNumber"/>
 <!--  
 <xsl:variable name="buildNumber_ios7"
 	select="/*/scenarios[@iosLabel = 'iOS7']/@buildNumber"/>
@@ -309,11 +324,15 @@ Table des matières
 	select="/*/scenarios[@iosLabel = 'iOS6']/@buildNumber"/>
 -->
 
+<xsl:variable name="ios" select="/*/scenarios[contains(@jobName, '_ios6')]"/>
+<xsl:variable name="android" select="/*/scenarios[contains(@jobName, '-android')]"/>
+
 <xsl:variable name="jobName_ios7">
 	<xsl:choose>
 	<xsl:when test="/*/scenarios[contains(@jobName, 'unm-ios-it_ios6')]">unm-ios-it</xsl:when>
 	<xsl:when test="/*/scenarios[contains(@jobName, 'unm-mobileweb-it_ios6')]">unm-mobileweb-it_ios7</xsl:when>
-	<xsl:otherwise>unm-android-it</xsl:otherwise>
+	<xsl:when test="$android">unm-android-it</xsl:when>
+	<xsl:otherwise>unm-backend-it_macos</xsl:otherwise>
 	</xsl:choose>
 	<xsl:if test="contains(/*/scenarios/@jobName, '_release')">_release</xsl:if>
 </xsl:variable>
@@ -322,11 +341,10 @@ Table des matières
 	<xsl:choose>
 	<xsl:when test="/*/scenarios[contains(@jobName, 'unm-ios-it_ios6')]">unm-ios-it</xsl:when>
 	<xsl:when test="/*/scenarios[contains(@jobName, 'unm-mobileweb-it_ios6')]">unm-mobileweb-it</xsl:when>
-	<xsl:otherwise>unm-android-it</xsl:otherwise>
+	<xsl:when test="$android">unm-android-it</xsl:when>
+	<xsl:otherwise>unm-backend-it</xsl:otherwise>
 	</xsl:choose>
 </xsl:variable>
-
-<xsl:variable name="ios" select="/*/scenarios[contains(@jobName, '_ios6')]"/>
 
 <xsl:variable name="jobName">
 <xsl:choose>
@@ -344,8 +362,11 @@ Table des matières
 <xsl:when test="$ios">
 	<xsl:value-of select="$buildNumber_ios7"/>
 </xsl:when>
-<xsl:otherwise>
+<xsl:when test="$android">
 	<xsl:value-of select="$buildNumber_android"/>
+</xsl:when>
+<xsl:otherwise>
+	<xsl:value-of select="$buildNumber_backend"/>
 </xsl:otherwise>
 </xsl:choose>
 </xsl:variable>
@@ -353,17 +374,23 @@ Table des matières
 <xsl:variable name="subDir">
 <xsl:choose>
 <xsl:when test="$ios">/iOS_7.1/iPhone_Retina_4-inch/</xsl:when>
-<xsl:otherwise>/Android_XXX/Android_Emulator/</xsl:otherwise>
+<xsl:when test="$android">/Android_XXX/Android_Emulator/</xsl:when>
+<xsl:otherwise>/Mac_OS_X_10.8.5/Firefox/</xsl:otherwise>
 </xsl:choose>
 </xsl:variable>
 
+<xsl:variable name="index" select="1 + count(
+	ancestor-or-self::screenshot/preceding-sibling::screenshot
+)"/>
+	
 <div onclick="displayDetail(
 			'{$scenariosClassSimpleName}', '{$scenarioMethodName}',
-			'{@filename}');"		
+			'{@filename}', {$index});"		
 		xtitle="{@filename}">
 <xsl:attribute name="class">device<xsl:choose>
 	<xsl:when test="$ios"> iPod</xsl:when>
-	<xsl:otherwise> Android</xsl:otherwise>
+	<xsl:when test="$android"> Android</xsl:when>
+	<xsl:otherwise> backend</xsl:otherwise>
 	</xsl:choose>
 </xsl:attribute>
 	<img class="screenshot" src="{concat(
@@ -383,7 +410,13 @@ Table des matières
 <xsl:template name="shortLabel">
 <xsl:param name="shortLabel" select="@shortLabel"/>
 
-<div class="shortLabel">
+<xsl:variable name="id" select="concat(
+	ancestor::scenariosClass/@classSimpleName, '.',
+	ancestor::scenarioMethod/@methodName, '.',
+	count(ancestor-or-self::screenshot/preceding-sibling::screenshot) + 1
+)"/>
+
+<div class="shortLabel div-shortLabel" id="div-shortLabel-{$id}">
 	<xsl:choose>
 	<xsl:when test="name($shortLabel) = 'transitionShortLabel'">
 		(<xsl:value-of select="$shortLabel"/>)
@@ -402,7 +435,13 @@ Table des matières
 <xsl:template name="shortLabel-fromActions">
 <xsl:param name="actions"/>
 
-<div class="shortLabel">
+<xsl:variable name="id" select="concat(
+	ancestor::scenariosClass/@classSimpleName, '.',
+	ancestor::scenarioMethod/@methodName, '.',
+	count(ancestor-or-self::screenshot/preceding-sibling::screenshot) + 1
+)"/>
+
+<div class="shortLabel div-shortLabel" id="div-shortLabel-{$id}">
 	<xsl:choose>
 	<xsl:when test="$actions[@label = 'swipe']">(swipe)</xsl:when>
 	<xsl:when test="$actions[starts-with(@label, 'click:')]">(click)</xsl:when>
@@ -462,6 +501,28 @@ Table des matières
 </div>
 <div class="img">
 	<img class="img-detail-Android-480x800" src="{$img-blank.png}"/>	
+</div>
+</td>
+</xsl:template>
+
+<xsl:template name="detail-td-Debian">
+<td class="Debian screen_1280">
+<div class="label">
+	Debian 1280x876
+</div>
+<div class="img">
+	<img class="img-detail-backend-Debian" src="{$img-blank.png}"/>	
+</div>
+</td>
+</xsl:template>
+
+<xsl:template name="detail-td-MacOS">
+<td class="MacOS screen_1024">
+<div class="label">
+	Mac OS X 1024x674
+</div>
+<div class="img">
+	<img class="img-detail-backend-MacOS" src="{$img-blank.png}"/>	
 </div>
 </td>
 </xsl:template>

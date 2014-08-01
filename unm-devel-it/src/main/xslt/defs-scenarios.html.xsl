@@ -18,6 +18,9 @@
 	<xsl:when test="//scenarios[contains(@jobName, 'unm-android-it')]">
 		Android
 	</xsl:when>
+	<xsl:when test="//scenarios[contains(@jobName, 'unm-backend-it')]">
+		backend
+	</xsl:when>
 	</xsl:choose>
 — Scénarios</title>
 <style type="text/css">
@@ -46,6 +49,11 @@ div.device {
 	width: 80px;
 	height: 164px;
 }
+#body-backend div.device {
+	position: relative;
+	width: 126px;
+	height: 100px;
+}
 div.device img.screenshot {
 	width: 64px;
 	position: absolute;
@@ -60,6 +68,12 @@ div.device.iPod img.screenshot {
 div.device.Android img.screenshot {
 	height: 106.7px;
 	xborder: 1px solid #f00;
+}
+div.device.backend img.screenshot {
+	xheight: 28.7px;
+	width: 110px;
+	xborder: 1px solid #f00;
+	border: 1px solid transparent;
 }
 div.device.smaller img.screenshot {
 	width: 32px;
@@ -87,6 +101,18 @@ div.device.Android div {
 	background-repeat: no-repeat;
 	background-position: -11.5px -9px;
 	width: 76px;
+	height: 160px;
+}
+div.device.backend div {
+	position: absolute;
+	top: 5px;
+	left: 4.5px;
+	background-image: url('../src/site/img/firefox-window-1024x574.png');
+	xbackground-image: url('http://univmobile.vswip.com/nexus/content/sites/pub/unm-devel-it/0.0.4-SNAPSHOT/img/red480x800.png');
+	background-size: 121px 81px;
+	background-repeat: no-repeat;
+	background-position: -1px 10px;
+	width: 120px;
 	height: 160px;
 }
 table {
@@ -121,6 +147,16 @@ div.arrow {
 	position: relative;
 	top: -90px;
 }
+#body-backend div.arrow {
+	top: -50px;
+	xwidth: 20px;
+	xbackground-color: #ff0;
+	margin-right: -11px;
+}
+#xbody-backend div.arrow,
+#body-backend div.transition {
+	display: none;
+}
 #div-detail table {
 	border-collapse: collapse;
 	position: absolute;
@@ -141,6 +177,18 @@ div.arrow {
 #div-detail .screen_480x800 img {
 	width: 192px;
 	height: 320px;
+}
+#div-detail .screen_1280 img {
+	width: 320px;
+	height: 219px;
+	background-color: #ff0;
+}
+#div-detail .screen_1024 img {
+	xwidth: 256px;
+	xheight: 143.5px;
+	width: 320px;
+	height: 179px;
+	background-color: #f00;
 }
 #div-detail div.label {
 	background-color: #000;
@@ -282,10 +330,18 @@ table.table-detail.middle td {
 table.table-detail.bottom td {
 	vertical-align: bottom;
 }
+div.shortLabel.selected {
+	xbackground-color: #f00;
+	xfont-weight: bold;
+	color: #f00;
+	text-decoration: underline;
+}
+
 </style>
 <script language="javascript">
 
 <xsl:variable name="ios" select="/*/scenarios[contains(@jobName, '_ios6')]"/>
+<xsl:variable name="android" select="/*/scenarios[contains(@jobName, '-android')]"/>
 
 <xsl:choose>
 <xsl:when test="$ios">
@@ -297,10 +353,18 @@ var buildNumber_ios6 = <xsl:value-of
 	select="/*/scenarios[contains(@jobName, '-it_ios6')]/@buildNumber"/>;
 
 </xsl:when>
-<xsl:otherwise>
+<xsl:when test="$android">
 
 var buildNumber_android = <xsl:value-of
 	select="/*/scenarios[contains(@jobName, 'unm-android-it')]/@buildNumber"/>;
+
+</xsl:when>	
+<xsl:otherwise>
+
+var buildNumber_backend_Debian = <xsl:value-of
+	select="/*/scenarios[not(contains(@jobName, 'unm-backend-it_macos'))]/@buildNumber"/>;
+var buildNumber_backend_MacOS = <xsl:value-of
+	select="/*/scenarios[contains(@jobName, 'unm-backend-it_macos')]/@buildNumber"/>;
 
 </xsl:otherwise>	
 </xsl:choose>
@@ -309,7 +373,8 @@ var buildNumber_android = <xsl:value-of
 	<xsl:choose>
 	<xsl:when test="/*/scenarios[contains(@jobName, 'unm-ios-it_ios6')]">unm-ios-it</xsl:when>
 	<xsl:when test="/*/scenarios[contains(@jobName, 'unm-mobileweb-it_ios6')]">unm-mobileweb-it_ios7</xsl:when>
-	<xsl:otherwise>unm-android-it</xsl:otherwise>
+	<xsl:when test="$android">unm-android-it</xsl:when>
+	<xsl:otherwise>unm-backend-it_macos</xsl:otherwise>
 	</xsl:choose>
 	<xsl:if test="contains(/*/scenarios/@jobName, '_release')">_release</xsl:if>
 </xsl:variable>
@@ -318,7 +383,8 @@ var buildNumber_android = <xsl:value-of
 	<xsl:choose>
 	<xsl:when test="/*/scenarios[contains(@jobName, 'unm-ios-it_ios6')]">unm-ios-it_ios6</xsl:when>
 	<xsl:when test="/*/scenarios[contains(@jobName, 'unm-mobileweb-it_ios6')]">unm-mobileweb-it_ios6</xsl:when>
-	<xsl:otherwise>unm-android-it</xsl:otherwise>
+	<xsl:when test="$android">unm-android-it</xsl:when>
+	<xsl:otherwise>unm-backend-it</xsl:otherwise>
 	</xsl:choose>
 	<xsl:if test="contains(/*/scenarios/@jobName, '_release')">_release</xsl:if>
 </xsl:variable>
@@ -327,12 +393,17 @@ var buildNumber_android = <xsl:value-of
 	<xsl:choose>
 	<xsl:when test="/*/scenarios[contains(@jobName, 'unm-ios-it_ios6')]">unm-ios-it</xsl:when>
 	<xsl:when test="/*/scenarios[contains(@jobName, 'unm-mobileweb-it_ios6')]">unm-mobileweb-it</xsl:when>
-	<xsl:otherwise>unm-android-it</xsl:otherwise>
+	<xsl:when test="$android">unm-android-it</xsl:when>
+	<xsl:otherwise>unm-backend-it</xsl:otherwise>
 	</xsl:choose>
 </xsl:variable>
 
-function displayDetail(scenariosClassSimpleName, scenarioMethodName, filename) {
+function displayDetail(
+	scenariosClassSimpleName, scenarioMethodName, filename, index
+) {
 
+selectShortLabel(scenariosClassSimpleName + '.' + scenarioMethodName + '.' + index);
+	
 <xsl:choose>
 <xsl:when test="$ios">
 
@@ -369,7 +440,7 @@ function displayDetail(scenariosClassSimpleName, scenarioMethodName, filename) {
 		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename;
 
 </xsl:when>
-<xsl:otherwise>
+<xsl:when test="$android">
 
 	var imgs = document.getElementsByClassName('img-detail-Android-480x800');
 	for (var i = 0; i &lt; imgs.length; ++i) imgs[i].src =
@@ -379,6 +450,25 @@ function displayDetail(scenariosClassSimpleName, scenarioMethodName, filename) {
 			select="$mavenProject"/>/target/screenshots/Android_XXX/Android_Emulator/'
 		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename;
 
+</xsl:when>
+<xsl:otherwise>
+
+	var imgs = document.getElementsByClassName('img-detail-backend-Debian');
+	for (var i = 0; i &lt; imgs.length; ++i) imgs[i].src =
+		'http://univmobile.vswip.com/job/<xsl:value-of
+			select="$jobName_ios6"/>/' + buildNumber_backend_Debian
+		+ '/artifact/<xsl:value-of
+			select="$mavenProject"/>/target/screenshots/Debian_3.2.0-4-amd64/Firefox/'
+		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename;
+
+	var imgs = document.getElementsByClassName('img-detail-backend-MacOS');
+	for (var i = 0; i &lt; imgs.length; ++i) imgs[i].src =
+		'http://univmobile.vswip.com/job/<xsl:value-of
+			select="$jobName_ios7"/>/' + buildNumber_backend_MacOS
+		+ '/artifact/<xsl:value-of
+			select="$mavenProject"/>/target/screenshots/Mac_OS_X_10.8.5/Firefox/'
+		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename;
+			
 </xsl:otherwise>
 </xsl:choose>
 }
@@ -416,9 +506,37 @@ function selectDetailMenu(item) {
 	}
 }
 
+function selectShortLabel(id) {
+
+	var divs = document.getElementsByClassName('div-shortLabel');
+	
+	for (var i = 0; i &lt; divs.length; ++i) {
+	
+		var div = divs[i];
+		
+		if (div.id != 'div-shortLabel-' + id) {
+			if (div.className.indexOf('selected') != -1) {
+				div.className = div.className.replace(/\sselected/, '');
+			}
+		} else {
+			if (div.className.indexOf('selected') == -1) {
+				div.className += ' selected';
+			}
+		} 
+	}
+}
+
 window.onload = function() {
 
-	displayDetail('Scenarios001', 'sc001', 'home.png');
+	<xsl:variable name="firstScenariosClass" select="//scenariosClass[1]"/>
+	<xsl:variable name="firstScenarioMethod" select="$firstScenariosClass/scenarioMethod[1]"/>
+	<xsl:variable name="firstScreenshot" select="$firstScenarioMethod//screenshot[1]"/>
+		
+	displayDetail(
+		'<xsl:value-of select="$firstScenariosClass/@classSimpleName"/>',
+		'<xsl:value-of select="$firstScenarioMethod/@methodName"/>',
+		'<xsl:value-of select="$firstScreenshot/@filename"/>', 1
+	);
 };
 
 </script>

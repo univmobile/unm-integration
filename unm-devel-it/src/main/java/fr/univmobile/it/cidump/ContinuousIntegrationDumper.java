@@ -616,6 +616,10 @@ public class ContinuousIntegrationDumper {
 
 			return "unm-android-it";
 
+		} else if (jobName.startsWith("unm-backend-it")) {
+
+			return "unm-backend-it";
+
 		} else {
 
 			throw new IllegalArgumentException("jobName: " + jobName);

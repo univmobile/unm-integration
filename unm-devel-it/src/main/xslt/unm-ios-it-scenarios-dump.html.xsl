@@ -45,11 +45,13 @@ UnivMobile iOS — Intégration continue
 
 <div id="div-appCommitId">
 appCommitId:
-<xsl:value-of select="/*/scenarios/@appCommitId"/>;
+<xsl:value-of select="/*/scenarios/@appCommitId"/>
+<br/>
 <a href="http://univmobile.vswip.com/job/unm-ios-it{$release}/">
 	unm-ios-it<xsl:value-of select="$release"/></a>:
 	<a href="http://univmobile.vswip.com/job/unm-ios-it{$release}/{$buildNumber_ios7}">Build
-	#<xsl:value-of select="$buildNumber_ios7"/></a>;
+	#<xsl:value-of select="$buildNumber_ios7"/></a>
+—
 <a href="http://univmobile.vswip.com/job/unm-ios-it_ios6{$release}/">
 	unm-ios-it_ios6<xsl:value-of select="$release"/></a>:
 	<a href="http://univmobile.vswip.com/job/unm-ios-it_ios6{$release}/{$buildNumber_ios6}">Build
