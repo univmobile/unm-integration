@@ -47,7 +47,7 @@ Dump at:
 <thead>
 <tr>
 <th class="commitId">
-	<a href="https://github.com/univmobile/unm-mobileweb/commits/master">
+	<a href="https://github.com/univmobile/unm-mobileweb/commits/develop">
 		unm-mobileweb: commits
 	</a>
 	<span class="description">Code source Java</span>

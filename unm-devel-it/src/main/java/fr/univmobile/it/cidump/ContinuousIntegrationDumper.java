@@ -2,7 +2,9 @@ package fr.univmobile.it.cidump;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 import static org.apache.commons.lang3.CharEncoding.UTF_8;
+import static org.apache.commons.lang3.StringUtils.split;
 import static org.apache.commons.lang3.StringUtils.substringAfter;
+import static org.apache.commons.lang3.StringUtils.substringBefore;
 import static org.apache.commons.lang3.StringUtils.substringBetween;
 
 import java.io.File;
@@ -232,8 +234,6 @@ public class ContinuousIntegrationDumper {
 				appCommitId = substringAfter(buildInfo,
 						"https://github.com/univmobile/unm-ios").trim();
 
-				buildDumper.addAttribute("appCommitId", appCommitId);
-
 			} else if (jobName.startsWith("unm-mobileweb-it_ios")) {
 
 				final File htmlAboutFile = saveTextContent(baseURL + "job/"
@@ -254,15 +254,18 @@ public class ContinuousIntegrationDumper {
 								"https://github.com/univmobile/unm-mobileweb"),
 						"-->", "</p>").trim();
 
-				buildDumper.addAttribute("appCommitId", appCommitId);
-
 			} else if (jobName.startsWith("unm-android-it")) {
 
-				final AppiumAndroidPageSource pageSource = loadXMLContent(baseURL + "job/"
-						+ jobName + "/" + buildNumber
-						+ "/artifact/unm-android-it/target/screenshots"
-						+ "/Android_XXX/Android_Emulator/Scenarios001/sc001" // ???
-						+ "/pageAbout.xml", AppiumAndroidPageSource.class);
+				final AppiumAndroidPageSource pageSource = loadXMLContent(
+						baseURL
+								+ "job/"
+								+ jobName
+								+ "/"
+								+ buildNumber
+								+ "/artifact/unm-android-it/target/screenshots"
+								+ "/Android_XXX/Android_Emulator/Scenarios001/sc001" // ???
+								+ "/pageAbout.xml",
+						AppiumAndroidPageSource.class);
 
 				if (pageSource == null) { // Not found.
 					continue;
@@ -270,11 +273,36 @@ public class ContinuousIntegrationDumper {
 
 				appCommitId = pageSource.getGitCommitId();
 
-				buildDumper.addAttribute("appCommitId", appCommitId);
+			} else if (jobName.startsWith("unm-backend-it")) {
+
+				final File htmlAboutFile = saveTextContent(baseURL + "job/"
+						+ jobName + "/" + buildNumber
+						+ "/artifact/unm-backend-it/target/screenshots"
+						+ "/pageHome.html");
+
+				if (htmlAboutFile == null) { // Not found.
+					continue;
+				}
+
+				final String htmlAbout = FileUtils.readFileToString(
+						htmlAboutFile, UTF_8);
+
+				final String[] s = split(substringBefore(substringBetween(//
+						htmlAbout, "<h1", "</h1>"), "\">"));
+
+				if (s == null) { // Not found.
+					continue;
+				}
+
+				appCommitId = s[s.length - 1];
 
 			} else {
 
 				appCommitId = null;
+			}
+
+			if (appCommitId != null) {
+				buildDumper.addAttribute("appCommitId", appCommitId);
 			}
 
 			dumpedBuilds.add(new DumpedBuild(jobName, buildNumber, //
