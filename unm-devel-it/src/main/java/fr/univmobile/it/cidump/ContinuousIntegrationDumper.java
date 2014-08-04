@@ -11,6 +11,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -441,12 +443,36 @@ public class ContinuousIntegrationDumper {
 		return DomBinderUtils.xmlContentToJava(xmlFile, clazz);
 	}
 
+	static String escapeURL(final String url)
+			throws UnsupportedEncodingException {
+
+		final StringBuilder sb = new StringBuilder();
+
+		for (final char c : url.toCharArray()) {
+
+			switch (c) {
+			case '/':
+			case ':':
+			case '-':
+			case '_':
+			case '.':
+				sb.append(c);
+				break;
+			default:
+				sb.append(URLEncoder.encode(Character.toString(c), UTF_8));
+				break;
+			}
+		}
+		return sb.toString();
+
+	}
+
 	@Nullable
 	private File saveTextContent(final String url) throws IOException {
 
 		System.out.println("Saving text from: " + url + "...");
 
-		final HttpMethod method = new GetMethod(url);
+		final HttpMethod method = new GetMethod(escapeURL(url));
 
 		method.setDoAuthentication(true);
 
