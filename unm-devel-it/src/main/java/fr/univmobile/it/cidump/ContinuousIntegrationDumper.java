@@ -281,7 +281,7 @@ public class ContinuousIntegrationDumper {
 						+ jobName + "/" + buildNumber
 						+ "/artifact/unm-backend-it/target"
 						// "/screenshots/Debian_3.2.0-4-amd64/Firefox/Scenarios001/sc001"
-						+ "/pageHome.html");
+						+ "/pageSource.html");
 
 				if (htmlAboutFile == null) { // Not found.
 					continue;
