@@ -279,8 +279,8 @@ public class ContinuousIntegrationDumper {
 
 				final File htmlAboutFile = saveTextContent(baseURL + "job/"
 						+ jobName + "/" + buildNumber
-						+ "/artifact/unm-backend-it/target/screenshots"
-						+ "/Debian_3.2.0-4-amd64/Firefox/Scenarios001/sc001"
+						+ "/artifact/unm-backend-it/target"
+						// "/screenshots/Debian_3.2.0-4-amd64/Firefox/Scenarios001/sc001"
 						+ "/pageHome.html");
 
 				if (htmlAboutFile == null) { // Not found.
