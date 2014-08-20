@@ -96,6 +96,11 @@ toto
 <tr>
 <xsl:call-template name="detail-td-Android-screen_480x800"/>
 </tr>
+<tr>
+<td colspan="1">
+<div class="detailBottom"></div>
+</td>
+</tr>
 </table>
 </div>
 </xsl:template>
@@ -108,6 +113,11 @@ toto
 </tr>
 <tr>
 <xsl:call-template name="detail-td-MacOS"/>
+</tr>
+<tr>
+<td colspan="2">
+<div class="detailBottom"></div>
+</td>
 </tr>
 </table>
 </div>
@@ -210,6 +220,56 @@ Table des matières
 -->
 
 <div class="scenario">
+<div class="summary">
+<ol>
+<xsl:for-each select="scenario[1]/screenshot[1]">
+	<li>
+	<xsl:value-of select="substring-before(@filename, '.png')"/>
+	</li>
+</xsl:for-each>
+<xsl:for-each select="scenario[1]/screenshot[not(position() = 1)]">
+<xsl:variable name="index"
+	select="count(ancestor-or-self::screenshot/preceding-sibling::screenshot)"/>
+<xsl:choose>
+<xsl:when test="@ms">
+	<xsl:variable name="followingScreenshotCount"
+		select="count(following-sibling::screenshot)"/>
+	<xsl:variable name="followingActions" select="following-sibling::action
+		[count(following-sibling::screenshot) = $followingScreenshotCount]"/>
+	<li value="{$index + 1}" class="action number">
+		<xsl:for-each select="$followingActions/self::action">
+			<xsl:if test="not(position() = 1)">, </xsl:if>
+			<xsl:value-of select="@label"/>
+		</xsl:for-each>
+	</li>
+</xsl:when>
+<xsl:otherwise>
+	<xsl:variable name="precedingScreenshotCount"
+		select="count(preceding-sibling::screenshot)"/>
+	<xsl:variable name="precedingActions" select="preceding-sibling::action
+		[count(preceding-sibling::screenshot) = $precedingScreenshotCount]"/>
+	<xsl:choose>
+	<xsl:when test="not(preceding-sibling::screenshot[@ms and
+		count(preceding-sibling::screenshot) + 1 = $precedingScreenshotCount])">
+	<li value="{$index}" class="action">
+		<xsl:for-each select="$precedingActions/self::action">
+			<xsl:if test="not(position() = 1)">, </xsl:if>
+			<xsl:value-of select="@label"/>
+		</xsl:for-each>
+	</li>
+	</xsl:when>
+	</xsl:choose>	
+	
+	<li value="{$index + 1}">
+	<xsl:value-of select="substring-before(@filename, '.png')"/>
+	</li>
+
+</xsl:otherwise>
+</xsl:choose>
+</xsl:for-each>
+</ol>
+</div>
+
 <table>
 <tbody>
 <tr>
@@ -269,6 +329,7 @@ Table des matières
 	<div class="arrow">&#160;</div>
 	-->
 	
+	<!-- 
 	<div class="transition">
 	
 	<xsl:call-template name="shortLabel-fromActions">
@@ -276,7 +337,8 @@ Table des matières
 	</xsl:call-template>
 	
 	</div>
-
+ 	-->
+ 
 	<div class="arrow dimmed">→</div>
 	<!--  
 	<div class="arrow">&#160;</div>
@@ -428,6 +490,7 @@ Table des matières
 	<xsl:otherwise> backend</xsl:otherwise>
 	</xsl:choose>
 </xsl:attribute>
+	<span class="layout">
 	<img class="screenshot" src="{concat(
 			'http://univmobile.vswip.com/job/', $jobName, '/',
 			$buildNumber,
@@ -435,7 +498,7 @@ Table des matières
 			$subDir,
 			$scenariosClassSimpleName, '/', $scenarioMethodName, 
 			'/', @filename)}"/>
-			
+	</span>	
 	<div/>
 
 </div>
@@ -455,7 +518,8 @@ Table des matières
 <div class="shortLabel div-shortLabel" id="div-shortLabel-{$id}">
 <span>
 	<xsl:value-of select="1
-		+ count(ancestor-or-self::screenshot/preceding-sibling::screenshot)"/>.
+		+ count(ancestor-or-self::screenshot/preceding-sibling::screenshot)"/>
+	<span class="filename">.
 	<xsl:choose>
 	<xsl:when test="name($shortLabel) = 'transitionShortLabel'">
 		(<xsl:value-of select="$shortLabel"/>)
@@ -467,6 +531,7 @@ Table des matières
 		<xsl:value-of select="$shortLabel"/>
 	</xsl:otherwise>
 	</xsl:choose>
+	</span>
 </span>
 </div>
 </a>
@@ -485,6 +550,8 @@ Table des matières
 <a name="a-div-shortLabel-{$id}" id="a-div-shortLabel-{$id}">
 <div class="shortLabel div-shortLabel" id="div-shortLabel-{$id}">
 <span>
+	<xsl:value-of select="1
+		+ count(ancestor-or-self::screenshot/preceding-sibling::screenshot)"/>.
 	<xsl:choose>
 	<xsl:when test="$actions[@label = 'swipe']">(swipe)</xsl:when>
 	<xsl:when test="$actions[starts-with(@label, 'click:')]">(click)</xsl:when>

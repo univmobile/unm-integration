@@ -179,14 +179,24 @@ div.arrow {
 	width: 192px;
 	height: 320px;
 }
-#div-detail .screen_1280 img {
+#div-detail .screen_1280 div.img {
 	width: 320px;
 	height: 219px;
+	overflow: scroll;
+}
+#div-detail .screen_1024 div.img {
+	width: 320px;
+	height: 179px;
+	overflow: scroll;
+}
+#div-detail .screen_1280 img {
+	width: 320px;
+	xheight: 219px;
 	background-color: #ff0;
 }
 #div-detail .screen_1024 img {
 	width: 320px;
-	height: 179px;
+	xheight: 179px;
 	background-color: #f00;
 }
 #div-detail div.label {
@@ -256,7 +266,7 @@ div.scenariosClass h3 {
 	margin-bottom: 0.6em;
 }
 div.scenariosClass h3 {
-	border-top: 1px dashed #000;
+	xborder-top: 1px dashed #000;
 	padding-top: 1em;
 }
 #div-detail-menu {
@@ -340,6 +350,51 @@ div.detailBottom {
 }
 #table-scenarios td.filler {
 	width: 420px;
+}
+div.scenario div.summary {
+	background-color: #eee;
+	border-bottom: 1px solid #999;
+	border-right: 1px solid #ccc;
+	float: left;
+	padding: 4px 8px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	margin-right: 1em;
+}
+div.scenario div.summary ol {
+	margin: 0;
+	padding: 0 0 0 1.6em;
+}
+div.scenario div.summary li.action {
+	color: #bbb;
+	font-style: italic;
+	list-style-type: none;
+}
+div.scenario div.summary li.action.number {
+	list-style-type: decimal;
+}
+div.div-shortLabel span span.filename {
+	display: none;
+}
+div.device.backend span.layout {
+	display: block;
+	background-color: #ff0;
+	xborder: 1px solid #f00;
+	width: 110px;
+	height: 70px;
+	overflow: hidden;
+	position: absolute;
+	top: 25px;
+	left: 8px;
+}
+div.device.backend img.screenshot {
+	xwidth: 64px;
+	position: relative;
+	top: 0;
+	left: 0;
+}
+#body-backend table-detail div.img {
+	xoverflow: hidden;
 }
 </style>
 <script language="javascript">
