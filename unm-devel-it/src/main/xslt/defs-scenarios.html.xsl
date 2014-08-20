@@ -320,6 +320,16 @@ div.shortLabel.selected span {
 	background-color: #eee;
 	border-bottom: 1px solid #ddd;
 }
+#div-scenarios {
+	xbackground-color: #ff0;
+}
+#table-scenarios {
+	width: 100%;
+	border-collapse: collapse;
+}
+#table-scenarios td.filler {
+	width: 420px;
+}
 </style>
 <script language="javascript">
 

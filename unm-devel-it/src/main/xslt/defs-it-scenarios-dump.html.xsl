@@ -137,6 +137,10 @@ Table des matières
 </div>
 </div>
 
+<table id="table-scenarios">
+<tbody>
+<tr>
+<td class="scenarios">
 <div id="div-scenarios">
 
 <xsl:for-each select="$scenariosClasses">
@@ -290,7 +294,13 @@ Table des matières
 
 </xsl:for-each>
 
-</div>
+</div> <!-- end of #div-scenarios -->
+</td>
+<td class="filler">
+</td>
+</tr>
+</tbody>
+</table> <!--  end of #table-scenarios -->
 
 </xsl:template>
 
