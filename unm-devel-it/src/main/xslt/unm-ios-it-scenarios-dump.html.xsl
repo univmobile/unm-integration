@@ -47,6 +47,7 @@ UnivMobile iOS — Intégration continue
 appCommitId:
 <xsl:value-of select="/*/scenarios/@appCommitId"/>
 <br/>
+<xsl:call-template name="scenariosDate"/>
 <a href="http://univmobile.vswip.com/job/unm-ios-it{$release}/">
 	unm-ios-it<xsl:value-of select="$release"/></a>:
 	<a href="http://univmobile.vswip.com/job/unm-ios-it{$release}/{$buildNumber_ios7}">Build

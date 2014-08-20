@@ -46,6 +46,7 @@ UnivMobile Android — Intégration continue
 <div id="div-appCommitId">
 <xsl:value-of select="/*/scenarios/@appCommitId"/>
 <br/>
+<xsl:call-template name="scenariosDate"/>
 <a href="http://univmobile.vswip.com/job/{$jobName}/">
 <xsl:value-of select="$jobName"/>
 </a>:

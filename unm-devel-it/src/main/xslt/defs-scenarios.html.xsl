@@ -396,6 +396,9 @@ div.device.backend img.screenshot {
 #body-backend table-detail div.img {
 	xoverflow: hidden;
 }
+span.scenariosDate {
+	color: #000;
+}
 </style>
 <script language="javascript">
 
@@ -637,4 +640,18 @@ window.onload = function() {
 </head>
 </xsl:template>
  
+<xsl:template name="scenariosDate">
+<xsl:for-each select="//scenario/@date">
+<xsl:sort select="." order="descending"/>
+
+<xsl:if test="position() = 1">
+<span class="scenariosDate">
+	<xsl:value-of select="translate(substring(., 1, 19), 'T', ' ')"/>
+	—
+</span>
+</xsl:if>
+
+</xsl:for-each>
+</xsl:template>
+
 </xsl:stylesheet>
