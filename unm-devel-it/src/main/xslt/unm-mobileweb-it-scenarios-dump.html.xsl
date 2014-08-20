@@ -52,7 +52,7 @@ UnivMobile mobile web — Intégration continue
 <a href="http://univmobile.vswip.com/job/{$ios6jobName}/">
 <xsl:value-of select="$ios6jobName"/>
 </a>:
-	<a href="http://univmobile.vswip.com/job/{$ios7jobName}/{$buildNumber_ios6}">Build
+	<a href="http://univmobile.vswip.com/job/{$ios6jobName}/{$buildNumber_ios6}">Build
 	#<xsl:value-of select="$buildNumber_ios6"/></a>
 	
 </div>
