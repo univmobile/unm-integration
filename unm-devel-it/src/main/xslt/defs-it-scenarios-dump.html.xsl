@@ -31,6 +31,11 @@
 <xsl:call-template name="detail-td-iOS6-screen_4_inch"/>
 <xsl:call-template name="detail-td-iOS6-screen_3_5_inch"/>
 </tr>
+<tr>
+<td colspan="2">
+<div class="detailBottom"></div>
+</td>
+</tr>
 </table>
 <table id="table-detail-default" class="table-detail middle">
 <tr>
@@ -40,6 +45,11 @@
 <tr>
 <xsl:call-template name="detail-td-iOS6-screen_4_inch"/>
 <xsl:call-template name="detail-td-iOS6-screen_3_5_inch"/>
+</tr>
+<tr>
+<td colspan="2">
+<div class="detailBottom"></div>
+</td>
 </tr>
 </table>
 <table id="table-detail-default" class="table-detail bottom">
@@ -51,6 +61,11 @@
 <xsl:call-template name="detail-td-iOS6-screen_4_inch"/>
 <xsl:call-template name="detail-td-iOS6-screen_3_5_inch"/>
 </tr>
+<tr>
+<td colspan="2">
+<div class="detailBottom"></div>
+</td>
+</tr>
 </table>
 <table id="table-detail-default" class="table-detail default selected">
 <tr>
@@ -61,8 +76,18 @@
 <xsl:call-template name="detail-td-iOS7-screen_3_5_inch"/>
 <xsl:call-template name="detail-td-iOS6-screen_3_5_inch"/>
 </tr>
+<tr>
+<td colspan="2">
+<div class="detailBottom"></div>
+</td>
+</tr>
 </table>
+<!-- 
+<div id="div-detailBottom">
+toto
 </div>
+-->
+</div> <!-- end of #div-detail -->
 </xsl:template>
 
 <xsl:template name="div-detail-android">
@@ -426,8 +451,11 @@ Table des matières
 	count(ancestor-or-self::screenshot/preceding-sibling::screenshot) + 1
 )"/>
 
+<a name="a-div-shortLabel-{$id}" id="a-div-shortLabel-{$id}">
 <div class="shortLabel div-shortLabel" id="div-shortLabel-{$id}">
 <span>
+	<xsl:value-of select="1
+		+ count(ancestor-or-self::screenshot/preceding-sibling::screenshot)"/>.
 	<xsl:choose>
 	<xsl:when test="name($shortLabel) = 'transitionShortLabel'">
 		(<xsl:value-of select="$shortLabel"/>)
@@ -441,6 +469,7 @@ Table des matières
 	</xsl:choose>
 </span>
 </div>
+</a>
 
 </xsl:template>
 
@@ -453,6 +482,7 @@ Table des matières
 	count(ancestor-or-self::screenshot/preceding-sibling::screenshot) + 1
 )"/>
 
+<a name="a-div-shortLabel-{$id}" id="a-div-shortLabel-{$id}">
 <div class="shortLabel div-shortLabel" id="div-shortLabel-{$id}">
 <span>
 	<xsl:choose>
@@ -461,6 +491,7 @@ Table des matières
 	</xsl:choose>
 </span>
 </div>
+</a>
 
 </xsl:template>
 

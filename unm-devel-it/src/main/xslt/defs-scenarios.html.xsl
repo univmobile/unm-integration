@@ -44,6 +44,16 @@ h1 {
 	height: 1136px;
 	text-align: right;
 }
+div.detailBottom {
+	xbackground-color: #ff0;
+	display: inline;
+	xdisplay: none;
+}
+div.detailBottom a {
+	text-decoration: none;
+	color: #009;
+	font-family: Arial, Helvetica, sans-serif;
+}
 div.device {
 	position: relative;
 	width: 80px;
@@ -316,7 +326,8 @@ table.table-detail.bottom td {
 div.shortLabel span {
 	padding: 0 4px;
 }
-div.shortLabel.selected span {
+div.shortLabel.selected span,
+div.detailBottom {
 	background-color: #eee;
 	border-bottom: 1px solid #ddd;
 }
@@ -503,6 +514,8 @@ function selectShortLabel(id) {
 
 	var divs = document.getElementsByClassName('div-shortLabel');
 	
+	var selectedDiv = null;
+	
 	for (var i = 0; i &lt; divs.length; ++i) {
 	
 		var div = divs[i];
@@ -515,7 +528,40 @@ function selectShortLabel(id) {
 			if (div.className.indexOf('selected') == -1) {
 				div.className += ' selected';
 			}
+			selectedDiv = div;
 		} 
+	}
+	
+	var h3 = null;
+	
+	if (selectedDiv != null) {
+		
+		var scenarioMethodDiv = null;
+		
+		for (var p = selectedDiv.parentNode; p != null; p = p.parentNode) {
+		
+			if (p.className == 'scenarioMethod') {
+				h3 = p.getElementsByTagName('h3')[0];
+				break;
+			}
+		}
+	}
+	
+	var detailBottoms = document.getElementsByClassName('detailBottom');
+	
+	for (var i = 0; i &lt; detailBottoms.length; ++i) {
+	
+		var detailBottom = detailBottoms[i];
+	
+		if (selectedDiv == null) {
+			detailBottom.innerHTML = '';
+		} else {
+			var shortLabel = selectedDiv.innerHTML;
+			selectedDiv.get
+			detailBottom.innerHTML =
+				'<a title="' + h3.innerHTML.replace('\n', ' ') + '"
+					href="#a-div-shortLabel-' + id + '">' + shortLabel + '</a>';
+		}
 	}
 }
 
