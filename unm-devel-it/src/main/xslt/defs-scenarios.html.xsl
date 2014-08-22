@@ -46,8 +46,27 @@ h1 {
 }
 div.detailBottom {
 	xbackground-color: #ff0;
-	display: inline;
+	xdisplay: inline;
 	xdisplay: none;
+}
+div.detailBottom {
+	width: 40px;
+	xbackground-color: #ff0;
+	white-space: nowrap;
+	overflow: visible;
+}
+div.detailBottom h3 {
+	white-space: nowrap;
+	overflow: visible;
+	margin: 0 0 8px;
+	font-weight: normal;
+	font-size: small;
+}
+div.detailBottom h3 a {
+	color: #000;
+}
+div.detailBottom span {
+	font-size: small;
 }
 div.detailBottom a {
 	text-decoration: none;
@@ -337,7 +356,7 @@ div.shortLabel span {
 	padding: 0 4px;
 }
 div.shortLabel.selected span,
-div.detailBottom {
+div.detailBottom span a {
 	background-color: #eee;
 	border-bottom: 1px solid #ddd;
 }
@@ -615,10 +634,12 @@ function selectShortLabel(id) {
 			detailBottom.innerHTML = '';
 		} else {
 			var shortLabel = selectedDiv.innerHTML;
-			selectedDiv.get
+			// selectedDiv.get
 			detailBottom.innerHTML =
-				'<a title="' + h3.innerHTML.replace('\n', ' ') + '"
-					href="#a-div-shortLabel-' + id + '">' + shortLabel + '</a>';
+				'&lt;h3&gt;&lt;a href="#a-div-shortLabel-' + id + '"&gt;'
+					+ h3.innerHTML.replace('\n', ' ') + '&lt;/a&gt;&lt;/h3&gt;'
+				+ '&lt;span&gt;&lt;a href="#a-div-shortLabel-' + id + '"&gt;'
+					+ shortLabel + '&lt;/a&gt;&lt;/span&gt;';
 		}
 	}
 }
