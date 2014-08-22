@@ -1,16 +1,16 @@
-Begin Date: Fri 22 Aug 2014 10:25:15 CEST
+Begin Date: Fri 22 Aug 2014 12:47:19 CEST
 Hostname: unm-ios7
 User: dandriana
 Script: xcodebuild_test.sh  
 Current Directory: /Users/dandriana/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios
 Test Report: /Users/dandriana/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/target/unm-integration/unm-ios-ut-results/data/xcodebuild_test.log
-Git Commit: 49519c24a84d7ad991433c6cb6580141aede5927
+Git Commit: 276d29169908b7d0f6ce7cf535c46c65b083f1a5
 Test Command: /usr/bin/xcodebuild clean test -workspace UnivMobile.xcworkspace   -scheme UnivMobileTests   -configuration Debug   -sdk iphonesimulator7.1   -destination OS=7.1,name="iPhone Retina (4-inch)"
 ----------------------------------------
 
 
 Build succeeded.
-Test Date: Fri 22 Aug 2014 10:42:52 CEST
+Test Date: Fri 22 Aug 2014 12:50:34 CEST
 ----------------------------------------
 Build settings from command line:
     SDKROOT = iphonesimulator7.1
@@ -1165,75 +1165,75 @@ total size is 10389  speedup is 0.87
 /* com.apple.actool.compilation-results */
 
 
-Test Suite 'All tests' started at 2014-08-22 08:57:47 +0000
-Test Suite 'UnivMobileTests.xctest' started at 2014-08-22 08:57:50 +0000
-Test Suite 'UNMAppLayerTests' started at 2014-08-22 08:57:50 +0000
+Test Suite 'All tests' started at 2014-08-22 10:53:40 +0000
+Test Suite 'UnivMobileTests.xctest' started at 2014-08-22 10:53:40 +0000
+Test Suite 'UNMAppLayerTests' started at 2014-08-22 10:53:40 +0000
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneIdIsBretagne]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneIdIsBretagne]' passed (0.423 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneIdIsBretagne]' passed (0.277 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneTitleIsBretagne]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneTitleIsBretagne]' passed (0.041 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneTitleIsBretagne]' passed (0.002 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdTotoIsNill]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdTotoIsNill]' passed (0.000 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdTotoIsNill]' passed (0.001 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfRegionsIs3]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfRegionsIs3]' passed (0.000 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfRegionsIs3]' passed (0.001 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfUniversitiesIleDeFranceIs18]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfUniversitiesIleDeFranceIs18]' passed (0.036 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfUniversitiesIleDeFranceIs18]' passed (0.002 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11IdIsParis11]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11IdIsParis11]' passed (0.000 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11IdIsParis11]' passed (0.001 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11TitleIsParisSud]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11TitleIsParisSud]' passed (0.000 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11TitleIsParisSud]' passed (0.001 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDataObjectIsDifferent]' started.
-2014-08-22 10:57:52.388 xctest[85984:303] universitiesUrl: http://m.univmobile.fr/json/listUniversities_ile_de_france.json
-2014-08-22 10:57:53.288 xctest[85984:303] universitiesUrl: http://univmobile.ueb.eu/json/listUniversities_bretagne.json
-2014-08-22 10:57:53.389 xctest[85984:303] universitiesUrl: http://umobile.univ-lr.fr/json/listUniversities_unrpcl.json
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDataObjectIsDifferent]' passed (3.026 seconds).
+2014-08-22 12:53:40.913 xctest[92837:303] universitiesUrl: http://m.univmobile.fr/json/listUniversities_ile_de_france.json
+2014-08-22 12:53:40.937 xctest[92837:303] universitiesUrl: http://univmobile.ueb.eu/json/listUniversities_bretagne.json
+2014-08-22 12:53:40.946 xctest[92837:303] universitiesUrl: http://umobile.univ-lr.fr/json/listUniversities_unrpcl.json
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDataObjectIsDifferent]' passed (0.131 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDateIsDifferent]' started.
-2014-08-22 10:57:54.523 xctest[85984:303] universitiesUrl: http://m.univmobile.fr/json/listUniversities_ile_de_france.json
-2014-08-22 10:57:54.545 xctest[85984:303] universitiesUrl: http://univmobile.ueb.eu/json/listUniversities_bretagne.json
-2014-08-22 10:57:54.591 xctest[85984:303] universitiesUrl: http://umobile.univ-lr.fr/json/listUniversities_unrpcl.json
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDateIsDifferent]' passed (0.132 seconds).
+2014-08-22 12:53:40.981 xctest[92837:303] universitiesUrl: http://m.univmobile.fr/json/listUniversities_ile_de_france.json
+2014-08-22 12:53:40.986 xctest[92837:303] universitiesUrl: http://univmobile.ueb.eu/json/listUniversities_bretagne.json
+2014-08-22 12:53:40.988 xctest[92837:303] universitiesUrl: http://umobile.univ-lr.fr/json/listUniversities_unrpcl.json
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDateIsDifferent]' passed (0.013 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneIdIsBretagne]' started.
-2014-08-22 10:57:54.656 xctest[85984:303] universitiesUrl: http://m.univmobile.fr/json/listUniversities_ile_de_france.json
-2014-08-22 10:57:54.671 xctest[85984:303] universitiesUrl: http://univmobile.ueb.eu/json/listUniversities_bretagne.json
-2014-08-22 10:57:56.280 xctest[85984:303] universitiesUrl: http://umobile.univ-lr.fr/json/listUniversities_unrpcl.json
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneIdIsBretagne]' passed (1.653 seconds).
+2014-08-22 12:53:40.996 xctest[92837:303] universitiesUrl: http://m.univmobile.fr/json/listUniversities_ile_de_france.json
+2014-08-22 12:53:41.000 xctest[92837:303] universitiesUrl: http://univmobile.ueb.eu/json/listUniversities_bretagne.json
+2014-08-22 12:53:41.011 xctest[92837:303] universitiesUrl: http://umobile.univ-lr.fr/json/listUniversities_unrpcl.json
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneIdIsBretagne]' passed (0.021 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneTitleIsBretagne]' started.
-2014-08-22 10:57:56.309 xctest[85984:303] universitiesUrl: http://m.univmobile.fr/json/listUniversities_ile_de_france.json
-2014-08-22 10:57:56.512 xctest[85984:303] universitiesUrl: http://univmobile.ueb.eu/json/listUniversities_bretagne.json
-2014-08-22 10:57:56.583 xctest[85984:303] universitiesUrl: http://umobile.univ-lr.fr/json/listUniversities_unrpcl.json
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneTitleIsBretagne]' passed (0.319 seconds).
+2014-08-22 12:53:41.019 xctest[92837:303] universitiesUrl: http://m.univmobile.fr/json/listUniversities_ile_de_france.json
+2014-08-22 12:53:41.024 xctest[92837:303] universitiesUrl: http://univmobile.ueb.eu/json/listUniversities_bretagne.json
+2014-08-22 12:53:41.028 xctest[92837:303] universitiesUrl: http://umobile.univ-lr.fr/json/listUniversities_unrpcl.json
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneTitleIsBretagne]' passed (0.016 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdTotoIsNill]' started.
-2014-08-22 10:57:56.632 xctest[85984:303] universitiesUrl: http://m.univmobile.fr/json/listUniversities_ile_de_france.json
-2014-08-22 10:57:56.736 xctest[85984:303] universitiesUrl: http://univmobile.ueb.eu/json/listUniversities_bretagne.json
-2014-08-22 10:57:56.751 xctest[85984:303] universitiesUrl: http://umobile.univ-lr.fr/json/listUniversities_unrpcl.json
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdTotoIsNill]' passed (0.159 seconds).
+2014-08-22 12:53:41.038 xctest[92837:303] universitiesUrl: http://m.univmobile.fr/json/listUniversities_ile_de_france.json
+2014-08-22 12:53:41.044 xctest[92837:303] universitiesUrl: http://univmobile.ueb.eu/json/listUniversities_bretagne.json
+2014-08-22 12:53:41.047 xctest[92837:303] universitiesUrl: http://umobile.univ-lr.fr/json/listUniversities_unrpcl.json
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdTotoIsNill]' passed (0.142 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfRegionsIs3]' started.
-2014-08-22 10:57:56.795 xctest[85984:303] universitiesUrl: http://m.univmobile.fr/json/listUniversities_ile_de_france.json
-2014-08-22 10:57:56.813 xctest[85984:303] universitiesUrl: http://univmobile.ueb.eu/json/listUniversities_bretagne.json
-2014-08-22 10:57:56.899 xctest[85984:303] universitiesUrl: http://umobile.univ-lr.fr/json/listUniversities_unrpcl.json
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfRegionsIs3]' passed (0.112 seconds).
+2014-08-22 12:53:41.182 xctest[92837:303] universitiesUrl: http://m.univmobile.fr/json/listUniversities_ile_de_france.json
+2014-08-22 12:53:41.186 xctest[92837:303] universitiesUrl: http://univmobile.ueb.eu/json/listUniversities_bretagne.json
+2014-08-22 12:53:41.188 xctest[92837:303] universitiesUrl: http://umobile.univ-lr.fr/json/listUniversities_unrpcl.json
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfRegionsIs3]' passed (0.013 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfUniversitiesIleDeFranceIs18]' started.
-2014-08-22 10:57:56.910 xctest[85984:303] universitiesUrl: http://m.univmobile.fr/json/listUniversities_ile_de_france.json
-2014-08-22 10:57:56.920 xctest[85984:303] universitiesUrl: http://univmobile.ueb.eu/json/listUniversities_bretagne.json
-2014-08-22 10:57:56.964 xctest[85984:303] universitiesUrl: http://umobile.univ-lr.fr/json/listUniversities_unrpcl.json
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfUniversitiesIleDeFranceIs18]' passed (0.096 seconds).
+2014-08-22 12:53:41.197 xctest[92837:303] universitiesUrl: http://m.univmobile.fr/json/listUniversities_ile_de_france.json
+2014-08-22 12:53:41.201 xctest[92837:303] universitiesUrl: http://univmobile.ueb.eu/json/listUniversities_bretagne.json
+2014-08-22 12:53:41.205 xctest[92837:303] universitiesUrl: http://umobile.univ-lr.fr/json/listUniversities_unrpcl.json
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfUniversitiesIleDeFranceIs18]' passed (0.013 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11IdIsParis11]' started.
-2014-08-22 10:57:57.008 xctest[85984:303] universitiesUrl: http://m.univmobile.fr/json/listUniversities_ile_de_france.json
-2014-08-22 10:57:57.044 xctest[85984:303] universitiesUrl: http://univmobile.ueb.eu/json/listUniversities_bretagne.json
-2014-08-22 10:57:57.079 xctest[85984:303] universitiesUrl: http://umobile.univ-lr.fr/json/listUniversities_unrpcl.json
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11IdIsParis11]' passed (0.115 seconds).
+2014-08-22 12:53:41.213 xctest[92837:303] universitiesUrl: http://m.univmobile.fr/json/listUniversities_ile_de_france.json
+2014-08-22 12:53:41.218 xctest[92837:303] universitiesUrl: http://univmobile.ueb.eu/json/listUniversities_bretagne.json
+2014-08-22 12:53:41.221 xctest[92837:303] universitiesUrl: http://umobile.univ-lr.fr/json/listUniversities_unrpcl.json
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11IdIsParis11]' passed (0.016 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11TitleIsParisSud]' started.
-2014-08-22 10:57:57.124 xctest[85984:303] universitiesUrl: http://m.univmobile.fr/json/listUniversities_ile_de_france.json
-2014-08-22 10:57:57.164 xctest[85984:303] universitiesUrl: http://univmobile.ueb.eu/json/listUniversities_bretagne.json
-2014-08-22 10:57:57.182 xctest[85984:303] universitiesUrl: http://umobile.univ-lr.fr/json/listUniversities_unrpcl.json
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11TitleIsParisSud]' passed (0.113 seconds).
-Test Suite 'UNMAppLayerTests' finished at 2014-08-22 08:57:57 +0000.
-Executed 16 tests, with 0 failures (0 unexpected) in 6.226 (6.244) seconds
-Test Suite 'UnivMobileTests.xctest' finished at 2014-08-22 08:57:57 +0000.
-Executed 16 tests, with 0 failures (0 unexpected) in 6.226 (6.248) seconds
-Test Suite 'All tests' finished at 2014-08-22 08:57:57 +0000.
-Executed 16 tests, with 0 failures (0 unexpected) in 6.226 (9.761) seconds
+2014-08-22 12:53:41.228 xctest[92837:303] universitiesUrl: http://m.univmobile.fr/json/listUniversities_ile_de_france.json
+2014-08-22 12:53:41.239 xctest[92837:303] universitiesUrl: http://univmobile.ueb.eu/json/listUniversities_bretagne.json
+2014-08-22 12:53:41.243 xctest[92837:303] universitiesUrl: http://umobile.univ-lr.fr/json/listUniversities_unrpcl.json
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11TitleIsParisSud]' passed (0.019 seconds).
+Test Suite 'UNMAppLayerTests' finished at 2014-08-22 10:53:41 +0000.
+Executed 16 tests, with 0 failures (0 unexpected) in 0.670 (0.710) seconds
+Test Suite 'UnivMobileTests.xctest' finished at 2014-08-22 10:53:41 +0000.
+Executed 16 tests, with 0 failures (0 unexpected) in 0.670 (0.715) seconds
+Test Suite 'All tests' finished at 2014-08-22 10:53:41 +0000.
+Executed 16 tests, with 0 failures (0 unexpected) in 0.670 (0.722) seconds
 ** TEST SUCCEEDED **
 
 ----------------------------------------
-End Date: Fri 22 Aug 2014 10:58:00 CEST
+End Date: Fri 22 Aug 2014 12:53:41 CEST
