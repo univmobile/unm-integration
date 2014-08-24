@@ -636,9 +636,9 @@ function selectShortLabel(id) {
 			var shortLabel = selectedDiv.innerHTML;
 			// selectedDiv.get
 			detailBottom.innerHTML =
-				'&lt;h3&gt;&lt;a href="#a-div-shortLabel-' + id + '"&gt;'
+				'&lt;h3&gt;&lt;a href="#' + h3.parentNode.id + '"&gt;'
 					+ h3.innerHTML.replace('\n', ' ') + '&lt;/a&gt;&lt;/h3&gt;'
-				+ '&lt;span&gt;&lt;a href="#a-div-shortLabel-' + id + '"&gt;'
+				+ '&lt;span&gt;&lt;a href="#a-device-' + id + '"&gt;'
 					+ shortLabel + '&lt;/a&gt;&lt;/span&gt;';
 		}
 	}

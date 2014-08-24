@@ -155,6 +155,7 @@ Table des matières
 	</a>
 <ul class="scenarioMethods">
 <xsl:for-each select="$scenarioMethods[../@className = $className]">
+<xsl:sort select="@methodName"/>
 <li class="scenarioMethod">
 	<a>
 	<xsl:attribute name="href">
@@ -185,10 +186,12 @@ Table des matières
 	<xsl:call-template name="anchorId"/>
 </xsl:variable>
 
+<xsl:variable name="scenariosClassSimpleName" select="@classSimpleName"/> —
+
 <div class="scenariosClass">
 <a name="{$scenariosAnchorId}" id="{$scenariosAnchorId}">
 <h2>
-	<xsl:value-of select="@classSimpleName"/> —
+	<xsl:value-of select="$scenariosClassSimpleName"/> —
 	<xsl:value-of select="@scenariosLabel"/>
 </h2>
 </a>
@@ -200,15 +203,18 @@ Table des matières
 -->
 
 <xsl:for-each select="$scenarioMethods[../@className = $className]">
+<xsl:sort select="@methodName"/>
 
 <xsl:variable name="scenarioAnchorId">
 	<xsl:call-template name="anchorId"/>
 </xsl:variable>
 
+<xsl:variable name="scenarioMethodName" select="@methodName"/>
+
 <div class="scenarioMethod">
 <a name="{$scenarioAnchorId}" id="{$scenarioAnchorId}">
 <h3>
-	<xsl:value-of select="@methodName"/> —
+	<xsl:value-of select="$scenarioMethodName"/> —
 	<xsl:value-of select="@scenarioLabel"/>
 </h3>
 </a>
@@ -223,7 +229,10 @@ Table des matières
 <div class="summary">
 <ol>
 <xsl:for-each select="scenario[1]/screenshot[1]">
-	<li>
+	<li style="cursor: pointer" onclick="displayDetail(
+		'{$scenariosClassSimpleName}',
+		'{$scenarioMethodName}',
+		'{@filename}', 1)">
 	<xsl:value-of select="substring-before(@filename, '.png')"/>
 	</li>
 </xsl:for-each>
@@ -236,7 +245,11 @@ Table des matières
 		select="count(following-sibling::screenshot)"/>
 	<xsl:variable name="followingActions" select="following-sibling::action
 		[count(following-sibling::screenshot) = $followingScreenshotCount]"/>
-	<li value="{$index + 1}" class="action number">
+	<li value="{$index + 1}" class="action number"
+		style="cursor: pointer" onclick="displayDetail(
+		'{$scenariosClassSimpleName}',
+		'{$scenarioMethodName}',
+		'{@filename}', {$index + 1})">
 		<xsl:for-each select="$followingActions/self::action">
 			<xsl:if test="not(position() = 1)">, </xsl:if>
 			<xsl:value-of select="@label"/>
@@ -260,7 +273,10 @@ Table des matières
 	</xsl:when>
 	</xsl:choose>	
 	
-	<li value="{$index + 1}">
+	<li value="{$index + 1}" style="cursor: pointer" onclick="displayDetail(
+		'{$scenariosClassSimpleName}',
+		'{$scenarioMethodName}',
+		'{@filename}', {$index + 1})">
 	<xsl:value-of select="substring-before(@filename, '.png')"/>
 	</li>
 
@@ -394,7 +410,7 @@ Table des matières
 <xsl:template name="anchorId">
 	<xsl:value-of select="ancestor-or-self::scenariosClass/@classSimpleName"/>
 	<xsl:if test="self::scenarioMethod">
-		<xsl:value-of select="concat('.', @classSimpleName)"/>
+		<xsl:value-of select="concat('.', @methodName)"/>
 	</xsl:if>
 </xsl:template>
 
@@ -479,8 +495,20 @@ Table des matières
 <xsl:variable name="index" select="1 + count(
 	ancestor-or-self::screenshot/preceding-sibling::screenshot
 )"/>
-	
-<div onclick="displayDetail(
+
+<!--  
+<xsl:variable name="id" select="concat(
+	ancestor::scenariosClass/@classSimpleName, '.',
+	ancestor::scenarioMethod/@methodName, '.',
+	count(ancestor-or-self::screenshot/preceding-sibling::screenshot) + 1
+)"/>
+-->
+<a name="{concat('a-device-',
+	$scenariosClassSimpleName, '.',
+	$scenarioMethodName, '.',
+	$index
+)}">
+<div style="cursor: pointer" onclick="displayDetail(
 			'{$scenariosClassSimpleName}', '{$scenarioMethodName}',
 			'{@filename}', {$index});"		
 		xtitle="{@filename}">
@@ -502,20 +530,30 @@ Table des matières
 	<div/>
 
 </div>
+</a>
 
 </xsl:template>
 
 <xsl:template name="shortLabel">
 <xsl:param name="shortLabel" select="@shortLabel"/>
 
+<xsl:variable name="index"
+	select="count(ancestor-or-self::screenshot/preceding-sibling::screenshot) + 1"/>
+	
 <xsl:variable name="id" select="concat(
 	ancestor::scenariosClass/@classSimpleName, '.',
 	ancestor::scenarioMethod/@methodName, '.',
-	count(ancestor-or-self::screenshot/preceding-sibling::screenshot) + 1
+	$index
 )"/>
 
 <a name="a-div-shortLabel-{$id}" id="a-div-shortLabel-{$id}">
-<div class="shortLabel div-shortLabel" id="div-shortLabel-{$id}">
+<div class="shortLabel div-shortLabel" id="div-shortLabel-{$id}"
+	style="cursor: pointer" onclick="displayDetail(
+		'{ancestor::scenariosClass/@classSimpleName}',
+		'{ancestor::scenarioMethod/@methodName}',
+		'{@filename}',
+		{$index}
+	)">
 <span>
 	<xsl:value-of select="1
 		+ count(ancestor-or-self::screenshot/preceding-sibling::screenshot)"/>
