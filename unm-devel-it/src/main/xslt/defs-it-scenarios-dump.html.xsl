@@ -143,6 +143,7 @@ Table des matières
 </h3>
 <div div="div-scenariosClasses">
 <xsl:for-each select="$scenariosClasses">
+<xsl:sort select="@classSimpleName"/>
 <xsl:variable name="className" select="@className"/>
 <div class="scenariosClass">
 	<a>
@@ -180,6 +181,8 @@ Table des matières
 <div id="div-scenarios">
 
 <xsl:for-each select="$scenariosClasses">
+<xsl:sort select="@classSimpleName"/>
+
 <xsl:variable name="className" select="@className"/>
 
 <xsl:variable name="scenariosAnchorId">
