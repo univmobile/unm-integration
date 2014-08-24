@@ -506,15 +506,16 @@ Table des matières
 	count(ancestor-or-self::screenshot/preceding-sibling::screenshot) + 1
 )"/>
 -->
-<a name="{concat('a-device-',
+<xsl:variable name="id" select="concat('a-device-',
 	$scenariosClassSimpleName, '.',
 	$scenarioMethodName, '.',
 	$index
-)}">
+)"/>
+<a name="{$id}" id="{$id}">
 <div style="cursor: pointer" onclick="displayDetail(
 			'{$scenariosClassSimpleName}', '{$scenarioMethodName}',
 			'{@filename}', {$index});"		
-		xtitle="{@filename}">
+		title="{@filename}">
 <xsl:attribute name="class">device<xsl:choose>
 	<xsl:when test="$ios"> iPod</xsl:when>
 	<xsl:when test="$android"> Android</xsl:when>

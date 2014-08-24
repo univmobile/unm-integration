@@ -418,6 +418,22 @@ div.device.backend img.screenshot {
 span.scenariosDate {
 	color: #000;
 }
+div.detailBottomNav {
+	width: 1em;
+	margin-right: 0.2em;
+	padding: 0;
+	border: 1px solid #000;
+	background-color: #eee;
+	font-family: 'Courier New', Monaco, monospace;
+	display: inline-block;
+	text-align: center;
+	cursor: pointer;
+}
+div.detailBottomNav.dimmed {
+	color: #ccc;
+	cursor: default;
+	border-color: #bbb;
+}
 </style>
 <script language="javascript">
 
@@ -587,6 +603,31 @@ function selectDetailMenu(item) {
 	}
 }
 
+function getPreviousSibling(node) {
+
+	var x = node.previousSibling;
+	
+	while (x != null &amp;&amp; x.nodeType != 1) x = x.previousSibling;
+	
+	return x;
+}
+
+function getNextSibling(node) {
+
+	console.log('node.tagName: '+node.tagName);
+	
+	var x = node.nextSibling;
+
+	console.log('   x.tagName: '+x.tagName);
+	
+	while (x != null &amp;&amp; x.nodeType != 1) {
+		x = x.nextSibling;
+		if (x==null) console.log('   null');
+else		console.log('   x.tagName: '+x.tagName);
+	}
+	return x;
+}
+
 function selectShortLabel(id) {
 
 	var divs = document.getElementsByClassName('div-shortLabel');
@@ -626,21 +667,85 @@ function selectShortLabel(id) {
 	
 	var detailBottoms = document.getElementsByClassName('detailBottom');
 	
+	
 	for (var i = 0; i &lt; detailBottoms.length; ++i) {
 	
 		var detailBottom = detailBottoms[i];
 	
-		if (selectedDiv == null) {
-			detailBottom.innerHTML = '';
-		} else {
+		var html = '';
+	
+		if (selectedDiv != null) {
+		
 			var shortLabel = selectedDiv.innerHTML;
-			// selectedDiv.get
-			detailBottom.innerHTML =
-				'&lt;h3&gt;&lt;a href="#' + h3.parentNode.id + '"&gt;'
-					+ h3.innerHTML.replace('\n', ' ') + '&lt;/a&gt;&lt;/h3&gt;'
-				+ '&lt;span&gt;&lt;a href="#a-device-' + id + '"&gt;'
-					+ shortLabel + '&lt;/a&gt;&lt;/span&gt;';
+
+			// e.g. id = 'Scenarios001.sc003.1'
+
+			var scenariosClassSimpleName = id.replace(/^(.*)\..*\..*$/, '$1');
+
+			var scenarioMethodName = id.replace(/^.*\.(.*)\..*$/, '$1');
+			
+			var index = parseInt(id.replace(/^.*\.(.*)$/, '$1'));
+			
+			var step = selectedDiv // div.shortLabel.div-shortLabel
+				.parentNode // a[@name]
+				.parentNode; // div.step | div.transition
+			var td = step.parentNode; // td
+			
+			console.log('selectedDiv.id: '+selectedDiv.id);
+			
+			var hasPrev = getPreviousSibling(td) != null; // td
+			var hasNext = getNextSibling(step) != null // div
+				|| getNextSibling(td) != null; // td 
+				
+			var dimmed_prev = ' dimmed';
+			var dimmed_next = ' dimmed';
+			var onclick_prev = '';
+			var onclick_next = '';
+			
+//			console.log(index+', prev='+prev+', next='+next);
+			
+			if (hasPrev) {
+				dimmed_prev = '';
+				var filename = document.getElementById('a-device-'
+					+ scenariosClassSimpleName + '.'
+					+ scenarioMethodName + '.'
+					+ (index - 1)).getElementsByTagName('div')[0].title;
+				onclick_prev = "displayDetail('" + scenariosClassSimpleName
+					+ "', '" + scenarioMethodName 
+					+ "', '" + filename + "', " + (index - 1) + ")";
+				// console.log(onclick_prev);
+			}
+			
+			if (hasNext) {
+				dimmed_next = '';
+				console.log('a-device-'
+					+ scenariosClassSimpleName + '.'
+					+ scenarioMethodName + '.'
+					+ (index + 1));
+				var filename = document.getElementById('a-device-'
+					+ scenariosClassSimpleName + '.'
+					+ scenarioMethodName + '.'
+					+ (index + 1)).getElementsByTagName('div')[0].title;
+				onclick_next = "displayDetail('" + scenariosClassSimpleName
+					+ "', '" + scenarioMethodName 
+					+ "', '" + filename + "', " + (index + 1) + ")";
+				// console.log(onclick_next);
+			}
+			
+			html += '&lt;h3&gt;&lt;a href="#' + h3.parentNode.id + '"&gt;'
+					+ h3.innerHTML.replace('\n', ' ') + '&lt;/a&gt;&lt;/h3&gt;';
+			
+			html += '&lt;div class="detailBottomNav prev' + dimmed_prev
+				+ '" onclick="' + onclick_prev + '"&gt;&amp;lt;&lt;/div&gt;';
+			
+			html += '&lt;div class="detailBottomNav next' + dimmed_next +
+				'" onclick="' + onclick_next + '"&gt;&amp;gt;&lt;/div&gt;';
+			
+			html += '&lt;span&gt;&lt;a href="#a-device-' + id + '"&gt;'
+				+ shortLabel + '&lt;/a&gt;&lt;/span&gt;';
 		}
+					
+		detailBottom.innerHTML = html;
 	}
 }
 
