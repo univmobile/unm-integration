@@ -666,8 +666,7 @@ function selectShortLabel(id) {
 	}
 	
 	var detailBottoms = document.getElementsByClassName('detailBottom');
-	
-	
+
 	for (var i = 0; i &lt; detailBottoms.length; ++i) {
 	
 		var detailBottom = detailBottoms[i];
@@ -699,17 +698,36 @@ function selectShortLabel(id) {
 				
 			var dimmed_prev = ' dimmed';
 			var dimmed_next = ' dimmed';
+			var onclick_first = '';
 			var onclick_prev = '';
 			var onclick_next = '';
+			var onclick_last = '';
+			var prev = index;
+			var next = index;
+			var last = index;
+			for (;; ++last) if (document.getElementById('a-device-'
+				+ scenariosClassSimpleName + '.'
+				+ scenarioMethodName + '.'
+				+ (last + 1)
+			) == null) break;
+			var title_first = 'Beginning: 1/' + last;
+			var title_last = 'End: ' + last + '/' + last;
+			var title_prev = title_first;
+			var title_next = title_last;
 			
 //			console.log(index+', prev='+prev+', next='+next);
 			
 			if (hasPrev) {
 				dimmed_prev = '';
+				prev = index - 1;
+				title_prev = 'Previous: ' + prev + '/' + last;
 				var filename = document.getElementById('a-device-'
 					+ scenariosClassSimpleName + '.'
 					+ scenarioMethodName + '.'
 					+ (index - 1)).getElementsByTagName('div')[0].title;
+				onclick_first = "displayDetail('" + scenariosClassSimpleName
+					+ "', '" + scenarioMethodName 
+					+ "', '" + filename + "', 1)";
 				onclick_prev = "displayDetail('" + scenariosClassSimpleName
 					+ "', '" + scenarioMethodName 
 					+ "', '" + filename + "', " + (index - 1) + ")";
@@ -718,6 +736,8 @@ function selectShortLabel(id) {
 			
 			if (hasNext) {
 				dimmed_next = '';
+				next = index + 1;
+				title_next = 'Next: ' + next + '/' + last;
 				console.log('a-device-'
 					+ scenariosClassSimpleName + '.'
 					+ scenarioMethodName + '.'
@@ -729,17 +749,26 @@ function selectShortLabel(id) {
 				onclick_next = "displayDetail('" + scenariosClassSimpleName
 					+ "', '" + scenarioMethodName 
 					+ "', '" + filename + "', " + (index + 1) + ")";
+				onclick_last = "displayDetail('" + scenariosClassSimpleName
+					+ "', '" + scenarioMethodName 
+					+ "', '" + filename + "', " + last + ")";
 				// console.log(onclick_next);
 			}
 			
 			html += '&lt;h3&gt;&lt;a href="#' + h3.parentNode.id + '"&gt;'
 					+ h3.innerHTML.replace('\n', ' ') + '&lt;/a&gt;&lt;/h3&gt;';
 			
-			html += '&lt;div class="detailBottomNav prev' + dimmed_prev
+			html += '&lt;div title="' + title_first + '" class="detailBottomNav first' + dimmed_prev
+				+ '" onclick="' + onclick_first + '"&gt;•&lt;/div&gt;';
+			
+			html += '&lt;div title="' + title_prev + '" class="detailBottomNav prev' + dimmed_prev
 				+ '" onclick="' + onclick_prev + '"&gt;&amp;lt;&lt;/div&gt;';
 			
-			html += '&lt;div class="detailBottomNav next' + dimmed_next +
+			html += '&lt;div title="' + title_next + '" class="detailBottomNav next' + dimmed_next +
 				'" onclick="' + onclick_next + '"&gt;&amp;gt;&lt;/div&gt;';
+			
+			html += '&lt;div title="' + title_last + '" class="detailBottomNav last' + dimmed_next +
+				'" onclick="' + onclick_last + '"&gt;•&lt;/div&gt;';
 			
 			html += '&lt;span&gt;&lt;a href="#a-device-' + id + '"&gt;'
 				+ shortLabel + '&lt;/a&gt;&lt;/span&gt;';
@@ -752,12 +781,21 @@ function selectShortLabel(id) {
 window.onload = function() {
 
 	<xsl:variable name="firstScenariosClass" select="//scenariosClass[1]"/>
-	<xsl:variable name="firstScenarioMethod" select="$firstScenariosClass/scenarioMethod[1]"/>
+	<xsl:variable name="firstScenarioMethodName">
+		<xsl:for-each select="$firstScenariosClass/scenarioMethod">
+		<xsl:sort select="@methodName"/>
+		<xsl:if test="position() = 1">
+			<xsl:value-of select="@methodName"/>
+		</xsl:if>
+		</xsl:for-each>
+	</xsl:variable>	
+	<xsl:variable name="firstScenarioMethod" select="$firstScenariosClass/scenarioMethod
+		[@methodName = $firstScenarioMethodName]"/>
 	<xsl:variable name="firstScreenshot" select="$firstScenarioMethod//screenshot[1]"/>
 		
 	displayDetail(
 		'<xsl:value-of select="$firstScenariosClass/@classSimpleName"/>',
-		'<xsl:value-of select="$firstScenarioMethod/@methodName"/>',
+		'<xsl:value-of select="$firstScenarioMethodName"/>',
 		'<xsl:value-of select="$firstScreenshot/@filename"/>', 1
 	);
 };
