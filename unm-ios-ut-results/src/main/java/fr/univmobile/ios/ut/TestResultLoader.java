@@ -231,7 +231,8 @@ public class TestResultLoader {
 
 			if (line.startsWith(prefix)) {
 
-				final String value = substringAfter(line, prefix);
+				final String value = substringAfter(line, prefix) //
+						.replace("  ", " 0"); // Handle: "Fri Aug  1" = 2 spaces
 
 				try {
 

@@ -3,12 +3,12 @@
 <xsl:import href="defs-ci-dump.html.xsl"/>
 <xsl:output method="html" encoding="UTF-8" doctype-public="html"/>
 
-<xsl:template match="/unm-mobileweb-ci-dump">
+<xsl:template match="/unm-android-ci-dump">
 <html lang="fr" dir="ltr">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <meta http-equiv="Content-Language" content="fr"/>
-<title>UnivMobile mobile web — Intégration continue</title>
+<title>UnivMobile Android — Intégration continue</title>
 <xsl:call-template name="style-css"/>
 </head>
 <body>
@@ -19,12 +19,12 @@
 </div>
 
 <div class="nav">
-<a href="http://univmobile.vswip.com/job/unm-devel-it/lastSuccessfulBuild/artifact/unm-devel-it/target/unm-mobileweb-it-scenarios-dump.html">
-UnivMobile mobile web — Scénarios
+<a href="http://univmobile.vswip.com/job/unm-devel-it/lastSuccessfulBuild/artifact/unm-devel-it/target/unm-android-it-scenarios-dump.html">
+UnivMobile Android — Scénarios
 </a>
 </div>
 
-<h1>UnivMobile mobile web — Intégration continue</h1>
+<h1>UnivMobile Android — Intégration continue</h1>
 
 <div id="div-dumpDate">
 Dump at:
@@ -35,7 +35,7 @@ Dump at:
 
 <xsl:variable name="jenkinsJobs" select="jenkinsJob"/>
 
-<xsl:for-each select="commits[@repository = 'unm-mobileweb']">
+<xsl:for-each select="commits[@repository = 'unm-android']">
 
 <table>
 <!--  
@@ -47,31 +47,29 @@ Dump at:
 <thead>
 <tr>
 <th class="commitId">
-	<a href="https://github.com/univmobile/unm-mobileweb/commits/develop">
-		unm-mobileweb: commits
+	<a href="https://github.com/univmobile/unm-android/commits/develop">
+		unm-mobileweb: android
 	</a>
 	<span class="description">Code source Java</span>
 </th>
-<th colspan="2" class="unm-mobileweb-app">
-	<a href="http://univmobile.vswip.com/job/unm-mobileweb-app/">
-		unm-mobileweb-app
+<th colspan="2" class="Android-UnivMobile">
+	<a href="http://univmobile.vswip.com/job/Android-UnivMobile/">
+		Android-UnivMobile
 	</a>
-	<span class="description">Construction de l’archive .war</span>
+	<span class="description">Construction .apk par Ant</span>
 </th>
-<th colspan="2" class="unm-mobileweb-it unm-mobileweb-it_ios7">
-	<a href="http://univmobile.vswip.com/job/unm-mobileweb-it_ios7/">
-		unm-mobileweb-it_ios7
+<th colspan="2" class="Android-UnivMobile">
+	<a href="http://univmobile.vswip.com/job/Android-UnivMobile_gradle/">
+		Android-UnivMobile_gradle
 	</a>
-	<span class="description">Tests d’intégration iOS 7 
+	<span class="description">Construction .apk par Gradle</span>
+</th>
+<th colspan="2" class="unm-android-it">
+	<a href="http://univmobile.vswip.com/job/unm-android-it/">
+		unm-android-it
+	</a>
+	<span class="description">Tests d’intégration Android Emulator 
 		<!-- JUnit + Appium -->
-	</span>
-</th>
-<th colspan="2" class="unm-mobileweb-it unm-mobileweb-it_ios6">
-	<a href="http://univmobile.vswip.com/job/unm-mobileweb-it_ios6/">
-		unm-mobileweb-it_ios6
-	</a>
-	<span class="description">Tests d’intégration iOS 6 
-		 <!-- JUnit + Appium -->
 	</span>
 </th>
 </tr>
@@ -83,32 +81,32 @@ Dump at:
 	select="$jenkinsJobs/build[(@commitId = $commitId and not(@appCommitId))
 		or @appCommitId = $commitId]"/>
 	
-<xsl:variable name="jenkinsBuilds-unm-mobileweb-app"
-	select="$jenkinsBuilds[../@name = 'unm-mobileweb-app']"/>
-<xsl:variable name="jenkinsBuilds-unm-mobileweb-it_ios7"
-	select="$jenkinsBuilds[../@name = 'unm-mobileweb-it_ios7']"/>
-<xsl:variable name="jenkinsBuilds-unm-mobileweb-it_ios6"
-	select="$jenkinsBuilds[../@name = 'unm-mobileweb-it_ios6']"/>
+<xsl:variable name="jenkinsBuilds-Android-UnivMobile"
+	select="$jenkinsBuilds[../@name = 'Android-UnivMobile']"/>
+<xsl:variable name="jenkinsBuilds-Android-UnivMobile_gradle"
+	select="$jenkinsBuilds[../@name = 'Android-UnivMobile_gradle']"/>
+<xsl:variable name="jenkinsBuilds-unm-android-it"
+	select="$jenkinsBuilds[../@name = 'unm-android-it']"/>
 	
-<xsl:variable name="sizeOfBuilds-unm-mobileweb-app"
-	select="count($jenkinsBuilds-unm-mobileweb-app)"/>
-<xsl:variable name="sizeOfBuilds-unm-mobileweb-it_ios7"
-	select="count($jenkinsBuilds-unm-mobileweb-it_ios7)"/>
-<xsl:variable name="sizeOfBuilds-unm-mobileweb-it_ios6"
-	select="count($jenkinsBuilds-unm-mobileweb-it_ios6)"/>
+<xsl:variable name="sizeOfBuilds-Android-UnivMobile"
+	select="count($jenkinsBuilds-Android-UnivMobile)"/>
+<xsl:variable name="sizeOfBuilds-Android-UnivMobile_gradle"
+	select="count($jenkinsBuilds-Android-UnivMobile_gradle)"/>
+<xsl:variable name="sizeOfBuilds-unm-android-it"
+	select="count($jenkinsBuilds-unm-android-it)"/>
 	
 <xsl:variable name="rowCount">
 <xsl:choose>
-<xsl:when test="$sizeOfBuilds-unm-mobileweb-app &gt;= $sizeOfBuilds-unm-mobileweb-it_ios7
-		and $sizeOfBuilds-unm-mobileweb-app &gt;= $sizeOfBuilds-unm-mobileweb-it_ios6">
-	<xsl:value-of select="$sizeOfBuilds-unm-mobileweb-app"/>
+<xsl:when test="$sizeOfBuilds-Android-UnivMobile &gt;= $sizeOfBuilds-Android-UnivMobile_gradle
+		and $sizeOfBuilds-Android-UnivMobile &gt;= $sizeOfBuilds-unm-android-it">
+	<xsl:value-of select="$sizeOfBuilds-Android-UnivMobile"/>
 </xsl:when>
-<xsl:when test="$sizeOfBuilds-unm-mobileweb-it_ios7 &gt;= $sizeOfBuilds-unm-mobileweb-app
-		and $sizeOfBuilds-unm-mobileweb-it_ios7 &gt;= $sizeOfBuilds-unm-mobileweb-it_ios6">
-	<xsl:value-of select="$sizeOfBuilds-unm-mobileweb-it_ios7"/>
+<xsl:when test="$sizeOfBuilds-Android-UnivMobile_gradle &gt;= $sizeOfBuilds-Android-UnivMobile
+		and $sizeOfBuilds-Android-UnivMobile_gradle &gt;= $sizeOfBuilds-unm-android-it">
+	<xsl:value-of select="$sizeOfBuilds-Android-UnivMobile_gradle"/>
 </xsl:when>
 <xsl:otherwise>
-	<xsl:value-of select="$sizeOfBuilds-unm-mobileweb-it_ios6"/>
+	<xsl:value-of select="$sizeOfBuilds-unm-android-it"/>
 </xsl:otherwise>
 </xsl:choose>
 </xsl:variable>
@@ -117,9 +115,9 @@ Dump at:
 <td>
 <xsl:attribute name="class">
 	commitId
-	<xsl:if test="$jenkinsBuilds-unm-mobileweb-app/@result = 'SUCCESS'
-		and $jenkinsBuilds-unm-mobileweb-it_ios7[@appCommitId]/@result = 'SUCCESS'
-		and $jenkinsBuilds-unm-mobileweb-it_ios6[@appCommitId]/@result = 'SUCCESS'">
+	<xsl:if test="$jenkinsBuilds-Android-UnivMobile/@result = 'SUCCESS'
+		and $jenkinsBuilds-Android-UnivMobile_gradle/@result = 'SUCCESS'
+		and $jenkinsBuilds-unm-android-it[@appCommitId]/@result = 'SUCCESS'">
 			SUCCESS</xsl:if>
 	<xsl:if test="$jenkinsBuilds/@result = 'FAILURE'"> FAILURE</xsl:if>
 	<xsl:if test="$jenkinsBuilds/@result = 'UNSTABLE'"> UNSTABLE</xsl:if>
@@ -138,21 +136,21 @@ Dump at:
 
 	<xsl:call-template name="td-build">
 	<xsl:with-param name="jenkinsBuilds" select="$jenkinsBuilds"/>
-	<xsl:with-param name="jobName" select="'unm-mobileweb-app'"/>
+	<xsl:with-param name="jobName" select="'Android-UnivMobile'"/>
 	<xsl:with-param name="index" select="1"/>
 	<xsl:with-param name="rowCount" select="$rowCount"/>
 	</xsl:call-template>
 
 	<xsl:call-template name="td-build">
 	<xsl:with-param name="jenkinsBuilds" select="$jenkinsBuilds"/>
-	<xsl:with-param name="jobName" select="'unm-mobileweb-it_ios7'"/>
+	<xsl:with-param name="jobName" select="'Android-UnivMobile_gradle'"/>
 	<xsl:with-param name="index" select="1"/>
 	<xsl:with-param name="rowCount" select="$rowCount"/>
 	</xsl:call-template>
 
 	<xsl:call-template name="td-build">
 	<xsl:with-param name="jenkinsBuilds" select="$jenkinsBuilds"/>
-	<xsl:with-param name="jobName" select="'unm-mobileweb-it_ios6'"/>
+	<xsl:with-param name="jobName" select="'unm-android-it'"/>
 	<xsl:with-param name="index" select="1"/>
 	<xsl:with-param name="rowCount" select="$rowCount"/>
 	</xsl:call-template>
@@ -161,26 +159,26 @@ Dump at:
 <xsl:for-each select="$jenkinsBuilds[position() &lt; $rowCount]">
 <xsl:variable name="index" select="2
 	+ count(preceding::build[(@commitId = $commitId and not(@appCommitId))
-		or @appCommitId = $commitId])"/>
+			or @appCommitId = $commitId])"/>
 <tr>
 
 	<xsl:call-template name="td-build">
 	<xsl:with-param name="jenkinsBuilds" select="$jenkinsBuilds"/>
-	<xsl:with-param name="jobName" select="'unm-mobileweb-app'"/>
+	<xsl:with-param name="jobName" select="'Android-UnivMobile'"/>
 	<xsl:with-param name="index" select="$index"/>
 	<xsl:with-param name="rowCount" select="$rowCount"/>
 	</xsl:call-template>
 
 	<xsl:call-template name="td-build">
 	<xsl:with-param name="jenkinsBuilds" select="$jenkinsBuilds"/>
-	<xsl:with-param name="jobName" select="'unm-mobileweb-it_ios7'"/>
+	<xsl:with-param name="jobName" select="'Android-UnivMobile_gradle'"/>
 	<xsl:with-param name="index" select="$index"/>
 	<xsl:with-param name="rowCount" select="$rowCount"/>
 	</xsl:call-template>
 
 	<xsl:call-template name="td-build">
 	<xsl:with-param name="jenkinsBuilds" select="$jenkinsBuilds"/>
-	<xsl:with-param name="jobName" select="'unm-mobileweb-it_ios6'"/>
+	<xsl:with-param name="jobName" select="'unm-android-it'"/>
 	<xsl:with-param name="index" select="$index"/>
 	<xsl:with-param name="rowCount" select="$rowCount"/>
 	</xsl:call-template>

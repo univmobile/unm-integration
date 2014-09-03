@@ -2,13 +2,17 @@ package fr.univmobile.it.cidump;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 import static org.apache.commons.lang3.CharEncoding.UTF_8;
+import static org.apache.commons.lang3.StringUtils.split;
 import static org.apache.commons.lang3.StringUtils.substringAfter;
+import static org.apache.commons.lang3.StringUtils.substringBefore;
 import static org.apache.commons.lang3.StringUtils.substringBetween;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -216,10 +220,10 @@ public class ContinuousIntegrationDumper {
 				// e.g.
 				// http://univmobile.vswip.com/job/unm-ios-it/35/artifact/unm-ios-it/target/screenshots/pageSource.xml
 
-				final AppiumPageSource pageSource = loadXMLContent(baseURL
+				final AppiumIOSPageSource pageSource = loadXMLContent(baseURL
 						+ "job/" + jobName + "/" + buildNumber
 						+ "/artifact/unm-ios-it/target/screenshots"
-						+ "/pageSource.xml", AppiumPageSource.class);
+						+ "/pageSource.xml", AppiumIOSPageSource.class);
 
 				if (pageSource == null) { // Not found.
 					continue;
@@ -231,8 +235,6 @@ public class ContinuousIntegrationDumper {
 
 				appCommitId = substringAfter(buildInfo,
 						"https://github.com/univmobile/unm-ios").trim();
-
-				buildDumper.addAttribute("appCommitId", appCommitId);
 
 			} else if (jobName.startsWith("unm-mobileweb-it_ios")) {
 
@@ -254,11 +256,56 @@ public class ContinuousIntegrationDumper {
 								"https://github.com/univmobile/unm-mobileweb"),
 						"-->", "</p>").trim();
 
-				buildDumper.addAttribute("appCommitId", appCommitId);
+			} else if (jobName.startsWith("unm-android-it")) {
+
+				final AppiumAndroidPageSource pageSource = loadXMLContent(
+						baseURL
+								+ "job/"
+								+ jobName
+								+ "/"
+								+ buildNumber
+								+ "/artifact/unm-android-it/target/screenshots"
+								+ "/Android_XXX/Android_Emulator/Scenarios001/sc001" // ???
+								+ "/pageAbout.xml",
+						AppiumAndroidPageSource.class);
+
+				if (pageSource == null) { // Not found.
+					continue;
+				}
+
+				appCommitId = pageSource.getGitCommitId();
+
+			} else if (jobName.startsWith("unm-backend-it")) {
+
+				final File htmlAboutFile = saveTextContent(baseURL + "job/"
+						+ jobName + "/" + buildNumber
+						+ "/artifact/unm-backend-it/target"
+						// "/screenshots/Debian_3.2.0-4-amd64/Firefox/Scenarios001/sc001"
+						+ "/pageSource.html");
+
+				if (htmlAboutFile == null) { // Not found.
+					continue;
+				}
+
+				final String htmlAbout = FileUtils.readFileToString(
+						htmlAboutFile, UTF_8);
+
+				final String[] s = split(substringBefore(substringBetween(//
+						htmlAbout, "<h1", "</h1>"), "\">"));
+
+				if (s == null) { // Not found.
+					continue;
+				}
+
+				appCommitId = s[s.length - 1];
 
 			} else {
 
 				appCommitId = null;
+			}
+
+			if (appCommitId != null) {
+				buildDumper.addAttribute("appCommitId", appCommitId);
 			}
 
 			dumpedBuilds.add(new DumpedBuild(jobName, buildNumber, //
@@ -397,12 +444,36 @@ public class ContinuousIntegrationDumper {
 		return DomBinderUtils.xmlContentToJava(xmlFile, clazz);
 	}
 
+	static String escapeURL(final String url)
+			throws UnsupportedEncodingException {
+
+		final StringBuilder sb = new StringBuilder();
+
+		for (final char c : url.toCharArray()) {
+
+			switch (c) {
+			case '/':
+			case ':':
+			case '-':
+			case '_':
+			case '.':
+				sb.append(c);
+				break;
+			default:
+				sb.append(URLEncoder.encode(Character.toString(c), UTF_8));
+				break;
+			}
+		}
+		return sb.toString();
+
+	}
+
 	@Nullable
 	private File saveTextContent(final String url) throws IOException {
 
 		System.out.println("Saving text from: " + url + "...");
 
-		final HttpMethod method = new GetMethod(url);
+		final HttpMethod method = new GetMethod(escapeURL(url));
 
 		method.setDoAuthentication(true);
 
@@ -567,6 +638,14 @@ public class ContinuousIntegrationDumper {
 		} else if (jobName.startsWith("unm-mobileweb-it_")) {
 
 			return "unm-mobileweb-it";
+
+		} else if (jobName.startsWith("unm-android-it")) {
+
+			return "unm-android-it";
+
+		} else if (jobName.startsWith("unm-backend-it")) {
+
+			return "unm-backend-it";
 
 		} else {
 

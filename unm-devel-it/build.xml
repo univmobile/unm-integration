@@ -4,9 +4,23 @@
 	<target name="all" depends="generate-unm-ios-ci-dump,
 		generate-unm-ios-it-scenarios-dump,
 		generate-unm-mobileweb-ci-dump,
-		generate-unm-mobileweb-it-scenarios-dump">
+		generate-unm-mobileweb-it-scenarios-dump,
+		generate-unm-android-ci-dump,
+		generate-unm-android-it-scenarios-dump,
+		generate-unm-backend-ci-dump,
+		generate-unm-backend-it-scenarios-dump,
+		copy-images">
+
 	</target>
 
+	<target name="copy-images">
+		
+		<copy todir="target/site/img">
+			<fileset dir="src/site/img"/>
+		</copy>
+		
+	</target>
+	
 	<target name="generate-unm-ios-ci-dump" description="Generate HTML page about UnivMobile iOS Continuous Integration">
 
 		<property name="unm-ios-ci-dump" 
@@ -31,6 +45,68 @@
 		<xslt force="true" style="src/main/xslt/unm-mobileweb-ci-dump.html.xsl" 
 			in="target/unm-mobileweb-ci-dump.xml" 
 			out="${unm-mobileweb-ci-dump}" />
+
+	</target>
+
+	<target name="generate-unm-android-ci-dump" 
+		description="Generate HTML page about UnivMobile Android Continuous Integration">
+
+		<property name="unm-android-ci-dump"
+			location="target/unm-android-ci-dump.html" />
+
+		<echo>Saving HTML page: ${unm-android-ci-dump}...</echo>
+
+		<xslt force="true" style="src/main/xslt/unm-android-ci-dump.html.xsl" 
+			in="target/unm-android-ci-dump.xml" 
+			out="${unm-android-ci-dump}" />
+
+	</target>
+
+	<target name="generate-unm-backend-ci-dump" 
+		description="Generate HTML page about UnivMobile backend Continuous Integration">
+
+		<property name="unm-backend-ci-dump"
+			location="target/unm-backend-ci-dump.html" />
+
+		<echo>Saving HTML page: ${unm-backend-ci-dump}...</echo>
+
+		<xslt force="true" style="src/main/xslt/unm-backend-ci-dump.html.xsl" 
+			in="target/unm-backend-ci-dump.xml" 
+			out="${unm-backend-ci-dump}" />
+
+	</target>
+
+	<target name="generate-unm-android-it-scenarios-dump" 
+		description="Generate HTML page about UnivMobile Android Integration Scenarios">
+
+		<property name="unm-android-it-scenarios-dump" 
+			location="target/unm-android-it-scenarios-dump.html" />
+
+		<echo>Saving HTML page: ${unm-android-it-scenarios-dump}...</echo>
+
+		<xslt force="true" 
+			style="src/main/xslt/unm-android-it-scenarios-dump.html.xsl" 
+			in="target/unm-android-it-scenarios-dump.xml" 
+			out="${unm-android-it-scenarios-dump}" >
+			<param name="appCommitId" expression="${appCommitId}"/>
+		</xslt>
+
+	</target>
+
+	<target name="generate-unm-backend-it-scenarios-dump" 
+		description="Generate HTML page about UnivMobile backend Integration Scenarios">
+
+		<property name="unm-backend-it-scenarios-dump" 
+			location="target/unm-backend-it-scenarios-dump.html" />
+
+		<echo>Saving HTML page: ${unm-backend-it-scenarios-dump}...</echo>
+
+		<xslt force="true" 
+			style="src/main/xslt/unm-backend-it-scenarios-dump.html.xsl" 
+			in="target/unm-backend-it-scenarios-dump.xml" 
+			out="${unm-backend-it-scenarios-dump}" >
+			<param name="appCommitId" expression="${appCommitId}"/>
+		</xslt>
 
 	</target>
 

@@ -7,7 +7,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <meta http-equiv="Content-Language" content="fr"/>
-<title>UnivMobile iOS — Scénarios</title>
+<title>UnivMobile 
+	<xsl:choose>
+	<xsl:when test="//scenarios[contains(@jobName, 'unm-ios-it')]">
+		iOS
+	</xsl:when>
+	<xsl:when test="//scenarios[contains(@jobName, 'unm-mobileweb-it')]">
+		mobile web
+	</xsl:when>
+	<xsl:when test="//scenarios[contains(@jobName, 'unm-android-it')]">
+		Android
+	</xsl:when>
+	<xsl:when test="//scenarios[contains(@jobName, 'unm-backend-it')]">
+		backend
+	</xsl:when>
+	</xsl:choose>
+— Scénarios</title>
 <style type="text/css">
 body {
 	position: relative;
@@ -29,32 +44,97 @@ h1 {
 	height: 1136px;
 	text-align: right;
 }
+div.detailBottom {
+	xbackground-color: #ff0;
+	xdisplay: inline;
+	xdisplay: none;
+}
+div.detailBottom {
+	width: 40px;
+	xbackground-color: #ff0;
+	white-space: nowrap;
+	overflow: visible;
+}
+div.detailBottom h3 {
+	white-space: nowrap;
+	overflow: visible;
+	margin: 0 0 8px;
+	font-weight: normal;
+	font-size: small;
+}
+div.detailBottom h3 a {
+	color: #000;
+}
+div.detailBottom span {
+	font-size: small;
+}
+div.detailBottom a {
+	text-decoration: none;
+	color: #009;
+	font-family: Arial, Helvetica, sans-serif;
+}
 div.device {
 	position: relative;
 	width: 80px;
 	height: 164px;
 }
+#body-backend div.device {
+	position: relative;
+	width: 126px;
+	height: 100px;
+}
 div.device img.screenshot {
 	width: 64px;
-	height: 113.6px;
 	position: absolute;
 	top: 25px;
 	left: 8px;
+}
+div.device.iPod img.screenshot {
+	height: 113.6px;
+}
+div.device.Android img.screenshot {
+	height: 106.7px;
+}
+div.device.backend img.screenshot {
+	width: 110px;
+	border: 1px solid transparent;
 }
 div.device.smaller img.screenshot {
 	width: 32px;
 	height: 56.8px;
 }
-div.device div.iPod {
+div.device.iPod div {
 	position: absolute;
 	top: 2px;
 	left: 2px;
-	xbackground-image: url('img/iPod_touch_Vert_Blu_sRGB.png');
-	background-image: url('http://univmobile.vswip.com/nexus/content/sites/pub/unm-ios/0.0.1-SNAPSHOT/img/iPod_touch_Vert_Blu_sRGB.png');
+	background-image: url('http://univmobile.vswip.com/nexus/content/sites/pub/unm-devel-it/0.0.4-SNAPSHOT/img/iPod_touch_Vert_Blu_sRGB.png');
 	background-size: 91px 175px;
 	background-repeat: no-repeat;
 	background-position: -8px -8px;
 	width: 76px;
+	height: 160px;
+}
+div.device.Android div {
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	background-image: url('http://univmobile.vswip.com/nexus/content/sites/pub/unm-devel-it/0.0.4-SNAPSHOT/img/red480x800.png');
+	background-size: 99px 173px;
+	background-repeat: no-repeat;
+	background-position: -11.5px -9px;
+	width: 76px;
+	height: 160px;
+}
+div.device.backend div {
+	position: absolute;
+	top: 5px;
+	left: 4.5px;
+	xbackground-image: url('../src/site/img/firefox-window-1024x574.png');
+	background-image: url('http://univmobile.vswip.com/nexus/content/sites/pub/unm-devel-it/0.0.4-SNAPSHOT/img/firefox-window-1024x574.png');
+	background-size: 121px 81px;
+	background-repeat: no-repeat;
+	background-position: -1px 10px;
+	width: 120px;
 	height: 160px;
 }
 table {
@@ -89,6 +169,14 @@ div.arrow {
 	position: relative;
 	top: -90px;
 }
+#body-backend div.arrow {
+	top: -50px;
+	margin-right: -11px;
+}
+#xbody-backend div.arrow,
+#body-backend div.transition {
+	display: none;
+}
 #div-detail table {
 	border-collapse: collapse;
 	position: absolute;
@@ -105,6 +193,30 @@ div.arrow {
 #div-detail .screen_3_5_inch img {
 	width: 192px;
 	height: 288px;
+}
+#div-detail .screen_480x800 img {
+	width: 192px;
+	height: 320px;
+}
+#div-detail .screen_1280 div.img {
+	width: 320px;
+	height: 219px;
+	overflow: scroll;
+}
+#div-detail .screen_1024 div.img {
+	width: 320px;
+	height: 179px;
+	overflow: scroll;
+}
+#div-detail .screen_1280 img {
+	width: 320px;
+	xheight: 219px;
+	background-color: #ff0;
+}
+#div-detail .screen_1024 img {
+	width: 320px;
+	xheight: 179px;
+	background-color: #f00;
 }
 #div-detail div.label {
 	background-color: #000;
@@ -173,22 +285,16 @@ div.scenariosClass h3 {
 	margin-bottom: 0.6em;
 }
 div.scenariosClass h3 {
-	border-top: 1px dashed #000;
+	xborder-top: 1px dashed #000;
 	padding-top: 1em;
 }
 #div-detail-menu {
 	position: fixed;
 	top: 8px;
 	right: 462px;
-	xbackground-color: #ff0;
-	xwidth: 400px;
-	xheight: 100px;
 }
 #div-detail-menu div.detail-menu {
 	margin-left: 40px;
-	xwidth: 50px;
-	xheight: 80px;
-	xbackground-color: #090;
 	display: inline-block;
 	position: relative;
 }
@@ -246,8 +352,96 @@ table.table-detail.middle td {
 table.table-detail.bottom td {
 	vertical-align: bottom;
 }
+div.shortLabel span {
+	padding: 0 4px;
+}
+div.shortLabel.selected span,
+div.detailBottom span a {
+	background-color: #eee;
+	border-bottom: 1px solid #ddd;
+}
+#div-scenarios {
+	xbackground-color: #ff0;
+}
+#table-scenarios {
+	width: 100%;
+	border-collapse: collapse;
+}
+#table-scenarios td.filler {
+	width: 420px;
+}
+div.scenario div.summary {
+	background-color: #eee;
+	border-bottom: 1px solid #999;
+	border-right: 1px solid #ccc;
+	float: left;
+	padding: 4px 8px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	margin-right: 1em;
+}
+div.scenario div.summary ol {
+	margin: 0;
+	padding: 0 0 0 1.6em;
+}
+div.scenario div.summary li.action {
+	color: #bbb;
+	font-style: italic;
+	list-style-type: none;
+}
+div.scenario div.summary li.action.number {
+	list-style-type: decimal;
+}
+div.div-shortLabel span span.filename {
+	display: none;
+}
+div.device.backend span.layout {
+	display: block;
+	background-color: #ff0;
+	xborder: 1px solid #f00;
+	width: 110px;
+	height: 70px;
+	overflow: hidden;
+	position: absolute;
+	top: 25px;
+	left: 8px;
+}
+div.device.backend img.screenshot {
+	xwidth: 64px;
+	position: relative;
+	top: 0;
+	left: 0;
+}
+#body-backend table-detail div.img {
+	xoverflow: hidden;
+}
+span.scenariosDate {
+	color: #000;
+}
+div.detailBottomNav {
+	width: 1em;
+	margin-right: 0.2em;
+	padding: 0;
+	border: 1px solid #000;
+	background-color: #eee;
+	font-family: 'Courier New', Monaco, monospace;
+	display: inline-block;
+	text-align: center;
+	cursor: pointer;
+}
+div.detailBottomNav.dimmed {
+	color: #ccc;
+	cursor: default;
+	border-color: #bbb;
+}
 </style>
 <script language="javascript">
+
+<xsl:variable name="ios" select="/*/scenarios[contains(@jobName, '_ios6')]"/>
+<xsl:variable name="android" select="/*/scenarios[contains(@jobName, '-android')]"/>
+
+<xsl:choose>
+<xsl:when test="$ios">
 
 var buildNumber_ios7 = <xsl:value-of
 	select="/*/scenarios[not(contains(@jobName, '-it_ios6'))]/@buildNumber"/>;
@@ -255,34 +449,61 @@ var buildNumber_ios7 = <xsl:value-of
 var buildNumber_ios6 = <xsl:value-of
 	select="/*/scenarios[contains(@jobName, '-it_ios6')]/@buildNumber"/>;
 
+</xsl:when>
+<xsl:when test="$android">
+
+var buildNumber_android = <xsl:value-of
+	select="/*/scenarios[contains(@jobName, 'unm-android-it')]/@buildNumber"/>;
+
+</xsl:when>	
+<xsl:otherwise>
+
+var buildNumber_backend_Debian = <xsl:value-of
+	select="/*/scenarios[not(contains(@jobName, 'unm-backend-it_macos'))]/@buildNumber"/>;
+var buildNumber_backend_MacOS = <xsl:value-of
+	select="/*/scenarios[contains(@jobName, 'unm-backend-it_macos')]/@buildNumber"/>;
+
+</xsl:otherwise>	
+</xsl:choose>
+
 <xsl:variable name="jobName_ios7">
 	<xsl:choose>
-	<xsl:when test="/*/scenarios/@jobName = 'unm-ios-it_ios6'">unm-ios-it</xsl:when>
-	<xsl:when test="/*/scenarios/@jobName = 'unm-ios-it_ios6_release'">unm-ios-it</xsl:when>
-	<xsl:otherwise>unm-mobileweb-it_ios7</xsl:otherwise>
+	<xsl:when test="/*/scenarios[contains(@jobName, 'unm-ios-it_ios6')]">unm-ios-it</xsl:when>
+	<xsl:when test="/*/scenarios[contains(@jobName, 'unm-mobileweb-it_ios6')]">unm-mobileweb-it_ios7</xsl:when>
+	<xsl:when test="$android">unm-android-it</xsl:when>
+	<xsl:otherwise>unm-backend-it_macos</xsl:otherwise>
 	</xsl:choose>
 	<xsl:if test="contains(/*/scenarios/@jobName, '_release')">_release</xsl:if>
 </xsl:variable>
 
 <xsl:variable name="jobName_ios6">
 	<xsl:choose>
-	<xsl:when test="/*/scenarios/@jobName = 'unm-ios-it_ios6'">unm-ios-it_ios6</xsl:when>
-	<xsl:when test="/*/scenarios/@jobName = 'unm-ios-it_ios6_release'">unm-ios-it_ios6</xsl:when>
-	<xsl:otherwise>unm-mobileweb-it_ios6</xsl:otherwise>
+	<xsl:when test="/*/scenarios[contains(@jobName, 'unm-ios-it_ios6')]">unm-ios-it_ios6</xsl:when>
+	<xsl:when test="/*/scenarios[contains(@jobName, 'unm-mobileweb-it_ios6')]">unm-mobileweb-it_ios6</xsl:when>
+	<xsl:when test="$android">unm-android-it</xsl:when>
+	<xsl:otherwise>unm-backend-it</xsl:otherwise>
 	</xsl:choose>
 	<xsl:if test="contains(/*/scenarios/@jobName, '_release')">_release</xsl:if>
 </xsl:variable>
 
 <xsl:variable name="mavenProject">
 	<xsl:choose>
-	<xsl:when test="/*/scenarios/@jobName = 'unm-ios-it_ios6'">unm-ios-it</xsl:when>
-	<xsl:when test="/*/scenarios/@jobName = 'unm-ios-it_ios6_release'">unm-ios-it</xsl:when>
-	<xsl:otherwise>unm-mobileweb-it</xsl:otherwise>
+	<xsl:when test="/*/scenarios[contains(@jobName, 'unm-ios-it_ios6')]">unm-ios-it</xsl:when>
+	<xsl:when test="/*/scenarios[contains(@jobName, 'unm-mobileweb-it_ios6')]">unm-mobileweb-it</xsl:when>
+	<xsl:when test="$android">unm-android-it</xsl:when>
+	<xsl:otherwise>unm-backend-it</xsl:otherwise>
 	</xsl:choose>
 </xsl:variable>
 
-function displayDetail(scenariosClassSimpleName, scenarioMethodName, filename) {
+function displayDetail(
+	scenariosClassSimpleName, scenarioMethodName, filename, index
+) {
+
+selectShortLabel(scenariosClassSimpleName + '.' + scenarioMethodName + '.' + index);
 	
+<xsl:choose>
+<xsl:when test="$ios">
+
 	var imgs = document.getElementsByClassName('img-detail-iOS7-4inch');
 	for (var i = 0; i &lt; imgs.length; ++i) imgs[i].src =
 		'http://univmobile.vswip.com/job/<xsl:value-of
@@ -314,6 +535,39 @@ function displayDetail(scenariosClassSimpleName, scenarioMethodName, filename) {
 		+ '/artifact/<xsl:value-of
 			select="$mavenProject"/>/target/screenshots/iOS_6.1/iPhone_Retina_3.5-inch/'
 		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename;
+
+</xsl:when>
+<xsl:when test="$android">
+
+	var imgs = document.getElementsByClassName('img-detail-Android-480x800');
+	for (var i = 0; i &lt; imgs.length; ++i) imgs[i].src =
+		'http://univmobile.vswip.com/job/<xsl:value-of
+			select="$jobName_ios6"/>/' + buildNumber_android
+		+ '/artifact/<xsl:value-of
+			select="$mavenProject"/>/target/screenshots/Android_XXX/Android_Emulator/'
+		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename;
+
+</xsl:when>
+<xsl:otherwise>
+
+	var imgs = document.getElementsByClassName('img-detail-backend-Debian');
+	for (var i = 0; i &lt; imgs.length; ++i) imgs[i].src =
+		'http://univmobile.vswip.com/job/<xsl:value-of
+			select="$jobName_ios6"/>/' + buildNumber_backend_Debian
+		+ '/artifact/<xsl:value-of
+			select="$mavenProject"/>/target/screenshots/Debian_3.2.0-4-amd64/Firefox/'
+		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename;
+
+	var imgs = document.getElementsByClassName('img-detail-backend-MacOS');
+	for (var i = 0; i &lt; imgs.length; ++i) imgs[i].src =
+		'http://univmobile.vswip.com/job/<xsl:value-of
+			select="$jobName_ios7"/>/' + buildNumber_backend_MacOS
+		+ '/artifact/<xsl:value-of
+			select="$mavenProject"/>/target/screenshots/Mac_OS_X_10.8.5/Firefox/'
+		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename;
+			
+</xsl:otherwise>
+</xsl:choose>
 }
 
 function selectDetailMenu(item) {
@@ -349,172 +603,219 @@ function selectDetailMenu(item) {
 	}
 }
 
+function getPreviousSibling(node) {
+
+	var x = node.previousSibling;
+	
+	while (x != null &amp;&amp; x.nodeType != 1) x = x.previousSibling;
+	
+	return x;
+}
+
+function getNextSibling(node) {
+
+	console.log('node.tagName: '+node.tagName);
+	
+	var x = node.nextSibling;
+
+	console.log('   x.tagName: '+x.tagName);
+	
+	while (x != null &amp;&amp; x.nodeType != 1) {
+		x = x.nextSibling;
+		if (x==null) console.log('   null');
+else		console.log('   x.tagName: '+x.tagName);
+	}
+	return x;
+}
+
+function selectShortLabel(id) {
+
+	var divs = document.getElementsByClassName('div-shortLabel');
+	
+	var selectedDiv = null;
+	
+	for (var i = 0; i &lt; divs.length; ++i) {
+	
+		var div = divs[i];
+		
+		if (div.id != 'div-shortLabel-' + id) {
+			if (div.className.indexOf('selected') != -1) {
+				div.className = div.className.replace(/\sselected/, '');
+			}
+		} else {
+			if (div.className.indexOf('selected') == -1) {
+				div.className += ' selected';
+			}
+			selectedDiv = div;
+		} 
+	}
+	
+	var h3 = null;
+	
+	if (selectedDiv != null) {
+		
+		var scenarioMethodDiv = null;
+		
+		for (var p = selectedDiv.parentNode; p != null; p = p.parentNode) {
+		
+			if (p.className == 'scenarioMethod') {
+				h3 = p.getElementsByTagName('h3')[0];
+				break;
+			}
+		}
+	}
+	
+	var detailBottoms = document.getElementsByClassName('detailBottom');
+
+	for (var i = 0; i &lt; detailBottoms.length; ++i) {
+	
+		var detailBottom = detailBottoms[i];
+	
+		var html = '';
+	
+		if (selectedDiv != null) {
+		
+			var shortLabel = selectedDiv.innerHTML;
+
+			// e.g. id = 'Scenarios001.sc003.1'
+
+			var scenariosClassSimpleName = id.replace(/^(.*)\..*\..*$/, '$1');
+
+			var scenarioMethodName = id.replace(/^.*\.(.*)\..*$/, '$1');
+			
+			var index = parseInt(id.replace(/^.*\.(.*)$/, '$1'));
+			
+			var step = selectedDiv // div.shortLabel.div-shortLabel
+				.parentNode // a[@name]
+				.parentNode; // div.step | div.transition
+			var td = step.parentNode; // td
+			
+			console.log('selectedDiv.id: '+selectedDiv.id);
+			
+			var hasPrev = getPreviousSibling(td) != null; // td
+			var hasNext = getNextSibling(step) != null // div
+				|| getNextSibling(td) != null; // td 
+				
+			var dimmed_prev = ' dimmed';
+			var dimmed_next = ' dimmed';
+			var onclick_first = '';
+			var onclick_prev = '';
+			var onclick_next = '';
+			var onclick_last = '';
+			var prev = index;
+			var next = index;
+			var last = index;
+			for (;; ++last) if (document.getElementById('a-device-'
+				+ scenariosClassSimpleName + '.'
+				+ scenarioMethodName + '.'
+				+ (last + 1)
+			) == null) break;
+			var title_first = 'Beginning: 1/' + last;
+			var title_last = 'End: ' + last + '/' + last;
+			var title_prev = title_first;
+			var title_next = title_last;
+			
+//			console.log(index+', prev='+prev+', next='+next);
+			
+			if (hasPrev) {
+				dimmed_prev = '';
+				prev = index - 1;
+				title_prev = 'Previous: ' + prev + '/' + last;
+				var filename = document.getElementById('a-device-'
+					+ scenariosClassSimpleName + '.'
+					+ scenarioMethodName + '.'
+					+ (index - 1)).getElementsByTagName('div')[0].title;
+				onclick_first = "displayDetail('" + scenariosClassSimpleName
+					+ "', '" + scenarioMethodName 
+					+ "', '" + filename + "', 1)";
+				onclick_prev = "displayDetail('" + scenariosClassSimpleName
+					+ "', '" + scenarioMethodName 
+					+ "', '" + filename + "', " + (index - 1) + ")";
+				// console.log(onclick_prev);
+			}
+			
+			if (hasNext) {
+				dimmed_next = '';
+				next = index + 1;
+				title_next = 'Next: ' + next + '/' + last;
+				console.log('a-device-'
+					+ scenariosClassSimpleName + '.'
+					+ scenarioMethodName + '.'
+					+ (index + 1));
+				var filename = document.getElementById('a-device-'
+					+ scenariosClassSimpleName + '.'
+					+ scenarioMethodName + '.'
+					+ (index + 1)).getElementsByTagName('div')[0].title;
+				onclick_next = "displayDetail('" + scenariosClassSimpleName
+					+ "', '" + scenarioMethodName 
+					+ "', '" + filename + "', " + (index + 1) + ")";
+				onclick_last = "displayDetail('" + scenariosClassSimpleName
+					+ "', '" + scenarioMethodName 
+					+ "', '" + filename + "', " + last + ")";
+				// console.log(onclick_next);
+			}
+			
+			html += '&lt;h3&gt;&lt;a href="#' + h3.parentNode.id + '"&gt;'
+					+ h3.innerHTML.replace('\n', ' ') + '&lt;/a&gt;&lt;/h3&gt;';
+			
+			html += '&lt;div title="' + title_first + '" class="detailBottomNav first' + dimmed_prev
+				+ '" onclick="' + onclick_first + '"&gt;•&lt;/div&gt;';
+			
+			html += '&lt;div title="' + title_prev + '" class="detailBottomNav prev' + dimmed_prev
+				+ '" onclick="' + onclick_prev + '"&gt;&amp;lt;&lt;/div&gt;';
+			
+			html += '&lt;div title="' + title_next + '" class="detailBottomNav next' + dimmed_next +
+				'" onclick="' + onclick_next + '"&gt;&amp;gt;&lt;/div&gt;';
+			
+			html += '&lt;div title="' + title_last + '" class="detailBottomNav last' + dimmed_next +
+				'" onclick="' + onclick_last + '"&gt;•&lt;/div&gt;';
+			
+			html += '&lt;span&gt;&lt;a href="#a-device-' + id + '"&gt;'
+				+ shortLabel + '&lt;/a&gt;&lt;/span&gt;';
+		}
+					
+		detailBottom.innerHTML = html;
+	}
+}
+
 window.onload = function() {
 
-	displayDetail('Scenarios001', 'sc001', 'home.png');
+	<xsl:variable name="firstScenariosClass" select="//scenariosClass[1]"/>
+	<xsl:variable name="firstScenarioMethodName">
+		<xsl:for-each select="$firstScenariosClass/scenarioMethod">
+		<xsl:sort select="@methodName"/>
+		<xsl:if test="position() = 1">
+			<xsl:value-of select="@methodName"/>
+		</xsl:if>
+		</xsl:for-each>
+	</xsl:variable>	
+	<xsl:variable name="firstScenarioMethod" select="$firstScenariosClass/scenarioMethod
+		[@methodName = $firstScenarioMethodName]"/>
+	<xsl:variable name="firstScreenshot" select="$firstScenarioMethod//screenshot[1]"/>
+		
+	displayDetail(
+		'<xsl:value-of select="$firstScenariosClass/@classSimpleName"/>',
+		'<xsl:value-of select="$firstScenarioMethodName"/>',
+		'<xsl:value-of select="$firstScreenshot/@filename"/>', 1
+	);
 };
 
 </script>
 </head>
 </xsl:template>
-
-<!-- 
-<body>
-
-<div id="div-detail">
-<table>
-<tr>
-<td class="iOS7 screen_4_inch">
-<div class="label">
-	Retina 4-inch iOS 7.0
-</div>
-<div class="img">
-	<img id="img-detail-iOS7-4inch" src="img/blank.png"/>	
-</div>
-</td>
-<td class="iOS6 screen_4_inch">
-<div class="label">
-	Retina 4-inch iOS 6.1
-</div>
-<div class="img">
-	<img id="img-detail-iOS6-4inch" src="img/blank.png"/>	
-</div>
-</td>
-</tr>
-<tr>
-<td class="iOS7 screen_3_5_inch">
-<div class="label">
-	Retina 3.5-inch iOS 7.0
-</div>
-<div class="img">
-	<img id="img-detail-iOS7-3_5inch" src="img/blank.png"/>	
-</div>
-</td>
-<td class="iOS6 screen_3_5_inch">
-<div class="label">
-	Retina 3.5-inch iOS 6.1
-</div>
-<div class="img">
-	<img id="img-detail-iOS6-3_5inch" src="img/blank.png"/>	
-</div>
-</td>
-</tr>
-</table>
-<img id="img-detail" src="img/blank.png"/>
-</div>
-
-<div class="nav">
-<a href="index.html">Back to the Maven Generated Site</a>
-</div>
-
-<h1>UnivMobile iOS — Scénarios</h1>
-<div id="div-scenarios">
-<xsl:for-each select="scenario">
-
-<h2>
-	<xsl:value-of select="@id"/>.
-	<xsl:value-of select="@title"/>
-</h2>
-
-<div class="scenario">
-<table>
-<tbody>
-<tr>
-<td>
-<div class="begin step">
-
-<xsl:for-each select="begin">
-
-	<xsl:call-template name="device">
-		<xsl:with-param name="screenshot" select="@screenshot"/>
-	</xsl:call-template>
-
-	<xsl:call-template name="shortLabel"/>
-
-</xsl:for-each>
-
-</div>
-</td>
-<td>
-
-<xsl:for-each select="next">
-
-<xsl:if test="@transitionScreenshot or @transitionLabel">
-	
-	<div class="arrow">→</div>
-	
-	<div class="transition">
-	
-	<xsl:if test="@transitionScreenshot">
-		<xsl:call-template name="device">
-			<xsl:with-param name="screenshot" select="@transitionScreenshot"/>
-		</xsl:call-template>
-	</xsl:if>
-
-	<xsl:call-template name="shortLabel">
-		<xsl:with-param name="shortLabel" select="@transitionShortLabel"/>
-	</xsl:call-template>
-	
-	</div>
-</xsl:if>
-
-<div class="arrow">…</div>
-
-<div class="step">
-
-	<xsl:call-template name="device">
-		<xsl:with-param name="screenshot" select="@screenshot"/>
-	</xsl:call-template>
-
-	<xsl:call-template name="shortLabel"/>
-
-</div>
-
-</xsl:for-each>
-
-</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-
-</xsl:for-each>
-
-</div>
-
-</body>
-</html>
-</xsl:template>
-
-<xsl:template name="device">
-<xsl:param name="screenshot" select="'001.png'"/>
-
-<div class="device" onclick="displayDetail('{$screenshot}');">
-	<img class="screenshot" src="img/iOS_7.0/Retina_4-inch/{$screenshot}"/>
-	<div class="iPod"/>
-</div>
-
-</xsl:template>
-
-<xsl:template name="shortLabel">
-<xsl:param name="shortLabel" select="@shortLabel"/>
-
-<xsl:if test="$shortLabel">
-<div class="shortLabel">
-	<xsl:choose>
-	<xsl:when test="name($shortLabel) = 'transitionShortLabel'">
-		(<xsl:value-of select="$shortLabel"/>)
-	</xsl:when>
-	<xsl:otherwise>
-		<xsl:value-of select="$shortLabel"/>
-	</xsl:otherwise>
-	</xsl:choose>
-</div>
-</xsl:if>
-
-</xsl:template>
-
--->
  
+<xsl:template name="scenariosDate">
+<xsl:for-each select="//scenario/@date">
+<xsl:sort select="." order="descending"/>
+
+<xsl:if test="position() = 1">
+<span class="scenariosDate">
+	<xsl:value-of select="translate(substring(., 1, 19), 'T', ' ')"/>
+	—
+</span>
+</xsl:if>
+
+</xsl:for-each>
+</xsl:template>
+
 </xsl:stylesheet>

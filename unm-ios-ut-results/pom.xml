@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>fr.univmobile</groupId>
 		<artifactId>unm-it-parent</artifactId>
-		<version>0.0.3</version>
+		<version>0.0.4</version>
 		<relativePath/>
 	</parent>
 
@@ -24,7 +24,7 @@
         Unit Test results of the UnivMobile unm-ios Xcode project.
     </description>
 	<url>
-        http://univmobile.vswip.com/nexus/content/sites/pub/${project.artifactId}/${project.version}
+        http://univmobile.vswip.com/nexus/content/sites/pub/${project.artifactId}/${project.version}/
     </url>
 
 	<scm>

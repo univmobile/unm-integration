@@ -14,7 +14,7 @@ public abstract class AbstractUnivMobileItScenariosFetchTest {
 	/**
 	 * Find an appCommitId common to several Jenkins jobs.
 	 */
-	protected static final DumpedBuild[] findBuildsWithSamAppCommitId(
+	protected static final DumpedBuild[] findBuildsWithSameAppCommitId(
 			@Nullable String requiredAppCommitId,
 			final DumpedBuild[]... buildArrays) {
 
@@ -77,7 +77,7 @@ public abstract class AbstractUnivMobileItScenariosFetchTest {
 				continue appCommitIds; // Not the right appCommitId
 			}
 
-			return findBuildsWithSamAppCommitId(appCommitId, buildArrays);
+			return findBuildsWithSameAppCommitId(appCommitId, buildArrays);
 		}
 
 		// 9. Too bad we didn’t find anything
