@@ -25,7 +25,7 @@ public class UnivMobileBackendItScenariosFetchTest extends
 
 		final String macosJobName = requiredAppCommitId == null //
 		? "unm-backend-it_macos"
-				: "unm-backend-it_macos";
+				: "unm-backend-it_macos_release";
 
 		final String debianJobName = requiredAppCommitId == null //
 		? "unm-backend-it"
