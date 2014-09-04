@@ -275,7 +275,11 @@ public class ContinuousIntegrationDumper {
 
 				appCommitId = pageSource.getGitCommitId();
 
-			} else if (jobName.startsWith("unm-backend-it")) {
+			} else if (
+					jobName.startsWith("unm-backend-it")
+					&&!jobName.startsWith("unm-backend-it-parent") 
+					&&!jobName.startsWith("unm-backend-it-data") 
+					) {
 
 				final File htmlAboutFile = saveTextContent(baseURL + "job/"
 						+ jobName + "/" + buildNumber
