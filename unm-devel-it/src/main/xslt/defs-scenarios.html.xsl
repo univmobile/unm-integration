@@ -45,13 +45,10 @@ h1 {
 	text-align: right;
 }
 div.detailBottom {
-	xbackground-color: #ff0;
-	xdisplay: inline;
-	xdisplay: none;
+
 }
 div.detailBottom {
 	width: 40px;
-	xbackground-color: #ff0;
 	white-space: nowrap;
 	overflow: visible;
 }
@@ -129,7 +126,6 @@ div.device.backend div {
 	position: absolute;
 	top: 5px;
 	left: 4.5px;
-	xbackground-image: url('../src/site/img/firefox-window-1024x574.png');
 	background-image: url('http://univmobile.vswip.com/nexus/content/sites/pub/unm-devel-it/0.0.4-SNAPSHOT/img/firefox-window-1024x574.png');
 	background-size: 121px 81px;
 	background-repeat: no-repeat;
@@ -210,12 +206,10 @@ div.arrow {
 }
 #div-detail .screen_1280 img {
 	width: 320px;
-	xheight: 219px;
 	background-color: #ff0;
 }
 #div-detail .screen_1024 img {
 	width: 320px;
-	xheight: 179px;
 	background-color: #f00;
 }
 #div-detail div.label {
@@ -285,7 +279,6 @@ div.scenariosClass h3 {
 	margin-bottom: 0.6em;
 }
 div.scenariosClass h3 {
-	xborder-top: 1px dashed #000;
 	padding-top: 1em;
 }
 #div-detail-menu {
@@ -361,7 +354,7 @@ div.detailBottom span a {
 	border-bottom: 1px solid #ddd;
 }
 #div-scenarios {
-	xbackground-color: #ff0;
+
 }
 #table-scenarios {
 	width: 100%;
@@ -398,7 +391,6 @@ div.div-shortLabel span span.filename {
 div.device.backend span.layout {
 	display: block;
 	background-color: #ff0;
-	xborder: 1px solid #f00;
 	width: 110px;
 	height: 70px;
 	overflow: hidden;
@@ -407,13 +399,12 @@ div.device.backend span.layout {
 	left: 8px;
 }
 div.device.backend img.screenshot {
-	xwidth: 64px;
 	position: relative;
 	top: 0;
 	left: 0;
 }
 #body-backend table-detail div.img {
-	xoverflow: hidden;
+
 }
 span.scenariosDate {
 	color: #000;

@@ -4,7 +4,6 @@
 <xsl:template name="style-css">
 <style type="text/css">
 h1 {
-	xtext-align: center;
 	font-family: Arial, Helvetica, sans-serif;
 	margin-bottom: 0;
 	margin-top: 0.2em;
@@ -91,7 +90,7 @@ td.build a:hover {
 }
 td.unm-ios-it.appCommitId,
 td.unm-ios-it_ios6.appCommitId {
-	xfont-weight: bold;
+
 }
 td.unm-ios-it,
 td.unm-ios-it_ios6,
