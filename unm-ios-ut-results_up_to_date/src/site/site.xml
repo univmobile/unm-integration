@@ -10,10 +10,6 @@
 				name="unm-integration"/>
 		</menu>
 
-		<menu name="Documentation">
-			<item href="index.html" name="README"/>
-		</menu>
-
 		<menu ref="parent" />
 
 		<menu ref="modules" />
