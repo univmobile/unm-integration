@@ -1,20 +1,23 @@
-Begin Date: Wed Sep  3 05:36:28 CEST 2014
+Begin Date: Sat Sep 13 21:29:58 CEST 2014
 Hostname: unm-ios7
 User: avcompris
 Script: xcodebuild_test.sh  
 Current Directory: /Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios
 Test Report: /Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/target/unm-integration/unm-ios-ut-results/data/xcodebuild_test.log
-Git Commit: 5600d017ef05dee406d8bcc345e928373b712ae6
+Git Commit: 9027dc531c7bfc2a4aa67a0c473fa3c8ba2c1a7f
 Test Command: /usr/bin/xcodebuild clean test -workspace UnivMobile.xcworkspace   -scheme UnivMobileTests   -configuration Debug   -sdk iphonesimulator7.1   -destination OS=7.1,name="iPhone Retina (4-inch)"
 ----------------------------------------
 
 
 Build succeeded.
-Test Date: Wed Sep  3 05:37:21 CEST 2014
+Test Date: Sat Sep 13 21:41:45 CEST 2014
 ----------------------------------------
 Build settings from command line:
     SDKROOT = iphonesimulator7.1
 
+2014-09-13 21:41:49.396 xcodebuild[80771:351f] Error: unable to initialize MobileDevice. Received NULL notification context.
+(/SourceCache/DVTiOSFrameworks/DVTiOSFrameworks-5053/DTDeviceKitBase/DTDKRemoteDeviceDataListener.m:96)
+Error: 0xFFFFFFFFE8000063
 === CLEAN TARGET Pods-HexColors OF PROJECT Pods WITH CONFIGURATION Debug ===
 
 Check dependencies
@@ -1593,6 +1596,11 @@ CompileC /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-bthazih
     export LANG=en_US.US-ASCII
     export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
     /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/avcompris/Library/Developer/Xcode/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wconditional-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -DCOCOAPODS=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.0 -iquote /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-bthazihbxymfelcqywwhsugbfzmd/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/UnivMobile-generated-files.hmap -I/Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-bthazihbxymfelcqywwhsugbfzmd/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/UnivMobile-own-target-headers.hmap -I/Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-bthazihbxymfelcqywwhsugbfzmd/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/UnivMobile-all-target-headers.hmap -iquote /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-bthazihbxymfelcqywwhsugbfzmd/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/UnivMobile-project-headers.hmap -I/Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-bthazihbxymfelcqywwhsugbfzmd/Build/Products/Debug-iphonesimulator/include -I/Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/Headers -I/Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/Headers/HexColors -I/Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/Headers/Mantle -I/Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/Headers/ReactiveCocoa -I/Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/Headers/ReactiveCocoa/ReactiveCocoa -I/Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/Headers/TSMessages -I/Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-bthazihbxymfelcqywwhsugbfzmd/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/DerivedSources/i386 -I/Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-bthazihbxymfelcqywwhsugbfzmd/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/DerivedSources -F/Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-bthazihbxymfelcqywwhsugbfzmd/Build/Products/Debug-iphonesimulator -F/Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios -isystem /Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/Headers -isystem /Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/Headers/HexColors -isystem /Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/Headers/Mantle -isystem /Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/Headers/ReactiveCocoa -isystem /Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/Headers/ReactiveCocoa/ReactiveCocoa -isystem /Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/Headers/TSMessages -include /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-bthazihbxymfelcqywwhsugbfzmd/Build/Intermediates/PrecompiledHeaders/UnivMobile-Prefix-gjmzcnoxbjwhahdecdvjvefthcnj/UnivMobile-Prefix.pch -MMD -MT dependencies -MF /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-bthazihbxymfelcqywwhsugbfzmd/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/Objects-normal/i386/UNMPoisController.d --serialize-diagnostics /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-bthazihbxymfelcqywwhsugbfzmd/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/Objects-normal/i386/UNMPoisController.dia -c /Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/UnivMobile/Controller/UNMPoisController.m -o /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-bthazihbxymfelcqywwhsugbfzmd/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/Objects-normal/i386/UNMPoisController.o
+/Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/UnivMobile/Controller/UNMPoisController.m:137:89: warning: values of type 'NSUInteger' should not be used as format arguments; add an explicit cast to 'unsigned long' instead [-Wformat]
+        cell.textLabel.accessibilityIdentifier = [NSString stringWithFormat:@"table-pois-%lu", poi.id];
+                                                                                         ~~~   ^~~~~~
+                                                                                               (unsigned long)
+1 warning generated.
 
 CompileC /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-bthazihbxymfelcqywwhsugbfzmd/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/Objects-normal/i386/UNMRegionsController.o UnivMobile/Controller/UNMRegionsController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
     cd /Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios
@@ -1617,6 +1625,15 @@ CompileC /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-bthazih
     export LANG=en_US.US-ASCII
     export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
     /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/avcompris/Library/Developer/Xcode/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wconditional-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -DCOCOAPODS=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.0 -iquote /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-bthazihbxymfelcqywwhsugbfzmd/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/UnivMobile-generated-files.hmap -I/Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-bthazihbxymfelcqywwhsugbfzmd/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/UnivMobile-own-target-headers.hmap -I/Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-bthazihbxymfelcqywwhsugbfzmd/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/UnivMobile-all-target-headers.hmap -iquote /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-bthazihbxymfelcqywwhsugbfzmd/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/UnivMobile-project-headers.hmap -I/Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-bthazihbxymfelcqywwhsugbfzmd/Build/Products/Debug-iphonesimulator/include -I/Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/Headers -I/Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/Headers/HexColors -I/Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/Headers/Mantle -I/Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/Headers/ReactiveCocoa -I/Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/Headers/ReactiveCocoa/ReactiveCocoa -I/Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/Headers/TSMessages -I/Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-bthazihbxymfelcqywwhsugbfzmd/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/DerivedSources/i386 -I/Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-bthazihbxymfelcqywwhsugbfzmd/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/DerivedSources -F/Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-bthazihbxymfelcqywwhsugbfzmd/Build/Products/Debug-iphonesimulator -F/Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios -isystem /Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/Headers -isystem /Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/Headers/HexColors -isystem /Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/Headers/Mantle -isystem /Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/Headers/ReactiveCocoa -isystem /Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/Headers/ReactiveCocoa/ReactiveCocoa -isystem /Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/Pods/Headers/TSMessages -include /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-bthazihbxymfelcqywwhsugbfzmd/Build/Intermediates/PrecompiledHeaders/UnivMobile-Prefix-gjmzcnoxbjwhahdecdvjvefthcnj/UnivMobile-Prefix.pch -MMD -MT dependencies -MF /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-bthazihbxymfelcqywwhsugbfzmd/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/Objects-normal/i386/UNMCommentsController.d --serialize-diagnostics /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-bthazihbxymfelcqywwhsugbfzmd/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/Objects-normal/i386/UNMCommentsController.dia -c /Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/UnivMobile/Controller/UNMCommentsController.m -o /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-bthazihbxymfelcqywwhsugbfzmd/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/Objects-normal/i386/UNMCommentsController.o
+/Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/UnivMobile/Controller/UNMCommentsController.m:140:93: warning: values of type 'NSUInteger' should not be used as format arguments; add an explicit cast to 'unsigned long' instead [-Wformat]
+        cell.textLabel.accessibilityIdentifier = [NSString stringWithFormat:@"table-comments-%lu", row];
+                                                                                             ~~~   ^~~
+                                                                                                   (unsigned long)
+/Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios/UnivMobile/Controller/UNMCommentsController.m:174:75: warning: values of type 'NSInteger' should not be used as format arguments; add an explicit cast to 'long' instead [-Wformat]
+                                cell.textLabel.text = [NSString stringWithFormat:@"%lu commentaires", count];
+                                                                                   ~~~                ^~~~~
+                                                                                                      (long)
+2 warnings generated.
 
 CompileC /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-bthazihbxymfelcqywwhsugbfzmd/Build/Intermediates/UnivMobile.build/Debug-iphonesimulator/UnivMobile.build/Objects-normal/i386/UNMJsonPoisData.o UnivMobile/DataAccess/UNMJsonPoisData.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
     cd /Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios
@@ -1747,53 +1764,58 @@ NotificationButtonBackground.png
 NotificationButtonBackground@2x.png
 TSMessagesDefaultDesign.json
 
-sent 11552 bytes  received 394 bytes  23892.00 bytes/sec
+sent 11552 bytes  received 394 bytes  7964.00 bytes/sec
 total size is 10389  speedup is 0.87
 /* com.apple.actool.compilation-results */
 
 
-Test Suite 'All tests' started at 2014-09-03 03:38:30 +0000
-Test Suite 'UnivMobileTests.xctest' started at 2014-09-03 03:38:30 +0000
-Test Suite 'UNMAppLayerTests' started at 2014-09-03 03:38:30 +0000
+Touch /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-bthazihbxymfelcqywwhsugbfzmd/Build/Products/Debug-iphonesimulator/UnivMobile.app
+    cd /Users/avcompris/workspace/unm-devel/unm-devel-sysadmin/target/unm-ios
+    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
+    /usr/bin/touch -c /Users/avcompris/Library/Developer/Xcode/DerivedData/UnivMobile-bthazihbxymfelcqywwhsugbfzmd/Build/Products/Debug-iphonesimulator/UnivMobile.app
+
+Test Suite 'All tests' started at 2014-09-13 17:39:29 +0000
+Test Suite 'UnivMobileTests.xctest' started at 2014-09-13 17:39:29 +0000
+Test Suite 'UNMAppLayerTests' started at 2014-09-13 17:39:29 +0000
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneIdIsBretagne]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneIdIsBretagne]' passed (0.014 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneIdIsBretagne]' passed (0.131 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneTitleIsBretagne]' started.
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdBretagneTitleIsBretagne]' passed (0.002 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdTotoIsNill]' started.
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_regionByIdTotoIsNill]' passed (0.002 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfRegionsIs3]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfRegionsIs3]' passed (0.002 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfRegionsIs3]' passed (0.001 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfUniversitiesIleDeFranceIs18]' started.
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_sizeOfUniversitiesIleDeFranceIs18]' passed (0.003 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11IdIsParis11]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11IdIsParis11]' passed (0.003 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11IdIsParis11]' passed (0.002 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11TitleIsParisSud]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11TitleIsParisSud]' passed (0.003 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_loadInitialData_universityByIdParis11TitleIsParisSud]' passed (0.004 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDataObjectIsDifferent]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDataObjectIsDifferent]' passed (0.018 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDataObjectIsDifferent]' passed (2.149 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDateIsDifferent]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDateIsDifferent]' passed (0.013 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_newDateIsDifferent]' passed (0.003 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneIdIsBretagne]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneIdIsBretagne]' passed (0.008 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneIdIsBretagne]' passed (0.004 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneTitleIsBretagne]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneTitleIsBretagne]' passed (0.006 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdBretagneTitleIsBretagne]' passed (0.034 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdTotoIsNill]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdTotoIsNill]' passed (0.006 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_regionByIdTotoIsNill]' passed (0.003 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfRegionsIs3]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfRegionsIs3]' passed (0.006 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfRegionsIs3]' passed (0.004 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfUniversitiesIleDeFranceIs18]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfUniversitiesIleDeFranceIs18]' passed (0.005 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_sizeOfUniversitiesIleDeFranceIs18]' passed (0.004 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11IdIsParis11]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11IdIsParis11]' passed (0.003 seconds).
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11IdIsParis11]' passed (0.007 seconds).
 Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11TitleIsParisSud]' started.
-Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11TitleIsParisSud]' passed (0.006 seconds).
-Test Suite 'UNMAppLayerTests' finished at 2014-09-03 03:38:30 +0000.
-Executed 16 tests, with 0 failures (0 unexpected) in 0.099 (0.175) seconds
-Test Suite 'UnivMobileTests.xctest' finished at 2014-09-03 03:38:30 +0000.
-Executed 16 tests, with 0 failures (0 unexpected) in 0.099 (0.181) seconds
-Test Suite 'All tests' finished at 2014-09-03 03:38:30 +0000.
-Executed 16 tests, with 0 failures (0 unexpected) in 0.099 (0.192) seconds
+Test Case '-[UNMAppLayerTests testAppLayer_refreshRegionsData_universityByIdParis11TitleIsParisSud]' passed (0.005 seconds).
+Test Suite 'UNMAppLayerTests' finished at 2014-09-13 17:39:31 +0000.
+Executed 16 tests, with 0 failures (0 unexpected) in 2.359 (2.411) seconds
+Test Suite 'UnivMobileTests.xctest' finished at 2014-09-13 17:39:31 +0000.
+Executed 16 tests, with 0 failures (0 unexpected) in 2.359 (2.417) seconds
+Test Suite 'All tests' finished at 2014-09-13 17:39:31 +0000.
+Executed 16 tests, with 0 failures (0 unexpected) in 2.359 (2.432) seconds
 ** TEST SUCCEEDED **
 
 ----------------------------------------
-End Date: Wed Sep  3 05:38:30 CEST 2014
+End Date: Sat Sep 13 19:39:36 CEST 2014
