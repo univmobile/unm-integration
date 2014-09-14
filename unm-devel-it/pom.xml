@@ -125,7 +125,7 @@
 			<properties>
 				<jenkins.host>localhost</jenkins.host>
 				<jenkins.port>8080</jenkins.port>
-				<jenkins.apiToken.ref>/settings/*/profile[id = 'jenkins']/jenkins.apiToken</jenkins.apiToken.ref>
+				<jenkins.apiToken.ref>/settings/*/server[id = 'jenkins']/password</jenkins.apiToken.ref>
 			</properties>
 		</profile>
 		<profile>
@@ -133,7 +133,7 @@
 			<properties>
 				<jenkins.host>univmobile.vswip.com</jenkins.host>
 				<jenkins.port>80</jenkins.port>
-				<jenkins.apiToken.ref>/settings/*/profile[id = 'dandriana']/jenkins.apiToken</jenkins.apiToken.ref>
+				<jenkins.apiToken.ref>/settings/*/server[id = 'jenkins']/password</jenkins.apiToken.ref>
 			</properties>
 		</profile>
 	</profiles>
