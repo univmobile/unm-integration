@@ -610,7 +610,9 @@ Table des matières
 	iOS 7 Retina 4-inch 
 </div>
 <div class="img">
+	<a href="#">
 	<img class="img-detail-iOS7-4inch" src="{$img-blank.png}"/>	
+	</a>
 </div>
 </td>
 </xsl:template>
@@ -621,7 +623,9 @@ Table des matières
 	iOS 6 — Retina 4-inch 
 </div>
 <div class="img">
-	<img class="img-detail-iOS6-4inch" src="{$img-blank.png}"/>	
+	<a href="#">
+	<img class="img-detail-iOS6-4inch" src="{$img-blank.png}"/>
+	</a>	
 </div>
 </td>
 </xsl:template>
@@ -632,7 +636,9 @@ Table des matières
 	iOS 7 — Retina 3.5-inch 
 </div>
 <div class="img">
+	<a href="#">
 	<img class="img-detail-iOS7-3_5inch" src="{$img-blank.png}"/>	
+	</a>
 </div>
 </td>
 </xsl:template>
@@ -643,7 +649,9 @@ Table des matières
 	iOS 6 — Retina 3.5-inch 
 </div>
 <div class="img">
+	<a href="#">
 	<img class="img-detail-iOS6-3_5inch" src="{$img-blank.png}"/>	
+	</a>
 </div>
 </td>
 </xsl:template>
@@ -654,7 +662,9 @@ Table des matières
 	Android — 480x800
 </div>
 <div class="img">
+	<a href="#">
 	<img class="img-detail-Android-480x800" src="{$img-blank.png}"/>	
+	</a>
 </div>
 </td>
 </xsl:template>
@@ -665,7 +675,9 @@ Table des matières
 	Debian 1280x876
 </div>
 <div class="img">
+	<a href="#">
 	<img class="img-detail-backend-Debian" src="{$img-blank.png}"/>	
+	</a>
 </div>
 </td>
 </xsl:template>
@@ -676,7 +688,9 @@ Table des matières
 	Mac OS X 1024x674
 </div>
 <div class="img">
+	<a href="#">
 	<img class="img-detail-backend-MacOS" src="{$img-blank.png}"/>	
+	</a>
 </div>
 </td>
 </xsl:template>
