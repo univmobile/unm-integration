@@ -51,7 +51,8 @@ import fr.univmobile.testutil.Dumper;
 public class ContinuousIntegrationDumper {
 
 	public ContinuousIntegrationDumper(final Dumper dumper) throws IOException,
-			XPathExpressionException, ParserConfigurationException, SAXException {
+			XPathExpressionException, ParserConfigurationException,
+			SAXException {
 
 		this.dumper = checkNotNull(dumper, "dumper");
 
@@ -612,7 +613,7 @@ public class ContinuousIntegrationDumper {
 		 */
 
 		final ScenariosClass scenariosClass = scenarioMethod.getParent();
-
+		
 		for (final Device device : scenariosClass.getDevices()) {
 
 			final String normalizedDeviceName = device
@@ -630,6 +631,10 @@ public class ContinuousIntegrationDumper {
 					+ "/checked.xml";
 
 			final File xmlFile = saveTextContent(checkedURL);
+
+			if (xmlFile == null) {
+				throw new IOException("Cannot load: " + checkedURL);
+			}
 
 			dumper.addXMLFragment(xmlFile);
 		}

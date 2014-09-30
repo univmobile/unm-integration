@@ -65,7 +65,7 @@ public class UnivMobileBackendItScenariosFetchTest extends
 
 			ci.dumpItScenarios("Debian_3.2.0-4-amd64", "Debian", build_debian);
 
-			ci.dumpItScenarios("Mac_OS_X_10.8.5", "MacOS", build_macos);
+			ci.dumpItScenarios("Mac_OS_X_10.9.5", "MacOS", build_macos);
 
 		} finally {
 			dumper.close();

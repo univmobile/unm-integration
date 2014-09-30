@@ -491,7 +491,7 @@ Table des matières
 <xsl:choose>
 <xsl:when test="$ios">/iOS_7.1/iPhone_Retina_4-inch/</xsl:when>
 <xsl:when test="$android">/Android_XXX/Android_Emulator/</xsl:when>
-<xsl:otherwise>/Mac_OS_X_10.8.5/Firefox/</xsl:otherwise>
+<xsl:otherwise>/Mac_OS_X_10.9.5/Firefox/</xsl:otherwise>
 </xsl:choose>
 </xsl:variable>
 

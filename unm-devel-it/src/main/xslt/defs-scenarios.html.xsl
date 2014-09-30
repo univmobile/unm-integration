@@ -569,7 +569,7 @@ selectShortLabel(scenariosClassSimpleName + '.' + scenarioMethodName + '.' + ind
 		'http://univmobile.vswip.com/job/<xsl:value-of
 			select="$jobName_ios7"/>/' + buildNumber_backend_MacOS
 		+ '/artifact/<xsl:value-of
-			select="$mavenProject"/>/target/screenshots/Mac_OS_X_10.8.5/Firefox/'
+			select="$mavenProject"/>/target/screenshots/Mac_OS_X_10.9.5/Firefox/'
 		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename
 	);
 			
