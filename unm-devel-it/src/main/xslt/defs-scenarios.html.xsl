@@ -31,6 +31,7 @@ h1,
 h2,
 h3 {
 	font-family: Arial, Helvetica, sans-serif;
+	clear: both;
 }
 h1 {
 	margin-top: 0.2em;
