@@ -282,6 +282,7 @@ public class ContinuousIntegrationDumper {
 
 			} else if (jobName.startsWith("unm-backend-it")
 					&& !jobName.startsWith("unm-backend-it-parent")
+					&& !jobName.startsWith("unm-backend-it_ks3haxm")
 					&& !jobName.startsWith("unm-backend-it-data")) {
 
 				final File htmlAboutFile = saveTextContent(baseURL + "job/"
