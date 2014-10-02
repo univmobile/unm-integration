@@ -10,3 +10,7 @@ build/
 bin/
 .DS_Store
 .settings/
+src/site/apt/
+*/src/site/apt/
+src/site/xhtml/
+*/src/site/xhtml/

@@ -1,6 +1,8 @@
 package fr.univmobile.it.cidump;
 
 import static com.google.common.base.Preconditions.checkNotNull;
+import static fr.univmobile.testutil.PropertiesUtils.getSettingsTestRefProperty;
+import static fr.univmobile.testutil.PropertiesUtils.getTestProperty;
 import static org.apache.commons.lang3.CharEncoding.UTF_8;
 import static org.apache.commons.lang3.StringUtils.split;
 import static org.apache.commons.lang3.StringUtils.substringAfter;
@@ -18,6 +20,8 @@ import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Nullable;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.xpath.XPathExpressionException;
 
 import net.avcompris.binding.annotation.XPath;
 import net.avcompris.binding.dom.helper.DomBinderUtils;
@@ -34,6 +38,7 @@ import org.eclipse.jgit.lib.PersonIdent;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
+import org.xml.sax.SAXException;
 
 import com.google.common.collect.Iterables;
 
@@ -42,18 +47,19 @@ import fr.univmobile.it.cidump.Scenarios.ScenariosClass.Device;
 import fr.univmobile.it.cidump.Scenarios.ScenariosClass.ScenarioMethod;
 import fr.univmobile.it.commons.JGitHelper;
 import fr.univmobile.testutil.Dumper;
-import fr.univmobile.testutil.PropertiesUtils;
 
 public class ContinuousIntegrationDumper {
 
-	public ContinuousIntegrationDumper(final Dumper dumper) throws IOException {
+	public ContinuousIntegrationDumper(final Dumper dumper) throws IOException,
+			XPathExpressionException, ParserConfigurationException,
+			SAXException {
 
 		this.dumper = checkNotNull(dumper, "dumper");
 
-		final String host = PropertiesUtils //
-				.getTestProperty("jenkins.host"); // e.g. "univmobile.vswip.com"
-		final int port = Integer.parseInt(PropertiesUtils //
-				.getTestProperty("jenkins.port")); // e.g. 80
+		final String host = getTestProperty("jenkins.host"); // e.g.
+																// "univmobile.vswip.com"
+		final int port = Integer.parseInt(getTestProperty("jenkins.port")); // e.g.
+																			// 80
 
 		baseURL = "http://" + host + (port == 80 ? "" : (":" + port)) + "/";
 
@@ -62,8 +68,7 @@ public class ContinuousIntegrationDumper {
 		client = new HttpClient();
 
 		final String username = "dandriana";
-		final String apiToken = PropertiesUtils
-				.getTestProperty("jenkins.apiToken");
+		final String apiToken = getSettingsTestRefProperty("jenkins.apiToken.ref");
 
 		client.getState().setCredentials(new AuthScope(host, port, "realm"),
 				new UsernamePasswordCredentials(username, apiToken));
@@ -275,7 +280,9 @@ public class ContinuousIntegrationDumper {
 
 				appCommitId = pageSource.getGitCommitId();
 
-			} else if (jobName.startsWith("unm-backend-it")) {
+			} else if (jobName.startsWith("unm-backend-it")
+					&& !jobName.startsWith("unm-backend-it-parent")
+					&& !jobName.startsWith("unm-backend-it-data")) {
 
 				final File htmlAboutFile = saveTextContent(baseURL + "job/"
 						+ jobName + "/" + buildNumber
@@ -606,7 +613,7 @@ public class ContinuousIntegrationDumper {
 		 */
 
 		final ScenariosClass scenariosClass = scenarioMethod.getParent();
-
+		
 		for (final Device device : scenariosClass.getDevices()) {
 
 			final String normalizedDeviceName = device
@@ -624,6 +631,10 @@ public class ContinuousIntegrationDumper {
 					+ "/checked.xml";
 
 			final File xmlFile = saveTextContent(checkedURL);
+
+			if (xmlFile == null) {
+				throw new IOException("Cannot load: " + checkedURL);
+			}
 
 			dumper.addXMLFragment(xmlFile);
 		}

@@ -31,6 +31,7 @@ h1,
 h2,
 h3 {
 	font-family: Arial, Helvetica, sans-serif;
+	clear: both;
 }
 h1 {
 	margin-top: 0.2em;
@@ -45,13 +46,10 @@ h1 {
 	text-align: right;
 }
 div.detailBottom {
-	xbackground-color: #ff0;
-	xdisplay: inline;
-	xdisplay: none;
+
 }
 div.detailBottom {
 	width: 40px;
-	xbackground-color: #ff0;
 	white-space: nowrap;
 	overflow: visible;
 }
@@ -129,7 +127,6 @@ div.device.backend div {
 	position: absolute;
 	top: 5px;
 	left: 4.5px;
-	xbackground-image: url('../src/site/img/firefox-window-1024x574.png');
 	background-image: url('http://univmobile.vswip.com/nexus/content/sites/pub/unm-devel-it/0.0.4-SNAPSHOT/img/firefox-window-1024x574.png');
 	background-size: 121px 81px;
 	background-repeat: no-repeat;
@@ -210,12 +207,10 @@ div.arrow {
 }
 #div-detail .screen_1280 img {
 	width: 320px;
-	xheight: 219px;
 	background-color: #ff0;
 }
 #div-detail .screen_1024 img {
 	width: 320px;
-	xheight: 179px;
 	background-color: #f00;
 }
 #div-detail div.label {
@@ -285,7 +280,6 @@ div.scenariosClass h3 {
 	margin-bottom: 0.6em;
 }
 div.scenariosClass h3 {
-	xborder-top: 1px dashed #000;
 	padding-top: 1em;
 }
 #div-detail-menu {
@@ -361,7 +355,7 @@ div.detailBottom span a {
 	border-bottom: 1px solid #ddd;
 }
 #div-scenarios {
-	xbackground-color: #ff0;
+
 }
 #table-scenarios {
 	width: 100%;
@@ -398,7 +392,6 @@ div.div-shortLabel span span.filename {
 div.device.backend span.layout {
 	display: block;
 	background-color: #ff0;
-	xborder: 1px solid #f00;
 	width: 110px;
 	height: 70px;
 	overflow: hidden;
@@ -407,13 +400,12 @@ div.device.backend span.layout {
 	left: 8px;
 }
 div.device.backend img.screenshot {
-	xwidth: 64px;
 	position: relative;
 	top: 0;
 	left: 0;
 }
 #body-backend table-detail div.img {
-	xoverflow: hidden;
+
 }
 span.scenariosDate {
 	color: #000;
@@ -495,6 +487,15 @@ var buildNumber_backend_MacOS = <xsl:value-of
 	</xsl:choose>
 </xsl:variable>
 
+function setDetailImgSrc(img, src) {
+	
+	img.src = src;
+	
+	var a = img.parentNode;
+	
+	a.href = src;
+}
+
 function displayDetail(
 	scenariosClassSimpleName, scenarioMethodName, filename, index
 ) {
@@ -505,66 +506,73 @@ selectShortLabel(scenariosClassSimpleName + '.' + scenarioMethodName + '.' + ind
 <xsl:when test="$ios">
 
 	var imgs = document.getElementsByClassName('img-detail-iOS7-4inch');
-	for (var i = 0; i &lt; imgs.length; ++i) imgs[i].src =
+	for (var i = 0; i &lt; imgs.length; ++i) setDetailImgSrc(imgs[i],
 		'http://univmobile.vswip.com/job/<xsl:value-of
 			select="$jobName_ios7"/>/' + buildNumber_ios7
 		+ '/artifact/<xsl:value-of
 			select="$mavenProject"/>/target/screenshots/iOS_7.1/iPhone_Retina_4-inch/'
-		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename;
+		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename
+	);
 	
 	var imgs = document.getElementsByClassName('img-detail-iOS6-4inch');
-	for (var i = 0; i &lt; imgs.length; ++i) imgs[i].src =
+	for (var i = 0; i &lt; imgs.length; ++i) setDetailImgSrc(imgs[i],
 		'http://univmobile.vswip.com/job/<xsl:value-of
 			select="$jobName_ios6"/>/' + buildNumber_ios6
 		+ '/artifact/<xsl:value-of
 			select="$mavenProject"/>/target/screenshots/iOS_6.1/iPhone_Retina_4-inch/'
-		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename;
+		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename
+	);
 
 	var imgs = document.getElementsByClassName('img-detail-iOS7-3_5inch');
-	for (var i = 0; i &lt; imgs.length; ++i) imgs[i].src =
+	for (var i = 0; i &lt; imgs.length; ++i) setDetailImgSrc(imgs[i],
 		'http://univmobile.vswip.com/job/<xsl:value-of
 			select="$jobName_ios7"/>/' + buildNumber_ios7
 		+ '/artifact/<xsl:value-of
 			select="$mavenProject"/>/target/screenshots/iOS_7.1/iPhone_Retina_3.5-inch/'
-		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename;
+		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename
+	);
 
 	var imgs = document.getElementsByClassName('img-detail-iOS6-3_5inch');
-	for (var i = 0; i &lt; imgs.length; ++i) imgs[i].src =
+	for (var i = 0; i &lt; imgs.length; ++i) setDetailImgSrc(imgs[i],
 		'http://univmobile.vswip.com/job/<xsl:value-of
 			select="$jobName_ios6"/>/' + buildNumber_ios6
 		+ '/artifact/<xsl:value-of
 			select="$mavenProject"/>/target/screenshots/iOS_6.1/iPhone_Retina_3.5-inch/'
-		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename;
+		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename
+	);
 
 </xsl:when>
 <xsl:when test="$android">
 
 	var imgs = document.getElementsByClassName('img-detail-Android-480x800');
-	for (var i = 0; i &lt; imgs.length; ++i) imgs[i].src =
+	for (var i = 0; i &lt; imgs.length; ++i) setDetailImgSrc(imgs[i],
 		'http://univmobile.vswip.com/job/<xsl:value-of
 			select="$jobName_ios6"/>/' + buildNumber_android
 		+ '/artifact/<xsl:value-of
 			select="$mavenProject"/>/target/screenshots/Android_XXX/Android_Emulator/'
-		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename;
+		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename
+	);
 
 </xsl:when>
 <xsl:otherwise>
 
 	var imgs = document.getElementsByClassName('img-detail-backend-Debian');
-	for (var i = 0; i &lt; imgs.length; ++i) imgs[i].src =
+	for (var i = 0; i &lt; imgs.length; ++i) setDetailImgSrc(imgs[i],
 		'http://univmobile.vswip.com/job/<xsl:value-of
 			select="$jobName_ios6"/>/' + buildNumber_backend_Debian
 		+ '/artifact/<xsl:value-of
 			select="$mavenProject"/>/target/screenshots/Debian_3.2.0-4-amd64/Firefox/'
-		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename;
+		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename
+	);
 
 	var imgs = document.getElementsByClassName('img-detail-backend-MacOS');
-	for (var i = 0; i &lt; imgs.length; ++i) imgs[i].src =
+	for (var i = 0; i &lt; imgs.length; ++i) setDetailImgSrc(imgs[i],
 		'http://univmobile.vswip.com/job/<xsl:value-of
 			select="$jobName_ios7"/>/' + buildNumber_backend_MacOS
 		+ '/artifact/<xsl:value-of
-			select="$mavenProject"/>/target/screenshots/Mac_OS_X_10.8.5/Firefox/'
-		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename;
+			select="$mavenProject"/>/target/screenshots/Mac_OS_X_10.9.5/Firefox/'
+		+ scenariosClassSimpleName + '/' + scenarioMethodName + '/' + filename
+	);
 			
 </xsl:otherwise>
 </xsl:choose>
@@ -614,16 +622,16 @@ function getPreviousSibling(node) {
 
 function getNextSibling(node) {
 
-	console.log('node.tagName: '+node.tagName);
+	// console.log('node.tagName: '+node.tagName);
 	
 	var x = node.nextSibling;
 
-	console.log('   x.tagName: '+x.tagName);
+	// console.log('   x.tagName: '+x.tagName);
 	
 	while (x != null &amp;&amp; x.nodeType != 1) {
 		x = x.nextSibling;
-		if (x==null) console.log('   null');
-else		console.log('   x.tagName: '+x.tagName);
+		// if (x==null) // console.log('   null');
+		// else		console.log('   x.tagName: '+x.tagName);
 	}
 	return x;
 }
@@ -690,7 +698,7 @@ function selectShortLabel(id) {
 				.parentNode; // div.step | div.transition
 			var td = step.parentNode; // td
 			
-			console.log('selectedDiv.id: '+selectedDiv.id);
+			// console.log('selectedDiv.id: '+selectedDiv.id);
 			
 			var hasPrev = getPreviousSibling(td) != null; // td
 			var hasNext = getNextSibling(step) != null // div
@@ -738,10 +746,10 @@ function selectShortLabel(id) {
 				dimmed_next = '';
 				next = index + 1;
 				title_next = 'Next: ' + next + '/' + last;
-				console.log('a-device-'
-					+ scenariosClassSimpleName + '.'
-					+ scenarioMethodName + '.'
-					+ (index + 1));
+				// console.log('a-device-'
+				//	+ scenariosClassSimpleName + '.'
+				//	+ scenarioMethodName + '.'
+				//	+ (index + 1));
 				var filename = document.getElementById('a-device-'
 					+ scenariosClassSimpleName + '.'
 					+ scenarioMethodName + '.'
